@@ -39,7 +39,7 @@
 καθυστέρηση σε κάθε ανταλλαγή θέσεων πάρκινγκ.
 
 
-[I'm a relative reference to a repository file](requirements/use-case-model.md)
+[Σύντομη περιγραφή περιπτώσεων χρήσης](requirements/use-case-model.md)
 
 
 
