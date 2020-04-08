@@ -1,3 +1,7 @@
+# Class Diagram
+
+![Διάγραμμα κλάσεων](requirements/classDiagram.png.png)
+
 # Use Case Diagram
 
 ![Διάγραμμα περιπτώσεων χρήσης](requirements/Διάγραμμα_περιπτώσεων_χρήσης.png)
