@@ -1,6 +1,6 @@
 # Class Diagram
 
-![Διάγραμμα κλάσεων](requirements/classDiagram.png.png)
+![Διάγραμμα κλάσεων](requirements/classDiagram.png)
 
 # Use Case Diagram
 
