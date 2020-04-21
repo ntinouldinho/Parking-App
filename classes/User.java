@@ -23,7 +23,17 @@ public class User {
         this.rating = rating;
     }
 
-    public User(){}
+    public User(){
+        this.name = "";
+        this.surname = "";
+        this.phone = "";
+        this.email = "";
+        this.username = "";
+        this.password = "";
+        this.credits = new Credits();
+        this.address = new Address();
+        this.rating = new Rating();
+    }
 
     public String getName() {
         return name;

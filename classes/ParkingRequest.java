@@ -4,18 +4,26 @@ import java.util.Date;
 public class ParkingRequest {
     private Date date;
     private Pin pin;
-    private ZipCode zipCode;
+    private Address address;
+    private User parkedUser;
+    private User requestingUser;
 
-    public ParkingRequest(Date date, Pin pin, ZipCode zipCode) {
+    public ParkingRequest(Date date, Pin pin, Address address, User parkedUser, User requestingUser) {
         this.date = date;
         this.pin = pin;
-        this.zipCode = zipCode;
+        this.address = address;
+        this.parkedUser = parkedUser;
+        this.requestingUser = requestingUser;
     }
+
+
 
     public ParkingRequest() {
         this.date = new Date();
         this.pin = new Pin();
-        this.zipCode = new ZipCode();
+        this.address = new Address();
+        this.parkedUser = new User();
+        this.requestingUser = new User();
     }
 
     public Date getDate() {
@@ -34,11 +42,11 @@ public class ParkingRequest {
         this.pin = pin;
     }
 
-    public ZipCode getZipCode() {
-        return zipCode;
+    public Address getZipCode() {
+        return address;
     }
 
-    public void setZipCode(ZipCode zipCode) {
-        this.zipCode = zipCode;
+    public void setZipCode(Address address) {
+        this.address = address;
     }
 }

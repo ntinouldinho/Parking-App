@@ -1,18 +1,19 @@
 public class Credits {
-	private int points;
+    private double points;
 
-	public int getPoints() {
-		return points;
-	}
+    public Credits(double points) {
+        this.points = points;
+    }
 
-	public void setPoints(int points) {
-		this.points = points;
-	}
+    public Credits() {
+        this.points = 0;
+    }
 
-	@java.lang.Override
-	public java.lang.String toString() {
-		return "Credits{" +
-				"points=" + points +
-				'}';
-	}
+    public double getPoints() {
+        return points;
+    }
+
+    public void setPoints(double points) {
+        this.points = points;
+    }
 }

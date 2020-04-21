@@ -9,6 +9,12 @@ public class Address {
         this.zipCode = zipCode;
     }
 
+    public Address() {
+        this.street = "";
+        this.streetNumber = "";
+        this.zipCode = new ZipCode();
+    }
+
     public String getStreet() {
         return street;
     }
