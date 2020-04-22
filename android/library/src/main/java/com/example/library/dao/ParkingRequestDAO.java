@@ -5,12 +5,19 @@ import com.example.library.domain.ParkingSpace;
 import com.example.library.util.Pin;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface ParkingRequestDAO {
 
 
-    ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, int difference);
+    ParkingRequest find(int borrowerNo);
 
 
-    boolean validateParking(Pin pin);
+    void save(ParkingRequest entity);
+
+
+    void delete(ParkingRequest entity);
+
+
+    List<ParkingRequest> findAll();
 }
