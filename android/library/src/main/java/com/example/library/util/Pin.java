@@ -15,6 +15,10 @@ public class Pin {
     }
 
     public void setPin(int pin) {
-        this.pin = pin;
+        String stringPin = String.valueOf(pin);
+        if(stringPin.length()==5) {
+            this.pin = pin;
+        }
+        return;
     }
 }

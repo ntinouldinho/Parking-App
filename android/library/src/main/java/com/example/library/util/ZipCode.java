@@ -5,6 +5,7 @@ import java.util.Objects;
 public class ZipCode {
     private int zip;
 
+
     public ZipCode(int zip) {
         this.zip = zip;
     }
@@ -18,7 +19,11 @@ public class ZipCode {
     }
 
     public void setZip(int zip) {
-        this.zip = zip;
+        String stringZip = String.valueOf(zip);
+        if(stringZip.length()==5) {
+            this.zip = zip;
+        }
+        return;
     }
 
     @Override

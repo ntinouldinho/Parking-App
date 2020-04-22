@@ -2,6 +2,9 @@ package com.example.library.util;
 
 import java.time.Clock;
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class TimeRange {
     private Clock from;
@@ -31,6 +34,15 @@ public class TimeRange {
 
     public void setTo(Clock to) {
         this.to = to;
+    }
+
+    public long difference(Instant from, Instant to){
+        ZoneId zone = ZoneId.systemDefault();
+
+        ZonedDateTime todayInZone = from.atZone(zone);
+        ZonedDateTime expirationInZone = to.atZone(zone);
+        long daysTilExp = todayInZone.toLocalDate().until(expirationInZone, ChronoUnit.MINUTES);
+        return daysTilExp;
     }
 
     @Override

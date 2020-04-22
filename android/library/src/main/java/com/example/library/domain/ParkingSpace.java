@@ -3,24 +3,34 @@ package com.example.library.domain;
 import com.example.library.util.Credits;
 import com.example.library.util.TimeRange;
 
+import java.util.Date;
+
 public class ParkingSpace {
 	private Address address;
 	private boolean availability;
 	private Credits price;
 	private TimeRange timeRange;
+	private Date timeOfExchange;
 
-	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange) {
+	private static final double max_amount = 16.0;
+	private static final double min_amount = 0.0;
+
+	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange,Date timeOfExchange) {
 		this.address = address;
 		this.availability = availability;
 		this.price = price;
 		this.timeRange = timeRange;
+		this.timeOfExchange=timeOfExchange;
 	}
+
+
 
 	public ParkingSpace() {
 		this.address = new Address();
 		this.availability = false;
 		this.price = new Credits();
 		this.timeRange = new TimeRange();
+		this.timeOfExchange = new Date();
 	}
 
 	public Address getAddress() {
@@ -44,7 +54,10 @@ public class ParkingSpace {
 	}
 
 	public void setPrice(Credits price) {
-		this.price = price;
+		if(price.getPoints()>= min_amount && price.getPoints()<=max_amount) {
+			this.price = price;
+		}
+		return;
 	}
 
 	public TimeRange getTimeRange() {
@@ -54,6 +67,25 @@ public class ParkingSpace {
 	public void setTimeRange(TimeRange timeRange) {
 		this.timeRange = timeRange;
 	}
+
+	public Date getTimeOfExchange() {
+		return timeOfExchange;
+	}
+
+	public void setTimeOfExchange(Date timeOfExchange) {
+		this.timeOfExchange = timeOfExchange;
+	}
+
+	public void makeParkingUnavailable(){
+		availability=false;
+		setTimeOfExchange(new Date(System.currentTimeMillis()));
+	}
+
+	public void makeParkingAvailable(){
+		availability=true;
+		setTimeOfExchange(new Date());
+	}
+
 
 	@Override
 	public String toString() {

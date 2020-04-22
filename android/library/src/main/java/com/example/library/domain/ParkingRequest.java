@@ -12,13 +12,16 @@ public class ParkingRequest{
     private Address address;
     private User parkedUser;
     private User requestingUser;
+    private ParkingSpace parkingSpace;
 
-    public ParkingRequest(Date date, Pin pin, Address address, User parkedUser, User requestingUser) {
+    public ParkingRequest(Date date, Pin pin, Address address, User parkedUser, User requestingUser,ParkingSpace parkingSpace) {
         this.date = date;
         this.pin = pin;
         this.address = address;
         this.parkedUser = parkedUser;
         this.requestingUser = requestingUser;
+        this.parkingSpace=parkingSpace;
+
     }
 
 
@@ -29,8 +32,8 @@ public class ParkingRequest{
         this.address = new Address();
         this.parkedUser = new User();
         this.requestingUser = new User();
+        this.parkingSpace = new ParkingSpace();
     }
-
 
 
     public Date getDate() {
@@ -57,7 +60,31 @@ public class ParkingRequest{
         this.address = address;
     }
 
-    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces,int difference){
+    public User getParkedUser() {
+        return parkedUser;
+    }
+
+    public void setParkedUser(User parkedUser) {
+        this.parkedUser = parkedUser;
+    }
+
+    public User getRequestingUser() {
+        return requestingUser;
+    }
+
+    public void setRequestingUser(User requestingUser) {
+        this.requestingUser = requestingUser;
+    }
+
+    public ParkingSpace getParkingSpace() {
+        return parkingSpace;
+    }
+
+    public void setParkingSpace(ParkingSpace parkingSpace) {
+        this.parkingSpace = parkingSpace;
+    }
+
+    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, int difference){
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = this.address.getZipCode();
         for(ParkingSpace parking:parkingSpaces){
@@ -68,7 +95,7 @@ public class ParkingRequest{
         return list;
     }
 
-    
+
 
 
     @Override
