@@ -11,4 +11,19 @@ public class Amount {
         this.amountToConvert = amountToConvert;
     }
 
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    public BigDecimal getAmountToConvert() {
+        return amountToConvert;
+    }
+
+    public void setAmountToConvert(BigDecimal amountToConvert) {
+        this.amountToConvert = amountToConvert;
+    }
 }

@@ -34,8 +34,4 @@ public class ZipCode {
         return Objects.equals(zip, zipCode.zip);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(zip);
-    }
 }
