@@ -29,6 +29,8 @@ public class ParkingRequest{
         this.requestingUser = new User();
     }
 
+
+
     public Date getDate() {
         return date;
     }
@@ -45,11 +47,23 @@ public class ParkingRequest{
         this.pin = pin;
     }
 
-    public Address getZipCode() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setZipCode(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "ParkingRequest{" +
+                "date=" + date +
+                ", pin=" + pin +
+                ", address=" + address +
+                ", parkedUser=" + parkedUser +
+                ", requestingUser=" + requestingUser +
+                '}';
+    }
+
 }
