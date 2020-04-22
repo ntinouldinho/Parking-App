@@ -35,6 +35,18 @@ public class Vehicle {
 	}
 
 	public void setPlate(String plate) {
+		String letters = plate.substring(0,3).toUpperCase();
+		for(int i=0;i<letters.length();i++){
+			char letter = letters.charAt(i);
+			if(letter<65 || letter>90) return;
+		}
+		String numbers = plate.substring(3);
+		for(int i=0;i<numbers.length();i++){
+			int number = Integer.valueOf(letters.charAt(i));
+			if(number<0 || number>9) return;
+		}
+		if(letters.length()+numbers.length()!=7) return;
+
 		this.plate = plate;
 	}
 
