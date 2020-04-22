@@ -10,7 +10,7 @@ import java.util.List;
 public interface ParkingRequestDAO {
 
 
-    ParkingRequest find(int borrowerNo);
+    ParkingRequest find(ParkingRequest newRequest);
 
 
     void save(ParkingRequest entity);

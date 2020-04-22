@@ -4,6 +4,7 @@ import com.example.library.util.ZipCode;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 
 public class ParkingRequest{
@@ -83,6 +84,20 @@ public class ParkingRequest{
     public void setParkingSpace(ParkingSpace parkingSpace) {
         this.parkingSpace = parkingSpace;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ParkingRequest that = (ParkingRequest) o;
+        return Objects.equals(getDate(), that.getDate()) &&
+                Objects.equals(getPin(), that.getPin()) &&
+                Objects.equals(getAddress(), that.getAddress()) &&
+                Objects.equals(getParkedUser(), that.getParkedUser()) &&
+                Objects.equals(getRequestingUser(), that.getRequestingUser()) &&
+                Objects.equals(getParkingSpace(), that.getParkingSpace());
+    }
+
 
     /**
      * Βρίσκει parking σύμφωνα με τον Τ.Κ. Αν δεν υπάρχει κοντά ψάχνει τους κοντινούς Τ.Κ.
