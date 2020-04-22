@@ -101,12 +101,22 @@ public class User {
         this.rating.remove(rating);
     }
 
-    public void addVehicle(Vehicle vehicle){
+    /**
+     Προσθέτει ενα όχημα αν δεν υπάρχει ήδη στον χρήστη.
+     @param vehicle το όχημα προς προσθήκη.
+     */
+
+     public void addVehicle(Vehicle vehicle){
         for(Vehicle currentVehicle:vehicles){
             if(currentVehicle.getPlate().equals(vehicle.getPlate())) return;
         }
         this.vehicles.add(vehicle);
     }
+
+    /**Αφαιρειί ένα όχημα (μόνο αν ο χρήστης έχει 2 και πάνω.
+     *
+     * @param vehicle
+     */
 
     public void removeVehicle(Vehicle vehicle){
         if(vehicles.size()>0){
@@ -117,6 +127,11 @@ public class User {
             }
         }
     }
+
+    /**Υπολογίζει τον μέσο όρο αξιολογήσεων
+     *
+     * @return τον Μ.Ο. αξιολογήσεων.
+     */
 
     public double calculateRating(){
         int currentRating = 0;
