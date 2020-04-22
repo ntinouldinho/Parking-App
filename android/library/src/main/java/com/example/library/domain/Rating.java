@@ -1,32 +1,44 @@
 package com.example.library.domain;
 
 public class Rating {
-    private int thumbsUp;
-    private int thumbsDown;
+    private int ratingScore;
+    private String s;
 
-    public Rating(int thumbsUp, int thumbsDown) {
-        this.thumbsUp = thumbsUp;
-        this.thumbsDown = thumbsDown;
+
+
+    public Rating(int ratingScore, String s) {
+        this.ratingScore = ratingScore;
+        this.s = s;
     }
 
     public Rating() {
-        this.thumbsUp = 0;
-        this.thumbsDown = 0;
+        this.ratingScore = 0;
+        this.s = "";
     }
 
-    public int getThumbsUp() {
-        return thumbsUp;
+    public int getRatingScore() {
+        return ratingScore;
     }
 
-    public void setThumbsUp(int thumbsUp) {
-        this.thumbsUp = thumbsUp;
+    public void setRatingScore(int ratingScore) {
+        this.ratingScore = ratingScore;
     }
 
-    public int getThumbsDown() {
-        return thumbsDown;
+    public String getS() {
+        return s;
     }
 
-    public void setThumbsDown(int thumbsDown) {
-        this.thumbsDown = thumbsDown;
+    public void setS(String s) {
+        this.s = s;
     }
+
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "ratingScore=" + ratingScore +
+                ", s='" + s + '\'' +
+                '}';
+    }
+
+
 }

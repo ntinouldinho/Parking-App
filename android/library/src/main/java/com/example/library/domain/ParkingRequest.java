@@ -45,11 +45,11 @@ public class ParkingRequest{
         this.pin = pin;
     }
 
-    public Address getZipCode() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setZipCode(Address address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }
