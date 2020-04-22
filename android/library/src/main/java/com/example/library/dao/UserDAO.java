@@ -3,25 +3,16 @@ package com.example.library.dao;
 import com.example.library.domain.User;
 import com.example.library.domain.Vehicle;
 
+import java.util.List;
+
 public interface UserDAO {
 
-    /**
-    Προσθέτει ενα όχημα αν δεν υπάρχει ήδη στον χρήστη.
-    @param vehicle το όχημα προς προσθήκη.
-    */
-    void addVehicle(Vehicle vehicle);
+    void save(User u);
 
-    /**Αφαιρειί ένα όχημα (μόνο αν ο χρήστης έχει 2 και πάνω.
-     *
-     * @param vehicle
-     */
-    void removeVehicle(Vehicle vehicle);
+    void delete(User u);
 
-    /**Υπολογίζει τον μέσο όρο αξιολογήσεων
-     *
-     * @return τον Μ.Ο. αξιολογήσεων.
-     */
+    void update(User u);
 
-    double calculateRating();
+    List<User> findAll();
 
 }
