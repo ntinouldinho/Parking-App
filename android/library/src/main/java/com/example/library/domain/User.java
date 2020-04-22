@@ -80,6 +80,14 @@ public class User {
         return rating;
     }
 
+    public void addRating(Rating rating){
+        this.rating.add(rating);
+    }
+
+    public void removeRating(Rating rating){
+        this.rating.remove(rating);
+    }
+
     @Override
     public String toString() {
         return "User{" +

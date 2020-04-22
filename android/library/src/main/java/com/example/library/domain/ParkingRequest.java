@@ -1,6 +1,8 @@
 package com.example.library.domain;
 import com.example.library.util.Pin;
+import com.example.library.util.ZipCode;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -54,6 +56,20 @@ public class ParkingRequest{
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces,int difference){
+        ArrayList<ParkingSpace> list = new ArrayList<>();
+        ZipCode zip = this.address.getZipCode();
+        for(ParkingSpace parking:parkingSpaces){
+            ZipCode currentZip = parking.getAddress().getZipCode();
+            if(Math.abs(zip.getZip()-currentZip.getZip()) <= difference )list.add(parking);
+        }
+        if(list.isEmpty()){ findParking(parkingSpaces,difference++);}
+        return list;
+    }
+
+    
+
 
     @Override
     public String toString() {
