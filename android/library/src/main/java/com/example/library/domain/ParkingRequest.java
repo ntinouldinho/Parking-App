@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 public class ParkingRequest{
-    private Date date;
+    private Date date;//date einai h wra pou ypologizei o requestingUser na ftasei sto parking
     private Pin pin;
     private Address address;
     private User parkedUser;
@@ -94,6 +94,20 @@ public class ParkingRequest{
         if(list.isEmpty()){ findParking(parkingSpaces,difference++);}
         return list;
     }
+
+    public boolean validateParking(Pin pin){
+        if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
+            getParkingSpace().makeParkingUnavailable();
+            requestingUser.getCredits().removeCredits(parkingSpace.getPrice().getPoints());
+            parkedUser.getCredits().addCredits(parkingSpace.getPrice().getPoints());
+            //TODO thn enalaktikh roh 1b ths Επιβεβαίωση διαθεσιμότητας θέσης
+            return true;
+        }
+        return false;
+
+    }
+
+
 
 
 

@@ -1,6 +1,7 @@
 package com.example.library.domain;
 
 import com.example.library.util.Credits;
+import com.example.library.util.Pin;
 import com.example.library.util.TimeRange;
 
 import java.util.Date;
@@ -85,6 +86,8 @@ public class ParkingSpace {
 		availability=true;
 		setTimeOfExchange(new Date());
 	}
+
+
 
 
 	@Override

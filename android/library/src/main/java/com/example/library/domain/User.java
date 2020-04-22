@@ -18,14 +18,14 @@ public class User {
     private ArrayList<Vehicle> vehicles;
 
 
-    public User(String name, String surname, String phone, String email, String username, String password, Credits credits, Address address, ArrayList<Rating> rating,ArrayList<Vehicle> vehicles) {
+    public User(String name, String surname, String phone, String email, String username, String password, Address address, ArrayList<Rating> rating,ArrayList<Vehicle> vehicles) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.credits = credits;
+        this.credits = new Credits(10 );
         this.address = address;
         for(Rating r:rating){
             this.rating.add(r);
@@ -43,7 +43,7 @@ public class User {
         this.email = "";
         this.username = "";
         this.password = "";
-        this.credits = new Credits();
+        this.credits = new Credits(10 );
         this.address = new Address();
         this.rating = new ArrayList<Rating>();
         this.vehicles = new ArrayList<Vehicle>();
@@ -109,7 +109,13 @@ public class User {
     }
 
     public void removeVehicle(Vehicle vehicle){
-        this.vehicles.remove(vehicle);
+        if(vehicles.size()>0){
+            for (Vehicle v : vehicles) {
+                if(vehicle.getPlate().equals(v.getPlate())){
+                    this.vehicles.remove(v);
+                }
+            }
+        }
     }
 
     public double calculateRating(){
@@ -119,6 +125,9 @@ public class User {
         }
         return currentRating/rating.size();
     }
+
+
+
 
     @Override
     public String toString() {

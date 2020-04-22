@@ -17,4 +17,19 @@ public class Credits {
     public void setPoints(double points) {
         this.points = points;
     }
+
+    public void addCredits(double points){
+        double currentPoints=getPoints();
+        setPoints(currentPoints+points);
+    }
+
+    public boolean removeCredits(double points){
+        double currentPoints=getPoints();
+        if(currentPoints<points){
+            return false;
+        }
+        setPoints(currentPoints-points);
+        return true;
+    }
+
 }
