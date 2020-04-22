@@ -1,7 +1,10 @@
+package com.example.library.domain;
+import com.example.library.util.Pin;
+
 import java.util.Date;
 
 
-public class ParkingRequest {
+public class ParkingRequest{
     private Date date;
     private Pin pin;
     private Address address;

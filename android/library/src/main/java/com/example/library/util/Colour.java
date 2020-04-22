@@ -1,5 +1,6 @@
-public class Colour {
-	public enum Colour {
+package com.example.library.util;
+
+public enum Colour {
 	    Black,
 	    White,
 	    Gray,
@@ -9,4 +10,3 @@ public class Colour {
 	    Yellow,
 	    Golden
 	}
-}

@@ -1,3 +1,5 @@
+package com.example.library.domain;
+
 public class Rating {
     private int thumbsUp;
     private int thumbsDown;

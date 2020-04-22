@@ -1,3 +1,8 @@
+package com.example.library.domain;
+
+import com.example.library.util.Credits;
+import com.example.library.util.TimeRange;
+
 public class ParkingSpace {
 	private Address address;
 	private boolean availability;

@@ -1,3 +1,4 @@
+package com.example.library.util;
 public class Credits {
     private double points;
 

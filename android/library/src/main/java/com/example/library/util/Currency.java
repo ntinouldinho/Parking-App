@@ -1,5 +1,6 @@
-import java.math.BigDecimal;
 
+package com.example.library.util;
+import java.math.BigDecimal;
 public class Currency {
 
     private BigDecimal amount;

@@ -1,3 +1,7 @@
+package com.example.library.domain;
+
+import com.example.library.util.Colour;
+
 public class Vehicle {
 	private Colour colour;
 	private int size;

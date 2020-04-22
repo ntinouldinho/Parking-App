@@ -1,3 +1,4 @@
+package com.example.library.util;
 public class Pin {
     private int pin;
 

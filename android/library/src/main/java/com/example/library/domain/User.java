@@ -1,3 +1,8 @@
+package com.example.library.domain;
+
+
+import com.example.library.util.Credits;
+
 public class User {
     private String name;
     private String surname;

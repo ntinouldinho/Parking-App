@@ -1,3 +1,6 @@
+package com.example.library.domain;
+import com.example.library.util.ZipCode;
+
 public class Address {
     private String street;
     private String streetNumber;
