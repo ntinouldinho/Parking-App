@@ -83,14 +83,7 @@ public class ParkingRequest{
     public void setParkingSpace(ParkingSpace parkingSpace) {
         this.parkingSpace = parkingSpace;
     }
-
-    /**
-     * Βρίσκει parking σύμφωνα με τον Τ.Κ. Αν δεν υπάρχει κοντά ψάχνει τους κοντινούς Τ.Κ.
-     * @param
-     * @param difference
-     * @return Ο κατάλογος των αντικειμένων
-     */
-
+    
     public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, int difference){
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = this.address.getZipCode();
@@ -101,14 +94,6 @@ public class ParkingRequest{
         if(list.isEmpty()){ findParking(parkingSpaces,difference++);}
         return list;
     }
-
-    /**
-     * Είναι υπεύθυνο για την διεκπεραίωση της διαδικασίας ανταλλαγής θέσης
-     * καθώς και την μεταφορά μονάδων από τον ενδιαφερόμενο στον
-     * σταθμευμένο χρήστη.
-     * @param pin
-     * @return Επιστρέφει true εάν η διαδικασία ανταλλαγής έχει ολοκληρωθεί με επιτυχία
-     */
 
     public boolean validateParking(Pin pin){
         if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
