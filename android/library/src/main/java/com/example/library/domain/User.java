@@ -3,6 +3,8 @@ package com.example.library.domain;
 
 import com.example.library.util.Credits;
 
+import java.util.ArrayList;
+
 public class User {
     private String name;
     private String surname;
@@ -12,11 +14,11 @@ public class User {
     private String password;
     private Credits credits;
     private Address address;
-    private Rating rating;
+    private ArrayList<Rating> rating;
 
 
 
-    public User(String name, String surname, String phone, String email, String username, String password, Credits credits, Address address, Rating rating) {
+    public User(String name, String surname, String phone, String email, String username, String password, Credits credits, Address address, ArrayList<Rating> rating) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -25,7 +27,9 @@ public class User {
         this.password = password;
         this.credits = credits;
         this.address = address;
-        this.rating = rating;
+        for(Rating r:rating){
+            this.rating.add(r);
+        }
     }
 
     public User(){
@@ -37,7 +41,7 @@ public class User {
         this.password = "";
         this.credits = new Credits();
         this.address = new Address();
-        this.rating = new Rating();
+        this.rating = new ArrayList<Rating>();
     }
 
     public String getName() {
@@ -72,7 +76,7 @@ public class User {
         return address;
     }
 
-    public Rating getRating() {
+    public ArrayList<Rating> getRating() {
         return rating;
     }
 
