@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface ParkingSpaceDAO {
 
-    ParkingSpace find(int borrowerNo);
-
 
     void save(ParkingSpace entity);
 

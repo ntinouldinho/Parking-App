@@ -2,35 +2,39 @@ package com.example.library.memorydao;
 
 import com.example.library.dao.ParkingRequestDAO;
 import com.example.library.dao.ParkingSpaceDAO;
+import com.example.library.domain.ParkingSpace;
+import com.example.library.domain.User;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ParkingSpaceDAOMemory implements ParkingSpaceDAO {
 
-    /**
-     * Αλλάζει την κατάσταση της θέσης πάρκινγκ
-     * σε μη διαθέσιμη καθώς
-     * μπορεί να έχει ολοκληρωθεί μία ανταλλαγή
-     * ή να μην θέλει ο σταθμευμένος χρήστης να
-     * την έχει ανοιχτή προς ανταλλαγή
-     */
+    protected static ArrayList<ParkingSpace> parkingSpaces = new ArrayList<ParkingSpace>();
 
-    public void makeParkingUnavailable(){
-        availability=false;
-        setTimeOfExchange(new Date(System.currentTimeMillis()));
+    public void save(ParkingSpace p){
+        if(!parkingSpaces.contains(p)){
+            parkingSpaces.add(p);
+        }
     }
 
+    public void delete(ParkingSpace p){
+        parkingSpaces.remove(p);
+    }
+
+    public List<ParkingSpace> findAll(){
+        return parkingSpaces;
+    }
 
     /**
-     * Αλλάζει την κατάσταση της θέσης πάρκινγκ
-     * σε διαθέσιμη καθώς μπορεί να υπήρξε ένα
-     * πρόβλημα στην ανταλλαγή και να θέλει ο
-     * σταθμευμένος χρήστης να θέλει ακόμα να
-     * δώσει τη θέση του.
-     */
-
-    public void makeParkingAvailable(){
-        availability=true;
-        setTimeOfExchange(new Date());
+    public ParkingSpace find(ParkingSpace parking){
+        for(ParkingSpace p: parkingSpaces){
+            if(p.getUsername().equals(username)){
+                return username;
+            }
+        }
+        return null;
     }
+     */
 }

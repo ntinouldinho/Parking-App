@@ -6,36 +6,34 @@ import com.example.library.domain.User;
 import com.example.library.domain.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAOMemory implements UserDAO {
 
     protected static ArrayList<User> users = new ArrayList<User>();
 
-    public ArrayList<Vehicle> addVehicle(Vehicle vehicle,ArrayList<Vehicle> vehicles){
-        for(Vehicle currentVehicle:vehicles){
-            if(currentVehicle.getPlate().equals(vehicle.getPlate())) return vehicles;
+    public void save(User u){
+        if(!users.contains(u)){
+            users.add(u);
         }
-        vehicles.add(vehicle);
-        return vehicles;
     }
 
-    public ArrayList<Vehicle> removeVehicle (Vehicle vehicle,ArrayList<Vehicle> vehicles){
-        if(vehicles.size()>0){
-            for (Vehicle v : vehicles) {
-                if(vehicle.getPlate().equals(v.getPlate())){
-                    vehicles.remove(v);
-                    break;
-                }
+    public void delete(User u){
+        users.remove(u);
+    }
+
+    public List<User> findAll(){
+        return users;
+    }
+
+    public String find(String username){
+        for(User u: users){
+            if(u.getUsername().equals(username)){
+                return username;
             }
         }
-        return vehicles;
+        return null;
     }
 
-    public double calculateRating(ArrayList<Rating> rating){
-        int currentRating = 0;
-        for(Rating rate: rating){
-            currentRating+=rate.getRatingScore();
-        }
-        return currentRating/rating.size();
-    }
+
 }
