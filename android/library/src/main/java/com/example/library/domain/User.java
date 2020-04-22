@@ -101,34 +101,6 @@ public class User {
         this.rating.remove(rating);
     }
 
-    public void addVehicle(Vehicle vehicle){
-        for(Vehicle currentVehicle:vehicles){
-            if(currentVehicle.getPlate().equals(vehicle.getPlate())) return;
-        }
-        this.vehicles.add(vehicle);
-    }
-
-    public void removeVehicle(Vehicle vehicle){
-        if(vehicles.size()>0){
-            for (Vehicle v : vehicles) {
-                if(vehicle.getPlate().equals(v.getPlate())){
-                    this.vehicles.remove(v);
-                }
-            }
-        }
-    }
-
-    public double calculateRating(){
-        int currentRating = 0;
-        for(Rating rate: rating){
-            currentRating+=rate.getRatingScore();
-        }
-        return currentRating/rating.size();
-    }
-
-
-
-
     @Override
     public String toString() {
         return "User{" +
