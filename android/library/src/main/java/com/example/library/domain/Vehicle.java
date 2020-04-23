@@ -4,30 +4,27 @@ import com.example.library.util.Colour;
 
 public class Vehicle {
 	private Colour colour;
-	private int size;
+	private int length;//length in cm
 	private String text;
 	private String plate;
 	private String model;
 	private String brand;
 
-	@java.lang.Override
-	public java.lang.String toString() {
-		return "Vehicle{" +
-				"colour=" + colour +
-				", size=" + size +
-				", text='" + text + '\'' +
-				", plate='" + plate + '\'' +
-				", model='" + model + '\'' +
-				", brand='" + brand + '\'' +
-				'}';
+	public Vehicle(Colour colour, int length, String text, String plate, String model, String brand) {
+		this.colour = colour;
+		this.length = length;
+		this.text = text;
+		this.plate = plate;
+		this.model = model;
+		this.brand = brand;
 	}
 
 	public void setColour(Colour colour) {
 		this.colour = colour;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public void setLength(int length) {
+		this.length = length;
 	}
 
 	public void setText(String text) {
@@ -62,8 +59,8 @@ public class Vehicle {
 		return colour;
 	}
 
-	public int getSize() {
-		return size;
+	public int getLength() {
+		return length;
 	}
 
 	public String getText() {
@@ -80,5 +77,17 @@ public class Vehicle {
 
 	public String getBrand() {
 		return brand;
+	}
+
+	@java.lang.Override
+	public java.lang.String toString() {
+		return "Vehicle{" +
+				"colour=" + colour +
+				", length=" + length +
+				", text='" + text + '\'' +
+				", plate='" + plate + '\'' +
+				", model='" + model + '\'' +
+				", brand='" + brand + '\'' +
+				'}';
 	}
 }
