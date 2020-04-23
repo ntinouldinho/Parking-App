@@ -11,16 +11,19 @@ public class ParkingSpace {
 	private Credits price;
 	private TimeRange timeRange;
 	private Date timeOfExchange;
+	private User parkedUser;
 
 	private static final double max_amount = 16.0;
 	private static final double min_amount = 0.0;
 
-	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange,Date timeOfExchange) {
+
+	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange, Date timeOfExchange, User parkedUser) {
 		this.address = address;
 		this.availability = availability;
 		this.price = price;
 		this.timeRange = timeRange;
 		this.timeOfExchange=timeOfExchange;
+		this.parkedUser=parkedUser;
 	}
 
 
@@ -86,6 +89,13 @@ public class ParkingSpace {
 		setTimeOfExchange(new Date());
 	}
 
+	public User getParkedUser() {
+		return parkedUser;
+	}
+
+	public void setParkedUser(User parkedUser) {
+		this.parkedUser = parkedUser;
+	}
 
 	@Override
 	public String toString() {
@@ -94,6 +104,8 @@ public class ParkingSpace {
 				", availability=" + availability +
 				", price=" + price +
 				", timeRange=" + timeRange +
+				", timeOfExchange=" + timeOfExchange +
+				", parkedUser=" + parkedUser +
 				'}';
 	}
 }

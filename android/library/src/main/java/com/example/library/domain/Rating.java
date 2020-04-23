@@ -2,18 +2,18 @@ package com.example.library.domain;
 
 public class Rating {
     private int ratingScore;
-    private String s;
+    private String comment;
 
 
 
-    public Rating(int ratingScore, String s) {
+    public Rating(int ratingScore, String comment) {
         this.ratingScore = ratingScore;
-        this.s = s;
+        this.comment = comment;
     }
 
     public Rating() {
         this.ratingScore = 0;
-        this.s = "";
+        this.comment = "";
     }
 
     public int getRatingScore() {
@@ -24,19 +24,19 @@ public class Rating {
         this.ratingScore = ratingScore;
     }
 
-    public String getS() {
-        return s;
+    public String getComment() {
+        return comment;
     }
 
-    public void setS(String s) {
-        this.s = s;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     @Override
     public String toString() {
         return "Rating{" +
                 "ratingScore=" + ratingScore +
-                ", s='" + s + '\'' +
+                ", Comment='" + comment + '\'' +
                 '}';
     }
 

@@ -4,15 +4,15 @@ import com.example.library.util.Colour;
 
 public class Vehicle {
 	private Colour colour;
-	private int size;
+	private int length;//length in cm
 	private String text;
 	private String plate;
 	private String model;
 	private String brand;
 
-	public Vehicle(Colour colour, int size, String text, String plate, String model, String brand) {
+	public Vehicle(Colour colour, int length, String text, String plate, String model, String brand) {
 		this.colour = colour;
-		this.size = size;
+		this.length = length;
 		this.text = text;
 		this.plate = plate;
 		this.model = model;
@@ -23,8 +23,8 @@ public class Vehicle {
 		this.colour = colour;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
+	public void setLength(int length) {
+		this.length = length;
 	}
 
 	public void setText(String text) {
@@ -59,8 +59,8 @@ public class Vehicle {
 		return colour;
 	}
 
-	public int getSize() {
-		return size;
+	public int getLength() {
+		return length;
 	}
 
 	public String getText() {
@@ -83,7 +83,7 @@ public class Vehicle {
 	public java.lang.String toString() {
 		return "Vehicle{" +
 				"colour=" + colour +
-				", size=" + size +
+				", length=" + length +
 				", text='" + text + '\'' +
 				", plate='" + plate + '\'' +
 				", model='" + model + '\'' +
