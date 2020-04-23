@@ -23,7 +23,6 @@ public class ZipCode {
         if(stringZip.length()==5) {
             this.zip = zip;
         }
-        return;
     }
 
     @Override

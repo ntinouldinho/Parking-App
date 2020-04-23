@@ -25,8 +25,6 @@ public class ParkingRequest{
 
     }
 
-
-
     public ParkingRequest() {
         this.date = new Date();
         this.pin = new Pin();
@@ -98,8 +96,8 @@ public class ParkingRequest{
 
     /**
      * Βρίσκει parking σύμφωνα με τον Τ.Κ. Αν δεν υπάρχει κοντά ψάχνει τους κοντινούς Τ.Κ.
-     * @param
-     * @param difference
+     * @param parkingSpaces Λίστα με ολα τα διαθέσιμα {@code ParkingSpace} αντικείμενα
+     * @param difference Μέγιστη "απόσταση" για ψάξιμο, αναπαραστόμενη ως διαφορά των Zip Codes
      * @return Ο κατάλογος των αντικειμένων
      */
 
@@ -110,7 +108,7 @@ public class ParkingRequest{
             ZipCode currentZip = parking.getAddress().getZipCode();
             if(Math.abs(zip.getZip()-currentZip.getZip()) <= difference )list.add(parking);
         }
-        if(list.isEmpty()){ findParking(parkingSpaces,difference++);}
+        if(list.isEmpty()){ findParking(parkingSpaces,++difference);}
         return list;
     }
 
@@ -132,7 +130,6 @@ public class ParkingRequest{
             return true;
         }
         return false;
-
     }
 
 
