@@ -27,14 +27,14 @@ public class ParkingSpaceDAOMemory implements ParkingSpaceDAO {
         return parkingSpaces;
     }
 
-    /**
+
     public ParkingSpace find(ParkingSpace parking){
         for(ParkingSpace p: parkingSpaces){
-            if(p.getUsername().equals(username)){
-                return username;
+            if(p.equals(parking)){
+                return p;
             }
         }
         return null;
     }
-     */
+
 }

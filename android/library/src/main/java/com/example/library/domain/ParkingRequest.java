@@ -91,11 +91,8 @@ public class ParkingRequest{
         if (o == null || getClass() != o.getClass()) return false;
         ParkingRequest that = (ParkingRequest) o;
         return Objects.equals(getDate(), that.getDate()) &&
-                Objects.equals(getPin(), that.getPin()) &&
-                Objects.equals(getAddress(), that.getAddress()) &&
                 Objects.equals(getParkedUser(), that.getParkedUser()) &&
-                Objects.equals(getRequestingUser(), that.getRequestingUser()) &&
-                Objects.equals(getParkingSpace(), that.getParkingSpace());
+                Objects.equals(getRequestingUser(), that.getRequestingUser());
     }
 
 
