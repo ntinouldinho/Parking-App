@@ -10,16 +10,13 @@ public class Vehicle {
 	private String model;
 	private String brand;
 
-	@java.lang.Override
-	public java.lang.String toString() {
-		return "Vehicle{" +
-				"colour=" + colour +
-				", size=" + size +
-				", text='" + text + '\'' +
-				", plate='" + plate + '\'' +
-				", model='" + model + '\'' +
-				", brand='" + brand + '\'' +
-				'}';
+	public Vehicle(Colour colour, int size, String text, String plate, String model, String brand) {
+		this.colour = colour;
+		this.size = size;
+		this.text = text;
+		this.plate = plate;
+		this.model = model;
+		this.brand = brand;
 	}
 
 	public void setColour(Colour colour) {
@@ -80,5 +77,17 @@ public class Vehicle {
 
 	public String getBrand() {
 		return brand;
+	}
+
+	@java.lang.Override
+	public java.lang.String toString() {
+		return "Vehicle{" +
+				"colour=" + colour +
+				", size=" + size +
+				", text='" + text + '\'' +
+				", plate='" + plate + '\'' +
+				", model='" + model + '\'' +
+				", brand='" + brand + '\'' +
+				'}';
 	}
 }
