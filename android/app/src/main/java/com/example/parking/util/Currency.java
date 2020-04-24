@@ -10,6 +10,11 @@ public class Currency {
         this.currency = currency;
     }
 
+    public Currency() {
+        this.amount = 0;
+        this.currency = CurrencyEnum.EUR;
+    }
+
     public long getAmount() {
         return amount;
     }
