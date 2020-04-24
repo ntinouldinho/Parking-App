@@ -1,10 +1,15 @@
 package com.example.parking.domain;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.parking.util.Credits;
 import com.example.parking.util.TimeRange;
 
 import java.util.Date;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class ParkingSpace {
 	private Address address;
 	private boolean availability;
@@ -32,7 +37,7 @@ public class ParkingSpace {
 		this.address = new Address();
 		this.availability = false;
 		this.price = new Credits();
-		this.timeRange = new TimeRange();
+		this.timeRange = new TimeRange(30);
 		this.timeOfExchange = new Date();
 	}
 

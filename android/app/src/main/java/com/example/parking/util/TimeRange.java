@@ -6,71 +6,62 @@ import androidx.annotation.RequiresApi;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.TimeZone;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class TimeRange {
-    private Date from;
-    private Date to;
+    private LocalDateTime from;
+    private LocalDateTime to;
 
-    public TimeRange(Date from, Date to) {
+    public TimeRange(LocalDateTime from, LocalDateTime to) {
         this.from = from;
         this.to = to;
     }
 
-    public TimeRange() {
-        this.from = new Date();
-        this.to = addTime(from,30);
+    public TimeRange(LocalDateTime from, long extraMinutesTillExchange) {
+        this.from = from;
+        this.to = addMinutes(from, extraMinutesTillExchange);
     }
 
-    public Date getFrom() {
+    public TimeRange(long extraMinutesTillExchange) {
+        this.from = LocalDateTime.now();
+        this.to = addMinutes(from, extraMinutesTillExchange);
+    }
+
+    public LocalDateTime getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(LocalDateTime from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public LocalDateTime getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(LocalDateTime to) {
         this.to = to;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public long difference(Instant from, Instant to){
-        ZoneId zone = ZoneId.systemDefault();
-
-        ZonedDateTime todayInZone = from.atZone(zone);
-        ZonedDateTime expirationInZone = to.atZone(zone);
-        long daysTilExp = todayInZone.toLocalDate().until(expirationInZone, ChronoUnit.MINUTES);
-        return daysTilExp;
+    public long getDifference(){
+        return Duration.between(from, to).toMinutes();
     }
+
+    public LocalDateTime addMinutes(LocalDateTime date, long minutes){
+        return date.plusMinutes(minutes);
+    }
+
+
+    @Override
     public String toString() {
         final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.ENGLISH);
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        final StringBuilder builder = new StringBuilder();
-        builder.append(dateFormat.format(from));
-        builder.append(" -- ");
-        builder.append(dateFormat.format(to));
-        return builder.toString();
+        return dateFormat.format(from) +
+                " -- " +
+                dateFormat.format(to);
     }
-
-    public static Date addTime(Date date, int minutes){
-        Date currentDate = new Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(date);
-        c.add(Calendar.MINUTE, minutes);
-        currentDate = c.getTime();
-        return currentDate;
-    }
-
 }
