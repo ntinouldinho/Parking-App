@@ -4,7 +4,6 @@ import com.example.parking.util.Pin;
 
 import org.junit.Test;
 import org.testng.Assert;
-import org.testng.junit.*;
 
 public class PinTest {
     @Test
