@@ -3,7 +3,6 @@ import com.example.parking.util.ZipCode;
 
 import org.junit.Test;
 import org.testng.Assert;
-import org.testng.junit.*;
 
 public class ZipCodeTest {
     @Test

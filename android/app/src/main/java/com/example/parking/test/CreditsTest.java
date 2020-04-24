@@ -13,7 +13,7 @@ public class CreditsTest {
         Assert.assertEquals(10,c.getPoints());
     }
 
-    
+    @Test
     public void removeCreditsTest(){
 
     }
