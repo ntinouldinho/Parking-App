@@ -6,8 +6,7 @@ public abstract class Initializer {
 
     protected abstract void eraseData();
     public abstract void prepareData();
-    protected abstract ParkingRequestDAO getRequestDAO();
-    protected abstract ParkingSpaceDAO getParkingDAO();
-    protected abstract UserDAO getUserDAO();
-
+    public abstract ParkingRequestDAO getRequestDAO();
+    public abstract ParkingSpaceDAO getParkingDAO();
+    public abstract UserDAO getUserDAO();
 }

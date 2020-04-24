@@ -136,18 +136,19 @@ public class MemoryInitializer extends Initializer {
 
 
     }
+
     @Override
-    protected ParkingRequestDAO getRequestDAO() {
+    public ParkingRequestDAO getRequestDAO() {
         return new ParkingRequestDAOMemory();
     }
 
     @Override
-    protected ParkingSpaceDAO getParkingDAO() {
+    public ParkingSpaceDAO getParkingDAO() {
         return new ParkingSpaceDAOMemory();
     }
 
     @Override
-    protected UserDAO getUserDAO() {
+    public UserDAO getUserDAO() {
         return new UserDAOMemory();
     }
 
