@@ -15,6 +15,6 @@ public class AmountTest {
     public void getAmountTest(){
         BigDecimal number = new BigDecimal(100);
         amount = new Amount(new Currency(number, CurrencyEnum.EUR),number);
-        Assert.assertEquals(number,amount.getCurrency());
+        Assert.assertEquals(number,amount.getAmountToConvert());
     }
 }
