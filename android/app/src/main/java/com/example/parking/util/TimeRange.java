@@ -1,5 +1,9 @@
 package com.example.parking.util;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -41,6 +45,7 @@ public class TimeRange {
         this.to = to;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public long difference(Instant from, Instant to){
         ZoneId zone = ZoneId.systemDefault();
 
