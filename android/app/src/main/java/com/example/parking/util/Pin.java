@@ -15,12 +15,13 @@ public class Pin {
         return pin;
     }
 
-    public void setPin(int pin) {
+    public boolean setPin(int pin) {
         String stringPin = String.valueOf(pin);
         if(stringPin.length()==4) {
             this.pin = pin;
+            return true;
         }
-        return;
+        return false;
     }
 
 }
