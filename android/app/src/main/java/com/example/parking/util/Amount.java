@@ -1,12 +1,10 @@
 package com.example.parking.util;
 
-import java.math.BigDecimal;
-
 public class Amount {
     private Currency currency;
-    private BigDecimal amountToConvert;
+    private long amountToConvert;
 
-    public Amount(Currency currency, BigDecimal amountToConvert) {
+    public Amount(Currency currency, long amountToConvert) {
         this.currency = currency;
         this.amountToConvert = amountToConvert;
     }
@@ -19,11 +17,11 @@ public class Amount {
         this.currency = currency;
     }
 
-    public BigDecimal getAmountToConvert() {
+    public long getAmountToConvert() {
         return amountToConvert;
     }
 
-    public void setAmountToConvert(BigDecimal amountToConvert) {
+    public void setAmountToConvert(long amountToConvert) {
         this.amountToConvert = amountToConvert;
     }
 }

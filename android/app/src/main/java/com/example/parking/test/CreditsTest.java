@@ -3,6 +3,7 @@ package com.example.parking.test;
 import com.example.parking.util.Credits;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.testng.Assert;
 
 public class CreditsTest {
