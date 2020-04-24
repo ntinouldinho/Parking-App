@@ -9,6 +9,11 @@ public class Amount {
         this.amountToConvert = amountToConvert;
     }
 
+    public Amount() {
+        this.currency = new Currency();
+        this.amountToConvert = 0;
+    }
+
     public Currency getCurrency() {
         return currency;
     }
