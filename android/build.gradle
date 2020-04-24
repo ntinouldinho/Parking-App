@@ -5,11 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-<<<<<<< HEAD
-
-=======
         maven { url 'http://repo1.maven.org/maven2' }
->>>>>>> 6c445e1007a105bf6c6199b614c04e82db0d5a67
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.2'
