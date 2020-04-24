@@ -7,9 +7,15 @@ import org.testng.junit.*;
 
 public class ZipCodeTest {
     @Test
-    public void setZipTest() {
+    public void setCorrectZipTest() {
         ZipCode zc = new ZipCode();
-        Assert.assertEquals(true,zc.setZip(15125));
-        Assert.assertEquals(false,zc.setZip(1512));
+        zc.setZip(15122);
+        Assert.assertEquals(15122,zc.getZip());
+    }
+
+    public void setIncorrectZipTest() {
+        ZipCode zc = new ZipCode();
+        zc.setZip(1512);
+        Assert.assertEquals(0,zc.getZip());
     }
 }

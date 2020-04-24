@@ -22,13 +22,11 @@ public class ZipCode {
         return zip;
     }
 
-    public boolean setZip(int zip) {
+    public void setZip(int zip) {
         String stringZip = String.valueOf(zip);
         if(stringZip.length()==5) {
             this.zip = zip;
-            return true;
         }
-        return false;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
