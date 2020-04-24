@@ -1,20 +1,21 @@
 package com.example.parking.util;
+import java.math.BigDecimal;
 
 public class Currency {
 
-    private long amount;
+    private BigDecimal amount;
     private CurrencyEnum currency;
 
-    public Currency(long amount, CurrencyEnum currency) {
+    public Currency(BigDecimal amount, CurrencyEnum currency) {
         this.amount = amount;
         this.currency = currency;
     }
 
-    public long getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(long amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
