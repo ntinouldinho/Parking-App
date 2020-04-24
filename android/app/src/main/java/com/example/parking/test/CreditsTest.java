@@ -4,7 +4,7 @@ import com.example.parking.util.Credits;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.testng.Assert;
+import org.junit.Assert;
 
 public class CreditsTest {
     @Test

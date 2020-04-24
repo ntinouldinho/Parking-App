@@ -3,7 +3,7 @@ package com.example.parking.test;
 import com.example.parking.util.Pin;
 
 import org.junit.Test;
-import org.testng.Assert;
+import org.junit.Assert;
 
 public class PinTest {
     @Test

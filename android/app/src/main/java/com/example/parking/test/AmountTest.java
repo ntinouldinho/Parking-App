@@ -5,7 +5,7 @@ import com.example.parking.util.Currency;
 import com.example.parking.util.CurrencyEnum;
 
 import org.junit.Test;
-import org.testng.Assert;
+import org.junit.Assert;
 
 import java.math.BigDecimal;
 
