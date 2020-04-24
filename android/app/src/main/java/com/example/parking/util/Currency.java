@@ -11,6 +11,11 @@ public class Currency {
         this.currency = currency;
     }
 
+    public Currency() {
+        this.amount = new BigDecimal(0);
+        this.currency = CurrencyEnum.EUR;
+    }
+
     public BigDecimal getAmount() {
         return amount;
     }
