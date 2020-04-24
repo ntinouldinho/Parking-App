@@ -13,6 +13,7 @@ public class ZipCodeTest {
         Assert.assertEquals(15122,zc.getZip());
     }
 
+    @Test
     public void setIncorrectZipTest() {
         ZipCode zc = new ZipCode();
         zc.setZip(1512);

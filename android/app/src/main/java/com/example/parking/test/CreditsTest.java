@@ -13,6 +13,7 @@ public class CreditsTest {
         Assert.assertEquals(10,c.getPoints());
     }
 
+    
     public void removeCreditsTest(){
 
     }

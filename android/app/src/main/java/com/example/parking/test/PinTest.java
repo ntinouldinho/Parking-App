@@ -14,6 +14,7 @@ public class PinTest {
         Assert.assertEquals(1234,p1.getPin());
     }
 
+    @Test
     public void setIncorrectPinTest() {
         Pin p1 = new Pin();
         p1.setPin(12345);
