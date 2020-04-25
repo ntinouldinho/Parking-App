@@ -23,19 +23,4 @@ public class TimeRangeTest {
         tr = new TimeRange(LocalDateTime.now(), 30);
         Assert.assertEquals(30, tr.getDifference());
     }
-
-    @Test
-    public void addMinutes(){
-//        TimeRange tr = new TimeRange(0);
-//        long mins =
-//        tr.addMinutes(tr.getFrom(), 30);
-//        Assert.assertEquals();
-
-        //unimplemented
-    }
-
-    @Test
-    public void difference11(){
-
-    }
 }
