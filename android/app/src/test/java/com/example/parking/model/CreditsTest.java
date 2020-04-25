@@ -2,30 +2,35 @@ package com.example.parking.model;
 
 import com.example.parking.util.Credits;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 public class CreditsTest {
+    private Credits credits;
+
+    @Before
+    public void setup(){
+        credits = new Credits();
+        credits.setPoints(10);
+    }
     @Test
     public void addCreditsTest(){
-        Credits c = new Credits();
-        c.addCredits(10);
-        Assert.assertEquals(10,c.getPoints());
+        credits.addCredits(10);
+        assertEquals(10,credits.getPoints());
     }
 
     @Test
     public void removeValidCreditsTest(){
-        Credits c = new Credits();
-        c.addCredits(10);
-        c.removeCredits(5);
-        Assert.assertEquals(5,c.getPoints());
+        credits.addCredits(10);
+        credits.removeCredits(5);
+        assertEquals(5,credits.getPoints());
     }
 
     @Test
     public void removeInvalidCreditsTest(){
-        Credits c = new Credits();
-        c.addCredits(10);
-        c.removeCredits(11);
-        Assert.assertEquals(10,c.getPoints());
+        credits.addCredits(10);
+        credits.removeCredits(11);
+        assertEquals(10,credits.getPoints());
     }
 }

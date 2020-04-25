@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.parking.util.TimeRange;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -18,10 +18,10 @@ public class TimeRangeTest {
     public void difference(){
         TimeRange tr = new TimeRange(30);
 
-        Assert.assertEquals(30, tr.getDifference());
+        assertEquals(30, tr.getDifference());
 
         tr = new TimeRange(LocalDateTime.now(), 30);
-        Assert.assertEquals(30, tr.getDifference());
+        assertEquals(30, tr.getDifference());
     }
 
     @Test

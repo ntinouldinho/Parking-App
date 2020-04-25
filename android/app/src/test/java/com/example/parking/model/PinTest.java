@@ -2,22 +2,26 @@ package com.example.parking.model;
 
 import com.example.parking.util.Pin;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 public class PinTest {
+    Pin pin;
+    @Before
+    public void setup(){
+        pin = new Pin();
+        pin.setPin(1234);
+    }
     @Test
     public void setCorrectPinTest() {
-        Pin p1 = new Pin();
-        p1.setPin(1234);
-        Assert.assertEquals(1234,p1.getPin());
+        assertEquals(1234,pin.getPin());
     }
 
     @Test
     public void setIncorrectPinTest() {
-        Pin p1 = new Pin();
-        p1.setPin(12345);
-        Assert.assertEquals(0,p1.getPin());
+        pin.setPin(12345);
+        assertEquals(1234,pin.getPin());
     }
 
 }

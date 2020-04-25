@@ -3,24 +3,34 @@ package com.example.parking.model;
 import com.example.parking.util.Currency;
 import com.example.parking.util.CurrencyEnum;
 
-import org.junit.Assert;
+import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 
 public class CurrencyTest {
     private Currency c1;
+    BigDecimal number;
+    CurrencyEnum currencyEnum;
+
+    @Before
+    public void setup(){
+        c1 = new Currency();
+        number = new BigDecimal(10);
+        currencyEnum = CurrencyEnum.EUR;
+        c1.setAmount(number);
+        c1.setCurrency(currencyEnum);
+    }
+
     @Test
     public void getAmountTest() {
-        c1 = new Currency();
-        c1.setAmount(new BigDecimal(10));
-        Assert.assertEquals(new BigDecimal(10),c1.getAmount());
+        assertEquals(number,c1.getAmount());
     }
 
     @Test
     public void getCurrency() {
-        c1 = new Currency();
-        c1.setCurrency(CurrencyEnum.EUR);
-        Assert.assertEquals(CurrencyEnum.EUR,c1.getCurrency());
+        assertEquals(CurrencyEnum.EUR,c1.getCurrency());
     }
+
 }
