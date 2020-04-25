@@ -11,7 +11,7 @@ public class CreditsTest {
     public void addCreditsTest(){
         Credits c = new Credits();
         c.addCredits(10);
-        Assert.assertEquals(10.0,c.getPoints());
+        Assert.assertEquals(10,c.getPoints());
     }
 
     @Test
@@ -19,7 +19,7 @@ public class CreditsTest {
         Credits c = new Credits();
         c.addCredits(10);
         c.removeCredits(5);
-        Assert.assertEquals(5.0,c.getPoints());
+        Assert.assertEquals(5,c.getPoints());
     }
 
     @Test
@@ -27,6 +27,6 @@ public class CreditsTest {
         Credits c = new Credits();
         c.addCredits(10);
         c.removeCredits(11);
-        Assert.assertEquals(10.0,c.getPoints());
+        Assert.assertEquals(10,c.getPoints());
     }
 }
