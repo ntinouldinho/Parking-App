@@ -18,8 +18,10 @@ public class ParkingRequestTest {
 
     @Before
     public void setup(){
-//        parkingSpace = new ParkingSpace(0,0)
-//        parkingRequest=new ParkingRequest()
+        Date date = new Date();
+
+        //parkingSpace = new ParkingSpace(0,0);
+       // parkingRequest=new ParkingRequest();
     }
     @Test
     public void test(){

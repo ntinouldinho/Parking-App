@@ -19,6 +19,16 @@ public class Vehicle {
 		this.brand = brand;
 	}
 
+	public Vehicle(){
+		this.colour = Colour.Black;
+		this.length = 0;
+		this.text = "";
+		this.plate = "";
+		this.model = "";
+		this.brand = "";
+	}
+
+
 	public void setColour(Colour colour) {
 		this.colour = colour;
 	}

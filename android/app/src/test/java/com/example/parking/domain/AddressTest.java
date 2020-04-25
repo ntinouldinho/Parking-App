@@ -2,6 +2,7 @@ package com.example.parking.domain;
 
 import com.example.parking.util.ZipCode;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,11 +19,25 @@ public class AddressTest {
         zipCode.setZip(18530);
         street="Vasilisis Sofias";
         number = "53";
-        address = new Address(street,number,zipCode);
+        address = new Address();
+        address.setStreet(street);
+        address.setStreetNumber(number);
+        address.setZipCode(zipCode);
+
     }
     @Test
-    public void test(){
+    public void getStreetTest(){
+        Assert.assertEquals(street,address.getStreet());
+    }
 
+    @Test
+    public void getStreetNumberTest(){
+        Assert.assertEquals(number,address.getStreetNumber());
+    }
+
+    @Test
+    public void getZipCodeTest(){
+        Assert.assertEquals(zipCode,address.getZipCode());
     }
 
 }
