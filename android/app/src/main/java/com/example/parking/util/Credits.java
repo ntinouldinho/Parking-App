@@ -1,9 +1,9 @@
 package com.example.parking.util;
 
 public class Credits {
-    private double points;
+    private int points;
 
-    public Credits(double points) {
+    public Credits(int points) {
         this.points = points;
     }
 
@@ -11,21 +11,21 @@ public class Credits {
         this.points = 0;
     }
 
-    public double getPoints() {
+    public int getPoints() {
         return points;
     }
 
-    public void setPoints(double points) {
+    public void setPoints(int points) {
         this.points = points;
     }
 
-    public void addCredits(double points){
-        double currentPoints=getPoints();
+    public void addCredits(int points){
+        int currentPoints=getPoints();
         setPoints(currentPoints+points);
     }
 
-    public boolean removeCredits(double points){
-        double currentPoints=getPoints();
+    public boolean removeCredits(int points){
+        int currentPoints=getPoints();
         if(currentPoints<points){
             return false;
         }

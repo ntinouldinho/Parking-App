@@ -1,4 +1,4 @@
-package com.example.parking.test;
+package com.example.parking.model;
 
 import android.os.Build;
 
@@ -6,8 +6,8 @@ import androidx.annotation.RequiresApi;
 
 import com.example.parking.util.TimeRange;
 
-import org.junit.Test;
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 

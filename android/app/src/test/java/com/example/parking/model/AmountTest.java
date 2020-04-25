@@ -1,11 +1,11 @@
-package com.example.parking.test;
+package com.example.parking.model;
 
 import com.example.parking.util.Amount;
 import com.example.parking.util.Currency;
 import com.example.parking.util.CurrencyEnum;
 
-import org.testng.annotations.Test;
 import org.junit.Assert;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 
