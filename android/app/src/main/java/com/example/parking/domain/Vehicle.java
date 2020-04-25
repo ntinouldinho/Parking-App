@@ -49,11 +49,10 @@ public class Vehicle {
 		}
 		String numbers = plate.substring(3);
 		for(int i=0;i<numbers.length();i++){
-			int number = Integer.valueOf(letters.charAt(i));
-			if(number<0 || number>9) return;
+			int number = Integer.valueOf(numbers.charAt(i));
+			if(number<48 || number>57) return;
 		}
 		if(letters.length()+numbers.length()!=7) return;
-
 		this.plate = plate;
 	}
 

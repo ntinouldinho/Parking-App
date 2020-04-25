@@ -42,22 +42,22 @@ public class VehicleTest {
     }
 
     @Test
-    public void InvalidPlate1() {//more Chars in plate
-        String plateTest = "IEH1510";
+    public void InvalidPlate1() {//more/less Chars in plate(NOT 7)
+        String plateTest = "IEHK";
         vehicle.setPlate(plateTest);
         assertEquals(plate,vehicle.getPlate());
     }
 
     @Test
     public void InvalidPlate2() {
-        String plateTest = "IE11111";//wrong number of letters
+        String plateTest = "IE11111";//wrong number of letters(NOT 3)
         vehicle.setPlate(plateTest);
         assertEquals(plate,vehicle.getPlate());
     }
 
     @Test
     public void InvalidPlate3() {
-        String plateTest = "IEH123M";//wrong number of digits
+        String plateTest = "IEH123M";//wrong number of digits(NOT 4)
         vehicle.setPlate(plateTest);
         assertEquals(plate,vehicle.getPlate());
     }
