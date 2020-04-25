@@ -17,7 +17,7 @@ public class RatingTest {
         ratingScore = 5;
         comment = "Good";
         rating.setRatingScore(ratingScore);
-        rating.setComment("comment");
+        rating.setComment(comment);
     }
 
     @Test
