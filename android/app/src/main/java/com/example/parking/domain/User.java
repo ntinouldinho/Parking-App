@@ -89,6 +89,12 @@ public class User {
         return vehicles;
     }
 
+    public Vehicle getVehicle(String plate){
+        for(Vehicle vehicle:getVehicles()){
+            if(vehicle.getPlate().equals(plate))return vehicle;
+        }
+        return new Vehicle();
+    }
     public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }

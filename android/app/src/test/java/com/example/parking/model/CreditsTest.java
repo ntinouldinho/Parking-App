@@ -12,7 +12,6 @@ public class CreditsTest {
     @Before
     public void setup(){
         credits = new Credits();
-        credits.setPoints(10);
     }
     @Test
     public void addCreditsTest(){
