@@ -18,7 +18,11 @@ public class ParkingRequestTest {
 
     @Before
     public void setup(){
-        parkingSpace = new ParkingSpace(0,0)
-        parkingRequest=new ParkingRequest()
+//        parkingSpace = new ParkingSpace(0,0)
+//        parkingRequest=new ParkingRequest()
+    }
+    @Test
+    public void test(){
+
     }
 }

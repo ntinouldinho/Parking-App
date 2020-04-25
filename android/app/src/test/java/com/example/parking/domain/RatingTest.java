@@ -13,4 +13,8 @@ public class RatingTest {
         rating.setRatingScore(5);
         rating.setComment("Good");
     }
+    @Test
+    public void test(){
+
+    }
 }

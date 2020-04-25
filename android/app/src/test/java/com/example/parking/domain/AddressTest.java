@@ -20,5 +20,9 @@ public class AddressTest {
         number = "53";
         address = new Address(street,number,zipCode);
     }
+    @Test
+    public void test(){
+
+    }
 
 }
