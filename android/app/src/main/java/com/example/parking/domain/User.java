@@ -133,10 +133,7 @@ public class User {
         for(Vehicle vehicle:getVehicles()){
             if(vehicle.getPlate().equals(plate))return vehicle;
         }
-        Vehicle v = new Vehicle();
-        v.setPlate(plate);
-        addVehicle(v);
-        return v;
+        return new Vehicle();
     }
 
 
