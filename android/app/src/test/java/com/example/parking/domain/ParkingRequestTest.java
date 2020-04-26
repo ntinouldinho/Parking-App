@@ -39,16 +39,19 @@ public class ParkingRequestTest {
 
         addressParked = new Address("vasilisis","53",zipCode);
         addressSearching = new Address("zanni","40",zipCode);
+
         userParked = new User("kostas","kon","6950505050","email","ntinouldinho","test",addressParked,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        userParked.addVehicle(vehicle);
+
         userSearching = new User("konnos","kon","6940404040","email","konnnos","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
-        parkingSpace = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked);
+
+        parkingSpace = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1551");
         parkingList.add(parkingSpace);
         parkingRequest = new ParkingRequest(new Date(),pin,userSearching,parkingSpace);
-        //parkingSpace = new ParkingSpace(0,0);
-       // parkingRequest=new ParkingRequest();
-    }
-    @Test
-    public void test(){
 
     }
+
+
+
+
 }
