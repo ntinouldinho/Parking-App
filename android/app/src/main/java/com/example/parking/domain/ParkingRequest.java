@@ -7,8 +7,10 @@ import androidx.annotation.RequiresApi;
 import com.example.parking.util.Pin;
 import com.example.parking.util.ZipCode;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 
@@ -74,14 +76,14 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, int difference){
+    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference){
         ArrayList<ParkingSpace> list = new ArrayList<>();
-        ZipCode zip = this.parkingSpace.getAddress().getZipCode();
+        ZipCode zip = address.getZipCode();
         for(ParkingSpace parking:parkingSpaces){
             ZipCode currentZip = parking.getAddress().getZipCode();
             if(Math.abs(zip.getZip()-currentZip.getZip()) <= difference )list.add(parking);
         }
-        if(list.isEmpty()){ findParking(parkingSpaces,++difference);}
+        if(list.isEmpty()){ findParking(parkingSpaces,address,++difference);}
         return list;
     }
 
@@ -110,8 +112,11 @@ public class ParkingRequest{
 
     @Override
     public String toString() {
+        Locale locale = new Locale("gr", "GR");
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
+        String dateS = dateFormat.format(date);
         return "ParkingRequest{" +
-                "date=" + date +
+                "date=" + dateS +
                 ", pin=" + pin +
                 ", requestingUser=" + requestingUser +
                 ", parkingSpace=" + parkingSpace +

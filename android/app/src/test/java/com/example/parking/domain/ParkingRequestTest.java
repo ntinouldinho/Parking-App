@@ -6,12 +6,15 @@ import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import static org.junit.Assert.*;
 
@@ -27,11 +30,11 @@ public class ParkingRequestTest {
     ZipCode zipCode;
     Credits credits;
     private ParkingSpace parkingSpace;
-    private List<ParkingSpace> parkingList;
+    private List<ParkingSpace> parkingList = new ArrayList<ParkingSpace>();
 
     @Before
     public void setup(){
-        Date date = new Date();
+        date = new Date();
         pin = new Pin(5000);
         zipCode = new ZipCode(18560);
         credits = new Credits(10);
@@ -51,7 +54,67 @@ public class ParkingRequestTest {
 
     }
 
+    @Test
+    public void setTimeOfExchangeTest() {
+        Date d1 = new Date(2019, 12, 13);
+        parkingRequest.setDate(d1);
+        assertEquals(d1,parkingRequest.getDate());
+    }
+    @Test
+    public void getPin() {
+        assertEquals(pin,parkingRequest.getPin());
+    }
 
+    @Test
+    public void setPin() {
+        Pin p1 = new Pin(1000);
+        parkingRequest.setPin(p1);
+        assertEquals(p1,parkingRequest.getPin());
+    }
 
+    @Test
+    public void getRequestingUser() {
+        assertEquals(userSearching,parkingRequest.getRequestingUser());
+    }
 
+    @Test
+    public void setRequestingUser() {
+        User user = new User("kostas","kon","6950505050","email","ntinouldinho","test",addressParked,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        parkingRequest.setRequestingUser(user);
+        assertEquals(user,parkingRequest.getRequestingUser());
+    }
+
+    @Test
+    public void getParkingSpace() {
+        assertEquals(parkingSpace,parkingRequest.getParkingSpace());
+    }
+
+    @Test
+    public void setParkingSpace() {
+        ParkingSpace parkingSpaceTest = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1001");
+        parkingRequest.setParkingSpace(parkingSpaceTest);
+        assertEquals(parkingSpaceTest,parkingRequest.getParkingSpace());
+    }
+
+    @Test
+    public void findParking() {
+    }
+
+    @Test
+    public void validateParking() {
+    }
+
+//    @Test
+//    public void testToString() {
+//        Locale locale = new Locale("gr", "GR");
+//        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
+//        String dateS = dateFormat.format(date);
+//        String test= "ParkingRequest{" +
+//                "date=" + dateS +
+//                ", pin=" + pin +
+//                ", requestingUser=" + userSearching +
+//                ", parkingSpace=" + parkingSpace +
+//                '}';
+//        assertEquals(test,parkingRequest.toString());
+//    }
 }
