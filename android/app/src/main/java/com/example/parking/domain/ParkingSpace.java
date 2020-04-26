@@ -17,19 +17,22 @@ public class ParkingSpace {
 	private TimeRange timeRange;
 	private Date timeOfExchange;
 	private User parkedUser;
+	private String plate;
 
 	private static final double max_amount = 16.0;
 	private static final double min_amount = 0.0;
 
 
-	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange, Date timeOfExchange, User parkedUser) {
+	public ParkingSpace(Address address, boolean availability, Credits price, TimeRange timeRange, Date timeOfExchange, User parkedUser,String plate) {
 		this.address = address;
 		this.availability = availability;
 		this.price = price;
 		this.timeRange = timeRange;
 		this.timeOfExchange=timeOfExchange;
 		this.parkedUser=parkedUser;
+		this.plate = plate;
 	}
+
 
 
 
@@ -39,6 +42,7 @@ public class ParkingSpace {
 		this.price = new Credits();
 		this.timeRange = new TimeRange(30);
 		this.timeOfExchange = new Date();
+		this.plate = "";
 	}
 
 	public Address getAddress() {
@@ -66,7 +70,13 @@ public class ParkingSpace {
 			this.price = price;
 		}
 	}
+	public String getPlate() {
+		return plate;
+	}
 
+	public void setPlate(String plate) {
+		this.plate = plate;
+	}
 	public TimeRange getTimeRange() {
 		return timeRange;
 	}
