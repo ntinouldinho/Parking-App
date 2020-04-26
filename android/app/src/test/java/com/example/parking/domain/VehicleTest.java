@@ -1,10 +1,13 @@
 package com.example.parking.domain;
 
 import com.example.parking.util.Colour;
+import com.example.parking.util.ZipCode;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -34,6 +37,8 @@ public class VehicleTest {
         vehicle.setBrand(brand);
     }
 
+
+
     @Test
     public void ValidPlate() {
         String plateTest = "IEH1510";
@@ -61,6 +66,8 @@ public class VehicleTest {
         vehicle.setPlate(plateTest);
         assertEquals(plate,vehicle.getPlate());
     }
+
+
 
 
     //Getters Tests
@@ -93,4 +100,23 @@ public class VehicleTest {
     public void getBrand() {
         assertEquals(brand,vehicle.getBrand());
     }
+
+    @Test
+    public void toStringTest() {
+        String str="Vehicle{" +
+                "colour=" + colour +
+                ", length=" + length +
+                ", text='" + text + '\'' +
+                ", plate='" + plate + '\'' +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
+                '}';
+        assertEquals(str,vehicle.toString());
+    }
+
+    @Test
+    public void FullConTest() {
+        Vehicle veh = new Vehicle(Colour.Golden,511,"Large SUV", "MEA6157","Escalade","Cadillac");
+    }
+
 }
