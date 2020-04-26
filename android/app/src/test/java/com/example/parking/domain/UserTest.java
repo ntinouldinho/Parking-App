@@ -7,6 +7,7 @@ import com.example.parking.util.ZipCode;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 import java.util.ArrayList;
 
@@ -30,7 +31,7 @@ public class UserTest {
         u = new User();
         address= new Address("Wall St.","23", new ZipCode(71310));
         u.setAddress(address);
-        Credits credits=new Credits(10);
+        credits=new Credits(10);
         u.setCredits(credits);
         name="Walter";
         u.setName(name);
@@ -159,7 +160,7 @@ public class UserTest {
     public void getVehicleAndItDoesNotExistTest() {
         Vehicle v = new Vehicle();
         v.setPlate("APK1551");
-        assertNotEquals(v.getPlate(),u.getVehicle("APK1551").getPlate());
+        assertThat(v.getPlate(),not(u.getVehicle("APK1551").getPlate()));
     }
 
     @Test
@@ -249,19 +250,21 @@ public class UserTest {
         assertEquals(3.5,avg,1);
     }
 
-//    @Test
-//    public void toStringTest() {
-//        String str="User{" +
-//                "name='" + name + '\'' +
-//                ", surname='" + surname + '\'' +
-//                ", phone='" + phone + '\'' +
-//                ", email='" + email + '\'' +
-//                ", username='" + username + '\'' +
-//                ", password='" + password + '\'' +
-//                ", credits=" + credits +
-//                ", address=" + address +
-//                ", rating=" + rating +
-//                '}';
-//        assertEquals(str,u.toString());
-//    }
+
+    @Test
+    public void toStringTest() {
+        String str="User{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", credits=" + credits +
+                ", address=" + address +
+                ", rating=" + rating +
+                '}';
+        assertEquals(str,u.toString());
+    }
+
 }
