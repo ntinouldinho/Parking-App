@@ -18,7 +18,7 @@ public class User {
     private ArrayList<Vehicle> vehicles;
 
 
-    public User(String name, String surname, String phone, String email, String username, String password, Address address, ArrayList<Rating> rating,ArrayList<Vehicle> vehicles) {
+    public User(String name, String surname, String phone, String email, String username, String password, Address address, ArrayList<Rating> rating, ArrayList<Vehicle> vehicles) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -81,6 +81,46 @@ public class User {
         return address;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCredits(Credits credits) {
+        this.credits = credits;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setRating(ArrayList<Rating> rating) {
+        this.rating = rating;
+    }
+
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+    }
+
     public ArrayList<Rating> getRating() {
         return rating;
     }
@@ -93,11 +133,12 @@ public class User {
         for(Vehicle vehicle:getVehicles()){
             if(vehicle.getPlate().equals(plate))return vehicle;
         }
-        return new Vehicle();
+        Vehicle v = new Vehicle();
+        v.setPlate(plate);
+        addVehicle(v);
+        return v;
     }
-    public void setVehicles(ArrayList<Vehicle> vehicles) {
-        this.vehicles = vehicles;
-    }
+
 
     public void addRating(Rating rating){
         this.rating.add(rating);
@@ -113,8 +154,10 @@ public class User {
      */
 
      public void addVehicle(Vehicle vehicle){
-        for(Vehicle currentVehicle:vehicles){
-            if(currentVehicle.getPlate().equals(vehicle.getPlate())) return;
+        for(Vehicle v:vehicles){
+            if(v.getPlate().equals(vehicle.getPlate())){
+                return;
+            }
         }
         this.vehicles.add(vehicle);
     }
@@ -129,6 +172,7 @@ public class User {
             for (Vehicle v : vehicles) {
                 if(vehicle.getPlate().equals(v.getPlate())){
                     this.vehicles.remove(v);
+                    return;
                 }
             }
         }
