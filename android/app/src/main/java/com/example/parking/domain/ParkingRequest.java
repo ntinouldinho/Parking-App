@@ -1,5 +1,9 @@
 package com.example.parking.domain;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.parking.util.Pin;
 import com.example.parking.util.ZipCode;
 
@@ -21,6 +25,7 @@ public class ParkingRequest{
         this.parkingSpace=parkingSpace;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public ParkingRequest() {
         this.date = new Date();
         this.pin = new Pin();
@@ -68,6 +73,7 @@ public class ParkingRequest{
      * @return Ο κατάλογος των αντικειμένων
      */
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, int difference){
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = this.parkingSpace.getAddress().getZipCode();
@@ -88,6 +94,8 @@ public class ParkingRequest{
      * @param pin
      * @return Επιστρέφει true εάν η διαδικασία ανταλλαγής έχει ολοκληρωθεί με επιτυχία
      */
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean validateParking(Pin pin){
         if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
             getParkingSpace().makeParkingUnavailable();

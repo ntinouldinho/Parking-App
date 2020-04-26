@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -15,6 +16,7 @@ public class ParkingRequestTest {
     private Pin pin;
     private User user;
     private ParkingSpace parkingSpace;
+    private List<ParkingSpace> parkingList;
 
     @Before
     public void setup(){

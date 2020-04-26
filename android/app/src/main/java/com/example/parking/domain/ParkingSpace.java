@@ -61,13 +61,10 @@ public class ParkingSpace {
 		return price;
 	}
 
-	public boolean setPrice(Credits price) {
+	public void setPrice(Credits price) {
 		if(price.getPoints()>= min_amount && price.getPoints()<=max_amount) {
 			this.price = price;
-			return true;
 		}
-
-		return false;
 	}
 
 	public TimeRange getTimeRange() {
