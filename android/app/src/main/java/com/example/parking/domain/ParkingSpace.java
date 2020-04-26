@@ -7,7 +7,9 @@ import androidx.annotation.RequiresApi;
 import com.example.parking.util.Credits;
 import com.example.parking.util.TimeRange;
 
+import java.text.DateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class ParkingSpace {
@@ -70,6 +72,15 @@ public class ParkingSpace {
 			this.price = price;
 		}
 	}
+
+	public User getParkedUser() {
+		return parkedUser;
+	}
+
+	public void setParkedUser(User parkedUser) {
+		this.parkedUser = parkedUser;
+	}
+
 	public String getPlate() {
 		return plate;
 	}
@@ -103,14 +114,6 @@ public class ParkingSpace {
 		setTimeOfExchange(new Date());
 	}
 
-	public User getParkedUser() {
-		return parkedUser;
-	}
-
-	public void setParkedUser(User parkedUser) {
-		this.parkedUser = parkedUser;
-	}
-
 	@Override
 	public String toString() {
 		return "ParkingSpace{" +
@@ -120,6 +123,7 @@ public class ParkingSpace {
 				", timeRange=" + timeRange +
 				", timeOfExchange=" + timeOfExchange +
 				", parkedUser=" + parkedUser +
+				", plate='" + plate + '\'' +
 				'}';
 	}
 }
