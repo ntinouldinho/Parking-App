@@ -21,6 +21,11 @@ public class RatingTest {
     }
 
     @Test
+    public void FullConTest() {
+        Rating r = new Rating(5,"Awesome!");
+    }
+
+    @Test
     public void getRatingScoreTest(){
         Assert.assertEquals(ratingScore,rating.getRatingScore());
     }
@@ -28,5 +33,14 @@ public class RatingTest {
     @Test
     public void getCommentTest(){
         Assert.assertEquals(comment,rating.getComment());
+    }
+
+    @Test
+    public void toStringTest() {
+        String str="Rating{" +
+                "ratingScore=" + ratingScore +
+                ", Comment='" + comment + '\'' +
+                '}';
+        assertEquals(str,rating.toString());
     }
 }
