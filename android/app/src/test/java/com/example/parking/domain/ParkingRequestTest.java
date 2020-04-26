@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 
 public class ParkingRequestTest {
     private ParkingRequest parkingRequest;
-    private Date date;
+    private TimeRange date;
     private Pin pin;
     private User userParked;
     private User userSearching;
@@ -34,7 +34,7 @@ public class ParkingRequestTest {
 
     @Before
     public void setup(){
-        date = new Date();
+        date = new TimeRange(0);
         pin = new Pin(5000);
         zipCode = new ZipCode(18560);
         credits = new Credits(10);
@@ -50,13 +50,13 @@ public class ParkingRequestTest {
 
         parkingSpace = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1551");
         parkingList.add(parkingSpace);
-        parkingRequest = new ParkingRequest(new Date(),pin,userSearching,parkingSpace);
+        parkingRequest = new ParkingRequest(new TimeRange(0),pin,userSearching,parkingSpace);
 
     }
 
     @Test
     public void setTimeOfExchangeTest() {
-        Date d1 = new Date(2019, 12, 13);
+        TimeRange d1 = new TimeRange(30);
         parkingRequest.setDate(d1);
         assertEquals(d1,parkingRequest.getDate());
     }

@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.parking.util.Pin;
+import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
 import java.text.DateFormat;
@@ -15,12 +16,12 @@ import java.util.Objects;
 
 
 public class ParkingRequest{
-    private Date date;//date einai h wra pou ypologizei o requestingUser na ftasei sto parking
+    private TimeRange date;//date einai h wra pou ypologizei o requestingUser na ftasei sto parking
     private Pin pin;
     private User requestingUser;
     private ParkingSpace parkingSpace;
 
-    public ParkingRequest(Date date, Pin pin, User requestingUser,ParkingSpace parkingSpace) {
+    public ParkingRequest(TimeRange date, Pin pin, User requestingUser,ParkingSpace parkingSpace) {
         this.date = date;
         this.pin = pin;
         this.requestingUser = requestingUser;
@@ -29,18 +30,18 @@ public class ParkingRequest{
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public ParkingRequest() {
-        this.date = new Date();
+        this.date = new TimeRange(0);
         this.pin = new Pin();
         this.requestingUser = new User();
         this.parkingSpace = new ParkingSpace();
     }
 
 
-    public Date getDate() {
+    public TimeRange getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(TimeRange date) {
         this.date = date;
     }
 
@@ -98,11 +99,25 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public boolean validateParking(Pin pin){
+    public boolean validateParking(ArrayList<User> users,Pin pin){
+        TimeRange currentTime = new TimeRange(0);
+        currentTime.setFrom(date.getFrom());
+        long minutesDif = currentTime.getDifference();
+        int mod = (int)minutesDif%3;
+        int penalty = mod*1;
+        if(minutesDif>=30)penalty+=2;
         if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
             getParkingSpace().makeParkingUnavailable();
-            requestingUser.getCredits().removeCredits(parkingSpace.getPrice().getPoints());
-            parkingSpace.getParkedUser().getCredits().addCredits(parkingSpace.getPrice().getPoints());
+            for(User user: users){
+                if(user.getUsername().equals(getRequestingUser().getUsername())) {
+                    user.getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
+                    user.setPenalty(penalty);
+                }
+                if(user.getUsername().equals(getParkingSpace().getParkedUser().getUsername())){
+                    user.getCredits().addCredits(getParkingSpace().getPrice().getPoints());
+                }
+            }
+
             //TODO thn enalaktikh roh 1b ths Επιβεβαίωση διαθεσιμότητας θέσης
             return true;
         }
