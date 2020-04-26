@@ -49,7 +49,7 @@ public class ParkingSpace {
 		this.address = address;
 	}
 
-	public boolean isAvailability() {
+	public boolean getAvailability() {
 		return availability;
 	}
 
