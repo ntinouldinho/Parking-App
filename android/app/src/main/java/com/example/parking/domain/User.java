@@ -27,12 +27,20 @@ public class User {
         this.password = password;
         this.credits = new Credits(10 );
         this.address = address;
-        for(Rating r:rating){
-            this.rating.add(r);
+        if(rating.size()>0) {
+            for (Rating r : rating) {
+                this.rating.add(r);
+            }
+        }else {
+            this.rating = new ArrayList<Rating>();
         }
 
-        for(Vehicle vehicle:vehicles){
-            this.vehicles.add(vehicle);
+        if(vehicles.size()>0) {
+            for (Vehicle v : vehicles) {
+                this.vehicles.add(v);
+            }
+        }else {
+            this.vehicles = new ArrayList<Vehicle>();
         }
     }
 
@@ -151,12 +159,17 @@ public class User {
      */
 
      public void addVehicle(Vehicle vehicle){
-        for(Vehicle v:vehicles){
-            if(v.getPlate().equals(vehicle.getPlate())){
-                return;
+        if(vehicles.size()>0) {
+            for (Vehicle v : vehicles) {
+                if (v.getPlate().equals(vehicle.getPlate())) {
+                    return;
+                }
             }
+            this.vehicles.add(vehicle);
+        }else{
+            this.vehicles.add(vehicle);
         }
-        this.vehicles.add(vehicle);
+
     }
 
     /**Αφαιρειί ένα όχημα (μόνο αν ο χρήστης έχει 2 και πάνω.
