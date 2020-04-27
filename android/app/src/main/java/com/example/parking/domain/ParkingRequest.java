@@ -8,11 +8,10 @@ import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
-import java.text.DateFormat;
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Objects;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class ParkingRequest{
@@ -100,23 +99,36 @@ public class ParkingRequest{
      * καθώς και την μεταφορά μονάδων από τον ενδιαφερόμενο στον
      * σταθμευμένο χρήστη.
      * @param pin
-     * @return Επιστρέφει true εάν η διαδικασία ανταλλαγής έχει ολοκληρωθεί με επιτυχία
+     * @return Επιστρέφει ανανεωμένη arraylist των users και το resultCode αναλογά της έκβασης της συνάρτησης
+     * resultCode= {    1:  δεν βρέθηκε ένας ή και οι δυο συνδυαλλασσομενοι στη βάση χρηστών
+     *                  2:  ο αιτούμενος χρήστης άργησε για πάνω απο 30' οπότε εφαρμόζεται ποινή και ακυρώνεται
+     *                  3:  όλα πάνε καλά και γίνεται η ανταλλαγή
+     *                  4:  όλα πάνε καλά αλλά το PIN που εισήγαγε είναι λάθος
+     *              }
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<User> validateParking(ArrayList<User> users,Pin pin){
+    public List<Object> validateParking(ArrayList<User> users, Pin pin){
+        List<Object> returnList = new ArrayList<>();
         int counter = 0;
         int indexParked=-1;
         int indexReq=-1;
         for(User user: users){
             if (user.getUsername().equals(getRequestingUser().getUsername())) {
-                indexParked=counter;
+                indexReq=counter;
+                System.out.println(counter+" req "+user);
             }else if (user.getUsername().equals(getParkingSpace().getParkedUser().getUsername())) {
-                indexReq = counter;
+                indexParked = counter;
+                System.out.println(counter+" par "+user);
             }
                 counter++;
             }
-        if (indexParked!=-1 && indexReq!=-1){return new ArrayList<User>();}
+        if (indexParked==-1 || indexReq==-1){
+            System.out.println(indexParked + " "+indexReq);
+            returnList.add(new ArrayList<User>());
+            returnList.add(1);
+            return returnList;
+        }
         TimeRange currentTime = new TimeRange(0);
         currentTime.setFrom(date.getFrom());
         long minutesDif = currentTime.getDifference();
@@ -125,7 +137,10 @@ public class ParkingRequest{
         if(minutesDif>=30){
             penalty+=2;
             users.get(indexReq).setPenalty(penalty);
-            return new ArrayList<User>();
+
+            returnList.add(new ArrayList<User>());
+            returnList.add(2);
+            return returnList;
         }
 
         if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
@@ -133,9 +148,14 @@ public class ParkingRequest{
             users.get(indexReq).getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
             users.get(indexReq).setPenalty(penalty);
             users.get(indexParked).getCredits().addCredits(getParkingSpace().getPrice().getPoints());
-            return users;
+
+            returnList.add(users);
+            returnList.add(3);
+            return returnList;
         }
-        return new ArrayList<User>();
+        returnList.add(new ArrayList<User>());
+        returnList.add(4);
+        return returnList;
     }
 
 
