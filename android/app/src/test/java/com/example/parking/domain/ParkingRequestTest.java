@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -56,8 +57,13 @@ public class ParkingRequestTest {
 
         parkingSpace = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1551");
         parkingList.add(parkingSpace);
-        parkingRequest = new ParkingRequest(new TimeRange(0),pin,userSearching,parkingSpace);
+        parkingRequest = new ParkingRequest(date,pin,userSearching,parkingSpace);
 
+    }
+
+    @Test
+    public void EmptyConTest() {
+        ParkingRequest ok = new ParkingRequest();
     }
 
     @Test
@@ -132,17 +138,25 @@ public class ParkingRequestTest {
 
     }
 
-//    @Test
-//    public void testToString() {
-//        Locale locale = new Locale("gr", "GR");
-//        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
-//        String dateS = dateFormat.format(date);
-//        String test= "ParkingRequest{" +
-//                "date=" + dateS +
-//                ", pin=" + pin +
-//                ", requestingUser=" + userSearching +
-//                ", parkingSpace=" + parkingSpace +
-//                '}';
-//        assertEquals(test,parkingRequest.toString());
-//    }
+    @Test
+    public void ValidateParkingTest(){
+        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+
+        ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
+        parkingList.add(testParking1);
+        parkingRequest.validateParking(users,parkingRequest.getPin());
+
+
+    }
+
+    @Test
+    public void toStringTest() {
+         String str="ParkingRequest{" +
+                "date=" + date +
+               ", pin=" + pin +
+                ", requestingUser=" + userSearching +
+               ", parkingSpace=" + parkingSpace +
+                '}';
+        assertEquals(str,parkingRequest.toString());
+    }
 }

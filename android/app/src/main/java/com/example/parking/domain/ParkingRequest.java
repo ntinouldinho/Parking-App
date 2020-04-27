@@ -104,37 +104,45 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public boolean validateParking(ArrayList<User> users,Pin pin){
+    public ArrayList<User> validateParking(ArrayList<User> users,Pin pin){
+        int counter = 0;
+        int indexParked=-1;
+        int indexReq=-1;
+        for(User user: users){
+            if (user.getUsername().equals(getRequestingUser().getUsername())) {
+                indexParked=counter;
+            }else if (user.getUsername().equals(getParkingSpace().getParkedUser().getUsername())) {
+                indexReq = counter;
+            }
+                counter++;
+            }
+        if (indexParked!=-1 && indexReq!=-1){return new ArrayList<User>();}
         TimeRange currentTime = new TimeRange(0);
         currentTime.setFrom(date.getFrom());
         long minutesDif = currentTime.getDifference();
         int mod = (int)minutesDif%3;
         int penalty = mod*1;
-        if(minutesDif>=30)penalty+=2;
+        if(minutesDif>=30){
+            penalty+=2;
+            users.get(indexReq).setPenalty(penalty);
+            return new ArrayList<User>();
+        }
+
         if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
             getParkingSpace().makeParkingUnavailable();
-            for(User user: users){
-                if(user.getUsername().equals(getRequestingUser().getUsername())) {
-                    user.getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
-                    user.setPenalty(penalty);
-                }
-                if(user.getUsername().equals(getParkingSpace().getParkedUser().getUsername())){
-                    user.getCredits().addCredits(getParkingSpace().getPrice().getPoints());
-                }
-            }
-            return true;
+            users.get(indexReq).getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
+            users.get(indexReq).setPenalty(penalty);
+            users.get(indexParked).getCredits().addCredits(getParkingSpace().getPrice().getPoints());
+            return users;
         }
-        return false;
+        return new ArrayList<User>();
     }
 
 
     @Override
     public String toString() {
-        Locale locale = new Locale("gr", "GR");
-        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.DEFAULT, locale);
-        String dateS = dateFormat.format(date);
         return "ParkingRequest{" +
-                "date=" + dateS +
+                "date=" + date +
                 ", pin=" + pin +
                 ", requestingUser=" + requestingUser +
                 ", parkingSpace=" + parkingSpace +
