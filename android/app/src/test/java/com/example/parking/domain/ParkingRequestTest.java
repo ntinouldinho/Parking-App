@@ -103,17 +103,33 @@ public class ParkingRequestTest {
     }
 
     @Test
-    public void findParking() {
+    public void findOneParking() {
         users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
 
         ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
         parkingList.add(testParking1);
-        System.out.println(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0).size());
-        assertNotNull(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(15800)),0));
-    }
 
+        assertEquals(1,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0)).size());
+    }
     @Test
-    public void validateParking() {
+    public void findMultipleParking() {
+        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+
+        ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
+        parkingList.add(testParking1);
+        ParkingSpace testParking2 = new ParkingSpace(new Address("agias","53",new ZipCode(18510)),false,credits,new TimeRange(30),new Date(),userParked,"APL1000");
+        parkingList.add(testParking2);
+
+         assertEquals(2,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0)).size());
+    }
+    @Test
+    public void findNoParking() {
+        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+
+        ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
+        parkingList.add(testParking1);
+        assertEquals(0,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(10000)),0)).size());
+
     }
 
 //    @Test
