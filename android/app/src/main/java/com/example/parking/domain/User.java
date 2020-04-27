@@ -17,7 +17,6 @@ public class User {
     private ArrayList<Rating> rating;
     private ArrayList<Vehicle> vehicles;
 
-//TODO create tests for construtor
     public User(String name, String surname, String phone, String email, String username, String password, Address address, ArrayList<Rating> rating, ArrayList<Vehicle> vehicles) {
         this.name = name;
         this.surname = surname;
@@ -130,10 +129,10 @@ public class User {
                     return vehicle;
                 }
             }
+            return new Vehicle();
         }else{
             return new Vehicle();
         }
-        return new Vehicle();
     }
 
     public void setPenalty(int penalty){

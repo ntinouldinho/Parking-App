@@ -12,12 +12,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.TimeZone;
 
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class TimeRange {
     static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
     private LocalDateTime from;
     private LocalDateTime to;
-
     public TimeRange(LocalDateTime from, LocalDateTime to) {
         this.from = from;
         this.to = to;
@@ -27,7 +27,6 @@ public class TimeRange {
         this.from = from;
         this.to = addMinutes(from, extraMinutesTillExchange);
     }
-
     public TimeRange(long extraMinutesTillExchange) {
         this.from = LocalDateTime.now();
         this.to = addMinutes(from, extraMinutesTillExchange);
