@@ -1,4 +1,4 @@
-package com.example.parking.model;
+package com.example.parking.util;
 
 import android.os.Build;
 

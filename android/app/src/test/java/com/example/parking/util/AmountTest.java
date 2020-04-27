@@ -1,4 +1,4 @@
-package com.example.parking.model;
+package com.example.parking.util;
 
 import com.example.parking.util.Amount;
 import com.example.parking.util.Currency;
