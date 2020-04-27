@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -148,6 +149,10 @@ public class ParkingRequestTest {
     }
     @Test
     public void ValidateLateUserParkingTest(){
+        LocalDateTime now= parkingRequest.getDate().getTo();
+        LocalDateTime changed = now.minusMinutes(35);
+        parkingRequest.getDate().setTo(changed);
+        System.out.println(parkingRequest.getDate().toString());
         List<Object> result = parkingRequest.validateParking(users,parkingRequest.getPin());
         int statusCode = (int)result.get(1);
         assertEquals(3,statusCode);

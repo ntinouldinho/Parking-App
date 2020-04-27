@@ -8,11 +8,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.TimeZone;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class TimeRange {
+    static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
     private LocalDateTime from;
     private LocalDateTime to;
 
@@ -55,14 +57,14 @@ public class TimeRange {
         return date.plusMinutes(minutes);
     }
 
-/**
+
     @Override
     public String toString() {
-        final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.ENGLISH);
-        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-        return dateFormat.format(from) +
-                " -- " +
-                dateFormat.format(to);
+        String fromstr = from.format(formatter);
+        String tostr = to.format(formatter);
+        return "TimeRange{" +
+                "from=" + from +
+                ", to=" + to +
+                '}';
     }
-    */
 }

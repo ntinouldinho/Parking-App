@@ -134,6 +134,7 @@ public class ParkingRequest{
         long minutesDif = currentTime.getDifference();
         int mod = (int)minutesDif%3;
         int penalty = mod*1;
+        System.out.println(minutesDif);
         if(minutesDif>=30){
             penalty+=2;
             users.get(indexReq).setPenalty(penalty);
