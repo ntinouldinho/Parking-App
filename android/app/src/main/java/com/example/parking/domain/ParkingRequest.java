@@ -117,8 +117,6 @@ public class ParkingRequest{
                     user.getCredits().addCredits(getParkingSpace().getPrice().getPoints());
                 }
             }
-
-            //TODO thn enalaktikh roh 1b ths Επιβεβαίωση διαθεσιμότητας θέσης
             return true;
         }
         return false;

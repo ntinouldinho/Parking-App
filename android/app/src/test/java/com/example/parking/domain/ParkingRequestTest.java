@@ -30,6 +30,7 @@ public class ParkingRequestTest {
     ZipCode zipCode;
     Credits credits;
     private ParkingSpace parkingSpace;
+    private List<User> users = new ArrayList<User>();
     private List<ParkingSpace> parkingList = new ArrayList<ParkingSpace>();
 
     @Before
@@ -38,6 +39,7 @@ public class ParkingRequestTest {
         pin = new Pin(5000);
         zipCode = new ZipCode(18560);
         credits = new Credits(10);
+
         vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
 
         addressParked = new Address("vasilisis","53",zipCode);
@@ -47,6 +49,10 @@ public class ParkingRequestTest {
         userParked.addVehicle(vehicle);
 
         userSearching = new User("konnos","kon","6940404040","email","konnnos","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+
+
+        users.add(userParked);
+        users.add(userSearching);
 
         parkingSpace = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1551");
         parkingList.add(parkingSpace);
@@ -98,6 +104,9 @@ public class ParkingRequestTest {
 
     @Test
     public void findParking() {
+        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+        ParkingSpace testParking1 = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
+
     }
 
     @Test
