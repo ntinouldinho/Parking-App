@@ -29,6 +29,13 @@ public class ZipCode {
         }
     }
 
+    @Override
+    public String toString() {
+        return "ZipCode{" +
+                "zip=" + zip +
+                '}';
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public boolean equals(Object o) {

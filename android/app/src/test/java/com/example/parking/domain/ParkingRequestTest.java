@@ -30,8 +30,8 @@ public class ParkingRequestTest {
     ZipCode zipCode;
     Credits credits;
     private ParkingSpace parkingSpace;
-    private List<User> users = new ArrayList<User>();
-    private List<ParkingSpace> parkingList = new ArrayList<ParkingSpace>();
+    private ArrayList<User> users = new ArrayList<User>();
+    private ArrayList<ParkingSpace> parkingList = new ArrayList<ParkingSpace>();
 
     @Before
     public void setup(){
@@ -105,8 +105,11 @@ public class ParkingRequestTest {
     @Test
     public void findParking() {
         users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
-        ParkingSpace testParking1 = new ParkingSpace(addressParked,false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
 
+        ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
+        parkingList.add(testParking1);
+        System.out.println(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0).size());
+        assertNotNull(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(15800)),0));
     }
 
     @Test
