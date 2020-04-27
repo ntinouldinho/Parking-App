@@ -154,8 +154,9 @@ public class ParkingRequestTest {
         parkingRequest.getDate().setTo(changed);
         System.out.println(parkingRequest.getDate().toString());
         List<Object> result = parkingRequest.validateParking(users,parkingRequest.getPin());
+
         int statusCode = (int)result.get(1);
-        assertEquals(3,statusCode);
+        assertEquals(2,statusCode);
     }
     @Test
     public void ValidateCorrectParkingTest(){

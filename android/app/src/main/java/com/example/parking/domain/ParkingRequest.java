@@ -130,7 +130,8 @@ public class ParkingRequest{
             return returnList;
         }
         TimeRange currentTime = new TimeRange(0);
-        currentTime.setFrom(date.getFrom());
+        currentTime.setFrom(date.getTo());
+        System.out.println(currentTime.toString());
         long minutesDif = currentTime.getDifference();
         int mod = (int)minutesDif%3;
         int penalty = mod*1;
