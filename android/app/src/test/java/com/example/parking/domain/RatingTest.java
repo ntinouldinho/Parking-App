@@ -1,8 +1,8 @@
 package com.example.parking.domain;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.testng.Assert;
 
 import static org.junit.Assert.*;
 
