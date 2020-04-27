@@ -6,8 +6,15 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 public class CreditsTest {
     private Credits credits;
+
+    @Test
+    public void FullConTest() {
+       Credits c = new Credits(10);
+    }
 
     @Before
     public void setup(){

@@ -15,6 +15,12 @@ public class AmountTest {
     BigDecimal number;
     CurrencyEnum currencyEnum;
     Currency currency;
+
+    @Test
+    public void FullConTest() {
+        Amount a = new Amount(new Currency(),new BigDecimal(10));
+    }
+
     @Before
     public void setup(){
         number = new BigDecimal(100);

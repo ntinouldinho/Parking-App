@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import java.sql.Time;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.Date;
 import org.junit.Before;
@@ -154,6 +155,22 @@ public class ParkingSpaceTest {
         parkingSpace.makeParkingAvailable();
         assertEquals(true,parkingSpace.getAvailability());
         assertEquals(new Date(),parkingSpace.getTimeOfExchange());
+    }
+
+    @Test
+    public void toStringTest() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String strDate = dateFormat.format(timeOfExchange);
+        String str="ParkingSpace{" +
+                "address=" + address +
+                ", availability=" + availability +
+                ", price=" + price +
+                ", timeRange=" + timeRange +
+                ", timeOfExchange=" + strDate +
+                ", parkedUser=" + parkedUser +
+                ", plate='" + plate + '\'' +
+                '}';
+        assertEquals(str,parkingSpace.toString());
     }
 
 }

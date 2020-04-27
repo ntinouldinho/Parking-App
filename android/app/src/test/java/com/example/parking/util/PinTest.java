@@ -13,6 +13,12 @@ public class PinTest {
         pin = new Pin();
         pin.setPin(1234);
     }
+
+    @Test
+    public void FullConTest() {
+        Pin p = new Pin(100);
+    }
+
     @Test
     public void setCorrectPinTest() {
         assertEquals(1234,pin.getPin());

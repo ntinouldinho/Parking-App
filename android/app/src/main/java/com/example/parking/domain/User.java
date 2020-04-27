@@ -27,23 +27,9 @@ public class User {
         this.password = password;
         this.credits = new Credits(10 );
         this.address = address;
-        if(rating.size()>0) {
-            for (Rating r : rating) {
-                this.rating.add(r);
-            }
-        }else {
-            this.rating = new ArrayList<Rating>();
-        }
-
-        if(vehicles.size()>0) {
-            for (Vehicle v : vehicles) {
-                this.vehicles.add(v);
-            }
-        }else {
-            this.vehicles = new ArrayList<Vehicle>();
-        }
+        this.rating = new ArrayList<Rating>(rating);
+        this.vehicles = new ArrayList<Vehicle>(vehicles);
     }
-
     public User(){
         this.name = "";
         this.surname = "";
@@ -137,9 +123,15 @@ public class User {
         return vehicles;
     }
 
-    public Vehicle getVehicle(String plate){
-        for(Vehicle vehicle:getVehicles()){
-            if(vehicle.getPlate().equals(plate))return vehicle;
+    public Vehicle getVehicle(String plate) {
+        if (getVehicles().size() > 0) {
+            for (Vehicle vehicle : getVehicles()) {
+                if (vehicle.getPlate().equals(plate)) {
+                    return vehicle;
+                }
+            }
+        }else{
+            return new Vehicle();
         }
         return new Vehicle();
     }
@@ -178,12 +170,10 @@ public class User {
         }
 
     }
-
     /**Αφαιρειί ένα όχημα (μόνο αν ο χρήστης έχει 2 και πάνω.
      *
      * @param vehicle
      */
-
     public void removeVehicle(Vehicle vehicle){
         if(vehicles.size()>0){
             for (Vehicle v : vehicles) {
@@ -199,7 +189,6 @@ public class User {
      *
      * @return τον Μ.Ο. αξιολογήσεων.
      */
-
     public double calculateRating(){
         int currentRating = 0;
         for(Rating rate: rating){

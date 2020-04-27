@@ -267,4 +267,17 @@ public class UserTest {
         assertEquals(str,u.toString());
     }
 
+    @Test
+    public void setPenaltyTo0() {
+        u.setCredits(new Credits(10));
+        u.setPenalty(11);
+        assertEquals(0,u.getCredits().getPoints());
+    }
+
+    @Test
+    public void setPenaltyOK() {
+        u.setCredits(new Credits(10));
+        u.setPenalty(9);
+        assertEquals(1,u.getCredits().getPoints());
+    }
 }

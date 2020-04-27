@@ -24,6 +24,11 @@ public class CurrencyTest {
     }
 
     @Test
+    public void FullConTest() {
+        Currency c = new Currency(new BigDecimal(10),CurrencyEnum.EUR);
+    }
+
+    @Test
     public void getAmountTest() {
         assertEquals(number,c1.getAmount());
     }
@@ -31,6 +36,15 @@ public class CurrencyTest {
     @Test
     public void getCurrency() {
         assertEquals(CurrencyEnum.EUR,c1.getCurrency());
+    }
+
+    @Test
+    public void toStringTest() {
+        String str="Currency{" +
+                "amount=" + number +
+                ", currency=" + currencyEnum +
+                '}';
+        assertEquals(str,c1.toString());
     }
 
 }

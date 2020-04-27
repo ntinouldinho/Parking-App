@@ -55,7 +55,7 @@ public class TimeRange {
         return date.plusMinutes(minutes);
     }
 
-
+/**
     @Override
     public String toString() {
         final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.ENGLISH);
@@ -64,4 +64,5 @@ public class TimeRange {
                 " -- " +
                 dateFormat.format(to);
     }
+    */
 }

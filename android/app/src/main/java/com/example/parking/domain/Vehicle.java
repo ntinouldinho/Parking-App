@@ -88,8 +88,8 @@ public class Vehicle {
 		return brand;
 	}
 
-	@java.lang.Override
-	public java.lang.String toString() {
+	@Override
+	public String toString() {
 		return "Vehicle{" +
 				"colour=" + colour +
 				", length=" + length +

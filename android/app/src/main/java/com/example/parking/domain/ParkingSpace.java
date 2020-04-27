@@ -8,6 +8,8 @@ import com.example.parking.util.Credits;
 import com.example.parking.util.TimeRange;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -114,14 +116,16 @@ public class ParkingSpace {
 		setTimeOfExchange(new Date());
 	}
 
-	@Override
+
 	public String toString() {
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		String strDate = dateFormat.format(timeOfExchange);
 		return "ParkingSpace{" +
 				"address=" + address +
 				", availability=" + availability +
 				", price=" + price +
 				", timeRange=" + timeRange +
-				", timeOfExchange=" + timeOfExchange +
+				", timeOfExchange=" + strDate +
 				", parkedUser=" + parkedUser +
 				", plate='" + plate + '\'' +
 				'}';
