@@ -157,9 +157,17 @@ public class UserTest {
     }
 
     @Test
+    public void getVehicleFromEmptyTest() {
+        vehicles.clear();
+        assertNotNull(u.getVehicle("APK1551"));
+    }
+
+    @Test
     public void getVehicleAndItDoesNotExistTest() {
+        vehicles.clear();
         Vehicle v = new Vehicle();
-        v.setPlate("APK1551");
+        v.setPlate("APK1550");
+        vehicles.add(v);
         assertThat(v.getPlate(),not(u.getVehicle("APK1551").getPlate()));
     }
 
@@ -195,7 +203,20 @@ public class UserTest {
         u.getVehicles().add(vehicle);
         assertEquals(1,u.getVehicles().size());
     }
-
+    @Test
+    public void addSecondVehicleTest() {
+        Vehicle vehicle1 = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1550","2004 Aztek","Pontiac" );
+        u.addVehicle(vehicle1);
+        Vehicle vehicle2 = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
+        u.addVehicle(vehicle2);
+        assertEquals(2,u.getVehicles().size());
+    }
+    @Test
+    public void addEmptyArrayVehicleTest() {
+        Vehicle vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
+        u.getVehicles().add(vehicle);
+        assertEquals(1,u.getVehicles().size());
+    }
     @Test
     public void addVehicleTestAlreadyExists() {
         Vehicle vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
@@ -213,7 +234,21 @@ public class UserTest {
         u.removeVehicle(vehicle);
         assertEquals(0,u.getVehicles().size());
     }
-
+    @Test
+    public void removeVehicleFromEmptyTest() {
+        u.getVehicles().clear();
+        Vehicle vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
+        u.removeVehicle(vehicle);
+        assertEquals(0,u.getVehicles().size());
+    }
+    @Test
+    public void removeVehicleThatDoesntExistTest() {
+        Vehicle vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1550","2004 Aztek","Pontiac" );
+        u.addVehicle(vehicle);
+        Vehicle vehicleTest = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
+        u.removeVehicle(vehicleTest);
+        assertEquals(1,u.getVehicles().size());
+    }
     @Test
     public void removeVehicleThatDoesNotExistTest() {
         Vehicle vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
