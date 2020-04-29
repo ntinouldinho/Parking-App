@@ -62,8 +62,8 @@ public class TimeRange {
         String fromstr = from.format(formatter);
         String tostr = to.format(formatter);
         return "TimeRange{" +
-                "from=" + from +
-                ", to=" + to +
+                "from=" + fromstr +
+                ", to=" + tostr +
                 '}';
     }
 }
