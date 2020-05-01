@@ -122,6 +122,14 @@ public class User {
         return vehicles;
     }
 
+    public void addCredits(Credits credits){
+        getCredits().addCredits(credits.getPoints());
+    }
+
+    public void removeCredits(Credits credits){
+        getCredits().removeCredits(credits.getPoints());
+    }
+
     public Vehicle getVehicle(String plate) {
         if (getVehicles().size() > 0) {
             for (Vehicle vehicle : getVehicles()) {
