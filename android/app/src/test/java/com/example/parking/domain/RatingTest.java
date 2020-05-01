@@ -23,6 +23,7 @@ public class RatingTest {
     @Test
     public void FullConTest() {
         Rating r = new Rating(5,"Awesome!");
+        assertNotNull(r);
     }
 
     @Test

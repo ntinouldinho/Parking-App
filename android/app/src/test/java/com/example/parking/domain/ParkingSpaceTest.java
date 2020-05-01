@@ -76,9 +76,8 @@ public class ParkingSpaceTest {
 
     @Test
     public void setAvailabilityTest() {
-        Boolean f = true;
-        parkingSpace.setAvailability(f);
-        assertEquals(f,parkingSpace.getAvailability());
+        parkingSpace.setAvailability(true);
+        assertTrue(parkingSpace.getAvailability());
     }
 
     @Test
@@ -146,14 +145,14 @@ public class ParkingSpaceTest {
     @Test
     public void makeParkingUnavailableTest() {
         parkingSpace.makeParkingUnavailable();
-        assertEquals(false,parkingSpace.getAvailability());
+        assertFalse(parkingSpace.getAvailability());
         assertEquals(new Date(System.currentTimeMillis()),parkingSpace.getTimeOfExchange());
     }
 
     @Test
     public void makeParkingAvailableTest() {
         parkingSpace.makeParkingAvailable();
-        assertEquals(true,parkingSpace.getAvailability());
+        assertTrue(parkingSpace.getAvailability());
         assertEquals(new Date(),parkingSpace.getTimeOfExchange());
     }
 

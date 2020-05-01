@@ -26,6 +26,7 @@ public class CurrencyTest {
     @Test
     public void FullConTest() {
         Currency c = new Currency(new BigDecimal(10),CurrencyEnum.EUR);
+        assertNotNull(c);
     }
 
     @Test
