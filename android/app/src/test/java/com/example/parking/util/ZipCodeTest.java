@@ -19,6 +19,7 @@ public class ZipCodeTest {
     @Test
     public void FullConTest() {
         ZipCode zed = new ZipCode(5015);
+        assertNotNull(zed);
     }
     @Test
     public void setCorrectZipTest() {

@@ -19,6 +19,7 @@ public class AmountTest {
     @Test
     public void FullConTest() {
         Amount a = new Amount(new Currency(),new BigDecimal(10));
+        assertNotNull(a);
     }
 
     @Before

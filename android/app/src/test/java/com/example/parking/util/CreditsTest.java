@@ -14,6 +14,7 @@ public class CreditsTest {
     @Test
     public void FullConTest() {
        Credits c = new Credits(10);
+       assertNotNull(c);
     }
 
     @Before

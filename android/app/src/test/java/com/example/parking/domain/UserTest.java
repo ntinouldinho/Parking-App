@@ -86,7 +86,6 @@ public class UserTest {
 
     @Test
     public void getCreditsTest() {
-        System.out.println(u.getCredits());
         assertEquals(10,u.getCredits().getPoints());
     }
 
@@ -241,6 +240,7 @@ public class UserTest {
         u.removeVehicle(vehicle);
         assertEquals(0,u.getVehicles().size());
     }
+
     @Test
     public void removeVehicleThatDoesntExistTest() {
         Vehicle vehicle = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1550","2004 Aztek","Pontiac" );

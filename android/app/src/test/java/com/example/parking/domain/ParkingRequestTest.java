@@ -66,6 +66,7 @@ public class ParkingRequestTest {
     @Test
     public void EmptyConTest() {
         ParkingRequest ok = new ParkingRequest();
+        assertNotNull(ok);
     }
 
     @Test

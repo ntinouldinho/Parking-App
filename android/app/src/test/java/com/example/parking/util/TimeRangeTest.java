@@ -39,6 +39,7 @@ public class TimeRangeTest {
     @Test
     public void FullConTest() {
         TimeRange time = new TimeRange(LocalDateTime.now(),LocalDateTime.now());
+        assertNotNull(time);
     }
 
 
@@ -48,7 +49,7 @@ public class TimeRangeTest {
         LocalDateTime a = LocalDateTime.of(2021, 2, 13, 15, 56);
         TimeRange time = new TimeRange(a,30);
         from=a;
-        Assert.assertEquals(from.withNano(0),time.getFrom().withNano(0));
+        assertEquals(from.withNano(0),time.getFrom().withNano(0));
     }
 
     @Test
@@ -65,7 +66,7 @@ public class TimeRangeTest {
     public void addMinutesTest(){
         TimeRange time = new TimeRange(LocalDateTime.now(),0);
         time.setTo(time.addMinutes(time.getTo(),30));
-        Assert.assertEquals(30,time.getDifference());
+        assertEquals(30,time.getDifference());
     }
 
     @Test
@@ -77,7 +78,7 @@ public class TimeRangeTest {
                 ", to=" + tostr +
                 '}';
         System.out.println(tr);
-        Assert.assertEquals(str,tr.toString());
+        assertEquals(str,tr.toString());
     }
 }
 

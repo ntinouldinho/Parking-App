@@ -17,6 +17,7 @@ public class PinTest {
     @Test
     public void FullConTest() {
         Pin p = new Pin(100);
+        assertNotNull(p);
     }
 
     @Test

@@ -117,6 +117,7 @@ public class VehicleTest {
     @Test
     public void FullConTest() {
         Vehicle veh = new Vehicle(Colour.Golden,511,"Large SUV", "MEA6157","Escalade","Cadillac");
+        assertNotNull(veh);
     }
 
 }
