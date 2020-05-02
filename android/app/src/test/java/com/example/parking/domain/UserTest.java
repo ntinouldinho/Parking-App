@@ -137,6 +137,17 @@ public class UserTest {
     }
 
     @Test
+    public void addCreditsTest() {
+        u.addCredits(new Credits(10));
+        assertEquals(20,u.getCredits().getPoints());
+    }
+
+    @Test
+    public void removeCreditsTest() {
+        u.removeCredits(new Credits(10));
+        assertEquals(0,u.getCredits().getPoints());
+    }
+    @Test
     public void setCreditsTest() {
         Credits temp= new Credits(10);
         u.setCredits(temp);
