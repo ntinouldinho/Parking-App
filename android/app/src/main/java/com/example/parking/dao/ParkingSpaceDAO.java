@@ -14,4 +14,8 @@ public interface ParkingSpaceDAO {
 
 
     List<ParkingSpace> findAll();
+
+    ParkingSpace find(ParkingSpace parking);
+
+    List <ParkingSpace> findAllAvailable();
 }
