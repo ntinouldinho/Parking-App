@@ -10,4 +10,11 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="submit_parking">Submit Parking</string>
+    <string name="credits">Credits</string>
+    <string name="not">Not</string>
+    <string name="todo">TODO</string>
+    <string name="request_parking">Request Parking</string>
+    <string name="profile">Profile</string>
+    <string name="add_credits">Add Credits</string>
 </resources>
