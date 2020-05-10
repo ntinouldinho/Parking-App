@@ -42,6 +42,7 @@ public class SignUp extends AppCompatActivity {
             return false;
         }else{
             PhoneEditText.setError(null);
+            Toast.makeText(., "", Toast.LENGTH_SHORT).show();
             return true;
         }
     }
