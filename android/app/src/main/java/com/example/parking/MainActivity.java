@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent myIntent = new Intent(this, MakeParkingRequest.class);
+        Intent myIntent = new Intent(this, ViewVehicles.class);
         startActivity(myIntent);
     }
 }
