@@ -12,9 +12,9 @@ public interface UserDAO {
 
     void delete(User u);
 
-    String find(String username);
+    User find(String username);
 
     List<User> findAll();
 
-
+    User login(String username,String password);
 }

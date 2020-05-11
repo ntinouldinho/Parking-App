@@ -1,11 +1,11 @@
-package com.example.parking;
+package com.example.parking.ui.newParking;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
+import com.example.parking.R;
 import java.util.ArrayList;
 
 public class NewParkingSpace extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.parking;
+package com.example.parking.ui.viewVehicle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,8 +18,9 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.parking.R;
 import com.example.parking.domain.Vehicle;
+import com.example.parking.ui.addVehicle.AddVehicle;
 import com.example.parking.util.Colour;
 
 import java.math.BigInteger;
@@ -37,24 +38,7 @@ public class ViewVehicles extends AppCompatActivity {
         setContentView(R.layout.activity_view_vehicles);
         int colorBackground = Color.parseColor("#337FFF");
         int colorText = Color.parseColor("#ffffff");
-        /* LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.activity_view_vehicles, null);
-        LinearLayout newLayout = v.findViewById(R.id.search_layout);
-        // Create a LinearLayout element
-        LinearLayout ll = new LinearLayout(this);
-        ll.setOrientation(LinearLayout.VERTICAL);
 
-        // Add text
-        TextView tv = new TextView(this);
-        tv.setText("my text");
-        ll.addView(tv);
-
-        // Add the LinearLayout element to the ScrollView
-        v.addView(ll);
-
-        // Display the view
-        setContentView(v);
-        */
         Log.e("ot",wifiIpAddress(this));
         Toast.makeText(getApplicationContext(),wifiIpAddress(this),Toast.LENGTH_LONG).show();
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -1,4 +1,4 @@
-package com.example.parking;
+package com.example.parking.ui.addVehicle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import com.example.parking.R;
 
 public class AddVehicle extends AppCompatActivity {
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;

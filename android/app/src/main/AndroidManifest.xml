@@ -13,22 +13,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewParkingSpace"></activity>
-        <activity android:name=".AddVehicle" />
-        <activity android:name=".ViewVehicles" />
-        <activity android:name=".SignUp" />
-        <activity android:name=".HomeScreenActivity" />
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.newParking.NewParkingSpace"></activity>
+        <activity android:name=".ui.addVehicle.AddVehicle" />
+        <activity android:name=".ui.viewVehicle.ViewVehicles" />
+        <activity android:name=".ui.signup.SignUp" />
+        <activity android:name=".ui.homescreen.HomeScreenActivity" />
+
+        <activity android:name=".ui.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserProfile" />
+        <activity android:name=".ui.viewUser.UserProfile" />
     </application>
 
 </manifest>

@@ -19,7 +19,17 @@ public class UserDAOMemory implements UserDAO {
             users.add(u);
         }
     }
-
+    @Override
+    public User login(String username,String password){
+        User currentUser = find(username);
+        if(currentUser!=null){
+            if(currentUser.getPassword().equals(password)) {
+                return currentUser;
+            }
+            return null;
+        }
+        return null;
+    }
     @Override
     public void delete(User u){
         users.remove(u);
@@ -30,10 +40,10 @@ public class UserDAOMemory implements UserDAO {
     }
 
     @Override
-    public String find(String username){
+    public User find(String username){
         for(User u: users){
             if(u.getUsername().equals(username)){
-                return username;
+                return u;
             }
         }
         return null;

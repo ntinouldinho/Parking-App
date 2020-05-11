@@ -1,10 +1,10 @@
-package com.example.parking;
+package com.example.parking.ui.viewUser;
 
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import com.example.parking.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class UserProfile extends AppCompatActivity

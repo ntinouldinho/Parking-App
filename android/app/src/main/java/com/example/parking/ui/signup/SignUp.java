@@ -1,4 +1,4 @@
-package com.example.parking;
+package com.example.parking.ui.signup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.parking.R;
 import com.example.parking.domain.User;
 
 public class SignUp extends AppCompatActivity {
