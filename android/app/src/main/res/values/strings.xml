@@ -36,5 +36,12 @@
     <string name="streetNumber">Street Number</string>
     <string name="length">Length</string>
     <string name="add_vehicle">Add Vehicle</string>
+    <string name="user_icon">User Icon</string>
+    <string name="address">Address</string>
+    <string name="amount">amount</string>
+    <string name="plus">+</string>
+    <string name="manage_cars">Manage Cars</string>
     <string name="zip">Zipcode</string>
+    <string name="save">Save</string>
+
 </resources>
