@@ -42,6 +42,7 @@
     <string name="plus">+</string>
     <string name="manage_cars">Manage Cars</string>
     <string name="zip">Zipcode</string>
+    <string name="addSpace">Add Parking</string>
     <string name="save">Save</string>
 
 </resources>
