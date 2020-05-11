@@ -27,4 +27,12 @@
     <string name="email">Email</string>
     <string name="button">Button</string>
     <string name="phone">Phone</string>
+    <string name="color">Color</string>
+    <string name="model">Model</string>
+    <string name="brand">Brand</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="text">Text</string>
+    <string name="plate">Plate</string>
+    <string name="streetNumber" />
+    <string name="length">Length</string>
 </resources>

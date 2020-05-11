@@ -9,10 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SignUp extends AppCompatActivity {
+import com.example.parking.domain.User;
 
+public class SignUp extends AppCompatActivity {
     private EditText ZipCodeEditText,PhoneEditText;
-    private TextView ZipCodeTextView;
     private String zipCode,phone;
     Button signUpB;
     @Override
@@ -28,10 +28,12 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 validatePhone();
+                validateZipCode();
             }
         });
 
     }
+
     private boolean validatePhone(){
         phone = PhoneEditText.getText().toString().trim();
         if(phone.isEmpty()){
@@ -42,12 +44,28 @@ public class SignUp extends AppCompatActivity {
             return false;
         }else{
             PhoneEditText.setError(null);
-            Toast.makeText(., "", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Phone added",Toast.LENGTH_SHORT).show();
             return true;
         }
     }
+
+    private boolean validateZipCode(){
+        zipCode = ZipCodeEditText.getText().toString().trim();
+        if(zipCode.isEmpty()){
+            ZipCodeEditText.setError("ZIP Code cannot be empty");
+            return false;
+        }else if(zipCode.length()!=5){
+            ZipCodeEditText.setError("ZIP Code must be 5 digits");
+            return false;
+        }else{
+            ZipCodeEditText.setError(null);
+            Toast.makeText(this,"ZIP Code added",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
     public void signUp (View v){
-        if(!validatePhone()){
+        if(!validatePhone()||!validateZipCode()){
             return;
         }
     }
