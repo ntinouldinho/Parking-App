@@ -19,6 +19,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         parkingSpace = (Button) findViewById(R.id.submit);
         request = (Button) findViewById(R.id.request);
         profile = (Button) findViewById(R.id.profile);
+
         parkingSpace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

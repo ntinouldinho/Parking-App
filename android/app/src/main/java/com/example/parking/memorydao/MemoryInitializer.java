@@ -4,7 +4,6 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.parking.dao.Initializer;
 import com.example.parking.dao.ParkingRequestDAO;
 import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.dao.UserDAO;
@@ -27,11 +26,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@RequiresApi(api = Build.VERSION_CODES.O)
-public class MemoryInitializer extends Initializer {
+public class MemoryInitializer {
+    private static ParkingRequestDAO PRDao = new ParkingRequestDAOMemory();
+    private static ParkingSpaceDAO PSDao = new ParkingSpaceDAOMemory();
+    private static UserDAO UDao = new UserDAOMemory();
+    private static VehicleDAO VDao = new VehicleDAOMemory();
 
-    @Override
-    protected void eraseData() {
+    protected static void eraseData() {
         List<User> users = getUserDAO().findAll();
         for(User user : users) {
             getUserDAO().delete(user);
@@ -52,8 +53,8 @@ public class MemoryInitializer extends Initializer {
 
 
 
-    @Override
-    public void prepareData(){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void prepareData(){
         eraseData();
 
         //Init addresses
@@ -150,24 +151,23 @@ public class MemoryInitializer extends Initializer {
 
     }
 
-    @Override
-    public ParkingRequestDAO getRequestDAO() {
-        return new ParkingRequestDAOMemory();
+    public static ParkingRequestDAO getRequestDAO() {
+        return PRDao;
     }
 
-    @Override
-    public ParkingSpaceDAO getParkingDAO() {
-        return new ParkingSpaceDAOMemory();
+
+    public static ParkingSpaceDAO getParkingDAO() {
+        return PSDao;
     }
 
-    @Override
-    public UserDAO getUserDAO() {
-        return new UserDAOMemory();
+
+    public static UserDAO getUserDAO() {
+        return UDao;
     }
 
-    @Override
-    public VehicleDAO getVehicleDAO() {
-        return new VehicleDAOMemory();
+
+    public static VehicleDAO getVehicleDAO() {
+        return VDao;
     }
 
 }
