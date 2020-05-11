@@ -17,4 +17,8 @@ public interface UserDAO {
     List<User> findAll();
 
     User login(String username,String password);
+
+    Vehicle findVehicle(String usernam,String plate);
+
+    void updateVehicle(String username,Vehicle vehicle);
 }

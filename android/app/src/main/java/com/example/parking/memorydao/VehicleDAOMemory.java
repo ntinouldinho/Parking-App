@@ -40,9 +40,10 @@ public class VehicleDAOMemory implements VehicleDAO {
 
 //    @Override
 //    public List<Vehicle> findByUser(String username) {
-//        List<Vehicle> vs = new ArrayList<>();
+//
 //        if (username != null) {
-//            for (Vehicle v : Vehicle) {
+//            List<Vehicle> vs = findAll();
+//            for (Vehicle v : vs) {
 //                Set<User> u = v.getPlate();
 //                for (User u : users) {
 //                    if (u.getUsername().equalsIgnoreCase(username)) {

@@ -25,7 +25,7 @@ public class AddVehicle extends AppCompatActivity {
         setContentView(R.layout.activity_add_vehicle);
 
         Spinner spinner = (Spinner) findViewById(R.id.Color);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddVehicle.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item,paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -65,7 +65,7 @@ public class AddVehicle extends AppCompatActivity {
         String value = getIntent().getExtras().getString("mode");
         if(value.equals("edit")){
             PlateEditText.setText(getIntent().getExtras().getString("plate"));
-            ModelEditText.setText(getIntent().getExtras().getString("model"));
+            ModelEditText.setText(getIntent().getExtras().getString("brand"));
             BrandEditText.setText(getIntent().getExtras().getString("model"));
             LengthText.setText(getIntent().getExtras().getString("length"));
             TextText.setText(getIntent().getExtras().getString("text"));

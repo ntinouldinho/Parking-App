@@ -14,8 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.newParking.NewParkingSpace"></activity>
-        <activity android:name=".ui.addVehicle.AddVehicle" />
-        <activity android:name=".ui.viewVehicle.ViewVehicles" />
+        <activity android:name=".ui.viewOneVehicle.viewOneVehicle" />
+        <activity android:name=".ui.viewVehicles.ViewVehicles" />
         <activity android:name=".ui.signup.SignUp" />
         <activity android:name=".ui.homescreen.HomeScreenActivity" />
 

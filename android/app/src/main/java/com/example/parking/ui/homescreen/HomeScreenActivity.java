@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.example.parking.ui.newParking.NewParkingSpace;
 import com.example.parking.R;
 import com.example.parking.ui.viewUser.UserProfile;
-import com.example.parking.ui.viewVehicle.ViewVehicles;
+import com.example.parking.ui.viewVehicles.ViewVehicles;
 
 public class HomeScreenActivity extends AppCompatActivity {
     Button parkingSpace;
@@ -36,6 +36,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomeScreenActivity.this, ViewVehicles.class);
+                myIntent.putExtra("username", getUserName());
                 startActivity(myIntent);
             }
         });
@@ -47,5 +48,10 @@ public class HomeScreenActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public String getUserName()
+    {
+        return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
 }

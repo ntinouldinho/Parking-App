@@ -49,7 +49,33 @@ public class UserDAOMemory implements UserDAO {
         return null;
     }
 
+    @Override
+    public Vehicle findVehicle(String username,String plate){
+        for(User u: users){
+            if(u.getUsername().equals(username)){
+                for(Vehicle vehicle:u.getVehicles()){
+                    if(vehicle.getPlate().equals(plate)){
+                        return vehicle;
+                    }
+                }
+                return null;
+            }
+        }
+        return null;
+    }
 
+    @Override
+    public void updateVehicle(String username,Vehicle temp){
+        for(User u: users){
+            if(u.getUsername().equals(username)){
+                for(int i=0;i<u.getVehicles().size();i++){
+                    if(u.getVehicles().get(i).getPlate().equals(temp.getPlate())){
+                        u.getVehicles().set(i,temp);
+                    }
+                }
+            }
+        }
+    }
 
 
 }
