@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddVehicle extends AppCompatActivity {
-    private EditText PlateEditText,ModelEditText,BrandEditText;
+    private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
     private String plate,model,brand;
     Button addVehicleBtn;
 
@@ -22,7 +22,6 @@ public class AddVehicle extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
-
 
         Spinner spinner = (Spinner) findViewById(R.id.Color);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(AddVehicle.this,
@@ -59,7 +58,18 @@ public class AddVehicle extends AppCompatActivity {
         PlateEditText = (EditText) findViewById(R.id.plate);
         ModelEditText = (EditText) findViewById(R.id.model);
         BrandEditText = (EditText) findViewById(R.id.brand);
+        LengthText = (EditText) findViewById(R.id.length);
+        TextText = (EditText) findViewById(R.id.text);
 
+        String value = getIntent().getExtras().getString("mode");
+        if(value.equals("edit")){
+            PlateEditText.setText(getIntent().getExtras().getString("plate"));
+            ModelEditText.setText(getIntent().getExtras().getString("model"));
+            BrandEditText.setText(getIntent().getExtras().getString("model"));
+            LengthText.setText(getIntent().getExtras().getString("length"));
+            TextText.setText(getIntent().getExtras().getString("text"));
+        }
+            Toast.makeText(getApplicationContext(),value,Toast.LENGTH_LONG).show();
         addVehicleBtn = (Button) findViewById(R.id.addVehicleBtn);
         addVehicleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
