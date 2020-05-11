@@ -10,6 +10,7 @@ import android.widget.Button;
 public class HomeScreenActivity extends AppCompatActivity {
     Button parkingSpace;
     Button request;
+    Button profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,13 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomeScreenActivity.this, ViewVehicles.class);
+                startActivity(myIntent);
+            }
+        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(HomeScreenActivity.this, UserProfile.class);
                 startActivity(myIntent);
             }
         });
