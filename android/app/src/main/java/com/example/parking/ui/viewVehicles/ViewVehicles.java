@@ -20,7 +20,6 @@ import android.widget.Toast;
 import com.example.parking.R;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.addVehicle.AddVehicle;
 import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
 import com.example.parking.util.Colour;
 

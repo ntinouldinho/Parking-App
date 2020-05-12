@@ -7,5 +7,6 @@ public interface LoginView {
     void createToast(String text);
     String getUsername();
     String getPassword();
+    void signup();
     void onCreate(Bundle savedInstanceState);
 }

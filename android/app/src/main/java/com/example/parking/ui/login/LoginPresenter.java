@@ -23,4 +23,8 @@ public class LoginPresenter {
             view.createToast("Wrong username or password");
         }
     }
+
+    public void signup(){
+        view.signup();
+    }
 }

@@ -13,7 +13,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.addVehicle.AddVehicle;
 
 public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleView{
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
