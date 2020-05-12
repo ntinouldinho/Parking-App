@@ -9,99 +9,122 @@
         android:id="@+id/phoneUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="520dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/phone"
         android:inputType="textPersonName|phone"
+        app:layout_constraintBottom_toTopOf="@+id/saveBtnUserProfile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/addressUserProfile" />
 
     <EditText
         android:id="@+id/zipcodeUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="384dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/zip_code"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/streetNo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/emailUserProfile" />
 
     <EditText
         android:id="@+id/firstNameUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/first_name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/lastNameUserProfile6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/addressUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="452dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/address"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/phoneUserProfile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/streetNo" />
+
+    <EditText
+        android:id="@+id/streetNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/streetNumber"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/addressUserProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zipcodeUserProfile" />
 
     <EditText
         android:id="@+id/lastNameUserProfile6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="244dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/last_name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/emailUserProfile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/firstNameUserProfile" />
 
     <EditText
         android:id="@+id/emailUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="312dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textPersonName|textEmailSubject"
+        app:layout_constraintBottom_toTopOf="@+id/zipcodeUserProfile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/lastNameUserProfile6" />
 
     <EditText
         android:id="@+id/firstNameUserProfile5"
         android:layout_width="84dp"
         android:layout_height="44dp"
-        android:layout_marginTop="76dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/amount"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.406"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/firstNameUserProfile"
+        app:layout_constraintEnd_toStartOf="@+id/addCreditsBtnUserProfile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/creditsTextUserProfile" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="118dp"
         android:layout_height="122dp"
         android:contentDescription="@string/user_icon"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameUserProfile"
+        app:layout_constraintEnd_toStartOf="@+id/firstNameUserProfile5"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/user_icon" />
@@ -110,12 +133,12 @@
         android:id="@+id/creditsTextUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginRight="160dp"
         android:text="@string/credits"
         android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameUserProfile5"
+        app:layout_constraintEnd_toStartOf="@+id/manageCarsBtnUserProfile"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/creditsNumUserProfile"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/credits" />
 
@@ -123,15 +146,13 @@
         android:id="@+id/creditsNumUserProfile"
         android:layout_width="25dp"
         android:layout_height="29dp"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginRight="9dp"
         android:inputType="numberSigned"
+        android:textColor="#FF9800"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameUserProfile5"
         app:layout_constraintEnd_toStartOf="@+id/creditsTextUserProfile"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -139,37 +160,37 @@
         android:id="@+id/addCreditsBtnUserProfile"
         android:layout_width="47dp"
         android:layout_height="40dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"
         android:background="#588CDA"
         android:text="@string/plus"
         android:textSize="35sp"
+        app:layout_constraintBottom_toTopOf="@+id/firstNameUserProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/firstNameUserProfile5"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/manageCarsBtnUserProfile" />
 
     <Button
         android:id="@+id/manageCarsBtnUserProfile"
         android:layout_width="134dp"
         android:layout_height="47dp"
-        android:layout_marginTop="656dp"
         android:background="#588CDA"
         android:text="@string/manage_cars"
+        app:layout_constraintBottom_toTopOf="@+id/addCreditsBtnUserProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/creditsTextUserProfile"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/saveBtnUserProfile"
         android:layout_width="65dp"
         android:layout_height="42dp"
-        android:layout_marginTop="580dp"
         android:background="#588CDA"
         android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.279"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneUserProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

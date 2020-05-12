@@ -1,63 +1,128 @@
 package com.example.parking.ui.viewUser;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.parking.R;
+import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.viewVehicles.ViewVehicles;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-public class UserProfile extends AppCompatActivity
+public class UserProfile extends AppCompatActivity implements UserProfileView
 {
-    private EditText fName, lName, email, zipCode, address, phone;
-    private TextView creditsNum;
-    private Button saveBtn, manageCarsBtn, addCreditsBtn;
-
+    UserProfilePresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+        presenter = new UserProfilePresenter(this, MemoryInitializer.getUserDAO());
 
-        getUIReferences();
-        fillEditTextsWithSavedData();
-        addClickListeners();
+
     }
 
-    private void getUIReferences()
+
+    public void addClickListeners()
     {
-        fName = (EditText) findViewById(R.id.firstName);
-        lName = (EditText) findViewById(R.id.lastName);
-        email = (EditText) findViewById(R.id.emailUserProfile);
-        zipCode = (EditText) findViewById(R.id.zipCode);
-        address = (EditText) findViewById(R.id.addressUserProfile);
-        phone = (EditText) findViewById(R.id.phoneUserProfile);
-
-        creditsNum = (TextView) findViewById(R.id.creditsNumUserProfile);
-
-        saveBtn = (Button) findViewById((R.id.saveBtnUserProfile));
-        manageCarsBtn = (Button) findViewById((R.id.manageCarsBtnUserProfile));
-        addCreditsBtn = (Button) findViewById((R.id.addCreditsBtnUserProfile));
-    }
-
-    private void fillEditTextsWithSavedData()
-    {
-        //load the data and fill the texts
-    }
-
-    private void addClickListeners()
-    {
-        saveBtn.setOnClickListener((v) -> {
-            //get the contents of all the editTexts and save them
+        ((Button) findViewById((R.id.saveBtnUserProfile))).setOnClickListener((v) -> {
+            presenter.update();
+            recreate();
         });
 
-        manageCarsBtn.setOnClickListener((v) -> {
-            //change activity to manage cars
+        ((Button) findViewById((R.id.manageCarsBtnUserProfile))).setOnClickListener((v) -> {
+            Intent myIntent = new Intent(this, ViewVehicles.class);
+            myIntent.putExtra("username", getUsername());
+            startActivityForResult(myIntent,1);
         });
 
-        addCreditsBtn.setOnClickListener((v) -> {
+        ((Button) findViewById((R.id.addCreditsBtnUserProfile))).setOnClickListener((v) -> {
             // add the specified credits to the total sum
         });
     }
+    public String getUsername()
+    {
+        return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
+    }
+    @Override
+    public void setCredits(int credits){
+        ((TextView)findViewById(R.id.creditsNumUserProfile)).setText(String.valueOf(credits));
+    }
+    @Override
+    public String getCredits(){
+        return ((TextView) findViewById(R.id.creditsNumUserProfile)).getText().toString();
+    }
+
+    @Override
+    public String getFirstName(){
+        return ((EditText) findViewById(R.id.firstNameUserProfile)).getText().toString();
+    }
+    @Override
+    public void setFirstName(String value){
+        ((EditText)findViewById(R.id.firstNameUserProfile)).setText(value);
+    }
+
+    @Override
+    public String getLastName(){
+        return ((EditText) findViewById(R.id.lastNameUserProfile6)).getText().toString();
+    }
+    @Override
+    public void setLastName(String value){
+        ((EditText)findViewById(R.id.lastNameUserProfile6)).setText(value);
+    }
+
+
+    @Override
+    public String getEmail(){
+        return ((EditText) findViewById(R.id.emailUserProfile)).getText().toString();
+    }
+    @Override
+    public void setEmail(String value){
+        ((EditText)findViewById(R.id.emailUserProfile)).setText(value);
+    }
+
+    @Override
+    public String getZip(){
+        return ((EditText) findViewById(R.id.zipcodeUserProfile)).getText().toString();
+    }
+    @Override
+    public void setZip(String value){
+        ((EditText)findViewById(R.id.zipcodeUserProfile)).setText(value);
+    }
+
+    @Override
+    public String getStreet(){
+        return ((EditText) findViewById(R.id.addressUserProfile)).getText().toString();
+    }
+    @Override
+    public void setStreet(String value){
+        ((EditText)findViewById(R.id.addressUserProfile)).setText(value);
+    }
+
+
+
+    @Override
+    public String getStreetNo(){
+        return ((EditText) findViewById(R.id.streetNo)).getText().toString();
+    }
+    @Override
+    public void setStreetNo(String value){
+        ((EditText)findViewById(R.id.streetNo)).setText(value);
+    }
+
+
+    @Override
+    public String getPhone(){
+        return ((EditText) findViewById(R.id.phoneUserProfile)).getText().toString();
+    }
+    @Override
+    public void setPhone(String value){
+        ((EditText)findViewById(R.id.phoneUserProfile)).setText(value);
+    }
+
+
+
 
 }

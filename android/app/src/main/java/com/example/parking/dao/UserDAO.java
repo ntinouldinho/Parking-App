@@ -10,6 +10,8 @@ public interface UserDAO {
 
     void save(User u);
 
+    void update(User u,String username);
+
     void delete(User u);
 
     User find(String username);
