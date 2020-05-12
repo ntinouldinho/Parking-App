@@ -68,7 +68,7 @@ public class SignUp extends AppCompatActivity implements SignUpView{
 
     private boolean validateZipCode(){
         zipCode = getZipCode().trim();
-        ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
+        ZipCodeEditText = (EditText)findViewById(R.id.zip_Code);
         if(zipCode.isEmpty()){
             ZipCodeEditText.setError("ZIP Code cannot be empty");
             return false;

@@ -82,7 +82,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     private boolean validateZipCode(){
         zipCode = getZipCode().trim();
-        //ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
+        ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
         if(zipCode.isEmpty()){
             ZipCodeEditText.setError("ZIP Code cannot be empty");
             return false;
@@ -98,8 +98,12 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     private boolean validateCredits(){
         credits = getCredits().trim();
-        int c = Integer.parseInt(credits);
         CreditsEditText = (EditText)findViewById(R.id.creditsForParking);
+        if(credits.isEmpty()){
+            CreditsEditText.setError("Credits cannot be empty");
+            return false;
+        }
+        int c = Integer.valueOf(credits);
         if(c<=0||c>=16){
             CreditsEditText.setError("Desired credits cannot be zero/negative or exceed 16!");
             return false;
