@@ -54,6 +54,21 @@
         app:layout_constraintTop_toBottomOf="@+id/StreetNumber"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/creditsForParking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/creditsFor"
+        android:inputType="number|textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/CarChoice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/zipCode"
+        tools:ignore="MissingConstraints" />
+
     <Spinner
         android:id="@+id/CarChoice"
         android:layout_width="213dp"
