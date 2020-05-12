@@ -8,7 +8,7 @@ import android.widget.Spinner;
 import com.example.parking.R;
 import java.util.ArrayList;
 
-public class NewParkingSpace extends AppCompatActivity {
+public class NewParkingSpace extends AppCompatActivity implements NewParkingView{
     ArrayList<String> plates = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

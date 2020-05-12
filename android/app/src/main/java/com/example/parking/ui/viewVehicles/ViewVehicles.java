@@ -124,7 +124,6 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
     public void viewOneVehicle(Vehicle vehicle){
         Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
         myIntent.putExtra("username", getUserName());
-
         myIntent.putExtra("plate", currentVehicle.getPlate());
         startActivityForResult(myIntent,1);
     }
