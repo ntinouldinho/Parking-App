@@ -45,5 +45,6 @@
     <string name="addSpace">Add Parking</string>
     <string name="save">Save</string>
     <string name="creditsFor">Price in Credits</string>
+    <string name="results">Results</string>
 
 </resources>

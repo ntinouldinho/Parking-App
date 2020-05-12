@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.parking.ui.findParking.findParking;
 import com.example.parking.ui.newParking.NewParkingSpace;
 import com.example.parking.R;
 import com.example.parking.ui.viewUser.UserProfile;
@@ -36,7 +37,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, ViewVehicles.class);
+                Intent myIntent = new Intent(HomeScreenActivity.this, findParking.class);
                 myIntent.putExtra("username", getUserName());
                 startActivity(myIntent);
             }

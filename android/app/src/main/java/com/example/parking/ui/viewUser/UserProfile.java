@@ -1,7 +1,10 @@
 package com.example.parking.ui.viewUser;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UserProfile extends AppCompatActivity implements UserProfileView
 {
+    static String m_Text = "";
     UserProfilePresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,7 +43,33 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
         });
 
         ((Button) findViewById((R.id.addCreditsBtnUserProfile))).setOnClickListener((v) -> {
-            // add the specified credits to the total sum
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("Confirm");
+            builder.setMessage(getCredits()+" credits will be added to your account.Are you sure?");
+
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int which) {
+                    // Do nothing but close the dialog
+
+                    dialog.dismiss();
+                }
+            });
+
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+
+                    // Do nothing
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog alert = builder.create();
+            alert.show();
         });
     }
     public String getUsername()
