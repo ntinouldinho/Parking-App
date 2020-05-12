@@ -29,6 +29,7 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomeScreenActivity.this, NewParkingSpace.class);
+                myIntent.putExtra("username",getUserName());
                 startActivity(myIntent);
             }
         });
