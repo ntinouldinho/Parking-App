@@ -35,6 +35,15 @@ public class UserDAOMemory implements UserDAO {
         users.remove(u);
     }
 
+    @Override
+    public void update(User u,String username){
+        for(int i=0; i<users.size();i++){
+            if(u.getUsername().equals(users.get(i).getUsername())){
+                users.set(i,u);
+            }
+        }
+    }
+
     public List<User> findAll(){
         return users;
     }
