@@ -99,4 +99,13 @@ public class Vehicle {
 				", brand='" + brand + '\'' +
 				'}';
 	}
+
+	public boolean checkSet(String plate) {
+		String currentPlate = getPlate();
+		setPlate(plate);
+		if (currentPlate != getPlate()) {
+			return false;
+		}
+		return true;
+	}
 }

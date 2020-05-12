@@ -66,7 +66,7 @@ public class MemoryInitializer {
 
 
 
-        //Init users
+        //Init users3
         User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",add1, new ArrayList<Rating>(),new ArrayList<Vehicle>());
         User user2= new User ("Walter", "White", "6941051051", "walterwhite@gmail.com", "GoodGuyWalt","saymyname",add2, new ArrayList<Rating>(),new ArrayList<Vehicle>());
         User user3= new User ("Jax", "Teller", "6912515918", "jaxteller@gmail.com", "JaxTellerHarley","jaxtellerdidnothingwrong",add3, new ArrayList<Rating>(),new ArrayList<Vehicle>());

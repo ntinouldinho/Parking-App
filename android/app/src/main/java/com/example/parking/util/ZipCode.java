@@ -45,4 +45,13 @@ public class ZipCode {
         return Objects.equals(zip, zipCode.zip);
     }
 
+    boolean checkSet(int zip) {
+        int currentzip = getZip();
+        setZip(zip);
+        if (currentzip != getZip()) {
+            return false;
+        }
+        return true;
+    }
+
 }

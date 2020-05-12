@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.parking.R;
+import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
 
 public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleView{
@@ -26,17 +27,6 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
         presenter = new viewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
-
-
-
-
-
-//        PlateEditText = (EditText) findViewById(R.id.plate);
-//        ModelEditText = (EditText) findViewById(R.id.model);
-//        BrandEditText = (EditText) findViewById(R.id.brand);
-//        LengthText = (EditText) findViewById(R.id.length);
-//        TextText = (EditText) findViewById(R.id.text);
-
 
         addVehicleBtn = (Button) findViewById(R.id.addVehicleBtn);
         addVehicleBtn.setOnClickListener(new View.OnClickListener() {
@@ -54,26 +44,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
             PlateEditText.setError("Plate cannot be empty");
             return false;
         }
-
-        String letters = plate.substring(0, 3).toUpperCase();
-        boolean one = true;
-        for (int i = 0; i < letters.length(); i++) {
-            char letter = letters.charAt(i);
-            if (letter < 65 || letter > 90) {
-                one = false;
-            }
-        }
-
-        String numbers = plate.substring(3);
-        boolean two = true;
-        for (int i = 0; i < numbers.length(); i++) {
-            int number = Integer.valueOf(numbers.charAt(i));
-            if (number < 48 || number > 57) {
-                two = false;
-            }
-        }
-
-        if((letters.length() + numbers.length() != 7)||two==false||one==false){
+        if(new Vehicle().checkSet(plate)){
             PlateEditText.setError("Plate must begin with 3 letters and then 4 letters");
             return false;
         }else{

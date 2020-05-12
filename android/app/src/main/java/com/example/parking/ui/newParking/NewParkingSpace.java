@@ -16,12 +16,16 @@ import android.widget.Toast;
 
 import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.util.Credits;
 
 import java.time.Duration;
 import java.util.ArrayList;
 
 public class NewParkingSpace extends AppCompatActivity implements NewParkingView{
     NewParkingPresenter presenter;
+
+    private EditText ZipCodeEditText,StreetNumberEditText,StreetEditText,CreditsEditText;
+    private String zipCode,street,streetno,credits;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +37,77 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                presenter.add();
+                if( validateAddParking()) {
+                    presenter.add();
+                }
             }
         });
 
+    }
+
+    private boolean validateAddParking() {
+        if(validateStreet()&&validateStreetNo()&&validateZipCode()&&validateCredits()){
+            return true;
+        }else{
+            Toast.makeText(this,"Please recheck your fields!",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
+    private boolean validateStreet() {
+        street = getStreet().trim();
+        StreetEditText = (EditText)findViewById(R.id.Street);
+        if(street.isEmpty()){
+            StreetEditText.setError("Street cannot be empty");
+            return false;
+        }else{
+            StreetEditText.setError(null);
+            Toast.makeText(this,"Street added",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    private boolean validateStreetNo() {
+        streetno = getStreetNumber().trim();
+        StreetNumberEditText = (EditText)findViewById(R.id.StreetNumber);
+        if(streetno.isEmpty()){
+            StreetNumberEditText.setError("Street Number cannot be empty");
+            return false;
+        }else{
+            StreetNumberEditText.setError(null);
+            Toast.makeText(this,"Street Number added",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    private boolean validateZipCode(){
+        zipCode = getZipCode().trim();
+        //ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
+        if(zipCode.isEmpty()){
+            ZipCodeEditText.setError("ZIP Code cannot be empty");
+            return false;
+        }else if(zipCode.length()!=5){
+            ZipCodeEditText.setError("ZIP Code must be 5 digits");
+            return false;
+        }else{
+            ZipCodeEditText.setError(null);
+            Toast.makeText(this,"ZIP Code added",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    private boolean validateCredits(){
+        credits = getCredits().trim();
+        int c = Integer.parseInt(credits);
+        CreditsEditText = (EditText)findViewById(R.id.creditsForParking);
+        if(c<=0||c>=16){
+            CreditsEditText.setError("Desired credits cannot be zero/negative or exceed 16!");
+            return false;
+        }else{
+            CreditsEditText.setError(null);
+            Toast.makeText(this,"Credits added",Toast.LENGTH_SHORT).show();
+            return true;
+        }
     }
 
     public String getStreet()
