@@ -115,9 +115,9 @@ public class MemoryInitializer {
 
         TimeRange time = new TimeRange(LocalDateTime.now(),0);
         time.addMinutes(time.getTo(),30);
-        ParkingRequest pr1 = new ParkingRequest(time,new Pin(1541),user1,p2);
-        ParkingRequest pr2 = new ParkingRequest(time,new Pin(7119),user2,p3);
-        ParkingRequest pr3 = new ParkingRequest(time,new Pin(4689),user3,p4);
+        ParkingRequest pr1 = new ParkingRequest(time,null,user4,p1);
+        ParkingRequest pr2 = new ParkingRequest(time,null,user2,p4);
+        ParkingRequest pr3 = new ParkingRequest(time,new Pin(4689),user3,p1);
         ParkingRequest pr4 = new ParkingRequest(time,new Pin(9268),user4,p5);
         ParkingRequest pr5 = new ParkingRequest(time,new Pin(0235),user5,p1);
 

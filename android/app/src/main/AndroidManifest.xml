@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.findParking.findParking"></activity>
+        <activity android:name=".ui.notifications.notifications"></activity>
+        <activity android:name=".ui.findParking.findParking" />
         <activity android:name=".ui.newParking.NewParkingSpace" />
         <activity android:name=".ui.viewOneVehicle.viewOneVehicle" />
         <activity android:name=".ui.viewVehicles.ViewVehicles" />

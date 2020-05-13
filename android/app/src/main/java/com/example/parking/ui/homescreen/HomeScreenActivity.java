@@ -10,6 +10,7 @@ import android.widget.Button;
 import com.example.parking.ui.findParking.findParking;
 import com.example.parking.ui.newParking.NewParkingSpace;
 import com.example.parking.R;
+import com.example.parking.ui.notifications.notifications;
 import com.example.parking.ui.viewUser.UserProfile;
 import com.example.parking.ui.viewVehicles.ViewVehicles;
 
@@ -17,6 +18,7 @@ public class HomeScreenActivity extends AppCompatActivity {
     Button parkingSpace;
     Button request;
     Button profile;
+    Button notification;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +27,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         parkingSpace = (Button) findViewById(R.id.submit);
         request = (Button) findViewById(R.id.request);
         profile = (Button) findViewById(R.id.profile);
-
+        notification = (Button) findViewById(R.id.notification);
         parkingSpace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +48,14 @@ public class HomeScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(HomeScreenActivity.this, UserProfile.class);
+                myIntent.putExtra("username", getUserName());
+                startActivity(myIntent);
+            }
+        });
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(HomeScreenActivity.this, notifications.class);
                 myIntent.putExtra("username", getUserName());
                 startActivity(myIntent);
             }
