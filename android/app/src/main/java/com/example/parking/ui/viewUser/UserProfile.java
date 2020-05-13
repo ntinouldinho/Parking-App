@@ -46,13 +46,19 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+            EditText creditsToBeAdded = (EditText) findViewById(R.id.creditsToBeAddedUserProfile);
+
             builder.setTitle("Confirm");
-            builder.setMessage(getCredits()+" credits will be added to your account.Are you sure?");
+            builder.setMessage(creditsToBeAdded.getText()+" credits will be added to your account.Are you sure?");
 
             builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
                     // Do nothing but close the dialog
+                    int totalCredits = Integer.parseInt(getCredits()) +
+                            Integer.parseInt(creditsToBeAdded.getText().toString());
+                    setCredits(totalCredits);
+                    presenter.update();
 
                     dialog.dismiss();
                 }
