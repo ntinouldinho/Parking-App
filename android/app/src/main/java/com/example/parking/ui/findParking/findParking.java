@@ -128,28 +128,28 @@ public class findParking extends AppCompatActivity implements findParkingView{
     }
 
 
-    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList<ParkingSpace> DaoParking) {
-        //get switch
-
-        for(int i=0;i<myButtons.size();i++){
-            Button b = myButtons.get(i);
-            parking =DaoParking.get(i);
-            b.setOnClickListener(
-                    new View.OnClickListener()
-                    {
-                        public void onClick(View view)
-                        {
-                            viewOneVehicle(parking);
-
-                        }
-                    });
-        }
-    }
-
-    public void viewOneVehicle(Vehicle vehicle){
-        Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
-        myIntent.putExtra("ZipCode", getZip());
-        startActivityForResult(myIntent,1);
-    }
+//    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList<ParkingSpace> DaoParking) {
+//        //get switch
+//
+//        for(int i=0;i<myButtons.size();i++){
+//            Button b = myButtons.get(i);
+//            parking =DaoParking.get(i);
+//            b.setOnClickListener(
+//                    new View.OnClickListener()
+//                    {
+//                        public void onClick(View view)
+//                        {
+//                            viewOneVehicle(parking);
+//
+//                        }
+//                    });
+//        }
+//    }
+//
+////    public void viewOneVehicle(Vehicle vehicle){
+////        Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
+////        myIntent.putExtra("ZipCode", getZip());
+////        startActivityForResult(myIntent,1);
+////    }
 
 }
