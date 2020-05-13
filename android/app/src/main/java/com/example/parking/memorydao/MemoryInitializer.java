@@ -69,12 +69,13 @@ public class MemoryInitializer {
 
 
 
+        Credits defaultCredits = new Credits(10);
         //Init users3
-        User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",add1, new ArrayList<Rating>(),new ArrayList<Vehicle>());
-        User user2= new User ("Walter", "White", "6941051051", "walterwhite@gmail.com", "GoodGuyWalt","saymyname",add2, new ArrayList<Rating>(),new ArrayList<Vehicle>());
-        User user3= new User ("Jax", "Teller", "6912515918", "jaxteller@gmail.com", "JaxTellerHarley","jaxtellerdidnothingwrong",add3, new ArrayList<Rating>(),new ArrayList<Vehicle>());
-        User user4= new User ("Harry", "Potter", "6991850231", "harrypotter@gmail.com", "1","2",add4, new ArrayList<Rating>(),new ArrayList<Vehicle>());
-        User user5= new User ("Luke", "Skywalker", "6958285692", "lukeskywalker@gmail.com", "WhoIsMyFather","iamyourfather",add5, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",defaultCredits, add1, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user2= new User ("Walter", "White", "6941051051", "walterwhite@gmail.com", "GoodGuyWalt","saymyname",defaultCredits, add2, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user3= new User ("Jax", "Teller", "6912515918", "jaxteller@gmail.com", "JaxTellerHarley","jaxtellerdidnothingwrong",defaultCredits, add3, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user4= new User ("Harry", "Potter", "6991850231", "harrypotter@gmail.com", "1","2",defaultCredits, add4, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user5= new User ("Luke", "Skywalker", "6958285692", "lukeskywalker@gmail.com", "WhoIsMyFather","iamyourfather",defaultCredits, add5, new ArrayList<Rating>(),new ArrayList<Vehicle>());
 
         //vehicle ex vi is for user i vii is also for user i...viiii is for user i
         Vehicle v1 = new Vehicle(Colour.White,451,"Medium Size car, fits most places","IEH1234","A3","Audi");
