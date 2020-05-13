@@ -3,6 +3,7 @@ package com.example.parking.ui.viewUser;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.Address;
 import com.example.parking.domain.User;
+import com.example.parking.util.Credits;
 import com.example.parking.util.ZipCode;
 
 public class UserProfilePresenter {
@@ -37,7 +38,7 @@ public class UserProfilePresenter {
         currentAddress.setStreet(view.getStreet());
         currentAddress.setStreetNumber(view.getStreetNo());
         currentAddress.setZipCode(new ZipCode(Integer.valueOf(view.getZip())));
-        User newUser = new User(view.getFirstName(),view.getLastName(),view.getPhone(),view.getEmail(),currentUser.getUsername(),currentUser.getPassword(),currentAddress,currentUser.getRating(),currentUser.getVehicles());
+        User newUser = new User(view.getFirstName(),view.getLastName(),view.getPhone(),view.getEmail(),currentUser.getUsername(),currentUser.getPassword(),new Credits(Integer.parseInt(view.getCredits())),currentAddress,currentUser.getRating(),currentUser.getVehicles());
         dao.update(newUser,currentUser.getUsername());
     }
 }

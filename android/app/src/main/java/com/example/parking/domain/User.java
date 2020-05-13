@@ -17,14 +17,16 @@ public class User {
     private ArrayList<Rating> rating;
     private ArrayList<Vehicle> vehicles;
 
-    public User(String name, String surname, String phone, String email, String username, String password, Address address, ArrayList<Rating> rating, ArrayList<Vehicle> vehicles) {
+    public User(String name, String surname, String phone, String email, String username,
+                String password, Credits credits, Address address,
+                ArrayList<Rating> rating, ArrayList<Vehicle> vehicles) {
         this.name = name;
         this.surname = surname;
         this.phone = phone;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.credits = new Credits(10 );
+        this.credits = credits;
         this.address = address;
         this.rating = new ArrayList<Rating>(rating);
         this.vehicles = new ArrayList<Vehicle>(vehicles);

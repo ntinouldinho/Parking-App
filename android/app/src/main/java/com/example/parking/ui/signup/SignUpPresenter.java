@@ -7,6 +7,7 @@ import com.example.parking.domain.Address;
 import com.example.parking.domain.Rating;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
+import com.example.parking.util.Credits;
 import com.example.parking.util.ZipCode;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class SignUpPresenter {
     }
     void add(){
         Address address = new Address(view.getStreet(),view.getStrN(),new ZipCode(Integer.valueOf(view.getZipCode())));
-        User user = new User(view.getName(),view.getSurname(),view.getPhone(),view.getEmail(),view.getUsername(),view.getPassword(),address,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user = new User(view.getName(),view.getSurname(),view.getPhone(),view.getEmail(),view.getUsername(),view.getPassword(),new Credits(10),address,new ArrayList<Rating>(),new ArrayList<Vehicle>());
         dao.save(user);
         Log.e("user",user.toString());
         view.successfullyFinishActivity("registered");
