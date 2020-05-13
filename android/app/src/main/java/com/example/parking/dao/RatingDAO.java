@@ -10,4 +10,8 @@ public interface RatingDAO {
     void save(Rating r);
 
     List<Rating> findAllOfUser(String username);
+
+    List<Rating> findAll();
+
+    void deleteAll();
 }
