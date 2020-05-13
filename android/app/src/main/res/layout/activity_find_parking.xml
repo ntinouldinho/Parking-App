@@ -6,46 +6,56 @@
     android:layout_height="match_parent"
     tools:context=".ui.findParking.findParking">
 
+
     <EditText
         android:id="@+id/ZipForParking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="14dp"
-        android:layout_marginBottom="2dp"
+        android:layout_width="222dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/first_name"
+        android:hint="@string/enter_desired_zip_code"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/SearchButton"
+        app:layout_constraintEnd_toStartOf="@+id/SearchButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/SearchButton" />
 
     <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="95dp"
-        android:contentDescription="TODO"
+        android:id="@+id/SearchButton"
+        android:layout_width="68dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="29dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/todo"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsForParking"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ZipForParking"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search" />
 
-
     <LinearLayout
         android:id="@+id/ResultsList"
-        android:layout_width="0dp"
-        android:layout_height="500dp"
+        android:layout_width="411dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="2dp"
         android:orientation="vertical"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ResultsForParking">
 
     </LinearLayout>
 
@@ -53,15 +63,16 @@
         android:id="@+id/ResultsForParking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/results"
         android:textAllCaps="false"
         android:textSize="24sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ZipForParking" />
+        app:layout_constraintTop_toBottomOf="@+id/SearchButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

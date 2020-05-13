@@ -1,38 +1,72 @@
 package com.example.parking.ui.findParking;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.parking.R;
+import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Colour;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class findParking extends AppCompatActivity implements findParkingView{
     findParkingPresenter presenter;
+    String zipcode;
+    EditText ZipCodeEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_parking);
-        //presenter = new findParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
+        presenter = new findParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
+
+        ImageButton btn = (ImageButton) findViewById(R.id.SearchButton);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+                if(validateZipcode()) {
+                    showParkingSpace(presenter.find());
+                }
+            }
+        });
     }
 
-//    @Override
-//    public String getZip(){
-//        return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();
-//    }
+    public String getZip(){
+        return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();
+    }
 
-    public ArrayList<Button> showVehicles(ArrayList<Vehicle> DaoVehicles){
+    private boolean validateZipcode(){
+        zipcode = getZip().trim();
+        ZipCodeEditText = (EditText)findViewById(R.id.ZipForParking);
+        if(zipcode.isEmpty()){
+            ZipCodeEditText.setError("ZipCode cannot be empty");
+            return false;
+        }else if(zipcode.length()!=5){
+            ZipCodeEditText.setError("ZipCode must be 5 digits");
+            return false;
+        }else{
+            ZipCodeEditText.setError(null);
+            Toast.makeText(this,"ZipCode added",Toast.LENGTH_SHORT).show();
+            return true;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public ArrayList<Button> showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace){
         int colorBackground = Color.parseColor("#337FFF");
         int colorText = Color.parseColor("#ffffff");
 
@@ -46,27 +80,27 @@ public class findParking extends AppCompatActivity implements findParkingView{
         layoutParams.setMargins(0, 0, 0, 30);
 
         // Create a LinearLayout element
-        Vehicle vehicle = new Vehicle(Colour.Black,300,"nothing to say","XYZ4590","Focus","Ford");
+        //Vehicle vehicle = new Vehicle(Colour.Black,300,"nothing to say","XYZ4590","Focus","Ford");
         int padding = 30;
-        for (int i = 0; i < DaoVehicles.size(); i++) {
+        for (int i = 0; i < DaoParkingSpace.size(); i++) {
             // create a new textview
             // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
             newLayout.setOrientation(LinearLayout.VERTICAL);
             newLayout.setBackgroundColor(colorBackground);
-            Vehicle veh = DaoVehicles.get(i);
+            ParkingSpace p = DaoParkingSpace.get(i);
             // Add title
             // Create Button
             final Button btn = new Button(this);
             btn.setBackgroundColor(colorBackground);
-            btn.setText(veh.getBrand() + " "+ veh.getModel());
+            btn.setText(p.getAddress().toString() + " "+ p.getParkedUser().toString());
             btn.setTextSize(12);
             btn.setTextColor(colorText);
             btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
             newLayout.addView(btn);
             buttons.add(btn);
             //Add
-            String info = veh.toString();
+            String info = p.toString();
             TextView data = new TextView(this);
             data.setText(info);
             data.setTextSize(10);
@@ -86,12 +120,16 @@ public class findParking extends AppCompatActivity implements findParkingView{
         return buttons;
     }
 
-//    public void setSongOnClickListener(ArrayList<Button> myButtons,ArrayList<Vehicle> DaoVehicles) {
+    public void makeToast(String m){
+        Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
+    }
+
+//    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList<Parking Space> DaoParking) {
 //        //get switch
 //
 //        for(int i=0;i<myButtons.size();i++){
 //            Button b = myButtons.get(i);
-//            currentVehicle =DaoVehicles.get(i);
+//            p =DaoParking.get(i);
 //            b.setOnClickListener(
 //                    new View.OnClickListener()
 //                    {
