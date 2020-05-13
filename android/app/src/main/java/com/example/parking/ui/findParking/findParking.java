@@ -9,6 +9,7 @@ import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Colour;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +28,7 @@ public class findParking extends AppCompatActivity implements findParkingView{
     findParkingPresenter presenter;
     String zipcode;
     EditText ZipCodeEditText;
+    ParkingSpace parking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +42,7 @@ public class findParking extends AppCompatActivity implements findParkingView{
             public void onClick(View v) {
                 if(validateZipcode()) {
                     showParkingSpace(presenter.find());
+                    makeToast(getZip());
                 }
             }
         });
@@ -124,21 +127,29 @@ public class findParking extends AppCompatActivity implements findParkingView{
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
 
-//    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList<Parking Space> DaoParking) {
-//        //get switch
-//
-//        for(int i=0;i<myButtons.size();i++){
-//            Button b = myButtons.get(i);
-//            p =DaoParking.get(i);
-//            b.setOnClickListener(
-//                    new View.OnClickListener()
-//                    {
-//                        public void onClick(View view)
-//                        {
-//                            viewOneVehicle(currentVehicle);
-//
-//                        }
-//                    });
-//        }
-//    }
+
+    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList<ParkingSpace> DaoParking) {
+        //get switch
+
+        for(int i=0;i<myButtons.size();i++){
+            Button b = myButtons.get(i);
+            parking =DaoParking.get(i);
+            b.setOnClickListener(
+                    new View.OnClickListener()
+                    {
+                        public void onClick(View view)
+                        {
+                            viewOneVehicle(parking);
+
+                        }
+                    });
+        }
+    }
+
+    public void viewOneVehicle(Vehicle vehicle){
+        Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
+        myIntent.putExtra("ZipCode", getZip());
+        startActivityForResult(myIntent,1);
+    }
+
 }

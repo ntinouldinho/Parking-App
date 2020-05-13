@@ -1,6 +1,7 @@
 package com.example.parking.ui.findParking;
 
 import android.os.Build;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -33,13 +34,16 @@ public class findParkingPresenter {
     public ArrayList<ParkingSpace> find(){
 
         List<ParkingSpace> park = parkingSpaceDAO.findAllAvailable();
-        ParkingRequest pr = new ParkingRequest();
         ArrayList<ParkingSpace> ps = new ArrayList<ParkingSpace>(park);
-        ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30);
-        for(ParkingSpace p: test){
-            view.makeToast(p.toString());
-        }
-        return test;
 
+        ParkingRequest pr = new ParkingRequest();
+        ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30);
+
+        return test;
+    }
+
+    void showVehicles(){
+        ArrayList<Button> buttons = view.showVehicles(vehicles);
+        view.setSongOnClickListener(buttons,vehicles);
     }
 }

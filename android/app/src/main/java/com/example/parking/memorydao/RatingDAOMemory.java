@@ -25,4 +25,14 @@ public class RatingDAOMemory implements RatingDAO {
         return  ratedUser;
 
     }
+
+    public List<Rating> findAll(){
+        return ratings;
+    }
+
+    public void deleteAll(){//delete deletes every rating
+        for(Rating rat: ratings) {
+            ratings.remove(rat);
+        }
+    }
 }
