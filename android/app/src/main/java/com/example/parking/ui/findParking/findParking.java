@@ -3,12 +3,17 @@ package com.example.parking.ui.findParking;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.parking.R;
+import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.homescreen.HomeScreenActivity;
+import com.example.parking.ui.showParkingSpace.ShowParkingSpace;
 import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
+import com.example.parking.ui.viewUser.UserProfile;
 import com.example.parking.ui.viewVehicles.ViewVehicles;
 import com.example.parking.util.Colour;
+import com.google.gson.Gson;
 
 import android.content.Context;
 import android.content.Intent;
@@ -131,26 +136,36 @@ public class findParking extends AppCompatActivity implements findParkingView{
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
 
-
-    public void setParkingOnClickListener(ArrayList<Button> myButtons) {
+    public int j=0;
+    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList <ParkingSpace> parkspa) {
         //get switch
 
-        for(int i=0;i<myButtons.size();i++){
+        for( int i=0;i<myButtons.size();i++){
+            j=i;
             Button b = myButtons.get(i);
             b.setOnClickListener(
                     new View.OnClickListener()
                     {
+
+                        @RequiresApi(api = Build.VERSION_CODES.O)
+
                         public void onClick(View view)
                         {
-                            viewOneVehicle();
+                            Intent myIntent = new Intent(findParking.this, ShowParkingSpace.class);
+                            myIntent.putExtra("Username", getUserName());
+                            ParkingSpace parkingSpace = parkspa.get(j);
+                            Gson gson = new Gson();
+                            String parkingSpaceAsAString = gson.toJson(parkingSpace);
+                            myIntent.putExtra("parkingSpace",parkingSpaceAsAString);
+                            startActivity(myIntent);
 
                         }
                     });
         }
     }
-
-    public void viewOneVehicle(){
-        Log.e("in","ok");
+    public String getUserName()
+    {
+        return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
 
 }

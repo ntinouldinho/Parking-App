@@ -42,7 +42,7 @@ public class findParkingPresenter {
         ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30);
         Log.e("TEST SIZE", String.valueOf(test.size()));
 
-        view.setParkingOnClickListener(view.showParkingSpace(test));
+        view.setParkingOnClickListener(view.showParkingSpace(test),ps);
     }
 
 
