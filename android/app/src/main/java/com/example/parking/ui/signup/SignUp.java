@@ -195,7 +195,7 @@ public class SignUp extends AppCompatActivity implements SignUpView{
     public String getUsername(){return ((EditText) findViewById(R.id.Username)).getText().toString(); }
     public String getPassword(){return ((EditText) findViewById(R.id.password)).getText().toString(); }
     public String getStrN(){return ((EditText) findViewById(R.id.number)).getText().toString(); }
-    public String getZipCode(){return ((EditText) findViewById(R.id.zipCode)).getText().toString(); }
+    public String getZipCode(){return ((EditText) findViewById(R.id.zip_Code)).getText().toString(); }
     public String getStreet(){return ((EditText) findViewById(R.id.street)).getText().toString(); }
 
     public void successfullyFinishActivity(String message)

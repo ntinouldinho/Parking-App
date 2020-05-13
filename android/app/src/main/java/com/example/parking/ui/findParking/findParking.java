@@ -6,6 +6,8 @@ import com.example.parking.R;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
+import com.example.parking.ui.viewVehicles.ViewVehicles;
 import com.example.parking.util.Colour;
 
 import android.content.Context;
