@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -43,7 +44,7 @@ public class findParking extends AppCompatActivity implements findParkingView{
             @Override
             public void onClick(View v) {
                 if(validateZipcode()) {
-                    showParkingSpace(presenter.find());
+                    presenter.find();
                     makeToast(getZip());
                 }
             }
@@ -81,13 +82,14 @@ public class findParking extends AppCompatActivity implements findParkingView{
         ArrayList<Button> buttons = new ArrayList<>();
         // Find the ScrollView
         LinearLayout sv = (LinearLayout) v.findViewById(R.id.ResultsList);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, 0, 0, 30);
 
         // Create a LinearLayout element
         //Vehicle vehicle = new Vehicle(Colour.Black,300,"nothing to say","XYZ4590","Focus","Ford");
         int padding = 30;
         for (int i = 0; i < DaoParkingSpace.size(); i++) {
+            Log.e("PARKINGSPACEDAOSIZE",String.valueOf(DaoParkingSpace.size()));
             // create a new textview
             // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
@@ -98,14 +100,14 @@ public class findParking extends AppCompatActivity implements findParkingView{
             // Create Button
             final Button btn = new Button(this);
             btn.setBackgroundColor(colorBackground);
-            btn.setText(p.getAddress().toString() + " "+ p.getParkedUser().toString());
+            btn.setText(p.getAddress().toString() + " "+ p.getParkedUser().getUsername());
             btn.setTextSize(12);
             btn.setTextColor(colorText);
-            btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
+            btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, 200));
             newLayout.addView(btn);
             buttons.add(btn);
             //Add
-            String info = p.toString();
+            String info =  p.getParkedUser().getUsername();
             TextView data = new TextView(this);
             data.setText(info);
             data.setTextSize(10);
@@ -130,28 +132,25 @@ public class findParking extends AppCompatActivity implements findParkingView{
     }
 
 
-//    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList<ParkingSpace> DaoParking) {
-//        //get switch
-//
-//        for(int i=0;i<myButtons.size();i++){
-//            Button b = myButtons.get(i);
-//            parking =DaoParking.get(i);
-//            b.setOnClickListener(
-//                    new View.OnClickListener()
-//                    {
-//                        public void onClick(View view)
-//                        {
-//                            viewOneVehicle(parking);
-//
-//                        }
-//                    });
-//        }
-//    }
-//
-////    public void viewOneVehicle(Vehicle vehicle){
-////        Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
-////        myIntent.putExtra("ZipCode", getZip());
-////        startActivityForResult(myIntent,1);
-////    }
+    public void setParkingOnClickListener(ArrayList<Button> myButtons) {
+        //get switch
+
+        for(int i=0;i<myButtons.size();i++){
+            Button b = myButtons.get(i);
+            b.setOnClickListener(
+                    new View.OnClickListener()
+                    {
+                        public void onClick(View view)
+                        {
+                            viewOneVehicle();
+
+                        }
+                    });
+        }
+    }
+
+    public void viewOneVehicle(){
+        Log.e("in","ok");
+    }
 
 }

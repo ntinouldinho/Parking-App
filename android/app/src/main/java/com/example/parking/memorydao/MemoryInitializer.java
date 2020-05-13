@@ -66,9 +66,9 @@ public class MemoryInitializer {
         //Init addresses
         Address add1 = new Address("Elm St.","69", new ZipCode(15125));
         Address add2 = new Address("Wall St.","23", new ZipCode(71310));
-        Address add3 = new Address("Baker St.","158", new ZipCode(61717));
+        Address add3 = new Address("Baker St.","158", new ZipCode(15145));
         Address add4 = new Address("Antoniadou St.","510", new ZipCode(16715));
-        Address add5 = new Address("Derigny St.","53", new ZipCode(16716));
+        Address add5 = new Address("Derigny St.","53", new ZipCode(15115));
 
 
 
@@ -101,11 +101,11 @@ public class MemoryInitializer {
         getUserDAO().save(user4);
         getUserDAO().save(user5);
 
-        ParkingSpace p1 = new ParkingSpace(add1,false,new Credits(10),new TimeRange(LocalDateTime.now(),30),new Date(),user1,"IEH1234");
-        ParkingSpace p2 = new ParkingSpace(add2,false,new Credits(15),new TimeRange(LocalDateTime.now(),30),new Date(),user2,"APK1551");
-        ParkingSpace p3 = new ParkingSpace(add3,false,new Credits(8),new TimeRange(LocalDateTime.now(),30),new Date(),user3,"AZE9152");
-        ParkingSpace p4 = new ParkingSpace(add4,false,new Credits(3),new TimeRange(LocalDateTime.now(),30),new Date(),user4,"MEA6157");
-        ParkingSpace p5 = new ParkingSpace(add5,false,new Credits(4),new TimeRange(LocalDateTime.now(),30),new Date(),user5,"IZA6015");
+        ParkingSpace p1 = new ParkingSpace(add1,true,new Credits(10),new TimeRange(LocalDateTime.now(),30),new Date(),user1,"IEH1234");
+        ParkingSpace p2 = new ParkingSpace(add2,true,new Credits(15),new TimeRange(LocalDateTime.now(),30),new Date(),user2,"APK1551");
+        ParkingSpace p3 = new ParkingSpace(add3,true,new Credits(8),new TimeRange(LocalDateTime.now(),30),new Date(),user3,"AZE9152");
+        ParkingSpace p4 = new ParkingSpace(add4,true,new Credits(3),new TimeRange(LocalDateTime.now(),30),new Date(),user4,"MEA6157");
+        ParkingSpace p5 = new ParkingSpace(add5,true,new Credits(4),new TimeRange(LocalDateTime.now(),30),new Date(),user5,"IZA6015");
 
         getParkingDAO().save(p1);
         getParkingDAO().save(p2);

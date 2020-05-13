@@ -1,6 +1,7 @@
 package com.example.parking.ui.findParking;
 
 import android.os.Build;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -31,15 +32,17 @@ public class findParkingPresenter {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<ParkingSpace> find(){
+    public void find(){
 
         List<ParkingSpace> park = parkingSpaceDAO.findAllAvailable();
+
         ArrayList<ParkingSpace> ps = new ArrayList<ParkingSpace>(park);
 
         ParkingRequest pr = new ParkingRequest();
         ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30);
+        Log.e("TEST SIZE", String.valueOf(test.size()));
 
-        return test;
+        view.setParkingOnClickListener(view.showParkingSpace(test));
     }
 
 
