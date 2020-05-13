@@ -43,7 +43,7 @@ public class findParkingPresenter {
     }
 
     void showVehicles(){
-        ArrayList<Button> buttons = view.showVehicles(vehicles);
-        view.setSongOnClickListener(buttons,vehicles);
+//        ArrayList<Button> buttons = view.showVehicles(vehicles);
+//        view.setSongOnClickListener(buttons,vehicles);
     }
 }
