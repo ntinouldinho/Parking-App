@@ -46,5 +46,6 @@
     <string name="save">Save</string>
     <string name="creditsFor">Price in Credits</string>
     <string name="results">Results</string>
+    <string name="enter_desired_zip_code">Enter Desired ZIP Code</string>
 
 </resources>

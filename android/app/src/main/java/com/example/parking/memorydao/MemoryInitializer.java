@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.parking.dao.ParkingRequestDAO;
 import com.example.parking.dao.ParkingSpaceDAO;
+import com.example.parking.dao.RatingDAO;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.dao.VehicleDAO;
 import com.example.parking.domain.Address;
@@ -31,6 +32,8 @@ public class MemoryInitializer {
     private static ParkingSpaceDAO PSDao = new ParkingSpaceDAOMemory();
     private static UserDAO UDao = new UserDAOMemory();
     private static VehicleDAO VDao = new VehicleDAOMemory();
+    private static RatingDAO RDao = new RatingDAOMemory();
+
 
     protected static void eraseData() {
         List<User> users = getUserDAO().findAll();
@@ -123,22 +126,27 @@ public class MemoryInitializer {
         Rating rating1 = new Rating();
         rating1.setRatingScore(5);
         rating1.setComment("Thank you for the exchange!");
+        RDao.save(rating1);
 
         Rating rating2 = new Rating();
         rating1.setRatingScore(5);
         rating1.setComment("He was 5 minutes late, but he said sorry!");
+        RDao.save(rating2);
 
         Rating rating3 = new Rating();
         rating1.setRatingScore(1);
         rating1.setComment("She never came!");
+        RDao.save(rating3);
 
         Rating rating4 = new Rating();
         rating1.setRatingScore(2);
         rating1.setComment("Waited 20 minutes for him...");
+        RDao.save(rating4);
 
         Rating rating5 = new Rating();
         rating1.setRatingScore(5);
         rating1.setComment("She was really generous and came on time.");
+        RDao.save(rating5);
 
 
 
