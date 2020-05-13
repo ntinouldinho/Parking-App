@@ -23,6 +23,8 @@ public class SignUpPresenter {
         Address address = new Address(view.getStreet(),view.getStrN(),new ZipCode(Integer.valueOf(view.getZipCode())));
         User user = new User(view.getName(),view.getSurname(),view.getPhone(),view.getEmail(),view.getUsername(),view.getPassword(),new Credits(10),address,new ArrayList<Rating>(),new ArrayList<Vehicle>());
         dao.save(user);
+        User us = dao.find(user.getUsername());
+        Log.d("FIND user", us.toString());
         Log.e("user",user.toString());
         view.successfullyFinishActivity("registered");
     }

@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
     }
     @Override
     public String getPassword(){
-        return ((EditText) findViewById(R.id.password)).getText().toString();
+        return ((EditText) findViewById(R.id.passwordLogIn)).getText().toString();
 
     }
 

@@ -1,5 +1,7 @@
 package com.example.parking.ui.viewUser;
 
+import android.util.Log;
+
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.Address;
 import com.example.parking.domain.User;

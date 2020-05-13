@@ -142,7 +142,7 @@ public class SignUp extends AppCompatActivity implements SignUpView{
 
     private boolean validatePassword() {
         password = getPassword().trim();
-        PasswordEditText = (EditText)findViewById(R.id.password);
+        PasswordEditText = (EditText)findViewById(R.id.passwordSignUp);
         Pattern PASSWORD_PATTERN = Pattern.compile("[a-zA-Z0-9\\!\\@\\#\\$]{8,24}");
         if(password.isEmpty()){
             PasswordEditText.setError("Password cannot be empty");
@@ -193,9 +193,9 @@ public class SignUp extends AppCompatActivity implements SignUpView{
     public String getPhone(){return ((EditText) findViewById(R.id.phone)).getText().toString();}
     public String getEmail(){return ((EditText) findViewById(R.id.email)).getText().toString(); }
     public String getUsername(){return ((EditText) findViewById(R.id.Username)).getText().toString(); }
-    public String getPassword(){return ((EditText) findViewById(R.id.password)).getText().toString(); }
+    public String getPassword(){return ((EditText) findViewById(R.id.passwordSignUp)).getText().toString(); }
     public String getStrN(){return ((EditText) findViewById(R.id.number)).getText().toString(); }
-    public String getZipCode(){return ((EditText) findViewById(R.id.zipCode)).getText().toString(); }
+    public String getZipCode(){return ((EditText) findViewById(R.id.zip_Code)).getText().toString(); }
     public String getStreet(){return ((EditText) findViewById(R.id.street)).getText().toString(); }
 
     public void successfullyFinishActivity(String message)
