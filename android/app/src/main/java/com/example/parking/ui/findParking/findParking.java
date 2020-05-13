@@ -24,13 +24,13 @@ public class findParking extends AppCompatActivity implements findParkingView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_parking);
-        presenter = new findParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
+        //presenter = new findParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
     }
 
-    @Override
-    public String getZip(){
-        return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();
-    }
+//    @Override
+//    public String getZip(){
+//        return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();
+//    }
 
     public ArrayList<Button> showVehicles(ArrayList<Vehicle> DaoVehicles){
         int colorBackground = Color.parseColor("#337FFF");
@@ -86,22 +86,21 @@ public class findParking extends AppCompatActivity implements findParkingView{
         return buttons;
     }
 
-    public void setSongOnClickListener(ArrayList<Button> myButtons,ArrayList<Vehicle> DaoVehicles) {
-        //get switch
-
-        for(int i=0;i<myButtons.size();i++){
-            Button b = myButtons.get(i);
-            currentVehicle =DaoVehicles.get(i);
-            b.setOnClickListener(
-                    new View.OnClickListener()
-                    {
-                        public void onClick(View view)
-                        {
-                            viewOneVehicle(currentVehicle);
-
-                        }
-                    });
-        }
-
-    }
+//    public void setSongOnClickListener(ArrayList<Button> myButtons,ArrayList<Vehicle> DaoVehicles) {
+//        //get switch
+//
+//        for(int i=0;i<myButtons.size();i++){
+//            Button b = myButtons.get(i);
+//            currentVehicle =DaoVehicles.get(i);
+//            b.setOnClickListener(
+//                    new View.OnClickListener()
+//                    {
+//                        public void onClick(View view)
+//                        {
+//                            viewOneVehicle(currentVehicle);
+//
+//                        }
+//                    });
+//        }
+//    }
 }
