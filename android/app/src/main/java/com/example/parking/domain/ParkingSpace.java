@@ -124,7 +124,6 @@ public class ParkingSpace {
 				"address=" + address +
 				", availability=" + availability +
 				", price=" + price +
-				", timeRange=" + timeRange +
 				", timeOfExchange=" + strDate +
 				", parkedUser=" + parkedUser +
 				", plate='" + plate + '\'' +

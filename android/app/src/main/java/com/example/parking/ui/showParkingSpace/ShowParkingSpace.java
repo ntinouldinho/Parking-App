@@ -3,6 +3,7 @@ package com.example.parking.ui.showParkingSpace;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -22,14 +23,17 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
 
     ShowParkingPresenter presenter;
     ParkingSpace parkingSpace;
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_show_parking);
         presenter = new ShowParkingPresenter(this, MemoryInitializer.getUserDAO(), MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO());
         Gson gson = new Gson();
         String parkingSpaceAsAString = getIntent().getStringExtra("parkingSpace");
+
         parkingSpace = gson.fromJson(parkingSpaceAsAString, ParkingSpace.class);
+        Log.e("show",parkingSpace.toString());
         Button btn = (Button) findViewById(R.id.sendParkingRequest);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
