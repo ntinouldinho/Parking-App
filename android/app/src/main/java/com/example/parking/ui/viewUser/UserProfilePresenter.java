@@ -29,6 +29,7 @@ public class UserProfilePresenter {
         view.setStreet(currentUser.getAddress().getStreet());
         view.setStreetNo(currentUser.getAddress().getStreetNumber());
         view.setZip(String.valueOf(currentUser.getAddress().getZipCode().getZip()));
+        view.setPhone(currentUser.getPhone());
     }
 
     void update(){
