@@ -15,7 +15,6 @@ import java.util.TimeZone;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class TimeRange {
-    static DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
     private LocalDateTime from;
     private LocalDateTime to;
     public TimeRange(LocalDateTime from, LocalDateTime to) {
@@ -59,6 +58,7 @@ public class TimeRange {
 
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MMM/uuuu HH:mm");
         String fromstr = from.format(formatter);
         String tostr = to.format(formatter);
         return "TimeRange{" +
