@@ -149,7 +149,7 @@ public class ParkingRequest{
             users.get(indexReq).getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
             users.get(indexReq).setPenalty(penalty);
             users.get(indexParked).getCredits().addCredits(getParkingSpace().getPrice().getPoints());
-            users.get(indexParked)
+            users.get(indexParked);
             returnList.add(users.get(indexReq));
 
             returnList.add(3);
