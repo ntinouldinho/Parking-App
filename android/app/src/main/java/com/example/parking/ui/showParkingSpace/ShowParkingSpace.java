@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShowParkingSpace extends AppCompatActivity implements ShowParkingView {
-
+    AlertDialog myDialog;
     ShowParkingPresenter presenter;
     ParkingSpace parkingSpace;
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -58,10 +58,11 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                AlertDialog myDialog;
+
                 AlertDialog.Builder builder = new AlertDialog.Builder(ShowParkingSpace.this);
-                builder.setTitle("Select");
                 String u =getParkedUsername();
+                builder.setTitle("Reviews for user " + u );
+                builder.setCancelable(true);
                 List<Rating> l = MemoryInitializer.getRatingDAO().findAllOfUser(u);
                 List<String> toS = new ArrayList<>();
                 for(Rating r:l){
@@ -73,7 +74,8 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
                 }
                 builder.setView(LayoutInflater.from(getBaseContext()).inflate(R.layout.activity_show_parking,null));
                 builder.setItems(helpme, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int item) {}
+                    public void onClick(DialogInterface myDialog, int item) {
+                    }
                 });
                 myDialog=builder.create();
                 builder.show();
