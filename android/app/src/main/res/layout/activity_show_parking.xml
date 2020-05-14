@@ -9,70 +9,71 @@
     <TextView
         android:id="@+id/AddressForRequest"
         android:layout_width="200dp"
-        android:layout_height="79dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginBottom="57dp"
         android:text="@string/address"
         app:layout_constraintBottom_toTopOf="@+id/ParkedUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ParkedUser"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="57dp"
         android:text="@string/parked_user"
         app:layout_constraintBottom_toTopOf="@+id/ParkedVehicle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddressForRequest" />
 
     <TextView
         android:id="@+id/ParkedVehicle"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="58dp"
         android:text="@string/parkedvehicle"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ParkedUser" />
 
     <Button
         android:id="@+id/ReviewsofParkedUser"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="57dp"
         android:text="@string/reviews"
         app:layout_constraintBottom_toTopOf="@+id/sendParkingRequest"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <Button
         android:id="@+id/sendParkingRequest"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="57dp"
         android:text="@string/send_parking_request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ReviewsofParkedUser" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="58dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/e_t_a"
         app:layout_constraintBottom_toTopOf="@+id/ReviewsofParkedUser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ParkedVehicle"
-        android:autofillHints="" />
+        app:layout_constraintTop_toBottomOf="@+id/ParkedVehicle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,7 @@
 package com.example.parking.memorydao;
 
+import android.util.Log;
+
 import com.example.parking.dao.RatingDAO;
 import com.example.parking.domain.Rating;
 

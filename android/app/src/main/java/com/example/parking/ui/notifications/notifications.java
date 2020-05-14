@@ -67,7 +67,6 @@ public class notifications extends AppCompatActivity implements notificationView
                     not = "Awaiting for arrival";
                 }
             }
-            Log.e("PARKINGSPACEDAOSIZE",String.valueOf(i));
             // create a new textview
             // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
@@ -117,9 +116,7 @@ public class notifications extends AppCompatActivity implements notificationView
 
     public void setParkingOnClickListener(ArrayList<Button> myButtons) {
         //get switch
-Log.e("in", String.valueOf(myButtons.size()));
         for(int i=0;i<myButtons.size();i++){
-            Log.e("in","in");
             Button b = myButtons.get(i);
             b.setOnClickListener(
                     new View.OnClickListener()

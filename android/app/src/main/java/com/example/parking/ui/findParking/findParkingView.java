@@ -15,7 +15,7 @@ public interface findParkingView {
     String getZip();
     void makeToast(String m);
     ArrayList<Button> showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace);
-    void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList <ParkingSpace> parkspa);
+    void setParkingOnClickListener(Button b,ParkingSpace parkspa);
     String getUserName();
 
 }

@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         MemoryInitializer.prepareData();
-        Log.e("test", String.valueOf(MemoryInitializer.getParkingDAO().findAll().get(0).toString()));
         Button login = findViewById(R.id.login);
         Button signup = findViewById(R.id.login2);
 

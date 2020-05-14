@@ -33,6 +33,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class findParking extends AppCompatActivity implements findParkingView{
+    ArrayList<ParkingSpace> spaces = new ArrayList<>();
     findParkingPresenter presenter;
     String zipcode;
     EditText ZipCodeEditText;
@@ -94,7 +95,6 @@ public class findParking extends AppCompatActivity implements findParkingView{
         //Vehicle vehicle = new Vehicle(Colour.Black,300,"nothing to say","XYZ4590","Focus","Ford");
         int padding = 30;
         for (int i = 0; i < DaoParkingSpace.size(); i++) {
-            Log.e("PARKINGSPACEDAOSIZE",String.valueOf(DaoParkingSpace.size()));
             // create a new textview
             // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
@@ -124,7 +124,7 @@ public class findParking extends AppCompatActivity implements findParkingView{
             newLayout.setPadding(padding,padding,padding,padding);
             // add the textview to the linearlayout
             sv.addView(newLayout);
-
+            setParkingOnClickListener(btn,p);
         }
         // Display the view
         setContentView(v);
@@ -136,14 +136,9 @@ public class findParking extends AppCompatActivity implements findParkingView{
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
 
-    public int j=0;
-    public void setParkingOnClickListener(ArrayList<Button> myButtons,ArrayList <ParkingSpace> parkspa) {
+    public void setParkingOnClickListener(Button b,ParkingSpace parkspa) {
         //get switch
-
-        for( int i=0;i<myButtons.size();i++){
-            j=i;
-            Button b = myButtons.get(i);
-            b.setOnClickListener(
+        b.setOnClickListener(
                     new View.OnClickListener()
                     {
 
@@ -151,18 +146,20 @@ public class findParking extends AppCompatActivity implements findParkingView{
 
                         public void onClick(View view)
                         {
-                            Intent myIntent = new Intent(findParking.this, ShowParkingSpace.class);
-                            myIntent.putExtra("Username", getUserName());
-                            ParkingSpace parkingSpace = parkspa.get(j);
+                            ParkingSpace parkingSpace = parkspa;
                             Gson gson = new Gson();
                             String parkingSpaceAsAString = gson.toJson(parkingSpace);
+                            Intent myIntent = new Intent(findParking.this, ShowParkingSpace.class);
+                            myIntent.putExtra("Username", getUserName());
                             myIntent.putExtra("parkingSpace",parkingSpaceAsAString);
                             startActivity(myIntent);
 
                         }
                     });
-        }
+
     }
+
+
     public String getUserName()
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;

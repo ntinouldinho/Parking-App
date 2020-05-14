@@ -19,9 +19,7 @@ public class viewOneVehiclePresenter {
         this.view=view;
         this.dao=dao;
         user = dao.find(view.getUserName());
-        Log.e("test","in pres");
         if(view.getPlate()!=null){ //edit mode
-            Log.e("test","in edit");
             vehicle = dao.findVehicle(view.getUserName(),view.getPlate());
             showInfo();
         }

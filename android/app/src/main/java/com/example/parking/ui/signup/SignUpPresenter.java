@@ -25,7 +25,6 @@ public class SignUpPresenter {
         dao.save(user);
         User us = dao.find(user.getUsername());
         Log.d("FIND user", us.toString());
-        Log.e("user",user.toString());
         view.successfullyFinishActivity("registered");
     }
 }

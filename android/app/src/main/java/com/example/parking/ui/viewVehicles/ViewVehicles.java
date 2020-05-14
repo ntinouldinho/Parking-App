@@ -39,7 +39,6 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
         presenter = new ViewVehiclesPresenter(this, MemoryInitializer.getUserDAO());
 
 
-        Log.e("ot","wwwwwwwwww");
     }
 
 

@@ -1,6 +1,7 @@
 package com.example.parking.domain;
 
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -80,6 +81,7 @@ public class ParkingRequest{
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = address.getZipCode();
         for (ParkingSpace parking : parkingSpaces) {
+
                 ZipCode currentZip = parking.getAddress().getZipCode();
                 if (Math.abs(zip.getZip() - currentZip.getZip()) <= difference) {
                     list.add(parking);

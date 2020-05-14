@@ -11,6 +11,7 @@ public interface ShowParkingView {
     void setParkedUser(String parkedUsername);
     void setVehicle(String plate);
     void setAddress(String zip);
+    String getParkedUsername();
 
 
 }

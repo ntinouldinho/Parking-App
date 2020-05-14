@@ -58,12 +58,12 @@ public class Rating {
 
     @Override
     public String toString() {
-        return "Rating{" +
-                "ratingScore=" + ratingScore +
-                ", Comment='" + comment + '\'' +
-                ", User: ='" + ratedUsername + '\'' +
-                ", Rated by='" + ratingUsername + '\'' +
-                '}';
+        return  "*************************\n" +
+                "Rating: " + ratingScore +" \n "+
+                "Comment: " + comment + " \n "+
+                "Rated User: " + ratedUsername + " \n " +
+                "Rating by: " + ratingUsername + " \n " +
+                "*************************";
     }
 
 
