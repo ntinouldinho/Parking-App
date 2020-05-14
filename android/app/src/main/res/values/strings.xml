@@ -37,7 +37,6 @@
     <string name="length">Length</string>
     <string name="add_vehicle">Add Vehicle</string>
     <string name="user_icon">User Icon</string>
-    <string name="address">Address</string>
     <string name="amount">amount</string>
     <string name="plus">+</string>
     <string name="manage_cars">Manage Cars</string>
@@ -53,5 +52,6 @@
     <string name="parkedvehicle">ParkedVehicle</string>
     <string name="parked_user">Parked User</string>
     <string name="address">Address</string>
+    <string name="reviews">Reviews</string>
 
 </resources>

@@ -41,13 +41,21 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
             @Override
             public void onClick(View v) {
                 presenter.add(parkingSpace);
+            }
+        });
+
+        Button reviewsButton = (Button) findViewById(R.id.ReviewsofParkedUser);
+        reviewsButton.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+                //presenter.add(parkingSpace);
 
             }
         });
 
     }
     public String getRequestingUser() { return this.getIntent().hasExtra("Username") ? this.getIntent().getExtras().getString("Username") : null; }
-    public void setRating(String ratingScore) { ((TextView) findViewById(R.id.ReviewsOfParkedUser)).setText(ratingScore);}
     public void setParkedUser(String parkedUsername){ ((TextView) findViewById(R.id.ParkedUser)).setText(parkedUsername);}
     public void setVehicle(String plate){((TextView) findViewById(R.id.ParkedVehicle)).setText(plate);}
     public void setAddress(String zip){((TextView) findViewById(R.id.AddressForRequest)).setText(zip); }

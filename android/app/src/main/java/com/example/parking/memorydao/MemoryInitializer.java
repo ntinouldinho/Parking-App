@@ -130,26 +130,36 @@ public class MemoryInitializer {
         Rating rating1 = new Rating();
         rating1.setRatingScore(5);
         rating1.setComment("Thank you for the exchange!");
+        rating1.setRatedUsername("IknowNothing");
+        rating1.setRatingUsername("GoodGuyWalt");
         getRatingDAO().save(rating1);
 
         Rating rating2 = new Rating();
-        rating1.setRatingScore(5);
-        rating1.setComment("He was 5 minutes late, but he said sorry!");
+        rating2.setRatingScore(5);
+        rating2.setComment("He was 5 minutes late, but he said sorry!");
+        rating2.setRatedUsername("JaxTellerHarley");
+        rating2.setRatingUsername("IknowNothing");
         getRatingDAO().save(rating2);
 
         Rating rating3 = new Rating();
-        rating1.setRatingScore(1);
-        rating1.setComment("She never came!");
+        rating3.setRatingScore(1);
+        rating3.setComment("She never came!");
+        rating3.setRatedUsername("JaxTellerHarley");
+        rating3.setRatingUsername("1");
         getRatingDAO().save(rating3);
 
         Rating rating4 = new Rating();
-        rating1.setRatingScore(2);
-        rating1.setComment("Waited 20 minutes for him...");
+        rating4.setRatingScore(2);
+        rating4.setComment("Waited 20 minutes for him...");
+        rating4.setRatedUsername("1");
+        rating4.setRatingUsername("IknowNothing");
         getRatingDAO().save(rating4);
 
         Rating rating5 = new Rating();
-        rating1.setRatingScore(5);
-        rating1.setComment("She was really generous and came on time.");
+        rating5.setRatingScore(5);
+        rating5.setComment("She was really generous and came on time.");
+        rating5.setRatedUsername("JaxTellerHarley");
+        rating5.setRatingUsername("1");
         getRatingDAO().save(rating5);
 
 
