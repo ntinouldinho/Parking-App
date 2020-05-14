@@ -1,5 +1,7 @@
 package com.example.parking.ui.showParkingSpace;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,12 +30,12 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_parking);
-       Gson gson = new Gson();
+        Gson gson = new Gson();
         String parkingSpaceAsAString = getIntent().getStringExtra("parkingSpace");
 
         parkingSpace = gson.fromJson(parkingSpaceAsAString, ParkingSpace.class);
         Log.e("show",parkingSpace.toString());
-        presenter = new ShowParkingPresenter(this, MemoryInitializer.getUserDAO(), MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO(),parkingSpace);
+        presenter = new ShowParkingPresenter(this, MemoryInitializer.getUserDAO(), MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO(),MemoryInitializer.getRatingDAO(),parkingSpace);
 
         Button btn = (Button) findViewById(R.id.sendParkingRequest);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -49,8 +51,17 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                //presenter.add(parkingSpace);
+                //final CharSequence[] items = {"1", "2", "3"};
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                builder.setTitle("Select");
+                builder.setItems(MemoryInitializer.getRatingDAO().findAllOfUser(), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        // Do something with the selection
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
             }
         });
 
@@ -59,4 +70,5 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     public void setParkedUser(String parkedUsername){ ((TextView) findViewById(R.id.ParkedUser)).setText(parkedUsername);}
     public void setVehicle(String plate){((TextView) findViewById(R.id.ParkedVehicle)).setText(plate);}
     public void setAddress(String zip){((TextView) findViewById(R.id.AddressForRequest)).setText(zip); }
+    public String getParkedUsername(){return ((EditText) findViewById(R.id.par)).getText().toString(); }
 }
