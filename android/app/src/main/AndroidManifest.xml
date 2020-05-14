@@ -13,7 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.showRatings.ShowRatings"></activity>
         <activity android:name=".ui.notifications.notifications" />
         <activity android:name=".ui.findParking.findParking" />
         <activity android:name=".ui.newParking.NewParkingSpace" />
