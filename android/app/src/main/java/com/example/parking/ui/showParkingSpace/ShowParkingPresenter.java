@@ -20,13 +20,21 @@ public class ShowParkingPresenter {
     UserDAO userDAO;
     ParkingSpaceDAO parkingDAO;
     ParkingRequestDAO parkingRequestDAO;
-
-    public ShowParkingPresenter(ShowParkingView view, UserDAO userDAO, ParkingSpaceDAO parkingDAO, ParkingRequestDAO parkingRequestDAO) {
+    User user;
+    ParkingSpace space;
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public ShowParkingPresenter(ShowParkingView view, UserDAO userDAO, ParkingSpaceDAO parkingDAO, ParkingRequestDAO parkingRequestDAO, ParkingSpace space) {
         this.view = view;
         this.userDAO = userDAO;
+        this.space=space;
+        user = userDAO.find(space.getParkedUser().getUsername());
         this.parkingDAO = parkingDAO;
         this.parkingRequestDAO = parkingRequestDAO;
+        view.setAddress(space.getAddress().toString());
+        view.setParkedUser(user.getUsername());
+        view.setVehicle(space.getPlate());
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     void add(ParkingSpace parkingSpace){

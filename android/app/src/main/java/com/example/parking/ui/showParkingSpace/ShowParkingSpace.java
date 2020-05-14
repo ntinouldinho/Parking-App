@@ -28,12 +28,13 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_parking);
-        presenter = new ShowParkingPresenter(this, MemoryInitializer.getUserDAO(), MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO());
-        Gson gson = new Gson();
+       Gson gson = new Gson();
         String parkingSpaceAsAString = getIntent().getStringExtra("parkingSpace");
 
         parkingSpace = gson.fromJson(parkingSpaceAsAString, ParkingSpace.class);
         Log.e("show",parkingSpace.toString());
+        presenter = new ShowParkingPresenter(this, MemoryInitializer.getUserDAO(), MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO(),parkingSpace);
+
         Button btn = (Button) findViewById(R.id.sendParkingRequest);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

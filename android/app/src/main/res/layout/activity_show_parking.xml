@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowParking">
+    tools:context=".ui.showParkingSpace.ShowParkingSpace">
 
     <TextView
         android:id="@+id/AddressForRequest"
@@ -20,13 +20,13 @@
 
     <TextView
         android:id="@+id/ParkedUser"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="15dp"
         android:text="Parked User"
         app:layout_constraintBottom_toTopOf="@+id/ParkedVehicle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/AddressForRequest"
+        app:layout_constraintStart_toStartOf="@+id/AddressForRequest"
         app:layout_constraintTop_toBottomOf="@+id/AddressForRequest" />
 
     <TextView
@@ -44,7 +44,7 @@
         android:id="@+id/ReviewsOfParkedUser"
         android:layout_width="150dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="21dp"
         android:text="ReviewsOfParkedUser"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
         android:id="@+id/editText"
         android:layout_width="150dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="210dp"
+        android:layout_marginBottom="209dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="E.T.A."
