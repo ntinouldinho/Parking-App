@@ -9,9 +9,7 @@
     <TextView
         android:id="@+id/AddressForRequest"
         android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="81dp"
-        android:layout_marginBottom="10dp"
+        android:layout_height="50dp"
         android:text="Address"
         app:layout_constraintBottom_toTopOf="@+id/ParkedUser"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,20 +18,18 @@
 
     <TextView
         android:id="@+id/ParkedUser"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
         android:text="Parked User"
         app:layout_constraintBottom_toTopOf="@+id/ParkedVehicle"
-        app:layout_constraintEnd_toEndOf="@+id/AddressForRequest"
-        app:layout_constraintStart_toStartOf="@+id/AddressForRequest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddressForRequest" />
 
     <TextView
         android:id="@+id/ParkedVehicle"
         android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="17dp"
+        android:layout_height="50dp"
         android:text="ParkedVehicle"
         app:layout_constraintBottom_toTopOf="@+id/ReviewsOfParkedUser"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +39,7 @@
     <TextView
         android:id="@+id/ReviewsOfParkedUser"
         android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="21dp"
+        android:layout_height="50dp"
         android:text="ReviewsOfParkedUser"
         app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,7 +50,6 @@
         android:id="@+id/sendParkingRequest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
         android:text="Send Parking Request"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,8 +59,7 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="209dp"
+        android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="E.T.A."
