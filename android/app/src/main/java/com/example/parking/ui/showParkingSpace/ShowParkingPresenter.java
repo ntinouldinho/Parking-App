@@ -30,7 +30,7 @@ public class ShowParkingPresenter {
         user = userDAO.find(space.getParkedUser().getUsername());
         this.parkingDAO = parkingDAO;
         this.parkingRequestDAO = parkingRequestDAO;
-        view.setAddress(space.getAddress().toString());
+        view.setAddress(space.getAddress().getStreet()+" "+space.getAddress().getStreetNumber()+" ,"+space.getAddress().getZipCode().getZip());
         view.setParkedUser(user.getUsername());
         view.setVehicle(space.getPlate());
     }
