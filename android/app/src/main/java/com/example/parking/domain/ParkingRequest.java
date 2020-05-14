@@ -4,6 +4,7 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
@@ -117,8 +118,8 @@ public class ParkingRequest{
                 indexParked = counter;
                 System.out.println(counter+" par "+user);
             }
-                counter++;
-            }
+            counter++;
+        }
         if (indexParked==-1 || indexReq==-1){
             System.out.println(indexParked + " "+indexReq);
             returnList.add(new ArrayList<User>());
@@ -146,8 +147,9 @@ public class ParkingRequest{
             users.get(indexReq).getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
             users.get(indexReq).setPenalty(penalty);
             users.get(indexParked).getCredits().addCredits(getParkingSpace().getPrice().getPoints());
+            users.get(indexParked)
+            returnList.add(users.get(indexReq));
 
-            returnList.add(users);
             returnList.add(3);
             return returnList;
         }
@@ -156,7 +158,9 @@ public class ParkingRequest{
         return returnList;
     }
 
-
+    public boolean checkIfUsersExist(ArrayList<User> users){
+        return true;
+    }
     @Override
     public String toString() {
         return "ParkingRequest{" +

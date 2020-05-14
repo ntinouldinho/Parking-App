@@ -54,13 +54,13 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
                 //final CharSequence[] items = {"1", "2", "3"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                builder.setTitle("Select");
-                builder.setItems(MemoryInitializer.getRatingDAO().findAllOfUser(), new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int item) {
-                        // Do something with the selection
-                        dialog.dismiss();
-                    }
-                });
+//                builder.setTitle("Select");
+//                builder.setItems(MemoryInitializer.getRatingDAO().findAllOfUser(), new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int item) {
+//                        // Do something with the selection
+//                        dialog.dismiss();
+//                    }
+//                });
                 builder.show();
             }
         });
@@ -70,5 +70,5 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     public void setParkedUser(String parkedUsername){ ((TextView) findViewById(R.id.ParkedUser)).setText(parkedUsername);}
     public void setVehicle(String plate){((TextView) findViewById(R.id.ParkedVehicle)).setText(plate);}
     public void setAddress(String zip){((TextView) findViewById(R.id.AddressForRequest)).setText(zip); }
-    public String getParkedUsername(){return ((EditText) findViewById(R.id.par)).getText().toString(); }
+    //public String getParkedUsername(){return ((EditText) findViewById(R.id.par)).getText().toString(); }
 }
