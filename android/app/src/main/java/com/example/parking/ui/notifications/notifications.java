@@ -188,12 +188,9 @@ public class notifications extends AppCompatActivity implements notificationView
                                     Boolean wantToCloseDialog = false;
                                     int k=y;
                                     //Do stuff, possibly set wantToCloseDialog to true then...
-                                    if(Integer.valueOf(input.getText().toString())==5555) {
-                                        Log.e("the i", String.valueOf(k));
-                                        presenter.validateParking(reqsForPin.get(k),new Pin(Integer.valueOf(input.getText().toString())));
+                                    if(presenter.validateParking(reqsForPin.get(k),new Pin(Integer.valueOf(input.getText().toString())))) {
                                         dialog.dismiss();
-                                    }else{
-                                        makeToast(input.getText().toString()+" is the wrong pin");
+                                        recreate();
                                     }
                                     //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
                                 }

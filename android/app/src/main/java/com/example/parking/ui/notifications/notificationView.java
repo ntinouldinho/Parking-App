@@ -11,4 +11,5 @@ public interface notificationView {
     void enterPinListener(ArrayList<Button> myButtons,ArrayList<ParkingRequest> reqs);
     String getUserName();
     ArrayList<ParkingRequest> getReqs();
+    void makeToast(String s);
 }

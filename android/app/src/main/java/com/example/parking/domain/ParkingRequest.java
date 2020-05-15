@@ -6,6 +6,7 @@ import android.util.Log;
 import androidx.annotation.RequiresApi;
 
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.util.Credits;
 import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
@@ -107,27 +108,25 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public List<Object> validateParking(ArrayList<User> users, Pin pin){
-        List<Object> returnList = new ArrayList<>();
-        int counter = 0;
-        int indexParked=-1;
-        int indexReq=-1;
-        for(User user: users){
-            if (user.getUsername().equals(getRequestingUser().getUsername())) {
-                indexReq=counter;
-                System.out.println(counter+" req "+user);
-            }else if (user.getUsername().equals(getParkingSpace().getParkedUser().getUsername())) {
-                indexParked = counter;
-                System.out.println(counter+" par "+user);
-            }
-            counter++;
+    public int validateParking(User parked,User requestingUser, Pin pin){
+
+        if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
+            getParkingSpace().makeParkingUnavailable();
+
+            calculatePenalty();
+
+            requestingUser.getCredits().removeCredits(3);
+
+
+            parked.getCredits().addCredits(getParkingSpace().getPrice().getPoints());
+
+            return 1;
         }
-        if (indexParked==-1 || indexReq==-1){
-            System.out.println(indexParked + " "+indexReq);
-            returnList.add(new ArrayList<User>());
-            returnList.add(1);
-            return returnList;
-        }
+        return 2;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    void calculatePenalty(){
         TimeRange currentTime = new TimeRange(0);
         currentTime.setFrom(date.getTo());
         System.out.println(currentTime.toString());
@@ -137,27 +136,8 @@ public class ParkingRequest{
         System.out.println(minutesDif);
         if(minutesDif>=30){
             penalty+=2;
-            users.get(indexReq).setPenalty(penalty);
-
-            returnList.add(new ArrayList<User>());
-            returnList.add(2);
-            return returnList;
+            requestingUser.setPenalty(penalty);
         }
-
-        if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
-            getParkingSpace().makeParkingUnavailable();
-            users.get(indexReq).getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
-            users.get(indexReq).setPenalty(penalty);
-            users.get(indexParked).getCredits().addCredits(getParkingSpace().getPrice().getPoints());
-            users.get(indexParked);
-            returnList.add(users.get(indexReq));
-
-            returnList.add(3);
-            return returnList;
-        }
-        returnList.add(new ArrayList<User>());
-        returnList.add(4);
-        return returnList;
     }
 
     public boolean checkIfUsersExist(ArrayList<User> users){
