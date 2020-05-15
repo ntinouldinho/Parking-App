@@ -40,9 +40,6 @@ public class notificationsPresenter {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     boolean validateParking(ParkingRequest request, Pin pin){
-//        Log.e("requesting before",String.valueOf(users.find(request.getRequestingUser().getUsername()).getCredits().getPoints())+request.getRequestingUser().getUsername());
-//        Log.e("parked before",String.valueOf(users.find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints())+request.getParkingSpace().getParkedUser().getUsername());
-
         User requesting = users.find(request.getRequestingUser().getUsername());
         User parked = users.find(view.getUserName());
         int results = dao.find(request).validateParking(parked,requesting,pin);
@@ -56,8 +53,5 @@ public class notificationsPresenter {
            view.makeToast("Wrong pin.");
            return false;
        }
-//        Log.e("requesting before",String.valueOf(users.find(request.getRequestingUser().getUsername()).getCredits().getPoints())+request.getRequestingUser().getUsername());
-//        Log.e("parked before",String.valueOf(users.find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints())+request.getParkingSpace().getParkedUser().getUsername());
-//        Log.e("the parking",request.toString());
     }
 }

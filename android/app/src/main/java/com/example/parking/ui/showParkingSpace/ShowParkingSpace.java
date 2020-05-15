@@ -21,6 +21,7 @@ import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.Rating;
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.findParking.findParking;
 import com.example.parking.ui.homescreen.HomeScreenActivity;
 import com.google.gson.Gson;
 
@@ -50,6 +51,8 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
             @Override
             public void onClick(View v) {
                 presenter.add(parkingSpace);
+                Intent myIntent = new Intent(ShowParkingSpace.this, HomeScreenActivity.class);
+                startActivity(myIntent);
             }
         });
 
@@ -78,6 +81,12 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
                     }
                 });
                 myDialog=builder.create();
+                builder.setPositiveButton("Close Reviews", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        myDialog.cancel();
+                    }
+                });
                 builder.show();
 
 
@@ -90,9 +99,13 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     public void setVehicle(String plate){((TextView) findViewById(R.id.ParkedVehicle)).setText(plate);}
     public void setAddress(String zip){((TextView) findViewById(R.id.AddressForRequest)).setText(zip); }
     public String getParkedUsername(){return ((TextView) findViewById(R.id.ParkedUser)).getText().toString(); }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        this.finish();
+        Intent myIntent = new Intent(ShowParkingSpace.this, findParking.class);
+        myIntent.putExtra("CodeForRestart", "OK");
+        //this.finish();
     }
+
 }

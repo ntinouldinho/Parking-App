@@ -164,5 +164,20 @@ public class findParking extends AppCompatActivity implements findParkingView{
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        String flag=getIntent().hasExtra("CodeForRestart") ? getIntent().getExtras().getString("CodeForRestart") : "bad";
+        if(flag.equals("OK")){
+            recreate();
+        }
+
+    }
+
 
 }
