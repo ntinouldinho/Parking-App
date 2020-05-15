@@ -20,7 +20,7 @@ public class Credits {
     }
 
     public void setPoints(int points) {
-       Log.e("in set","set "+String.valueOf(getPoints())+ " to "+points); this.points = points;
+       this.points = points;
     }
 
     public void addCredits(int points){
@@ -32,9 +32,7 @@ public class Credits {
         if(currentPoints<points){
             return false;
         }
-        Log.e("before removal",String.valueOf(getPoints()));
         setPoints(currentPoints-points);
-        Log.e("after removal",String.valueOf(getPoints()));
         return true;
     }
 
