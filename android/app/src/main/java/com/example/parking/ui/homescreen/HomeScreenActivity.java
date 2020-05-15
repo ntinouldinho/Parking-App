@@ -2,10 +2,12 @@ package com.example.parking.ui.homescreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.parking.ui.findParking.findParking;
 import com.example.parking.ui.newParking.NewParkingSpace;
@@ -66,5 +68,19 @@ public class HomeScreenActivity extends AppCompatActivity {
     public String getUserName()
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 1 && resultCode == Activity.RESULT_OK)
+        {
+            recreate();
+            Toast.makeText(this,data.getStringExtra("message_to_toast"),Toast.LENGTH_SHORT).show();
+        }
+        else if(requestCode == 100)
+            recreate();
     }
 }

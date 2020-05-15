@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.homescreen.HomeScreenActivity;
 import com.example.parking.util.TimeRange;
 
 import java.time.LocalDateTime;
@@ -37,8 +38,6 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     }
 
     private NewParkingPresenter presenter;
-    private EditText ZipCodeEditText,StreetNumberEditText,StreetEditText,CreditsEditText;
-    private String zipCode,street,streetno,credits;
     private int yearFinal,monthFinal,dayFinal;
     private Button setFrom, setTo;
     private TextView dateTimeInfoFrom, getDateTimeInfoTo;
@@ -123,8 +122,8 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     }
 
     private boolean validateStreet() {
-        street = getStreet().trim();
-        StreetEditText = (EditText)findViewById(R.id.Street);
+        String street = getStreet().trim();
+        EditText StreetEditText = (EditText)findViewById(R.id.Street);
         if(street.isEmpty()){
             StreetEditText.setError("Street cannot be empty");
             return false;
@@ -136,8 +135,8 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     }
 
     private boolean validateStreetNo() {
-        streetno = getStreetNumber().trim();
-        StreetNumberEditText = (EditText)findViewById(R.id.StreetNumber);
+        String streetno = getStreetNumber().trim();
+        EditText StreetNumberEditText = (EditText)findViewById(R.id.StreetNumber);
         if(streetno.isEmpty()){
             StreetNumberEditText.setError("Street Number cannot be empty");
             return false;
@@ -149,8 +148,8 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     }
 
     private boolean validateZipCode(){
-        zipCode = getZipCode().trim();
-        ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
+        String zipCode = getZipCode().trim();
+        EditText ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
         if(zipCode.isEmpty()){
             ZipCodeEditText.setError("ZIP Code cannot be empty");
             return false;
@@ -165,8 +164,8 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     }
 
     private boolean validateCredits(){
-        credits = getCredits().trim();
-        CreditsEditText = (EditText)findViewById(R.id.creditsForParking);
+        String credits = getCredits().trim();
+        EditText CreditsEditText = (EditText)findViewById(R.id.creditsForParking);
         if(credits.isEmpty()){
             CreditsEditText.setError("Credits cannot be empty");
             return false;
@@ -235,10 +234,12 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         spinner.setAdapter(adapter);
     }
 
-    public void successfullyFinishActivity(String message)
+
+
+    public void successfullyFinishActivity()
     {
-        Intent retData = new Intent();
-        retData.putExtra("message_to_toast", message);
+        Intent retData = new Intent(NewParkingSpace.this,HomeScreenActivity.class);
+        retData.putExtra("message_to_toast", "all good");
         setResult(RESULT_OK, retData);
         finish();
 

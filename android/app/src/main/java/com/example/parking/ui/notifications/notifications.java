@@ -86,7 +86,7 @@ public class notifications extends AppCompatActivity implements notificationView
                 if(request.getPin()!=null) {
 
                     colorBackground=Color.parseColor("#22ff00");
-                    data.setText(request.getDate().toString() + ", your request is pending for:" + request.getParkingSpace().getParkedUser().getUsername());
+                    data.setText("You have asked for a parking space at "+request.getParkingSpace().getAddress().getStreet()+", from: "+request.getDate().getFrom() + " to: "+request.getDate().getTo()+", your request is pending for:" + request.getParkingSpace().getParkedUser().getUsername());
                     not = "Pending request";  //notification only
                 }else{
                     if(request.getDate()==null){
@@ -105,7 +105,7 @@ public class notifications extends AppCompatActivity implements notificationView
                 if(request.getPin()!=null) {
 
                     data.setText(request.getDate().toString() + ", your request is pending for:" + request.getRequestingUser().getUsername());
-                    newLayout.setBackgroundColor(Color.parseColor("#22ff00"));
+                    colorBackground=Color.parseColor("#22ff00");
                     enterPinListener(btn,request);
                     not = "Accepted.Awaiting for arrival"; //button, when pressed pin must be entered
                 }else{

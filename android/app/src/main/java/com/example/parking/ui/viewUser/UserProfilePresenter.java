@@ -16,6 +16,7 @@ public class UserProfilePresenter {
         this.view=view;
         this.dao=dao;
         currentUser = dao.find(view.getUsername());
+        Log.e("reqqq",currentUser.toString());
         setFields();
         addListeners();
     }

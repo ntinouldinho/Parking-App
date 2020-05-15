@@ -13,7 +13,7 @@ public interface NewParkingView {
     String getUsername();
     TimeRange getTimeRange();
     void setSpinner(ArrayList<String> plates);
-    void successfullyFinishActivity(String message);
+    void successfullyFinishActivity();
 
     void makeToast(String m);
 

@@ -36,6 +36,7 @@ public class NewParkingPresenter {
         if (parkingDAO.find(p) == null) {
             parkingDAO.save(p);
             view.makeToast("Parking space added!");
+            view.successfullyFinishActivity();
         }else{
             view.makeToast("Parking space already exists!");
         }

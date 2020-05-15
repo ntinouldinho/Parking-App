@@ -11,10 +11,10 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 public class AmountTest {
-    Amount amount;
-    BigDecimal number;
-    CurrencyEnum currencyEnum;
-    Currency currency;
+    private Amount amount;
+    private BigDecimal number;
+    private CurrencyEnum currencyEnum;
+    private Currency currency;
 
     @Test
     public void FullConTest() {

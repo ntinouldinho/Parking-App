@@ -6,7 +6,6 @@ import com.example.parking.domain.User;
 
 public class LoginPresenter {
     private LoginView view;
-    private User user;
     private UserDAO dao;
 
     LoginPresenter(LoginView view, UserDAO dao){
@@ -15,7 +14,7 @@ public class LoginPresenter {
     }
 
     public void login(){
-        user =  dao.login(view.getUsername(),view.getPassword());
+        User user =  dao.login(view.getUsername(),view.getPassword());
         if(user!=null){
             view.createToast("Logged in");
             view.moveOn();
