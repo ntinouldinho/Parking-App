@@ -1,5 +1,7 @@
 package com.example.parking.util;
 
+import java.util.Random;
+
 public class Pin {
     private int pin;
 
@@ -22,4 +24,8 @@ public class Pin {
         }
     }
 
+    public static int createPin(){
+        Random rn = new Random();
+        return rn.nextInt(9000) + 1000;
+    }
 }

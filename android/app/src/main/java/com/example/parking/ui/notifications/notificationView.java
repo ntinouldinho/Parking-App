@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public interface notificationView {
     ArrayList<Button> showNotifications(ArrayList<ParkingRequest> DaoParkingSpace, String notif);
-    void enterPinListener(ArrayList<Button> myButtons,ArrayList<ParkingRequest> reqs);
+    void enterPinListener(Button myButtons,ParkingRequest reqs);
     String getUserName();
     ArrayList<ParkingRequest> getReqs();
     void makeToast(String s);

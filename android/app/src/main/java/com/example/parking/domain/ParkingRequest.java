@@ -115,7 +115,7 @@ public class ParkingRequest{
 
             calculatePenalty();
 
-            requestingUser.getCredits().removeCredits(3);
+            requestingUser.getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
 
 
             parked.getCredits().addCredits(getParkingSpace().getPrice().getPoints());

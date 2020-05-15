@@ -33,6 +33,7 @@ public class notifications extends AppCompatActivity implements notificationView
     ArrayList<Button> awaitingForYourApproval = new ArrayList<>();
     ArrayList<Button> enterPin = new ArrayList<>();
     ArrayList<ParkingRequest> reqsForPin = new ArrayList<>();
+    ArrayList<ParkingRequest> approveOrNot = new ArrayList<>();
     int i=0;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -67,54 +68,66 @@ public class notifications extends AppCompatActivity implements notificationView
             // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
             newLayout.setOrientation(LinearLayout.VERTICAL);
-            newLayout.setBackgroundColor(colorBackground);
             // Add title
             // Create Button
-
+            newLayout.setBackgroundColor(colorBackground);
             final Button btn = new Button(this);
             btn.setBackgroundColor(colorBackground);
 
-            btn.setTextSize(12);
-            btn.setTextColor(colorText);
-            btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 200));
+            btn.setTextSize(10);
+            btn.setTextColor(Color.parseColor("#000000"));
+            btn.setLayoutParams (new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100));
 
+            TextView data = new TextView(this);
+            data.setTextSize(10);
+            data.setTextColor(colorText);
 
-            if(request.getParkingSpace().getParkedUser().getUsername().equals(username) && request.getPin()==null){
-
-            }
             if(request.getRequestingUser().getUsername().equals(username)){
                 if(request.getPin()!=null) {
-                    not = "Awaiting for approval";  //notification only
+
+                    colorBackground=Color.parseColor("#22ff00");
+                    data.setText(request.getDate().toString() + ", your request is pending for:" + request.getParkingSpace().getParkedUser().getUsername());
+                    not = "Pending request";  //notification only
                 }else{
                     if(request.getDate()==null){
-                        not = "Request rejected"; //notification only
+
+                        colorBackground=Color.parseColor("#ff0000");
+                        data.setText(request.getDate().toString() + ", your request iwas rejected from:" + request.getParkingSpace().getParkedUser().getUsername());
+                        not = "Your request has been rejected"; //notification only
                     }else {
-                        not = "Awaiting for your arrival"; //notification only with pin display
+
+                        data.setText(request.getDate().toString() + ", your request is accepted from:" + request.getParkingSpace().getParkedUser().getUsername());
+                        colorBackground=Color.parseColor("#22ff00");
+                        not = "You have to go to"; //notification only with pin display
                     }
                 }
             }else if(request.getParkingSpace().getParkedUser().getUsername().equals(username)){
                 if(request.getPin()!=null) {
-                    enterPin.add(btn);
-                    reqsForPin.add(request);
-                    Log.e("test req",request.toString());
-                    not = "Awaiting for arrival"; //button, when pressed pin must be entered
+
+                    data.setText(request.getDate().toString() + ", your request is pending for:" + request.getRequestingUser().getUsername());
+                    newLayout.setBackgroundColor(Color.parseColor("#22ff00"));
+                    enterPinListener(btn,request);
+                    not = "Accepted.Awaiting for arrival"; //button, when pressed pin must be entered
                 }else{
                     if(request.getDate()==null){
-                        not = "Request rejected"; //notification only
+                        data.setText(request.getDate().toString() + ", your rejected a request from:" + request.getRequestingUser().getUsername());
+                        colorBackground=Color.parseColor("#ff0000");
+                        not = "You rejected a request"; //notification only
                     }else {
-                        awaitingForYourApproval.add(btn);
-                        not = "Awaiting for your approval";
+                        data.setText(request.getDate().toString() + ", your have a request to approve from:" + request.getRequestingUser().getUsername());
+                        colorBackground=Color.parseColor("#22ff00");
+
+                        setApproveOrNotListener(btn,request);
+                        not = "Pending.Awaiting for your approval";
                     }
 
                 }
             }
+            data.setBackgroundColor(colorBackground);
             btn.setText(not);
             newLayout.addView(btn);
             //Add
-            TextView data = new TextView(this);
-            data.setText("okk");
-            data.setTextSize(10);
-            data.setTextColor(colorText);
+
             newLayout.addView(data);
 
             newLayout.setLayoutParams(layoutParams);
@@ -126,7 +139,6 @@ public class notifications extends AppCompatActivity implements notificationView
         }
         // Display the view
         setContentView(v);
-        enterPinListener(enterPin,reqsForPin);
         return awaitingForYourApproval;
     }
 
@@ -140,21 +152,17 @@ public class notifications extends AppCompatActivity implements notificationView
     }
 
     public ArrayList<ParkingRequest> getReqs(){ return reqsForPin;}
-    int y=0;
-    public void enterPinListener(ArrayList<Button> myButtons,ArrayList<ParkingRequest> reqs) {
+
+    public void enterPinListener(Button b,ParkingRequest request) {
         //get switch
-        Log.e("in", String.valueOf(myButtons.size()));
-        for(int i=0;i<myButtons.size();i++){
-            y=i;
-            Log.e("in","in "+i);
-            Button b = myButtons.get(i);
             b.setOnClickListener(
                     new View.OnClickListener()
                     {
                         public void onClick(View view)
                         {
                             AlertDialog.Builder builder = new AlertDialog.Builder(notifications.this);
-                            builder.setMessage("Test for preventing dialog close");
+                            builder.setTitle("Pin");
+                            builder.setMessage("The requesting user has arrived. Enter the pin he has given you.");
                             builder.setPositiveButton("Confirm",
                                     new DialogInterface.OnClickListener()
                                     {
@@ -185,10 +193,9 @@ public class notifications extends AppCompatActivity implements notificationView
                                 @Override
                                 public void onClick(View v)
                                 {
-                                    Boolean wantToCloseDialog = false;
-                                    int k=y;
+                                    Log.e("requesting",""+request.toString());
                                     //Do stuff, possibly set wantToCloseDialog to true then...
-                                    if(presenter.validateParking(reqsForPin.get(k),new Pin(Integer.valueOf(input.getText().toString())))) {
+                                    if(!input.getText().toString().equals("") && presenter.validateParking(request,new Pin(Integer.valueOf(input.getText().toString())))) {
                                         dialog.dismiss();
                                         recreate();
                                     }
@@ -198,41 +205,43 @@ public class notifications extends AppCompatActivity implements notificationView
 
                         }
                     });
-        }
+
     }
 
-    public void setParkingOnClickListener(ArrayList<Button> myButtons) {
+    public void setApproveOrNotListener(Button b,ParkingRequest request) {
         //get switch
-        Log.e("in", String.valueOf(myButtons.size()));
-        for(int i=0;i<myButtons.size();i++){
             Log.e("in","in");
-            Button b = myButtons.get(i);
+
             b.setOnClickListener(
                     new View.OnClickListener()
                     {
+                        @RequiresApi(api = Build.VERSION_CODES.O)
                         public void onClick(View view)
                         {
                             AlertDialog.Builder builder = new AlertDialog.Builder(notifications.this);
 
-                            builder.setTitle("Pin");
-                            builder.setMessage("The requesting user has arrived. Enter the pin he has given you.");
+                            builder.setTitle("Request for you parking space");
+                            builder.setMessage("Your space at "+request.getParkingSpace().getAddress().getStreet()+" wants to be used by "+request.getRequestingUser().getUsername());
 
-                            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            builder.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface dialog, int which) {
                                     // validate parking
-
+                                    presenter.approveRequest(request);
+                                    recreate();
+                                    Log.e("this is the req",request.getRequestingUser().getUsername());
                                     dialog.dismiss();
                                 }
                             });
 
-                            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            builder.setNegativeButton("DENY", new DialogInterface.OnClickListener() {
 
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
 
                                     // date null
-
+                                    presenter.denyRequest(request);
+                                    recreate();
                                     dialog.dismiss();
                                 }
                             });
@@ -242,6 +251,6 @@ public class notifications extends AppCompatActivity implements notificationView
 
                         }
                     });
-        }
+
     }
 }
