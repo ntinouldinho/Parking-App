@@ -1,5 +1,7 @@
 package com.example.parking.ui.newParking;
 
+import com.example.parking.util.TimeRange;
+
 import java.util.ArrayList;
 
 public interface NewParkingView {
@@ -9,8 +11,10 @@ public interface NewParkingView {
     String getPlate();
     String getCredits();
     String getUsername();
+    TimeRange getTimeRange();
     void setSpinner(ArrayList<String> plates);
     void successfullyFinishActivity(String message);
 
     void makeToast(String m);
+
 }
