@@ -79,14 +79,15 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference){
+    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference, TimeRange tr){
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = address.getZipCode();
         for (ParkingSpace parking : parkingSpaces) {
-
                 ZipCode currentZip = parking.getAddress().getZipCode();
                 if (Math.abs(zip.getZip() - currentZip.getZip()) <= difference) {
-                    list.add(parking);
+                    //if(parking.getTimeRange().containsRange(tr)){
+                        list.add(parking);
+                    //}
                 }
             }
         return list;

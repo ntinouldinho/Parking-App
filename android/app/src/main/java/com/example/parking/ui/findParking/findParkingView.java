@@ -17,5 +17,6 @@ public interface findParkingView {
     ArrayList<Button> showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace);
     void setParkingOnClickListener(Button b,ParkingSpace parkspa);
     String getUserName();
+    TimeRange getTimeRange();
 
 }

@@ -14,6 +14,7 @@ import com.example.parking.domain.ParkingRequest;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.User;
 import com.example.parking.ui.newParking.NewParkingView;
+import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class findParkingPresenter {
         ArrayList<ParkingSpace> ps = new ArrayList<ParkingSpace>(park);
 
         ParkingRequest pr = new ParkingRequest();
-        ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30);
+        ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30, view.getTimeRange());
         view.showParkingSpace(test);
     }
 

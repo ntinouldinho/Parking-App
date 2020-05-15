@@ -51,6 +51,16 @@ public class TimeRange {
         return Duration.between(from, to).toMinutes();
     }
 
+    public static long getDifference(LocalDateTime ld1, LocalDateTime ld2){
+        return Duration.between(ld1, ld2).toMinutes();
+    }
+
+    public boolean containsRange(final TimeRange other)
+    {
+        return getDifference(this.from, other.from) >= 0 &&
+                getDifference(other.to, this.to) >= 0;
+    }
+
     public LocalDateTime addMinutes(LocalDateTime date, long minutes){
         return date.plusMinutes(minutes);
     }
