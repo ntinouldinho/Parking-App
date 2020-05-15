@@ -60,4 +60,13 @@ public class notificationsPresenter {
 //        Log.e("parked before",String.valueOf(users.find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints())+request.getParkingSpace().getParkedUser().getUsername());
 //        Log.e("the parking",request.toString());
     }
+
+    void approveRequest(ParkingRequest request){
+        request.setPin(new Pin(Pin.createPin()));
+        Log.e("the new pin",String.valueOf(request.getPin().getPin()));
+    }
+
+    void denyRequest(ParkingRequest request){
+        request.setDate(null);
+    }
 }
