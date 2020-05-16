@@ -7,5 +7,10 @@ import org.junit.Test;
 
 public class loginPresenterTest {
     @Before
-    public void setup(){}
+    public void setup(){
+
+    }
+
+    @Test
+    public void start(){}
 }
