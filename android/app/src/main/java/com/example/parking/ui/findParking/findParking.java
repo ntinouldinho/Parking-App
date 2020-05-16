@@ -185,9 +185,8 @@ public class findParking extends AppCompatActivity implements findParkingView{
 
                         public void onClick(View view)
                         {
-                            ParkingSpace parkingSpace = parkspa;
                             Gson gson = new Gson();
-                            String parkingSpaceAsAString = gson.toJson(parkingSpace);
+                            String parkingSpaceAsAString = gson.toJson(parkspa);
                             Intent myIntent = new Intent(findParking.this, ShowParkingSpace.class);
                             myIntent.putExtra("Username", getUserName());
                             myIntent.putExtra("parkingSpace",parkingSpaceAsAString);

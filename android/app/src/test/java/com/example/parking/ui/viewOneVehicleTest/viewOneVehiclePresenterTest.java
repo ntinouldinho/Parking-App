@@ -1,4 +1,4 @@
-package com.example.parking.ui;
+package com.example.parking.ui.viewOneVehicleTest;
 
 import org.junit.Before;
 

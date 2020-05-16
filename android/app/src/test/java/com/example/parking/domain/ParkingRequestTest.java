@@ -48,10 +48,10 @@ public class ParkingRequestTest {
         addressParked = new Address("vasilisis","53",zipCode);
         addressSearching = new Address("zanni","40",zipCode);
 
-        userParked = new User("kostas","kon","6950505050","email","ntinouldinho","test",addressParked,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        userParked = new User("kostas","kon","6950505050","email","ntinouldinho","test",new Credits(10),addressParked,new ArrayList<Rating>(),new ArrayList<Vehicle>());
         userParked.addVehicle(vehicle);
 
-        userSearching = new User("konnos","kon","6940404040","email","konnnos","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        userSearching = new User("konnos","kon","6940404040","email","konnnos","test",new Credits(10),addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
 
 
         users.add(userParked);
@@ -94,7 +94,7 @@ public class ParkingRequestTest {
 
     @Test
     public void setRequestingUser() {
-        User user = new User("kostas","kon","6950505050","email","ntinouldinho","test",addressParked,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user = new User("kostas","kon","6950505050","email","ntinouldinho","test",new Credits(10),addressParked,new ArrayList<Rating>(),new ArrayList<Vehicle>());
         parkingRequest.setRequestingUser(user);
         assertEquals(user,parkingRequest.getRequestingUser());
     }

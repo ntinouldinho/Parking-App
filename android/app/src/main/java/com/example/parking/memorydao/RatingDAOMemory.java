@@ -28,6 +28,21 @@ public class RatingDAOMemory implements RatingDAO {
 
     }
 
+    public double calculateStats(String username){
+        int size=0;
+        int addition=0;
+        for(Rating r: ratings){
+            if(r.getRatedUsername().equals(username)){
+                size++;
+                addition+=r.getRatingScore();
+            }
+        }
+        if(size!=0){
+            return addition/size;
+        }
+        return 0.0;
+    }
+
     public List<Rating> findAll(){
         return ratings;
     }

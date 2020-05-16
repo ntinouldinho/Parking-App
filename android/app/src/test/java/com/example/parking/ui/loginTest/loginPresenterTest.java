@@ -1,10 +1,11 @@
-package com.example.parking.ui;
+package com.example.parking.ui.loginTest;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class findParkingPresenterTest {
+
+public class loginPresenterTest {
     @Before
     public void setup(){}
 }

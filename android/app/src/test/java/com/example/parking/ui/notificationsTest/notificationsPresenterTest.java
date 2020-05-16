@@ -1,4 +1,4 @@
-package com.example.parking.ui;
+package com.example.parking.ui.notificationsTest;
 
 import org.junit.Before;
 
