@@ -51,7 +51,7 @@ public class UserTest {
     }
     @Test
     public void FullConTest() {
-        User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",address, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",new Credits(10),address, new ArrayList<Rating>(),new ArrayList<Vehicle>());
     }
 
     @Test
