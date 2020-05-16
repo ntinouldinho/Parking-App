@@ -64,10 +64,9 @@ public class findParking extends AppCompatActivity implements findParkingView{
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                if(validateZipcode()) {
                     presenter.find();
                     makeToast(getZip());
-                }
+
             }
         });
     }
@@ -98,24 +97,13 @@ public class findParking extends AppCompatActivity implements findParkingView{
         return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();
     }
 
-    private boolean validateZipcode(){
-        zipcode = getZip().trim();
-        ZipCodeEditText = (EditText)findViewById(R.id.ZipForParking);
-        if(zipcode.isEmpty()){
-            ZipCodeEditText.setError("ZipCode cannot be empty");
-            return false;
-        }else if(zipcode.length()!=5){
-            ZipCodeEditText.setError("ZipCode must be 5 digits");
-            return false;
-        }else{
-            ZipCodeEditText.setError(null);
-            Toast.makeText(this,"ZipCode added",Toast.LENGTH_SHORT).show();
-            return true;
-        }
+
+    public void setErrorToZip(String error){
+        ((EditText)findViewById(R.id.ZipForParking)).setError(error);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<Button> showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace){
+    public void showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace){
         int colorBackground = Color.parseColor("#337FFF");
         int colorText = Color.parseColor("#ffffff");
 
@@ -168,7 +156,6 @@ public class findParking extends AppCompatActivity implements findParkingView{
         // Display the view
         setContentView(v);
 
-        return buttons;
     }
 
     public void makeToast(String m){

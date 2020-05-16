@@ -34,14 +34,17 @@ public class findParkingPresenter {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void find(){
-
-        List<ParkingSpace> park = parkingSpaceDAO.findAllAvailable();
-
-        ArrayList<ParkingSpace> ps = new ArrayList<ParkingSpace>(park);
-
-        ParkingRequest pr = new ParkingRequest();
-        ArrayList<ParkingSpace> test = pr.findParking(ps,new Address("","",new ZipCode(Integer.valueOf(view.getZip()))),30, view.getTimeRange());
-        view.showParkingSpace(test);
+        String zip = view.getZip();
+        if(zip.isEmpty()){
+            view.setErrorToZip("ZipCode cannot be empty");
+        }else if(zip.length()!=5){
+            view.setErrorToZip("ZipCode must be 5 digits");
+        }else{
+            view.setErrorToZip(null);
+        }
+        
+        ArrayList<ParkingSpace> results = new ParkingRequest().findParking((ArrayList<ParkingSpace>) parkingSpaceDAO.findAllAvailable(),new Address("","",new ZipCode(Integer.valueOf(zip))),30, view.getTimeRange());
+        view.showParkingSpace(results);
     }
 
 

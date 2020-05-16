@@ -14,7 +14,8 @@ import java.util.Date;
 public interface findParkingView {
     String getZip();
     void makeToast(String m);
-    ArrayList<Button> showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace);
+    void setErrorToZip(String error);
+    void showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace);
     void setParkingOnClickListener(Button b,ParkingSpace parkspa);
     String getUserName();
     TimeRange getTimeRange();
