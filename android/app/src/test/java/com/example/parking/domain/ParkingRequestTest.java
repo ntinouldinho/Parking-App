@@ -142,7 +142,7 @@ public class ParkingRequestTest {
     }
     @Test
     public void ValidateWrongUserParkingTest(){
-        User wrongUser = new User("konnos","kon","6940404040","email","wrong","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User wrongUser = new User("konnos","kon","6940404040","email","wrong","test",new Credits(10),addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
         parkingRequest.setRequestingUser(wrongUser);
         List<Object> result = parkingRequest.validateParking(users,parkingRequest.getPin());
         int statusCode = (int)result.get(1);
