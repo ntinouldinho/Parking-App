@@ -35,7 +35,7 @@ public class findParkingPresenter {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void find(){
        if(validateZip()) {
-           ArrayList<ParkingSpace> results = new ParkingRequest().findParking((ArrayList<ParkingSpace>) parkingSpaceDAO.findAllAvailable(), new Address("", "", new ZipCode(Integer.valueOf(zip))), 30, view.getTimeRange());
+           ArrayList<ParkingSpace> results = new ParkingRequest().findParking((ArrayList<ParkingSpace>) parkingSpaceDAO.findAllAvailable(), new Address("", "", new ZipCode(Integer.valueOf(view.getZip()))), 30, view.getTimeRange());
            view.showParkingSpace(results);
        }
     }
