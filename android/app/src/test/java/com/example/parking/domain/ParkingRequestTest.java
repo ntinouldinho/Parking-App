@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.ToDoubleBiFunction;
 
 import static org.junit.Assert.*;
 
@@ -113,64 +114,44 @@ public class ParkingRequestTest {
 
     @Test
     public void findOneParking() {
-        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+        users.add(new User("konnos","kon","6940404040","email","test1","test",new Credits(10),addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
 
         ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
         parkingList.add(testParking1);
 
-        assertEquals(1,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0)).size());
+        assertEquals(1,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0,new TimeRange(0))).size());
     }
     @Test
     public void findMultipleParking() {
-        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+        users.add(new User("konnos","kon","6940404040","email","test1","test",new Credits(10),addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
 
         ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
         parkingList.add(testParking1);
         ParkingSpace testParking2 = new ParkingSpace(new Address("agias","53",new ZipCode(18510)),false,credits,new TimeRange(30),new Date(),userParked,"APL1000");
         parkingList.add(testParking2);
 
-         assertEquals(2,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0)).size());
+         assertEquals(2,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),0,new TimeRange(0))).size());
     }
     @Test
     public void findNoParking() {
-        users.add(new User("konnos","kon","6940404040","email","test1","test",addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
+        users.add(new User("konnos","kon","6940404040","email","test1","test",new Credits(10),addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>()));
 
         ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
         parkingList.add(testParking1);
-        assertEquals(0,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(10000)),0)).size());
+        assertEquals(0,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(10000)),0,new TimeRange(0))).size());
 
     }
-    @Test
-    public void ValidateWrongUserParkingTest(){
-        User wrongUser = new User("konnos","kon","6940404040","email","wrong","test",new Credits(10),addressSearching,new ArrayList<Rating>(),new ArrayList<Vehicle>());
-        parkingRequest.setRequestingUser(wrongUser);
-        List<Object> result = parkingRequest.validateParking(users,parkingRequest.getPin());
-        int statusCode = (int)result.get(1);
-        assertEquals(1,statusCode);
-    }
-    @Test
-    public void ValidateLateUserParkingTest(){
-        LocalDateTime now= parkingRequest.getDate().getTo();
-        LocalDateTime changed = now.minusMinutes(35);
-        parkingRequest.getDate().setTo(changed);
-        System.out.println(parkingRequest.getDate().toString());
-        List<Object> result = parkingRequest.validateParking(users,parkingRequest.getPin());
 
-        int statusCode = (int)result.get(1);
-        assertEquals(2,statusCode);
-    }
     @Test
     public void ValidateCorrectParkingTest(){
-        List<Object> result = parkingRequest.validateParking(users,parkingRequest.getPin());
-        int statusCode = (int)result.get(1);
-        assertEquals(3,statusCode);
+        int result = parkingRequest.validateParking(parkingRequest.getPin());
+        assertEquals(1,result);
     }
 
     @Test
     public void ValidateWrongPinParkingTest(){
-        List<Object> result = parkingRequest.validateParking(users,new Pin(1000));
-        int statusCode = (int)result.get(1);
-        assertEquals(4,statusCode);
+        int result = parkingRequest.validateParking(new Pin(1000));
+        assertEquals(2,result);
     }
 
 

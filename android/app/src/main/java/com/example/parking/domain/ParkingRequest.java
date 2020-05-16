@@ -109,17 +109,17 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public int validateParking(User parked,User requestingUser, Pin pin){
+    public int validateParking(Pin pin){
 
         if(pin.getPin()==getPin().getPin()){//get pin of class pin from parkingRequest pin
             getParkingSpace().makeParkingUnavailable();
 
             calculatePenalty();
 
-            requestingUser.getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
+            getRequestingUser().getCredits().removeCredits(getParkingSpace().getPrice().getPoints());
 
 
-            parked.getCredits().addCredits(getParkingSpace().getPrice().getPoints());
+            getParkingSpace().getParkedUser().getCredits().addCredits(getParkingSpace().getPrice().getPoints());
 
             return 1;
         }

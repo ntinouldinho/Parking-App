@@ -53,7 +53,7 @@ public class ParkingSpaceTest {
 
     @Test
     public void FullConTest() {
-        //User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",address, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user1= new User ("John", "Snow", "6980808080", "johnsnow@gmail.com", "IknowNothing","valarmorgulis",new Credits(10),address, new ArrayList<Rating>(),new ArrayList<Vehicle>());
         ParkingSpace p1 = new ParkingSpace(address,false,new Credits(6),new TimeRange(30),new Date(),user1,"KTO0512");
     }
 
