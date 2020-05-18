@@ -84,7 +84,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/dateTimeFromToNewParking"
+        android:id="@+id/dateTimeToInfoNewParking"
         android:layout_width="152dp"
         android:layout_height="41dp"
         android:layout_marginTop="44dp"
@@ -115,7 +115,7 @@
         android:layout_marginRight="52dp"
         android:text="@string/set_to"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateTimeFromToNewParking" />
+        app:layout_constraintTop_toBottomOf="@+id/dateTimeToInfoNewParking" />
 
     <Button
         android:id="@+id/setDateTimeFromNewParking"

@@ -1,57 +1,40 @@
 package com.example.parking.ui.newParking;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.helper.DurationSpecifier;
 import com.example.parking.ui.homescreen.HomeScreenActivity;
 import com.example.parking.util.TimeRange;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
 
-public class NewParkingSpace extends AppCompatActivity implements NewParkingView,
-        DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
-
-    private enum pressedButtonType{
-        NONE,
-        SET_FROM,
-        SET_TO
-    }
+public class NewParkingSpace extends AppCompatActivity implements NewParkingView{
 
     private NewParkingPresenter presenter;
-    private int yearFinal,monthFinal,dayFinal;
-    private Button setFrom, setTo;
-    private TextView dateTimeInfoFrom, getDateTimeInfoTo;
-    private pressedButtonType previouslyPressed = pressedButtonType.NONE;
-    private TimeRange timeRange;
+    private DurationSpecifier durationSpecifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_parking_space);
-        presenter = new NewParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
 
-        addListenerToDateTimeBtn(findViewById(R.id.setDateTimeFromNewParking), pressedButtonType.SET_FROM);
-        addListenerToDateTimeBtn(findViewById(R.id.setDateTimeToNewParking), pressedButtonType.SET_TO);
+        presenter = new NewParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
+        durationSpecifier = new DurationSpecifier(getBtnReferencesOfDateTime(),
+                getTextViewReferencesOfDateTime(), NewParkingSpace.this);
 
         Button btn = (Button) findViewById(R.id.addVehicleBtn);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -65,51 +48,22 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         });
     }
 
-    private void addListenerToDateTimeBtn(Button btn, pressedButtonType type) {
-        btn.setOnClickListener((v) -> {
-            previouslyPressed = type;
-            Calendar c = Calendar.getInstance();
-            DatePickerDialog dpD = new DatePickerDialog(NewParkingSpace.this, NewParkingSpace.this,
-                    c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
-            dpD.show();
-        });
+    private Button[] getBtnReferencesOfDateTime()
+    {
+        Button[] btns = new Button[2];
+        btns[0] = (Button)findViewById(R.id.setDateTimeFromNewParking);
+        btns[1] = (Button)findViewById(R.id.setDateTimeToNewParking);
+
+        return btns;
     }
 
-    @Override
-    public void onDateSet(DatePicker dp, int y, int m, int d){
-        yearFinal = y;
-        monthFinal = m;
-        dayFinal = d;
+    private TextView[] getTextViewReferencesOfDateTime()
+    {
+        TextView[] textViews = new TextView[2];
+        textViews[0] = (TextView)findViewById(R.id.dateTimeFromInfoNewParking);
+        textViews[1] = (TextView)findViewById(R.id.dateTimeToInfoNewParking);
 
-        Calendar c = Calendar.getInstance();
-        TimePickerDialog tpD = new TimePickerDialog(NewParkingSpace.this, NewParkingSpace.this,
-                c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), DateFormat.is24HourFormat(this));
-        tpD.show();
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    @Override
-    public void onTimeSet(TimePicker dp, int h, int m){
-        TextView tv;
-        LocalDateTime ld = LocalDateTime.of(yearFinal,monthFinal,dayFinal,h,m);
-        if(previouslyPressed == pressedButtonType.SET_FROM){
-            tv = (TextView) findViewById(R.id.dateTimeFromInfoNewParking);
-            updateTimeRange(ld, null);
-        }else if(previouslyPressed == pressedButtonType.SET_TO){
-            tv = (TextView) findViewById(R.id.dateTimeFromToNewParking);
-            updateTimeRange(null, ld);
-        }else{
-            return;
-        }
-
-        String formattedDate = dayFinal+"/"+monthFinal+"/"+yearFinal;
-
-        String formattedTime = h+":";
-        String strM = String.valueOf(m);
-        formattedTime += (strM.length() == 1) ? "0"+strM : strM;
-
-        String formattedDateTime = formattedDate+"  -  "+formattedTime;
-        tv.setText(formattedDateTime);
+        return textViews;
     }
 
     private boolean validateAddParking() {
@@ -209,21 +163,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     public TimeRange getTimeRange()
     {
-        return this.timeRange;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void updateTimeRange(LocalDateTime from, LocalDateTime to) {
-        if(this.timeRange == null){
-            this.timeRange = new TimeRange(0);
-        }
-
-        if(from != null){
-            this.timeRange.setFrom(from);
-        }
-        if(to != null){
-            this.timeRange.setTo(to);
-        }
+        return durationSpecifier.getTimeRange();
     }
 
     public void setSpinner(ArrayList<String> plates){
@@ -244,7 +184,6 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         finish();
 
     }
-
 
     public String getUsername()
     {
