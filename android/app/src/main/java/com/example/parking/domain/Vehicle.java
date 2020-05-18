@@ -64,8 +64,8 @@ public class Vehicle {
 		this.brand = brand;
 	}
 
-	public Colour getColour() {
-		return colour;
+	public String getColour() {
+		return colour.toString();
 	}
 
 	public int getLength() {

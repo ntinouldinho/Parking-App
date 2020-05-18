@@ -30,11 +30,6 @@ import java.util.ArrayList;
 
 public class notifications extends AppCompatActivity implements notificationView{
     notificationsPresenter presenter;
-    ArrayList<Button> awaitingForYourApproval = new ArrayList<>();
-    ArrayList<Button> enterPin = new ArrayList<>();
-    ArrayList<ParkingRequest> reqsForPin = new ArrayList<>();
-    ArrayList<ParkingRequest> approveOrNot = new ArrayList<>();
-    int i=0;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -45,7 +40,7 @@ public class notifications extends AppCompatActivity implements notificationView
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<Button> showNotifications(ArrayList<ParkingRequest> all, String username){
+    public void showNotifications(ArrayList<ParkingRequest> all, String username){
         int colorBackground = Color.parseColor("#337FFF");
         int colorText = Color.parseColor("#ffffff");
 
@@ -139,7 +134,6 @@ public class notifications extends AppCompatActivity implements notificationView
         }
         // Display the view
         setContentView(v);
-        return awaitingForYourApproval;
     }
 
     public void makeToast(String m){
@@ -151,7 +145,6 @@ public class notifications extends AppCompatActivity implements notificationView
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
 
-    public ArrayList<ParkingRequest> getReqs(){ return reqsForPin;}
 
     public void enterPinListener(Button b,ParkingRequest request) {
         //get switch

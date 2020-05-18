@@ -13,6 +13,8 @@ public interface RatingDAO {
 
     List<Rating> findAll();
 
+    void delete(Rating r);
+
     double calculateStats(String username);
 
     void deleteAll();

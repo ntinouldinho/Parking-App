@@ -8,7 +8,7 @@ public class LoginPresenter {
     private LoginView view;
     private UserDAO dao;
 
-    LoginPresenter(LoginView view, UserDAO dao){
+    public LoginPresenter(LoginView view, UserDAO dao){
         this.view=view;
         this.dao=dao;
     }
