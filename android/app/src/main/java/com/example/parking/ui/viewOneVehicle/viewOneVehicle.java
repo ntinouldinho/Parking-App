@@ -1,9 +1,14 @@
 package com.example.parking.ui.viewOneVehicle;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,14 +18,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import com.example.parking.R;
 import com.example.parking.domain.Vehicle;
+import com.example.parking.util.Colour;
 import com.example.parking.memorydao.MemoryInitializer;
+
+import java.util.Arrays;
 
 public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleView{
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
-    private String plate,model,brand;
+    private String plate,model,brand,finishMessage,ErrorMessage,ErrorTitle,colour;
     Button addVehicleBtn;
     viewOneVehiclePresenter presenter;
-    private static final String[] paths = {"Red", "Blue", "Green"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,45 +45,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
 
     }
 
-    private boolean validatePlate() {
-        plate = PlateEditText.getText().toString().trim();
-        if (plate.isEmpty()) {
-            PlateEditText.setError("Plate cannot be empty");
-            return false;
-        }
-        if(new Vehicle().checkSet(plate)){
-            PlateEditText.setError("Plate must begin with 3 letters and then 4 letters");
-            return false;
-        }else{
-            PlateEditText.setError(null);
-            Toast.makeText(this,"Plate added",Toast.LENGTH_SHORT).show();
-            return true;
-        }
-    }
 
-    private boolean validateModel() {
-        model = ModelEditText.getText().toString().trim();
-        if (model.isEmpty()) {
-            ModelEditText.setError("Model cannot be empty");
-            return false;
-        }else{
-            ModelEditText.setError(null);
-            Toast.makeText(this,"Model added",Toast.LENGTH_SHORT).show();
-            return true;
-        }
-    }
-
-    private boolean validateBrand() {
-        brand = BrandEditText.getText().toString().trim();
-        if (brand.isEmpty()) {
-            BrandEditText.setError("Brand cannot be empty");
-            return false;
-        }else{
-            BrandEditText.setError(null);
-            Toast.makeText(this,"Brand added",Toast.LENGTH_SHORT).show();
-            return true;
-        }
-    }
 
     public void setBrand(String value)
     {
@@ -108,15 +77,20 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         return ((EditText) findViewById(R.id.plate)).getText().toString();
     }
 
+    @Override
+    public void setLength(int value) {
+        ((EditText)findViewById(R.id.length)).setText(value);
+    }
 
 
     public void setLengthText(int value)
     {
         ((EditText)findViewById(R.id.length)).setText(String.valueOf(value));
     }
-    public String getLength()
+    public int getLength()
     {
-        return ((EditText) findViewById(R.id.length)).getText().toString();
+        String s = ((EditText) findViewById(R.id.length)).getText().toString();
+        return Integer.parseInt(s);
     }
 
 
@@ -140,25 +114,53 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         return this.getIntent().hasExtra("plate") ? this.getIntent().getExtras().getString("plate") : null;
     }
 
+    public void showErrorMessage(String title, String message)
+    {
+        new AlertDialog.Builder(viewOneVehicle.this)
+                .setCancelable(true)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(R.string.OK, null).create().show();
+    }
+
+    public String getFinishMessage()
+    {
+        return finishMessage;
+    }
+
+    @Override
+    public String getErrorMessage() {
+        return ErrorMessage;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public static String[] getNames(Class<? extends Enum<?>> e) {
+        return Arrays.stream(e.getEnumConstants()).map(Enum::name).toArray(String[]::new);
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setSpinner(){
+        String[] names = getNames(Colour.class);
         Spinner spinner = (Spinner) findViewById(R.id.Color);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item,paths);
+                android.R.layout.simple_spinner_dropdown_item,names);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Toast.makeText(getApplicationContext(),"Red added",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"Red added",Toast.LENGTH_SHORT).show();
                         break;
                     case 1:
-                        Toast.makeText(getApplicationContext(),"Blue added",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getApplicationContext(),"Blue added",Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(getApplicationContext(),"Green added",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(),"Green added",Toast.LENGTH_SHORT).show();
                         break;
 
                 }
@@ -171,6 +173,11 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         });
     }
 
+    @Override
+    public Colour getColour() {
+        return Colour.Black;
+    }
+
     public void successfullyFinishActivity(String message)
     {
         Intent retData = new Intent();
@@ -178,6 +185,11 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         setResult(RESULT_OK, retData);
         finish();
 
+    }
+
+    @Override
+    public String getErrorTitle() {
+        return ErrorTitle;
     }
 }
 
