@@ -86,10 +86,8 @@ public class ParkingRequest{
         for (ParkingSpace parking : parkingSpaces) {
                 ZipCode currentZip = parking.getAddress().getZipCode();
             if (Math.abs(zip.getZip() - currentZip.getZip()) <= difference) {
-                Log.d("CUSTOM DEBUG",parking.getTimeRange().getFrom().toString());
                 if(parking.getTimeRange().containsDateTime(expectedArrival)){
-                    Log.d("eeerr DEBUG",parking.getAddress().toString());
-                    list.add(parking);
+                   list.add(parking);
                 }
             }
         }
