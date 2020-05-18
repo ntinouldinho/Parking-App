@@ -29,6 +29,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
     Button addVehicleBtn;
     viewOneVehiclePresenter presenter;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,37 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
             @Override
             public void onClick(View v) {
                 presenter.decide();
+            }
+        });
+
+        String[] names = getNames(Colour.class);
+        Spinner spinner = (Spinner) findViewById(R.id.Color);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item,names);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        //Toast.makeText(getApplicationContext(),"Red added",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        // Toast.makeText(getApplicationContext(),"Blue added",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        //Toast.makeText(getApplicationContext(),"Green added",Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -79,7 +111,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
 
     @Override
     public void setLength(int value) {
-        ((EditText)findViewById(R.id.length)).setText(value);
+        ((EditText)findViewById(R.id.length)).setText(String.valueOf(value));
     }
 
 
@@ -141,36 +173,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void setSpinner(){
-        String[] names = getNames(Colour.class);
-        Spinner spinner = (Spinner) findViewById(R.id.Color);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item,names);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        //Toast.makeText(getApplicationContext(),"Red added",Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                       // Toast.makeText(getApplicationContext(),"Blue added",Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        //Toast.makeText(getApplicationContext(),"Green added",Toast.LENGTH_SHORT).show();
-                        break;
-
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 
     @Override

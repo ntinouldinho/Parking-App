@@ -26,8 +26,8 @@ public class viewOneVehiclePresenter {
         user = dao.find(view.getUserName());
         if(view.getPlate()!=null){ //edit mode
             vehicle = dao.findVehicle(view.getUserName(),view.getPlate());
-            decide();
             showInfo();
+
         }
 
         for(User author : dao.findAll()) users.add(author.getUsername());
@@ -113,7 +113,7 @@ public class viewOneVehiclePresenter {
 
     public void addVehicle(){
 
-        users.updateVehicle(view.getUserName(),new Vehicle(Colour.Blue,vehicle.getLength(),vehicle.getText(),vehicle.getPlate(),vehicle.getModel(),vehicle.getBrand()));
+        dao.updateVehicle(view.getUserName(),new Vehicle(Colour.Blue,vehicle.getLength(),vehicle.getText(),vehicle.getPlate(),vehicle.getModel(),vehicle.getBrand()));
         view.successfullyFinishActivity("Vehicle with plate"+ vehicle.getPlate() +" added");
     }
 
