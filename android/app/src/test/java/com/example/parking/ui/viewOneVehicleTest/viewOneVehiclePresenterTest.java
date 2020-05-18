@@ -29,18 +29,17 @@ public class viewOneVehiclePresenterTest {
 
         presenter.decide();
         view.setPlate("");
-
         Assert.assertEquals(view.getErrorTitle(),"Error");
         Assert.assertEquals(view.getErrorMessage(),"Plate must begin with 3 latin letter and then 4 numbers.");
 
-        view.setPlate("MEA6157");
-        view.setBrand("");
+        view.setPlate("III6666");
+        view.setBrand("a");
         presenter.decide();
         Assert.assertEquals(view.getErrorTitle(),"Error");
         Assert.assertEquals(view.getErrorMessage(),"Brand must be more than 3 characters and up to 15.");
 
         view.setBrand("NISSAN");
-        view.setModel("");
+        view.setModel("b");
         presenter.decide();
         Assert.assertEquals(view.getErrorTitle(),"Error");
         Assert.assertEquals(view.getErrorMessage(),"Model must be more than 3 characters and up to 15.");

@@ -45,29 +45,32 @@ public class viewOneVehiclePresenter {
     public void decide(){
         String brand = view.getBrand(),
                 model=view.getModel(),
-                plate = view.getPlateText(),
+                plate = view.getPlate(),
                 text = view.getText();
         int length = view.getLength();
-        if(brand.length() < 3 || brand.length() > 15){
+
+
+        if(!checkPlate(plate)) {
+            view.showErrorMessage("Error", "Plate must begin with 3 latin letter and then 4 numbers.");
+        }else if(brand.length() < 3 || brand.length() > 15){
             view.showErrorMessage("Error", "Brand must be more than 3 characters and up to 15.");
         }else if(model.length() < 3 || model.length() > 15){
             view.showErrorMessage("Error", "Model must be more than 3 characters and up to 15.");
         }else if(length < 100 || length > 5000){
             view.showErrorMessage("Error", "Length must be more than 100cm(1M) or less than 5000cm(500M).");
-        }else if(!checkPlate(plate)){
-           view.showErrorMessage("Error", "Plate must begin with 3 latin letter and then 4 numbers.");
         }else if(text.length() < 5 || text.length() > 50){
             view.showErrorMessage("Error", "Text must be more than 5 characters and up to 50.");
-        }
+        }else {
 
 
-        if (vehicle == null) {
+            if (vehicle == null) {
                 addVehicle();
-                view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" added");
+                view.successfullyFinishActivity("Vehicle with plate" + view.getPlate() + " added");
             } else {
                 updateVehicle(brand, model, plate, length, text);
-                view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" updated");
+                view.successfullyFinishActivity("Vehicle with plate" + view.getPlate() + " updated");
             }
+        }
     }
 
 
