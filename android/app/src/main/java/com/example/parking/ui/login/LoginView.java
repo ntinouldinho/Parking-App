@@ -8,5 +8,4 @@ public interface LoginView {
     String getUsername();
     String getPassword();
     void signup();
-    void onCreate(Bundle savedInstanceState);
 }
