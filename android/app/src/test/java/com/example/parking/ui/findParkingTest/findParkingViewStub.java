@@ -10,7 +10,7 @@ import com.example.parking.util.TimeRange;
 
 import java.util.ArrayList;
 
-public class findParkingViewStub implements findParkingView {
+public abstract class findParkingViewStub implements findParkingView {
 
     ArrayList<ParkingSpace> spaces = new ArrayList<>();
     findParkingPresenter presenter;
@@ -30,8 +30,7 @@ public class findParkingViewStub implements findParkingView {
     }
 
     @Override
-    public ArrayList<Button> showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace) {
-        return null;
+    public void showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace) {
     }
 
     @Override
@@ -44,7 +43,7 @@ public class findParkingViewStub implements findParkingView {
         return null;
     }
 
-    @Override
+    //@Override
     public TimeRange getTimeRange() {
         return null;
     }

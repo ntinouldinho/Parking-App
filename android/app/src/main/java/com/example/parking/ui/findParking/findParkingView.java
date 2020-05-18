@@ -8,6 +8,7 @@ import com.example.parking.domain.User;
 import com.example.parking.util.Credits;
 import com.example.parking.util.TimeRange;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -18,6 +19,6 @@ public interface findParkingView {
     void showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace);
     void setParkingOnClickListener(Button b,ParkingSpace parkspa);
     String getUserName();
-    TimeRange getTimeRange();
+    LocalDateTime getExpectedArrivalDateTime();
 
 }

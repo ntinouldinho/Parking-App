@@ -59,6 +59,7 @@
     <string name="set_from">Set From</string>
     <string name="date_time_to">Date,Time  (to)</string>
     <string name="date_time_from">Date,Time  (from)</string>
-
+    <string name="expected_arrival">Expected arrival (minutes)</string>
+    <string name="difference">(+- 5 minutes)</string>
 
 </resources>

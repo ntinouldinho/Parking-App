@@ -63,6 +63,40 @@ public class TimeRangeTest {
     }
 
     @Test
+    public void containsRange(){
+        TimeRange tr1 = new TimeRange(30);
+        TimeRange tr2 = new TimeRange(15);
+
+        LocalDateTime ldc = LocalDateTime.now();
+        ldc = ldc.minusMinutes(2);
+        TimeRange tr3 = new TimeRange(ldc,10);
+
+        assertTrue(tr1.containsRange(tr2));
+        assertFalse(tr2.containsRange(tr1));
+        assertFalse(tr1.containsRange(tr3));
+        assertTrue(tr1.containsRange(tr1));
+    }
+
+    @Test
+    public void containsDateTime(){
+        LocalDateTime ldc = LocalDateTime.now();
+        LocalDateTime ldc1, ldc2, ldc3,ldc4;
+
+        ldc1 = ldc.minusMinutes(2);
+        ldc2 = ldc.plusMinutes(5);
+        ldc3 = ldc.plusMinutes(31);
+        ldc4 = ldc.plusMinutes(5);
+        TimeRange tr = new TimeRange(ldc, ldc.plusDays(1).plusHours(1));
+        TimeRange tr1 = new TimeRange(ldc,10);
+
+        assertFalse(tr1.containsDateTime(ldc1));
+        assertTrue(tr1.containsDateTime(ldc2));
+        assertFalse(tr1.containsDateTime(ldc3));
+        assertTrue(tr1.containsDateTime(ldc));
+        assertTrue(tr.containsDateTime(ldc4));
+    }
+
+    @Test
     public void addMinutesTest(){
         TimeRange time = new TimeRange(LocalDateTime.now(),0);
         time.setTo(time.addMinutes(time.getTo(),30));

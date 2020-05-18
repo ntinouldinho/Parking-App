@@ -63,6 +63,12 @@ public class TimeRange {
                 getDifference(other.to, this.to) >= 0;
     }
 
+    public boolean containsDateTime(LocalDateTime ld)
+    {
+        return getDifference(this.from, ld) >= 0 &&
+                getDifference(ld, this.to) >= 0;
+    }
+
     public LocalDateTime addMinutes(LocalDateTime date, long minutes){
         return date.plusMinutes(minutes);
     }

@@ -12,6 +12,7 @@ import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -72,24 +73,26 @@ public class ParkingRequest{
     }
 
     /**
-     * Βρίσκει parking σύμφωνα με τον Τ.Κ. Αν δεν υπάρχει κοντά ψάχνει τους κοντινούς Τ.Κ.
+     * Βρίσκει parking σύμφωνα με τον Τ.Κ. και την ώρα. Αν δεν υπάρχει κοντά ψάχνει τους κοντινούς Τ.Κ.
      * @param parkingSpaces Λίστα με ολα τα διαθέσιμα {@code ParkingSpace} αντικείμενα
      * @param difference Μέγιστη "απόσταση" για ψάξιμο, αναπαραστόμενη ως διαφορά των Zip Codes
      * @return Ο κατάλογος των αντικειμένων
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference, TimeRange tr){
+    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference, LocalDateTime expectedArrival){
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = address.getZipCode();
         for (ParkingSpace parking : parkingSpaces) {
                 ZipCode currentZip = parking.getAddress().getZipCode();
-                if (Math.abs(zip.getZip() - currentZip.getZip()) <= difference) {
-                    //if(parking.getTimeRange().containsRange(tr)){
-                        list.add(parking);
-                    //}
+            if (Math.abs(zip.getZip() - currentZip.getZip()) <= difference) {
+                Log.d("CUSTOM DEBUG",parking.getTimeRange().getFrom().toString());
+                if(parking.getTimeRange().containsDateTime(expectedArrival)){
+                    Log.d("eeerr DEBUG",parking.getAddress().toString());
+                    list.add(parking);
                 }
             }
+        }
         return list;
     }
 

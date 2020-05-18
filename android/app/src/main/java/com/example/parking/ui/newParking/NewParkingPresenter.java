@@ -32,7 +32,7 @@ public class NewParkingPresenter {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     void add() {
-        ParkingSpace p = new ParkingSpace(new Address(view.getStreet(), view.getStreetNumber(), new ZipCode(Integer.valueOf(view.getZipCode()))), false, new Credits(Integer.valueOf(view.getCredits())), view.getTimeRange(), new Date(), u, view.getPlate());
+        ParkingSpace p = new ParkingSpace(new Address(view.getStreet(), view.getStreetNumber(), new ZipCode(Integer.valueOf(view.getZipCode()))), true, new Credits(Integer.valueOf(view.getCredits())), view.getTimeRange(), new Date(), u, view.getPlate());
         if (parkingDAO.find(p) == null) {
             parkingDAO.save(p);
             view.makeToast("Parking space added!");
