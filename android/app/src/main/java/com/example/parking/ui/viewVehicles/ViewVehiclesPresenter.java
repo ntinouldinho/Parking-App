@@ -25,7 +25,8 @@ public class ViewVehiclesPresenter {
     }
 
     void showVehicles(){
-        
+        //ArrayList<Button> buttons = view.showVehicles();
+        //view.setSongOnClickListener(buttons,vehicles);
     }
 
 
