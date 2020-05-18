@@ -18,19 +18,22 @@ public class viewOneVehiclePresenterTest {
         dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
         view = new viewOneVehicleViewStub();
+        view.setIntentUsername("ok");
+
 
     }
 
     @Test
     public void testAddNew() {
-        presenter = new viewOneVehiclePresenter(view,new UserDAOMemory());
+        presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
         presenter.decide();
         view.setPlate("");
+
         Assert.assertEquals(view.getErrorTitle(),"Error");
         Assert.assertEquals(view.getErrorMessage(),"Plate must begin with 3 latin letter and then 4 numbers.");
 
-        view.setPlate("IEH1515");
+        view.setPlate("MEA6157");
         view.setBrand("");
         presenter.decide();
         Assert.assertEquals(view.getErrorTitle(),"Error");
@@ -48,7 +51,13 @@ public class viewOneVehiclePresenterTest {
         Assert.assertEquals(view.getErrorTitle(),"Error");
         Assert.assertEquals(view.getErrorMessage(),"Length must be more than 100cm(1M) or less than 5000cm(500M).");
 
-        view.setLength(300);
+        view.setText("aaa");
+        view.setLength(2000);
+        presenter.decide();
+        Assert.assertEquals(view.getErrorTitle(),"Error");
+        Assert.assertEquals(view.getErrorMessage(),"Text must be more than 20 characters or less than 300.");
+
+        view.setText("Big vehicle, my Nissan Note is a big SUV");
         presenter.decide();
 
         Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate"+ view.getPlate() +" added");
@@ -57,7 +66,9 @@ public class viewOneVehiclePresenterTest {
 
     @Test
     public void testUpdate() {
+        view.setIntentPlate("MEA6157");
         presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
+
         presenter.decide();
         Assert.assertEquals(view.getFinishMessage(),"Vehicle with plate"+ view.getPlate() +" updated");
 

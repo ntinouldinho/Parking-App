@@ -29,4 +29,11 @@ public interface viewOneVehicleView {
     String getFinishMessage();
     String getErrorMessage();
     void showErrorMessage(String title, String message);
+
+    void setIntentUsername(String username);
+    String getIntentUsername ();
+
+
+    void setIntentPlate(String plate);
+    String getIntentPlate ();
 }

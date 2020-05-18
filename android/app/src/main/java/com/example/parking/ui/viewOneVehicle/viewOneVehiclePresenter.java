@@ -29,9 +29,6 @@ public class viewOneVehiclePresenter {
             showInfo();
 
         }
-
-        for(User author : dao.findAll()) users.add(author.getUsername());
-        //view.setUsersList(users);
     }
 
 
@@ -51,41 +48,29 @@ public class viewOneVehiclePresenter {
                 plate = view.getPlateText(),
                 text = view.getText();
         int length = view.getLength();
-        int c=0;
         if(brand.length() < 3 || brand.length() > 15){
-            view.showErrorMessage("Error!", "Brand must be more than 3 characters and up to 15.");
-        }
-        if(model.length() < 3 || model.length() > 15){
-            view.showErrorMessage("Error!", "Model must be more than 3 characters and up to 15.");
-        }
-        if(length < 100 || length > 5000){
-            view.showErrorMessage("Error!", "Length must be more than 100cm(1M) or less than 5000cm(500M).");
-        }
-
-       if(plate.length()!=7){
-           view.showErrorMessage("Error!", "Plate must begin with 3 latin letter and then 4 numbers.");
-       }
-
-        if(text.length() < 5 || text.length() > 50){
-            view.showErrorMessage("Error!", "Text must be more than 5 characters and up to 50.");
-        }
-
-        if(text.length() < 5 || text.length() > 50){
-            view.showErrorMessage("Error!", "Text must be more than 5 characters and up to 50.");
+            view.showErrorMessage("Error", "Brand must be more than 3 characters and up to 15.");
+        }else if(model.length() < 3 || model.length() > 15){
+            view.showErrorMessage("Error", "Model must be more than 3 characters and up to 15.");
+        }else if(length < 100 || length > 5000){
+            view.showErrorMessage("Error", "Length must be more than 100cm(1M) or less than 5000cm(500M).");
+        }else if(!checkPlate(plate)){
+           view.showErrorMessage("Error", "Plate must begin with 3 latin letter and then 4 numbers.");
+        }else if(text.length() < 5 || text.length() > 50){
+            view.showErrorMessage("Error", "Text must be more than 5 characters and up to 50.");
         }
 
 
-        if(c==0) {
-            if (vehicle == null) {
+        if (vehicle == null) {
                 addVehicle();
-                view.successfullyFinishActivity("Added Vehicle");
+                view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" added");
             } else {
                 updateVehicle(brand, model, plate, length, text);
-                view.successfullyFinishActivity("Updated Vehicle");
+                view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" updated");
             }
-        }
-
     }
+
+
 
     public boolean checkPlate(String plate){
         if(plate!=null) {
@@ -113,8 +98,8 @@ public class viewOneVehiclePresenter {
 
     public void addVehicle(){
 
-        dao.updateVehicle(view.getUserName(),new Vehicle(Colour.Blue,vehicle.getLength(),vehicle.getText(),vehicle.getPlate(),vehicle.getModel(),vehicle.getBrand()));
-        view.successfullyFinishActivity("Vehicle with plate"+ vehicle.getPlate() +" added");
+        dao.updateVehicle(view.getIntentUsername(),new Vehicle(view.getColour(),view.getLength(),view.getText(),view.getPlate(),view.getModel(),view.getBrand()));
+        view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" added");
     }
 
     public void updateVehicle(String brand,String model,String plate, int length,String text){

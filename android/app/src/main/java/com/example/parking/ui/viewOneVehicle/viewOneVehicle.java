@@ -26,6 +26,7 @@ import java.util.Arrays;
 public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleView{
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
     private String plate,model,brand,finishMessage,ErrorMessage,ErrorTitle,colour;
+    private String intentUsername,intentPlate;
     Button addVehicleBtn;
     viewOneVehiclePresenter presenter;
 
@@ -138,12 +139,30 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
 
     public String getUserName()
     {
-        return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
+        setIntentUsername(this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null);
+        return getIntentUsername();
     }
 
     public String getPlate()
     {
-        return this.getIntent().hasExtra("plate") ? this.getIntent().getExtras().getString("plate") : null;
+        setIntentPlate(this.getIntent().hasExtra("plate") ? this.getIntent().getExtras().getString("plate") : null);
+        return getIntentPlate();
+    }
+
+    public void setIntentUsername(String username){
+        intentUsername=username;
+    }
+
+    public String getIntentUsername (){
+        return intentUsername;
+    }
+
+    public void setIntentPlate(String plate){
+        intentPlate=plate;
+    }
+
+    public String getIntentPlate (){
+        return intentPlate;
     }
 
     public void showErrorMessage(String title, String message)

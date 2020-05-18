@@ -4,7 +4,7 @@ import com.example.parking.ui.viewOneVehicle.viewOneVehicleView;
 import com.example.parking.util.Colour;
 
 public class viewOneVehicleViewStub implements viewOneVehicleView {
-    private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username;
+    private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username,intentUsername,intentPlate;
     private Colour colour;
     private int length;
 
@@ -17,7 +17,7 @@ public class viewOneVehicleViewStub implements viewOneVehicleView {
 
     public viewOneVehicleViewStub()
     {
-        brand = model = plate =   text = "";
+        brand = model  = text = "";
         length=0;
     }
     @Override
@@ -113,5 +113,21 @@ public class viewOneVehicleViewStub implements viewOneVehicleView {
     {
         errorTitle = title;
         errorMessage = message;
+    }
+
+    public void setIntentUsername(String username){
+        intentUsername=username;
+    }
+
+    public String getIntentUsername (){
+        return intentUsername;
+    }
+
+    public void setIntentPlate(String plate){
+        intentPlate=plate;
+    }
+
+    public String getIntentPlate (){
+        return intentPlate;
     }
 }
