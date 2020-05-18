@@ -12,6 +12,8 @@ public interface SignUpView {
     String getStrN();
     String getZipCode();
     String getStreet();
+    void makeToast(String str);
+    void setError(String EditText,String error);
     void successfullyFinishActivity(String message);
     void onCreate(Bundle savedInstanceState);
 }
