@@ -84,9 +84,9 @@ public class MemoryInitializer {
         Vehicle v1 = new Vehicle(Colour.White,451,"Medium Size car, fits most places","IEH1234","A3","Audi");
         Vehicle v2 = new Vehicle(Colour.Green,463,"Medium SUV Car", "APK1551","2004 Aztek","Pontiac" );
         Vehicle v3 = new Vehicle(Colour.Black,324,"Medium Bike", "AZE9152","2003 Dyna Super Glide Sport with custom T-bars","Harley Davidson");
-        Vehicle v4 = new Vehicle(Colour.Golden,511,"Large SUV", "MEA6157","Escalade","Cadillac");
+        Vehicle v4 = new Vehicle(Colour.Golden,490,"Large SUV", "MEA6157","Escalade","Cadillac");
         Vehicle v5 = new Vehicle(Colour.Blue,441,"Small SUV", "IZA6015","Escape","Ford");
-        Vehicle v55 = new Vehicle(Colour.Black,1400000000,"Space Battle Station", "ZOE5555","Death Star","Galactic Empire");
+        Vehicle v55 = new Vehicle(Colour.Black,499,"Space Battle Station", "ZOE5555","Death Star","Galactic Empire");
 
         user1.addVehicle(v1);
         user2.addVehicle(v2);

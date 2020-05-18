@@ -27,39 +27,39 @@ public class viewOneVehiclePresenterTest {
     public void testAddNew() {
         presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
+        view.setPlate("mmmmmm");
         presenter.decide();
-        view.setPlate("");
-        Assert.assertEquals(view.getErrorTitle(),"Error");
+        Assert.assertEquals(view.getErrorTitle(),"plates");
         Assert.assertEquals(view.getErrorMessage(),"Plate must begin with 3 latin letter and then 4 numbers.");
 
-        view.setPlate("III6666");
-        view.setBrand("a");
+        view.setBrand("aa");
+        view.setPlate("MEA6157");
         presenter.decide();
-        Assert.assertEquals(view.getErrorTitle(),"Error");
+        Assert.assertEquals("brand",view.getErrorTitle());
         Assert.assertEquals(view.getErrorMessage(),"Brand must be more than 3 characters and up to 15.");
 
         view.setBrand("NISSAN");
         view.setModel("b");
         presenter.decide();
-        Assert.assertEquals(view.getErrorTitle(),"Error");
+        Assert.assertEquals(view.getErrorTitle(),"model");
         Assert.assertEquals(view.getErrorMessage(),"Model must be more than 3 characters and up to 15.");
 
         view.setModel("NOTE");
         view.setLength(10);
         presenter.decide();
-        Assert.assertEquals(view.getErrorTitle(),"Error");
+        Assert.assertEquals(view.getErrorTitle(),"length");
         Assert.assertEquals(view.getErrorMessage(),"Length must be more than 100cm(1M) or less than 5000cm(500M).");
 
         view.setText("aaa");
         view.setLength(2000);
         presenter.decide();
-        Assert.assertEquals(view.getErrorTitle(),"Error");
-        Assert.assertEquals(view.getErrorMessage(),"Text must be more than 20 characters or less than 300.");
+        Assert.assertEquals(view.getErrorTitle(),"text");
+        Assert.assertEquals(view.getErrorMessage(),"Text must be more than 5 characters and up to 50.");
 
         view.setText("Big vehicle, my Nissan Note is a big SUV");
         presenter.decide();
 
-        Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate"+ view.getPlate() +" added");
+        Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate"+ view.getIntentPlate() +" added");
 
     }
 
@@ -69,7 +69,7 @@ public class viewOneVehiclePresenterTest {
         presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
         presenter.decide();
-        Assert.assertEquals(view.getFinishMessage(),"Vehicle with plate"+ view.getPlate() +" updated");
+        Assert.assertEquals("Vehicle with plate"+ view.getPlate() +" updated",view.getFinishMessage());
 
     }
 }
