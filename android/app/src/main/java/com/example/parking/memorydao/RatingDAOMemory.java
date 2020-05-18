@@ -42,6 +42,10 @@ public class RatingDAOMemory implements RatingDAO {
         }
         return 0.0;
     }
+    @Override
+    public void delete(Rating p){
+        ratings.remove(p);
+    }
 
     public List<Rating> findAll(){
         return ratings;

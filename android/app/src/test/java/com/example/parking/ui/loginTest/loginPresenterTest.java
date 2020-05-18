@@ -5,7 +5,6 @@ import com.example.parking.ui.login.LoginPresenter;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,7 +24,7 @@ public class loginPresenterTest {
         view.setUsername("ok");
         view.setPassword("2");
         presenter.login();
-        Assert.assertEquals("Logged in",view.getToast());
+        assertEquals("Logged in",view.getToast());
     }
 
     @Test
@@ -33,6 +32,6 @@ public class loginPresenterTest {
         view.setUsername("ok");
         view.setPassword("ok");
         presenter.login();
-        Assert.assertEquals("Wrong username or password",view.getToast());
+        assertEquals("Wrong username or password",view.getToast());
     }
 }

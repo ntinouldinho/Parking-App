@@ -37,24 +37,24 @@ public class MemoryInitializer {
 
 
     protected static void eraseData() {
-        List<User> users = getUserDAO().findAll();
+        ArrayList<User> users = new ArrayList<>(getUserDAO().findAll());
         for(User user : users) {
             getUserDAO().delete(user);
         }
 
-        List<ParkingRequest> parkingRequests = getRequestDAO().findAll();
+        ArrayList<ParkingRequest> parkingRequests = new ArrayList<>(getRequestDAO().findAll());
         for(ParkingRequest parkingRequest : parkingRequests) {
             getRequestDAO().delete(parkingRequest);
         }
 
-        List<ParkingSpace> parkingSpaces = getParkingDAO().findAll();
+        ArrayList<ParkingSpace> parkingSpaces = new ArrayList<>(getParkingDAO().findAll());
         for(ParkingSpace parkingSpace : parkingSpaces) {
             getParkingDAO().delete(parkingSpace);
         }
 
-        List<Rating> ratings = getRatingDAO().findAll();
+        ArrayList<Rating> ratings = new ArrayList<>(getRatingDAO().findAll());
         for(Rating r : ratings) {
-            getRatingDAO().deleteAll();
+            getRatingDAO().delete(r);
         }
     }
 

@@ -44,7 +44,7 @@ public class UserDAOMemory implements UserDAO {
         }
     }
 
-    public List<User> findAll(){
+    public ArrayList<User> findAll(){
         return users;
     }
 
