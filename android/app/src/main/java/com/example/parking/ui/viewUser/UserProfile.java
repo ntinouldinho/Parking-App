@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UserProfile extends AppCompatActivity implements UserProfileView
 {
     static String m_Text = "";
+    String intentUsername,ErrorTitle,finishMessage,ErrorMessage;
     UserProfilePresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -24,7 +25,7 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         presenter = new UserProfilePresenter(this, MemoryInitializer.getUserDAO());
-
+        addClickListeners();
 
     }
 
@@ -55,7 +56,7 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
 
                 public void onClick(DialogInterface dialog, int which) {
                     // Do nothing but close the dialog
-                    int totalCredits = Integer.parseInt(getCredits()) +
+                    int totalCredits = getCredits() +
                             Integer.parseInt(creditsToBeAdded.getText().toString());
                     setCredits(totalCredits);
                     presenter.update();
@@ -80,16 +81,29 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
     }
     public String getUsername()
     {
-        return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
+        setIntentUsername(this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null);
+        return getIntentUsername();
+    }
+
+    @Override
+    public void showErrorMessage(String title, String message) {
+
+    }
+
+    public void setIntentUsername(String username){
+        intentUsername=username;
     }
     @Override
     public void setCredits(int credits){
         ((TextView)findViewById(R.id.creditsNumUserProfile)).setText(String.valueOf(credits));
     }
     @Override
-    public String getCredits(){
-        return ((TextView) findViewById(R.id.creditsNumUserProfile)).getText().toString();
+    public int getCredits() {
+        String s = ((TextView) findViewById(R.id.creditsNumUserProfile)).getText().toString();
+        return Integer.parseInt(s);
     }
+
+
 
     @Override
     public String getFirstName(){
@@ -158,7 +172,41 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
         ((EditText)findViewById(R.id.phoneUserProfile)).setText(value);
     }
 
+    public String getIntentUsername (){
+        return intentUsername;
+    }
 
+    public String getUserName()
+    {
+        setIntentUsername(this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null);
+        return getIntentUsername();
+    }
+
+    @Override
+    public void successfullyFinishActivity(String message)
+    {
+        Intent retData = new Intent();
+        retData.putExtra("message_to_toast", message);
+        setResult(RESULT_OK, retData);
+        finish();
+
+    }
+
+    @Override
+    public String getErrorTitle() {
+        return ErrorTitle;
+    }
+
+    @Override
+    public String getFinishMessage()
+    {
+        return finishMessage;
+    }
+
+    @Override
+    public String getErrorMessage() {
+        return ErrorMessage;
+    }
 
 
 }

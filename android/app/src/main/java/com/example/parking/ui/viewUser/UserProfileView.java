@@ -2,7 +2,7 @@ package com.example.parking.ui.viewUser;
 
 public interface UserProfileView {
     void setCredits(int credits);
-    String getCredits();
+    int getCredits();
     String getFirstName();
     void setFirstName(String value);
     String getLastName();
@@ -18,5 +18,15 @@ public interface UserProfileView {
     String getPhone();
     void setPhone(String value);
     String getUsername();
-    void addClickListeners();
+
+    void successfullyFinishActivity(String message);
+
+    void setIntentUsername(String username);
+
+    String getIntentUsername ();
+
+    String getErrorTitle();
+    String getFinishMessage();
+    String getErrorMessage();
+    void showErrorMessage(String title, String message);
 }
