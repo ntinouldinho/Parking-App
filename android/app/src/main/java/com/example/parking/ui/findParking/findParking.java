@@ -1,54 +1,40 @@
 package com.example.parking.ui.findParking;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import com.example.parking.R;
-import com.example.parking.dao.ParkingSpaceDAO;
-import com.example.parking.domain.ParkingSpace;
-import com.example.parking.domain.Vehicle;
-import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.helper.DurationSpecifier;
-import com.example.parking.ui.homescreen.HomeScreenActivity;
-import com.example.parking.ui.newParking.NewParkingSpace;
-import com.example.parking.ui.showParkingSpace.ShowParkingSpace;
-import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
-import com.example.parking.ui.viewUser.UserProfile;
-import com.example.parking.ui.viewVehicles.ViewVehicles;
-import com.example.parking.util.Colour;
-import com.example.parking.util.TimeRange;
-import com.google.gson.Gson;
-
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.parking.R;
+import com.example.parking.domain.ParkingSpace;
+import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.showParkingSpace.ShowParkingSpace;
+import com.google.gson.Gson;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 public class findParking extends AppCompatActivity implements findParkingView{
     ArrayList<ParkingSpace> spaces = new ArrayList<>();
     findParkingPresenter presenter;
     String zipcode;
-    EditText ZipCodeEditText;
+    LocalDateTime expectedArrivalDateTime;
+    EditText ZipCodeEditText, expectedArrival;
     ParkingSpace parking;
-    DurationSpecifier durationSpecifier;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,41 +42,27 @@ public class findParking extends AppCompatActivity implements findParkingView{
         setContentView(R.layout.activity_find_parking);
         presenter = new findParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
 
-        durationSpecifier = new DurationSpecifier(getBtnReferencesOfDateTime(),
-                getTextViewReferencesOfDateTime(),findParking.this);
-
+        expectedArrival = (EditText) findViewById(R.id.expectedArrivalFindParking);
         ImageButton btn = (ImageButton) findViewById(R.id.SearchButton);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                    presenter.find();
-                    makeToast(getZip());
-
+                if(expectedArrival.getText().toString().trim().length() == 0){
+                    expectedArrival.getBackground().setColorFilter(Color.RED, PorterDuff.Mode.SRC_ATOP);
+                    return;
+                }else{
+                    expectedArrival.setBackgroundResource(android.R.drawable.edit_text);
+                    expectedArrivalDateTime = LocalDateTime.now().plusMinutes(Integer.parseInt(expectedArrival.getText().toString()));
+                }
+                presenter.find();
+                makeToast(getZip());
             }
         });
     }
 
-    private Button[] getBtnReferencesOfDateTime()
-    {
-        Button[] btns = new Button[2];
-        btns[0] = (Button)findViewById(R.id.setDateTimeFromFindParking);
-        btns[1] = (Button)findViewById(R.id.setDateTimeToFindParking);
-
-        return btns;
-    }
-
-    private TextView[] getTextViewReferencesOfDateTime()
-    {
-        TextView[] textViews = new TextView[2];
-        textViews[0] = (TextView)findViewById(R.id.dateTimeFromInfoFindParking);
-        textViews[1] = (TextView)findViewById(R.id.dateTimeToFindParking);
-
-        return textViews;
-    }
-
-    public TimeRange getTimeRange(){
-        return durationSpecifier.getTimeRange();
+    public LocalDateTime getExpectedArrivalDateTime(){
+        return expectedArrivalDateTime;
     }
 
     public String getZip(){

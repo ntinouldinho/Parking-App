@@ -26,7 +26,7 @@ public class notificationsPresenter {
         this.users=users;
         String username = view.getUserName();
         ArrayList<ParkingRequest> all = new ArrayList<>();
-        
+
         for(ParkingRequest request:(ArrayList<ParkingRequest>) dao.findAll()){
             if(request.getRequestingUser().getUsername().equals(username) || request.getParkingSpace().getParkedUser().getUsername().equals(username) ){
                 all.add(request);
@@ -36,7 +36,7 @@ public class notificationsPresenter {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    boolean validateParking(ParkingRequest request, Pin pin){
+    public boolean validateParking(ParkingRequest request, Pin pin){
        //Log.e("requesting credits befo",String.valueOf(users.find(request.getRequestingUser().getUsername()).getCredits().getPoints()));
        // Log.e("parked credits befo",String.valueOf(users.find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints()));
         int results = dao.find(request).validateParking(pin);
@@ -55,12 +55,16 @@ public class notificationsPresenter {
        }
     }
 
-    void approveRequest(ParkingRequest request){
-        request.setPin(new Pin(Pin.createPin()));
+    public int approveRequest(ParkingRequest request){
+        int pin=Pin.createPin();
+        request.setPin(new Pin(pin));
+        view.makeToast("Pin generated");
+        return pin;
         //Log.e("the new pin",String.valueOf(request.getPin().getPin()));
     }
 
-    void denyRequest(ParkingRequest request){
+    public void denyRequest(ParkingRequest request){
         request.setDate(null);
+        view.makeToast("Request denied");
     }
 }

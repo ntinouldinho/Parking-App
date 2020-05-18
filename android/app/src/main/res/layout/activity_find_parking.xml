@@ -7,67 +7,23 @@
     tools:context=".ui.findParking.findParking">
 
 
-    <TextView
-        android:id="@+id/dateTimeToFindParking"
-        android:layout_width="152dp"
-        android:layout_height="41dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:gravity="center"
-        android:text="@string/date_time_to"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/setDateTimeToFindParking"
-        android:layout_width="91dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginLeft="92dp"
-        android:text="@string/set_to"
-        app:layout_constraintStart_toEndOf="@+id/setDateTimeFromFindParking"
-        app:layout_constraintTop_toBottomOf="@+id/dateTimeToFindParking" />
-
-    <TextView
-        android:id="@+id/dateTimeFromInfoFindParking"
-        android:layout_width="147dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginLeft="39dp"
-        android:gravity="center"
-        android:text="@string/date_time_from"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/setDateTimeFromFindParking"
-        android:layout_width="91dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginEnd="97dp"
-        android:layout_marginRight="97dp"
-        android:text="@string/set_from"
-        app:layout_constraintEnd_toStartOf="@+id/setDateTimeToFindParking"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dateTimeFromInfoFindParking" />
-
     <EditText
-        android:id="@+id/ZipForParking"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginRight="51dp"
+        android:id="@+id/expectedArrivalFindParking"
+        android:layout_width="177dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="202dp"
+        android:layout_marginRight="202dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/enter_desired_zip_code"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/SearchButton"
+        android:hint="@string/expected_arrival"
+        android:inputType="numberSigned|textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setDateTimeFromFindParking"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -76,22 +32,40 @@
         android:layout_height="75dp"
         android:layout_marginStart="41dp"
         android:layout_marginLeft="41dp"
-        android:layout_marginTop="11dp"
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
+        android:layout_marginBottom="6dp"
         android:contentDescription="@string/todo"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ZipForParking"
-        app:layout_constraintTop_toBottomOf="@+id/setDateTimeToFindParking"
         app:srcCompat="@android:drawable/ic_menu_search"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/ZipForParking"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginEnd="51dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginBottom="6dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_desired_zip_code"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
+        app:layout_constraintEnd_toStartOf="@+id/SearchButton"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/ResultsList"
         android:layout_width="407dp"
-        android:layout_height="555dp"
+        android:layout_height="569dp"
         android:orientation="vertical"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"

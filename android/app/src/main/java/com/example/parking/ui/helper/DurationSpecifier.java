@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Build;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -46,7 +47,9 @@ public class DurationSpecifier implements DatePickerDialog.OnDateSetListener, Ti
             previouslyPressedBtnType = type;
             Calendar c = Calendar.getInstance();
             DatePickerDialog dpD = new DatePickerDialog(context, DurationSpecifier.this,
-                    c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
+                    c.get(Calendar.YEAR),
+                    c.get(Calendar.MONTH) + 1, //strange bug: it takes the last month as current
+                    c.get(Calendar.DAY_OF_MONTH));
             dpD.show();
         });
     }
