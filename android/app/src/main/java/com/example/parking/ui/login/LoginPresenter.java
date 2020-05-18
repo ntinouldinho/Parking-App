@@ -13,8 +13,8 @@ public class LoginPresenter {
         this.dao=dao;
     }
 
-    public void login(){
-        User user =  dao.login(view.getUsername(),view.getPassword());
+    public void login(String username,String password){
+        User user =  dao.login(username,password);
         if(user!=null){
             view.createToast("Logged in");
             view.moveOn();

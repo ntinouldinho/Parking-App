@@ -23,7 +23,7 @@ public class loginPresenterTest {
     public void loginUserExists(){
         view.setUsername("ok");
         view.setPassword("2");
-        presenter.login();
+        presenter.login(view.getUsername(),view.getPassword());
         assertEquals("Logged in",view.getToast());
     }
 
@@ -31,7 +31,7 @@ public class loginPresenterTest {
     public void loginUserDoesntExist(){
         view.setUsername("ok");
         view.setPassword("ok");
-        presenter.login();
+        presenter.login(view.getUsername(),view.getPassword());
         assertEquals("Wrong username or password",view.getToast());
     }
 }

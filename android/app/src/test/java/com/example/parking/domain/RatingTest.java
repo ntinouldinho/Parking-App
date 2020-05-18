@@ -36,12 +36,12 @@ public class RatingTest {
         Assert.assertEquals(comment,rating.getComment());
     }
 
-    @Test
-    public void toStringTest() {
-        String str="Rating{" +
-                "ratingScore=" + ratingScore +
-                ", Comment='" + comment + '\'' +
-                '}';
-        assertEquals(str,rating.toString());
-    }
+//    @Test
+//    public void toStringTest() {
+//        String str="Rating{" +
+//                "ratingScore=" + ratingScore +
+//                ", Comment='" + comment + '\'' +
+//                '}';
+//        assertEquals(str,rating.toString());
+//    }
 }

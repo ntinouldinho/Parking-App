@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.login();
+                presenter.login(getUsername(),getPassword());
             }
         });
         signup.setOnClickListener(new View.OnClickListener() {

@@ -40,6 +40,8 @@ public class notificationsPresenterTest {
         assertEquals(requestingUserPointsBefore-requestFunds,MemoryInitializer.getUserDAO().find(request.getRequestingUser().getUsername()).getCredits().getPoints());
 
         assertEquals(parkedUserPointBefore+requestFunds,MemoryInitializer.getUserDAO().find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints());
+
+        assertNull(MemoryInitializer.getRequestDAO().find(request));
     }
 
     @Test
