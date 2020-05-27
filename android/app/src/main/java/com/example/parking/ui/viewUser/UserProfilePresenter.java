@@ -13,14 +13,22 @@ public class UserProfilePresenter {
     private UserDAO dao;
     private User currentUser;
 
+    /**
+     * Αρχικοποεί τον Presenter.
+     * @param view Ένα instance του view
+     * @param dao Ένα instance του user
+     */
+
     public UserProfilePresenter(UserProfileView view, UserDAO dao) {
         this.view = view;
         this.dao = dao;
-        currentUser = dao.find(view.getIntentUsername());
+        currentUser = dao.find(view.getUsername());
         setFields();
     }
 
-
+    /**
+     * Εμφανίζει τα αποθηκευμένα πεδία του User.
+     */
     public void setFields() {
         view.setFirstName(currentUser.getName());
         view.setLastName(currentUser.getSurname());
@@ -31,6 +39,10 @@ public class UserProfilePresenter {
         view.setZip(String.valueOf(currentUser.getAddress().getZipCode().getZip()));
         view.setPhone(currentUser.getPhone());
     }
+
+    /**
+     * Κάνει update το profile του User.
+    */
 
     public void update() {
 

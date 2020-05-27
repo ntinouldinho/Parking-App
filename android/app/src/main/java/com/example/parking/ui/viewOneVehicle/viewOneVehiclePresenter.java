@@ -20,6 +20,12 @@ public class viewOneVehiclePresenter {
     private UserDAO dao;
     public List<String> users = new ArrayList<>();
 
+
+    /**
+     * Αρχικοποεί τον Presenter.
+     * @param view Ένα instance του view
+     * @param dao Ένα instance του user
+     */
     public viewOneVehiclePresenter(viewOneVehicleView view, UserDAO dao){
         this.view=view;
         this.dao=dao;
@@ -32,7 +38,9 @@ public class viewOneVehiclePresenter {
     }
 
 
-
+    /**
+     * Εμφανίζει τα αποθηκευμένα πεδία του vehicle.
+     */
 
     public void showInfo(){
         view.setBrand(vehicle.getBrand());
@@ -42,6 +50,9 @@ public class viewOneVehiclePresenter {
         view.setText(vehicle.getText());
     }
 
+    /**
+     * Ελέγχει το vehicle για αποθήκευση ή προσθήκη.
+     */
     public void decide(){
         String brand = view.getBrand(),
                 model=view.getModel(),
@@ -78,7 +89,10 @@ public class viewOneVehiclePresenter {
     }
 
 
-
+    /**
+     * Ελέγχει την πινακίδα.
+     * @param plate Η πινακίδα.
+     */
     public boolean checkPlate(String plate){
         if(plate!=null) {
             String letters = plate.substring(0, 3).toUpperCase();
@@ -103,12 +117,22 @@ public class viewOneVehiclePresenter {
     }
 
 
+    /**
+     * Προσθέτει ένα vehicle.
+     */
     public void addVehicle(){
 
         dao.updateVehicle(view.getIntentUsername(),new Vehicle(view.getColour(),view.getLength(),view.getText(),view.getPlate(),view.getModel(),view.getBrand()));
         view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" added");
     }
 
+    /**
+     * Ενημερώνει ένα ήδη υπάρχον vehicle.
+     * @param brand Η μάρκα
+     * @param model Το μοντέλο
+     * @param length Το μήκος
+     * @param text  Η περγιγραφή
+     */
     public void updateVehicle(String brand,String model,String plate, int length,String text){
         Vehicle temp = dao.find(view.getIntentUsername()).getVehicle(plate);
         temp.setBrand(view.getBrand());
