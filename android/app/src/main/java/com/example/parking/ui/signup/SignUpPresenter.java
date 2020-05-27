@@ -20,10 +20,25 @@ import java.util.regex.Pattern;
 public class SignUpPresenter {
     private SignUpView view;
     private UserDAO dao;
+
+    /**
+     * Αρχικοποεί τον Presenter.
+     * @param view Ένα instance του view
+     * @param dao Ένα instance της κλάσης UserDao
+     */
+
     public SignUpPresenter(SignUpView view, UserDAO dao){
         this.view=view;
         this.dao=dao;
     }
+
+    /**
+     * Κατά την αποθήκευση του νέου χρήστη
+     * εκτελεί του κατάλληλους ελέγχους.
+     * Αν ολα πάνε καλά, κλείνει το activity και
+     * εμφανίζει μήνυμα ότι ήταν επιτυχείς η
+     * εγγραφή αλλιώς πετάει μήνυμα λάθους.
+     */
     public void add() {
         if (validateName() && validateLast() && validatePhone() && validateEmail() && validateUsername() && validatePassword() && validateZipCode() && validateStreet() && validateStreetNo()) {
             Address address = new Address(view.getStreet(), view.getStrN(), new ZipCode(Integer.valueOf(view.getZipCode())));
@@ -37,7 +52,10 @@ public class SignUpPresenter {
         }
     }
 
-
+    /**
+     * Ελέγχει αν το τηλέφωνο είναι κενό, null
+     * και αν έχει ακριβώς 10 ψηφία.
+     */
     private boolean validatePhone(){
         String phone = view.getPhone().trim();
         if(phone.isEmpty()){
@@ -53,6 +71,10 @@ public class SignUpPresenter {
         }
     }
 
+    /**
+     * Ελέγχει αν ο Τ.Κ. είναι κενός, null
+     * και αν έχει ακριβώς 5 ψηφία.
+     */
     private boolean validateZipCode(){
         String zipCode = view.getZipCode().trim();
         if(zipCode.isEmpty()){
@@ -68,6 +90,10 @@ public class SignUpPresenter {
         }
     }
 
+    /**
+     * Ελέγχει αν το πρώτο ονομα είναι κενό, null
+     * και αν έχει ακριβώς 10 ψηφία.
+     */
     private boolean validateName(){
         String name = view.getName().trim();
         if(name.isEmpty()){

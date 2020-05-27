@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -179,6 +180,7 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
     public String getUserName()
     {
         setIntentUsername(this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null);
+        Log.e("the intent",getIntentUsername());
         return getIntentUsername();
     }
 

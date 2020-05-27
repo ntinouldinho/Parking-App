@@ -39,10 +39,20 @@ public class SignUp extends AppCompatActivity implements SignUpView{
 
     }
 
-
+    /**
+     * Εμφανίζει ένα Toast.
+     * @param toaster Το περιεχόμενο που θα εμφανιστεί
+     */
     public void makeToast(String toaster){
         Toast.makeText(this,toaster,Toast.LENGTH_SHORT).show();
     }
+
+
+    /**
+     * Εμφανίζει ένα error δίπλα απο συγκεκριμένο πεδίο.
+     * @param EditText Το όνομα του κουμπιού στο οποίο θα εμφανιστεί το σφάλμα
+     * @param error Το περιεχόμενο του σφάλματος που θα εμφανιστεί
+     */
     public void setError(String EditText,String error){
         if(EditText.equals("firstname")){
             ((EditText)findViewById(R.id.firstName)).setError(error);
@@ -65,6 +75,21 @@ public class SignUp extends AppCompatActivity implements SignUpView{
         }
     }
 
+
+    /**
+     * Το μήνυμα πoυ εμφανίζεται όταν τελειώνει
+     * επιτυχώς ένα activity.
+     * @param message Το μήνυμα που θα εμφανίσει
+     */
+    public void successfullyFinishActivity(String message){
+        Intent retData = new Intent();
+        retData.putExtra("message_to_toast", message);
+        setResult(RESULT_OK, retData);
+        finish();
+
+    }
+
+
     public String getName(){return ((EditText) findViewById(R.id.firstName)).getText().toString();}
     public String getSurname() {return ((EditText) findViewById(R.id.lastName)).getText().toString();}
     public String getPhone(){return ((EditText) findViewById(R.id.phone)).getText().toString();}
@@ -74,13 +99,4 @@ public class SignUp extends AppCompatActivity implements SignUpView{
     public String getStrN(){return ((EditText) findViewById(R.id.number)).getText().toString(); }
     public String getZipCode(){return ((EditText) findViewById(R.id.zip_Code)).getText().toString(); }
     public String getStreet(){return ((EditText) findViewById(R.id.street)).getText().toString(); }
-
-    public void successfullyFinishActivity(String message)
-    {
-        Intent retData = new Intent();
-        retData.putExtra("message_to_toast", message);
-        setResult(RESULT_OK, retData);
-        finish();
-
-    }
 }

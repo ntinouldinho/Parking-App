@@ -12,8 +12,25 @@ public interface SignUpView {
     String getStrN();
     String getZipCode();
     String getStreet();
-    void makeToast(String str);
+
+    /**
+     * Εμφανίζει ένα Toast.
+     * @param text Το περιεχόμενο που θα εμφανιστεί
+     */
+
+    void makeToast(String text);
+
+    /**
+     * Εμφανίζει ένα error δίπλα απο συγκεκριμένο πεδίο.
+     * @param EditText Το όνομα του κουμπιού στο οποίο θα εμφανιστεί το σφάλμα
+     * @param error Το περιεχόμενο του σφάλματος που θα εμφανιστεί
+     */
     void setError(String EditText,String error);
+
+    /**
+     * Το μήνυμα πoυ εμφανίζεται όταν τελειώνει
+     * επιτυχώς ένα activity.
+     * @param message Το μήνυμα που θα εμφανίσει
+     */
     void successfullyFinishActivity(String message);
-    void onCreate(Bundle savedInstanceState);
 }

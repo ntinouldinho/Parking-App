@@ -8,11 +8,22 @@ public class LoginPresenter {
     private LoginView view;
     private UserDAO dao;
 
+    /**
+     * Αρχικοποεί τον Presenter.
+     * @param view Ένα instance του view
+     * @param dao Ένα instance της κλάσης UserDao
+     */
+
     public LoginPresenter(LoginView view, UserDAO dao){
         this.view=view;
         this.dao=dao;
     }
 
+    /**
+     * Αρχικοποεί τον Presenter.
+     * @param username Ένα string το οποίο είναι το όνομα του χρήστη που θέλει να κάνει login
+     * @param password Ένα string το οποίο είναι ο κωδικός του χρήστη που θέλει να κάνει login
+     */
     public void login(String username,String password){
         User user =  dao.login(username,password);
         if(user!=null){
@@ -23,6 +34,10 @@ public class LoginPresenter {
         }
     }
 
+    /**
+     * Μεταφέρει τον χρήστη στο activity SignUp
+     * μόλις πατήσει το κουμπί sign up.
+     */
     public void signup(){
         view.signup();
     }
