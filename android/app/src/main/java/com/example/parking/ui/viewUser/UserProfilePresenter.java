@@ -22,6 +22,7 @@ public class UserProfilePresenter {
     public UserProfilePresenter(UserProfileView view, UserDAO dao) {
         this.view = view;
         this.dao = dao;
+        Log.e("the name",view.getUsername());
         currentUser = dao.find(view.getUsername());
         setFields();
     }

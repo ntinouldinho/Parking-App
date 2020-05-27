@@ -29,8 +29,10 @@ public class viewOneVehiclePresenter {
     public viewOneVehiclePresenter(viewOneVehicleView view, UserDAO dao){
         this.view=view;
         this.dao=dao;
-        user = dao.find(view.getIntentUsername());
-        if(view.getIntentPlate()!=null){ //edit mode
+        user = dao.find(view.getUserName());
+
+        if(view.getPlate()!=null){ //edit mode
+
             vehicle = dao.findVehicle(view.getIntentUsername(),view.getIntentPlate());
             showInfo();
 

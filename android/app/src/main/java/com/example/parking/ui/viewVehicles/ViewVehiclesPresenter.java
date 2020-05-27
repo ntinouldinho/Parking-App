@@ -1,6 +1,7 @@
 package com.example.parking.ui.viewVehicles;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -42,6 +43,7 @@ public class ViewVehiclesPresenter {
      * @param vehicle Τα vehicles που επιλέχθηκε.
      */
     void viewOneVehicle(Vehicle vehicle){
+        Log.e("vehicle",vehicle.toString());
         view.viewOneVehicle(vehicle);
     }
 
