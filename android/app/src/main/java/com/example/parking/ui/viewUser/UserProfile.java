@@ -20,6 +20,12 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
     static String m_Text = "";
     String intentUsername,ErrorTitle,finishMessage,ErrorMessage;
     UserProfilePresenter presenter;
+
+    /**
+     * Δημιουργεί το layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -30,7 +36,9 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
 
     }
 
-
+    /**
+     * Προσθέτει τα δυναμικά κουμπιά για Update Profile, Manage Vehicles και Add Credits.
+     */
     public void addClickListeners()
     {
         ((Button) findViewById((R.id.saveBtnUserProfile))).setOnClickListener((v) -> {
@@ -86,8 +94,21 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
         return getIntentUsername();
     }
 
+    /**
+     * Εμφανίζει ένα μήνυμα τύπου alert με
+     * τίτλο title και μήνυμα message.
+     * @param title Ο τίτλος του μηνύματος
+     * @param message Το περιεχόμενο του μηνύματος
+     */
+
+
     @Override
     public void showErrorMessage(String title, String message) {
+        new AlertDialog.Builder(UserProfile.this)
+                .setCancelable(true)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(R.string.OK, null).create().show();
 
     }
 
@@ -183,6 +204,12 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
         Log.e("the intent",getIntentUsername());
         return getIntentUsername();
     }
+
+    /**
+     * Το μήνυμα που εμφανίζεται όταν τελειώνει
+     * επιτυχώς ένα activity.
+     * @param message Το μήνυμα που θα εμφανίσει
+     */
 
     @Override
     public void successfullyFinishActivity(String message)

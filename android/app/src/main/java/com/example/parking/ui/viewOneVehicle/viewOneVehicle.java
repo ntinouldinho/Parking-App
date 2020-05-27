@@ -32,6 +32,11 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
+    /**
+     * Δημιουργεί το layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
@@ -165,6 +170,13 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         return intentPlate;
     }
 
+
+    /**
+     * Εμφανίζει ένα μήνυμα τύπου alert με
+     * τίτλο title και μήνυμα message.
+     * @param title Ο τίτλος του μηνύματος
+     * @param message Το περιεχόμενο του μηνύματος
+     */
     public void showErrorMessage(String title, String message)
     {
         new AlertDialog.Builder(viewOneVehicle.this)
@@ -200,6 +212,11 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
         return Colour.Black;
     }
 
+    /**
+     * Το μήνυμα που εμφανίζεται όταν τελειώνει
+     * επιτυχώς ένα activity.
+     * @param message Το μήνυμα που θα εμφανίσει
+     */
     public void successfullyFinishActivity(String message)
     {
         Intent retData = new Intent();

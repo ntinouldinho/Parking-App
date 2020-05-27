@@ -33,12 +33,17 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
     private ViewVehiclesPresenter presenter;
     Vehicle currentVehicle;
     private String intentUsername;
+
+    /**
+     * Δημιουργεί το layout και αρχικοποιεί
+     * το activity.
+     * @param savedInstanceState το Instance state
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_vehicles);
         presenter = new ViewVehiclesPresenter(this, MemoryInitializer.getUserDAO());
-
 
     }
 
@@ -56,8 +61,11 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
         return intentUsername;
     }
 
-
-    public ArrayList<Button> showVehicles(ArrayList<Vehicle> DaoVehicles){
+    /**
+     * Εμφανίζει τα vehicles ενος user.
+     * @param DaoVehicles Τα vehicles του user.
+     */
+    public void showVehicles(ArrayList<Vehicle> DaoVehicles){
         int colorBackground = Color.parseColor("#337FFF");
         int colorText = Color.parseColor("#ffffff");
 
@@ -92,37 +100,47 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
             newLayout.setLayoutParams(layoutParams);
             newLayout.setPadding(padding,padding,padding,padding);
             sv.addView(newLayout);
+            setVehicleOnClickListener(btn,veh);
 
         }
         setContentView(v);
-        return buttons;
     }
 
-    public void setSongOnClickListener(ArrayList<Button> myButtons,ArrayList<Vehicle> DaoVehicles) {
+    /**
+     * Εμφανίζει το vehicle που θα επιλεγεί.
+     * @param b Το button.
+     * @param v To vehicle.
+     */
+    public void setVehicleOnClickListener(Button b,Vehicle v) {
         //get switch
-
-        for(int i=0;i<myButtons.size();i++){
-            Button b = myButtons.get(i);
-            currentVehicle =DaoVehicles.get(i);
-            b.setOnClickListener(
-                    new View.OnClickListener()
+        b.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
                     {
-                        public void onClick(View view)
-                        {
-                            viewOneVehicle(currentVehicle);
-
-                        }
-                    });
-        }
+                        presenter.viewOneVehicle(v);
+                    }
+                });
 
     }
 
+    /**
+     * Εμφανίζει τα στοιχεία ενός vehicle.
+     * @param vehicle Τα vehicles που επιλέχθηκε.
+     */
     public void viewOneVehicle(Vehicle vehicle){
         Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
         myIntent.putExtra("username", getUserName());
         myIntent.putExtra("plate", currentVehicle.getPlate());
         startActivityForResult(myIntent,1);
     }
+
+    /**
+     * Ξαναδημιουργεί το activity.
+     * @param requestCode Ο ζητούμενος κωδικός
+     * @param resultCode Ο κωδικός του αποτελέσματος
+     * @param data Το intent
+     */
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)

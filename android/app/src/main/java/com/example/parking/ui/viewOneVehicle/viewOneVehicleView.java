@@ -24,10 +24,25 @@ public interface viewOneVehicleView {
 
     String getPlate();
 
+
+    /**
+     * Το μήνυμα που εμφανίζεται όταν τελειώνει
+     * επιτυχώς ένα activity.
+     * @param value Το μήνυμα που θα εμφανίσει
+     */
     void successfullyFinishActivity(String value);
+
+
     String getErrorTitle();
     String getFinishMessage();
     String getErrorMessage();
+
+    /**
+     * Εμφανίζει ένα μήνυμα τύπου alert με
+     * τίτλο title και μήνυμα message.
+     * @param title Ο τίτλος του μηνύματος
+     * @param message Το περιεχόμενο του μηνύματος
+     */
     void showErrorMessage(String title, String message);
 
     void setIntentUsername(String username);

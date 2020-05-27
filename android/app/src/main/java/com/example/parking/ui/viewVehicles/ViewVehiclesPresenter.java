@@ -8,6 +8,7 @@ import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
+import com.example.parking.ui.viewVehicles.*;
 
 import java.util.ArrayList;
 
@@ -17,16 +18,31 @@ public class ViewVehiclesPresenter {
     private User user;
     private UserDAO dao;
 
+
+    /**
+     * Αρχικοποεί τον Presenter.
+     * @param view Ένα instance του view
+     * @param dao Ένα instance του user
+     */
     ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){
         this.view=view;
-        this.user = dao.find(view.getIntentUsername());
-        this.vehicles = user.getVehicles();
+        this.user = dao.find(view.getUserName());
         showVehicles();
     }
 
+    /**
+     * Εμφανίζει τα vehicles ενος user.
+     */
     void showVehicles(){
-        //ArrayList<Button> buttons = view.showVehicles();
-        //view.setSongOnClickListener(buttons,vehicles);
+        view.showVehicles(user.getVehicles());
+    }
+
+    /**
+     * Εμφανίζει τα στοιχεία ενός vehicle.
+     * @param vehicle Τα vehicles που επιλέχθηκε.
+     */
+    void viewOneVehicle(Vehicle vehicle){
+        view.viewOneVehicle(vehicle);
     }
 
 
