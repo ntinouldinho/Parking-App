@@ -91,8 +91,7 @@ public class SignUpPresenter {
     }
 
     /**
-     * Ελέγχει αν το πρώτο ονομα είναι κενό, null
-     * και αν έχει ακριβώς 10 ψηφία.
+     * Ελέγχει αν το πρώτο ονομα είναι κενό, null.
      */
     private boolean validateName(){
         String name = view.getName().trim();
@@ -105,7 +104,9 @@ public class SignUpPresenter {
             return true;
         }
     }
-
+    /**
+     * Ελέγχει αν το επίθετο είναι κενό, null.
+     */
     private boolean validateLast(){
         String last = view.getSurname().trim();
 
@@ -118,7 +119,10 @@ public class SignUpPresenter {
             return true;
         }
     }
-
+    /**
+     * Ελέγχει αν το email είναι κενό, null
+     * και αν συμφωνεί με το pattern πχ xxx@xxx.com .
+     */
     private boolean validateEmail(){
         String email = view.getEmail().trim();
         Pattern EMAIL_ADDRESS =
@@ -136,6 +140,10 @@ public class SignUpPresenter {
         }
     }
 
+    /**
+     * Ελέγχει αν ο Τ.Κ. είναι κενός, null
+     * και αν έχει τουλάχιστον 3 γράμματα.
+     */
     private boolean validateUsername(){
         String username = view.getUsername().trim();
         if(username.isEmpty()){
@@ -151,6 +159,11 @@ public class SignUpPresenter {
         }
     }
 
+    /**
+     * Ελέγχει αν ο κωδικός είναι κενός, null
+     * και αν έχει τουλάχιστον 8 χαρακτήρες(1 γράμμα,
+     * 1 νούμερο,1 ειδικό χαρακτήρα).
+     */
     private boolean validatePassword() {
         String password = view.getPassword().trim();
         Pattern PASSWORD_PATTERN = Pattern.compile("[a-zA-Z0-9\\!\\@\\#\\$]{8,24}");
@@ -167,6 +180,9 @@ public class SignUpPresenter {
         }
     }
 
+    /**
+     * Ελέγχει αν η οδός είναι κενή ή null
+     */
     private boolean validateStreet() {
         String street = view.getStreet().trim();
         if(street.isEmpty()){
@@ -179,6 +195,9 @@ public class SignUpPresenter {
         }
     }
 
+    /**
+     * Ελέγχει αν ο αριθμός οδού είναι κενός ή null
+     */
     private boolean validateStreetNo() {
         String streetno = view.getStrN().trim();
         if(streetno.isEmpty()){

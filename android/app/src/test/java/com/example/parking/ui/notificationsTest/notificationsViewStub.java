@@ -38,10 +38,7 @@ public class notificationsViewStub implements notificationView {
     public ArrayList<ParkingRequest> getToApprove(){
         return toApprove;
     }
-    @Override
-    public void enterPinListener(Button myButtons, ParkingRequest reqs) {
 
-    }
 
     @Override
     public String getUserName() {

@@ -136,6 +136,10 @@ public class notifications extends AppCompatActivity implements notificationView
         setContentView(v);
     }
 
+    /**
+     * Εμφανίζει ένα Toast.
+     * @param m Το περιεχόμενο που θα εμφανιστεί
+     */
     public void makeToast(String m){
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
