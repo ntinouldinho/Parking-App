@@ -20,13 +20,6 @@ public interface ViewVehiclesView {
     void viewOneVehicle(Vehicle vehicle);
 
     /**
-     * Εμφανίζει το vehicle που θα επιλεγεί.
-     * @param b Το button.
-     * @param v To vehicle.
-     */
-    void setVehicleOnClickListener(Button b,Vehicle v);
-
-    /**
      * Εμφανίζει τα vehicles ενος user.
      * @param DaoVehicles Τα vehicles του user.
      */

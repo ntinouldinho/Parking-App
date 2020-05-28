@@ -82,10 +82,10 @@ public class viewOneVehiclePresenter {
 
             if (vehicle == null) {
                 addVehicle();
-                view.successfullyFinishActivity("Vehicle with plate" + view.getIntentPlate() + " added");
+                view.successfullyFinishActivity("Vehicle with plate " + view.getIntentPlate() + " added");
             } else {
                 updateVehicle(brand, model, plate, length, text);
-                view.successfullyFinishActivity("Vehicle with plate" + view.getIntentPlate() + " updated");
+                view.successfullyFinishActivity("Vehicle with plate " + view.getIntentPlate() + " updated");
             }
         }
     }
@@ -125,7 +125,7 @@ public class viewOneVehiclePresenter {
     public void addVehicle(){
 
         dao.updateVehicle(view.getIntentUsername(),new Vehicle(view.getColour(),view.getLength(),view.getText(),view.getPlate(),view.getModel(),view.getBrand()));
-        view.successfullyFinishActivity("Vehicle with plate"+ view.getPlate() +" added");
+        view.successfullyFinishActivity("Vehicle with plate "+ view.getPlate() +" added");
     }
 
     /**
@@ -142,6 +142,6 @@ public class viewOneVehiclePresenter {
         temp.setLength(view.getLength());
         temp.setText(view.getText());
         dao.updateVehicle(user.getUsername(),temp);
-        view.successfullyFinishActivity("Vehicle with plate"+ vehicle.getPlate() +" updated");
+        view.successfullyFinishActivity("Vehicle with plate "+ vehicle.getPlate() +" updated");
     }
 }

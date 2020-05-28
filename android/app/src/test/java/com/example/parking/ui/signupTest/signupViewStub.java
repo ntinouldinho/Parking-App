@@ -113,7 +113,7 @@ public class signupViewStub implements SignUpView {
         finish=message;
     }
 
-    @Override
+    //@Override
     public void onCreate(Bundle savedInstanceState) {
 
     }

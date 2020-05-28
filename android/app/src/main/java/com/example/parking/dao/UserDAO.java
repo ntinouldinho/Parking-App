@@ -21,7 +21,7 @@ public interface UserDAO {
 
     User login(String username,String password);
 
-    Vehicle findVehicle(String usernam,String plate);
+    Vehicle findVehicle(String username,String plate);
 
     void updateVehicle(String username,Vehicle vehicle);
 }

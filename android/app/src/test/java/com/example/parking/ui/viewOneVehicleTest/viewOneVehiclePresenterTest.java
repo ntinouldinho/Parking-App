@@ -12,7 +12,9 @@ public class viewOneVehiclePresenterTest {
     private MemoryInitializer dataHelper;
     private viewOneVehiclePresenter presenter;
     private viewOneVehicleViewStub view;
-
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup() {
         dataHelper = new MemoryInitializer();
@@ -22,7 +24,9 @@ public class viewOneVehiclePresenterTest {
 
 
     }
-
+    /**
+     * Test προσθήκη νεου vehicle.
+     */
     @Test
     public void testAddNew() {
         presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
@@ -59,17 +63,20 @@ public class viewOneVehiclePresenterTest {
         view.setText("Big vehicle, my Nissan Note is a big SUV");
         presenter.decide();
 
-        Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate"+ view.getIntentPlate() +" added");
+        Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate "+ view.getIntentPlate() +" added");
 
     }
 
+    /**
+     * Test επεξεργασίας vehicle.
+     */
     @Test
     public void testUpdate() {
         view.setIntentPlate("MEA6157");
         presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
         presenter.decide();
-        Assert.assertEquals("Vehicle with plate"+ view.getPlate() +" updated",view.getFinishMessage());
+        Assert.assertEquals(view.getFinishMessage(),"Vehicle with plate "+ view.getIntentPlate() +" updated");
 
     }
 }

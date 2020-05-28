@@ -12,6 +12,10 @@ public class viewUserPresenterTest {
     private MemoryInitializer dataHelper;
     private UserProfilePresenter presenter;
     private viewUserViewStub view;
+
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         dataHelper = new MemoryInitializer();
@@ -20,6 +24,9 @@ public class viewUserPresenterTest {
         view.setIntentUsername("ok");
     }
 
+    /**
+     * Test για την επεξεργασία User.
+     */
     @Test
     public void editUser() {
         presenter = new UserProfilePresenter(view, MemoryInitializer.getUserDAO());

@@ -25,24 +25,26 @@ public class ViewVehiclesPresenter {
      * @param view Ένα instance του view
      * @param dao Ένα instance του user
      */
-    ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){
+    public ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){
         this.view=view;
-        this.user = dao.find(view.getUserName());
+        this.user = dao.find(view.getIntentUsername());////////intent
         showVehicles();
     }
 
     /**
      * Εμφανίζει τα vehicles ενος user.
      */
-    void showVehicles(){
-        view.showVehicles(user.getVehicles());
+    public void showVehicles(){
+        if(user.getVehicles().size()>0){
+            view.showVehicles(user.getVehicles());
+        }
     }
 
     /**
      * Εμφανίζει τα στοιχεία ενός vehicle.
      * @param vehicle Τα vehicles που επιλέχθηκε.
      */
-    void viewOneVehicle(Vehicle vehicle){
+    public void viewOneVehicle(Vehicle vehicle){
         Log.e("vehicle",vehicle.toString());
         view.viewOneVehicle(vehicle);
     }

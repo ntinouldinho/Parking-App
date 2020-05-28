@@ -9,68 +9,53 @@
 
     <EditText
         android:id="@+id/expectedArrivalFindParking"
-        android:layout_width="177dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginRight="202dp"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/expected_arrival"
         android:inputType="numberSigned|textPersonName"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/ZipForParking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/SearchButton"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="41dp"
-        android:layout_marginLeft="41dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:layout_marginBottom="6dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:contentDescription="@string/todo"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ZipForParking"
         app:srcCompat="@android:drawable/ic_menu_search"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="140dp" />
 
     <EditText
         android:id="@+id/ZipForParking"
-        android:layout_width="200dp"
-        android:layout_height="75dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginLeft="52dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginRight="51dp"
-        android:layout_marginBottom="6dp"
+        android:layout_width="220dp"
+        android:layout_height="70dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_desired_zip_code"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/ResultsList"
-        app:layout_constraintEnd_toStartOf="@+id/SearchButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
         android:id="@+id/ResultsList"
-        android:layout_width="407dp"
-        android:layout_height="569dp"
+        android:layout_width="412dp"
+        android:layout_height="465dp"
         android:orientation="vertical"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
     </LinearLayout>
