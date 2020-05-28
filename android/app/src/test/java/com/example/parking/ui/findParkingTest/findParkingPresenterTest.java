@@ -1,4 +1,4 @@
-package com.example.parking.ui.findParkingTest;
+package com.example.parking.ui.FindParkingTest;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -7,10 +7,10 @@ import com.example.parking.domain.*;
 import com.example.parking.dao.*;
 import com.example.parking.memorydao.ParkingSpaceDAOMemory;
 import com.example.parking.memorydao.UserDAOMemory;
-import com.example.parking.ui.findParking.findParkingPresenter;
+import com.example.parking.ui.FindParking.FindParkingPresenter;
 
-public class findParkingPresenterTest {
-    private findParkingPresenter presenter;
+public class FindParkingPresenterTest {
+    private FindParkingPresenter presenter;
     //private FileSelectorViewStub stub;
     //private FileLoader loader;
 
@@ -20,6 +20,6 @@ public class findParkingPresenterTest {
         //stub = new FileSelectorViewStub();
         UserDAO uDAO = new UserDAOMemory();
         ParkingSpaceDAO pDAO = new ParkingSpaceDAOMemory();
-        //presenter = new findParkingPresenter();
+        //presenter = new FindParkingPresenter();
     }
 }

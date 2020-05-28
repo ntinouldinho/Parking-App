@@ -1,21 +1,21 @@
-package com.example.parking.ui.viewOneVehicleTest;
-import com.example.parking.ui.viewOneVehicle.viewOneVehiclePresenter;
-import com.example.parking.ui.viewOneVehicle.viewOneVehicleView;
+package com.example.parking.ui.ViewOneVehicleTest;
+import com.example.parking.ui.ViewOneVehicle.ViewOneVehiclePresenter;
+import com.example.parking.ui.ViewOneVehicle.ViewOneVehicleView;
 import com.example.parking.util.Colour;
 
-public class viewOneVehicleViewStub implements viewOneVehicleView {
+public class ViewOneVehicleViewStub implements ViewOneVehicleView {
     private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username,intentUsername,intentPlate;
     private Colour colour;
     private int length;
 
-    private viewOneVehiclePresenter presenter;
+    private ViewOneVehiclePresenter presenter;
 
-    public void setPresenter(viewOneVehiclePresenter presenter) {
+    public void setPresenter(ViewOneVehiclePresenter presenter) {
         this.presenter = presenter;
     }
 
 
-    public viewOneVehicleViewStub()
+    public ViewOneVehicleViewStub()
     {
         brand = model  = text = "";
         length=0;

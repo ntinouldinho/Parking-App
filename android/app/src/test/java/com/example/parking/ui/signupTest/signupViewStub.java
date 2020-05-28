@@ -1,8 +1,8 @@
-package com.example.parking.ui.signupTest;
+package com.example.parking.ui.SignUpTest;
 import android.os.Bundle;
 
-import com.example.parking.ui.signup.SignUpView;
-public class signupViewStub implements SignUpView {
+import com.example.parking.ui.SignUp.SignUpView;
+public class SignUpViewStub implements SignUpView {
     private String name,surname,phone,email,username,password,street,streetno,zip,error,errorobject,finish;
 
     public void setSurname(String surname) {

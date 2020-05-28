@@ -1,7 +1,7 @@
-package com.example.parking.ui.loginTest;
+package com.example.parking.ui.LoginTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.login.LoginPresenter;
+import com.example.parking.ui.Login.LoginPresenter;
 
 import static org.junit.Assert.*;
 
@@ -9,13 +9,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class loginPresenterTest {
-    private loginPresenterViewStub view;
+public class LoginPresenterTest {
+    private LoginPresenterViewStub view;
     private LoginPresenter presenter;
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
-        view = new loginPresenterViewStub();
+        view = new LoginPresenterViewStub();
         presenter = new LoginPresenter(view,MemoryInitializer.getUserDAO());
     }
 

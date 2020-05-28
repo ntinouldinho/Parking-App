@@ -13,22 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.notifications.notifications" />
-        <activity android:name=".ui.findParking.findParking" />
-        <activity android:name=".ui.newParking.NewParkingSpace" />
-        <activity android:name=".ui.showParkingSpace.ShowParkingSpace" />
-        <activity android:name=".ui.viewOneVehicle.viewOneVehicle" />
-        <activity android:name=".ui.viewVehicles.ViewVehicles" />
-        <activity android:name=".ui.signup.SignUp" />
-        <activity android:name=".ui.homescreen.HomeScreenActivity" />
-        <activity android:name=".ui.login.MainActivity">
+        <activity android:name=".ui.Notifications.Notifications" />
+        <activity android:name=".ui.FindParking.FindParking" />
+        <activity android:name=".ui.NewParking.NewParkingSpace" />
+        <activity android:name=".ui.ShowParkingSpace.ShowParkingSpace" />
+        <activity android:name=".ui.ViewOneVehicle.ViewOneVehicle" />
+        <activity android:name=".ui.ViewVehicles.ViewVehicles" />
+        <activity android:name=".ui.SignUp.SignUp" />
+        <activity android:name=".ui.HomeScreen.HomeScreenActivity" />
+        <activity android:name=".ui.Login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.viewUser.UserProfile" />
+        <activity android:name=".ui.ViewUser.UserProfile" />
     </application>
 
 </manifest>

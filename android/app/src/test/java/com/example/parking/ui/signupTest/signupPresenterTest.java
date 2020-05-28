@@ -1,20 +1,20 @@
-package com.example.parking.ui.signupTest;
+package com.example.parking.ui.SignUpTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.signup.SignUpPresenter;
+import com.example.parking.ui.SignUp.SignUpPresenter;
 
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class signupPresenterTest {
-    private signupViewStub view;
+public class SignUpPresenterTest {
+    private SignUpViewStub view;
     private SignUpPresenter presenter;
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
-        view=new signupViewStub();
+        view=new SignUpViewStub();
         presenter=new SignUpPresenter(view,MemoryInitializer.getUserDAO());
     }
     @Test

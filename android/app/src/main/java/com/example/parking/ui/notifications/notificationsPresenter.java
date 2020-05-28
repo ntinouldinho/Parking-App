@@ -1,4 +1,4 @@
-package com.example.parking.ui.notifications;
+package com.example.parking.ui.Notifications;
 
 import android.os.Build;
 import android.util.Log;
@@ -15,12 +15,12 @@ import com.example.parking.util.Pin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class notificationsPresenter {
-    notificationView view;
+public class NotificationsPresenter {
+    NotificationsView view;
     ParkingRequestDAO dao;
     UserDAO users;
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public notificationsPresenter(notificationView view, ParkingRequestDAO dao, UserDAO users){
+    public NotificationsPresenter(NotificationsView view, ParkingRequestDAO dao, UserDAO users){
         this.view=view;
         this.dao=dao;
         this.users=users;

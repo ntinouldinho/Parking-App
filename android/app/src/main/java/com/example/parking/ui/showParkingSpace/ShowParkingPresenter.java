@@ -1,4 +1,4 @@
-package com.example.parking.ui.showParkingSpace;
+package com.example.parking.ui.ShowParkingSpace;
 
 import android.os.Build;
 import android.util.Log;

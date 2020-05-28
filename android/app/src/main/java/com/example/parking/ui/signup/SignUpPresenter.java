@@ -1,4 +1,4 @@
-package com.example.parking.ui.signup;
+package com.example.parking.ui.SignUp;
 
 import android.util.Log;
 import android.util.Patterns;

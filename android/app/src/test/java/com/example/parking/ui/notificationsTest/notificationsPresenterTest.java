@@ -1,25 +1,25 @@
-package com.example.parking.ui.notificationsTest;
+package com.example.parking.ui.NotificationsTest;
 
 import static org.junit.Assert.*;
 
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.notifications.notificationsPresenter;
+import com.example.parking.ui.Notifications.NotificationsPresenter;
 import com.example.parking.util.Pin;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class notificationsPresenterTest {
-    private notificationsViewStub view;
-    private notificationsPresenter presenter;
+public class NotificationsPresenterTest {
+    private NotificationsViewStub view;
+    private NotificationsPresenter presenter;
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
-        view = new notificationsViewStub();
+        view = new NotificationsViewStub();
         view.setUsername("ok");
-        presenter = new notificationsPresenter(view,MemoryInitializer.getRequestDAO(),MemoryInitializer.getUserDAO());
+        presenter = new NotificationsPresenter(view,MemoryInitializer.getRequestDAO(),MemoryInitializer.getUserDAO());
     }
 
     @Test

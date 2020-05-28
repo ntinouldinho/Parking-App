@@ -1,12 +1,12 @@
-package com.example.parking.ui.loginTest;
+package com.example.parking.ui.LoginTest;
 import android.os.Bundle;
 
-import com.example.parking.ui.login.LoginView;
+import com.example.parking.ui.Login.LoginView;
 
-public class loginPresenterViewStub implements LoginView {
+public class LoginPresenterViewStub implements LoginView {
     String username,password,toast;
 
-    public loginPresenterViewStub(){
+    public LoginPresenterViewStub(){
         username = password = toast ="";
     }
 

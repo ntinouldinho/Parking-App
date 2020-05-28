@@ -1,4 +1,4 @@
-package com.example.parking.ui.viewVehicles;
+package com.example.parking.ui.ViewVehicles;
 
 import android.os.Bundle;
 import android.widget.Button;

@@ -119,7 +119,7 @@ public class ParkingRequestTest {
         ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
         parkingList.add(testParking1);
 
-        assertEquals(1,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),30,LocalDateTime.now())).size());
+        assertEquals(1,(parkingRequest.FindParking(parkingList,new Address("agias","53",new ZipCode(18500)),30,LocalDateTime.now())).size());
     }
     @Test
     public void findMultipleParking() {
@@ -130,7 +130,7 @@ public class ParkingRequestTest {
         ParkingSpace testParking2 = new ParkingSpace(new Address("agias","53",new ZipCode(18510)),false,credits,new TimeRange(30),new Date(),userParked,"APL1000");
         parkingList.add(testParking2);
 
-         assertEquals(2,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(18500)),30,LocalDateTime.now())).size());
+         assertEquals(2,(parkingRequest.FindParking(parkingList,new Address("agias","53",new ZipCode(18500)),30,LocalDateTime.now())).size());
     }
     @Test
     public void findNoParking() {
@@ -138,7 +138,7 @@ public class ParkingRequestTest {
 
         ParkingSpace testParking1 = new ParkingSpace(new Address("agias","53",new ZipCode(18530)),false,credits,new TimeRange(30),new Date(),userParked,"APK1000");
         parkingList.add(testParking1);
-        assertEquals(0,(parkingRequest.findParking(parkingList,new Address("agias","53",new ZipCode(10000)),0,LocalDateTime.now())).size());
+        assertEquals(0,(parkingRequest.FindParking(parkingList,new Address("agias","53",new ZipCode(10000)),0,LocalDateTime.now())).size());
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.parking.ui.viewOneVehicle;
+package com.example.parking.ui.ViewOneVehicle;
 
 import android.graphics.Color;
 import android.util.Log;
@@ -13,8 +13,8 @@ import com.example.parking.util.Colour;
 import java.util.ArrayList;
 import java.util.List;
 
-public class viewOneVehiclePresenter {
-    private viewOneVehicleView view;
+public class ViewOneVehiclePresenter {
+    private ViewOneVehicleView view;
     private Vehicle vehicle=null;
     private User user;
     private UserDAO dao;
@@ -26,7 +26,7 @@ public class viewOneVehiclePresenter {
      * @param view Ένα instance του view
      * @param dao Ένα instance του user
      */
-    public viewOneVehiclePresenter(viewOneVehicleView view, UserDAO dao){
+    public ViewOneVehiclePresenter(ViewOneVehicleView view, UserDAO dao){
         this.view=view;
         this.dao=dao;
         user = dao.find(view.getUserName());

@@ -1,4 +1,4 @@
-package com.example.parking.ui.newParking;
+package com.example.parking.ui.NewParking;
 
 import android.content.Intent;
 import android.os.Build;
@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.helper.DurationSpecifier;
-import com.example.parking.ui.homescreen.HomeScreenActivity;
+import com.example.parking.ui.Helper.DurationSpecifier;
+import com.example.parking.ui.HomeScreen.HomeScreenActivity;
 import com.example.parking.util.TimeRange;
 
 import java.util.ArrayList;

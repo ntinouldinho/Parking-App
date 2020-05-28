@@ -1,4 +1,4 @@
-package com.example.parking.ui.signup;
+package com.example.parking.ui.SignUp;
 
 import androidx.appcompat.app.AppCompatActivity;
 

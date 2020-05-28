@@ -1,4 +1,4 @@
-package com.example.parking.ui.showParkingSpace;
+package com.example.parking.ui.ShowParkingSpace;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -21,8 +21,8 @@ import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.Rating;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.findParking.findParking;
-import com.example.parking.ui.homescreen.HomeScreenActivity;
+import com.example.parking.ui.FindParking.FindParking;
+import com.example.parking.ui.HomeScreen.HomeScreenActivity;
 import com.google.gson.Gson;
 
 import org.w3c.dom.Text;
@@ -103,7 +103,7 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent myIntent = new Intent(ShowParkingSpace.this, findParking.class);
+        Intent myIntent = new Intent(ShowParkingSpace.this, FindParking.class);
         myIntent.putExtra("CodeForRestart", "OK");
         //this.finish();
     }

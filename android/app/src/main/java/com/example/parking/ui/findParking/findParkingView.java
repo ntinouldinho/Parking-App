@@ -1,4 +1,4 @@
-package com.example.parking.ui.findParking;
+package com.example.parking.ui.FindParking;
 
 import android.widget.Button;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 
-public interface findParkingView {
+public interface FindParkingView {
     String getZip();
     void makeToast(String m);
     void setErrorToZip(String error);

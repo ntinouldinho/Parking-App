@@ -1,4 +1,4 @@
-package com.example.parking.ui.newParking;
+package com.example.parking.ui.NewParking;
 
 import android.os.Build;
 

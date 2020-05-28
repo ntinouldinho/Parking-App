@@ -1,4 +1,4 @@
-package com.example.parking.ui.notifications;
+package com.example.parking.ui.Notifications;
 
 import android.widget.Button;
 
@@ -6,7 +6,7 @@ import com.example.parking.domain.ParkingRequest;
 
 import java.util.ArrayList;
 
-public interface notificationView {
+public interface NotificationsView {
     String getUserName();
 
     /**

@@ -1,17 +1,17 @@
-package com.example.parking.ui.viewOneVehicleTest;
+package com.example.parking.ui.ViewOneVehicleTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.memorydao.UserDAOMemory;
-import com.example.parking.ui.viewOneVehicle.viewOneVehiclePresenter;
+import com.example.parking.ui.ViewOneVehicle.ViewOneVehiclePresenter;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class viewOneVehiclePresenterTest {
+public class ViewOneVehiclePresenterTest {
     private MemoryInitializer dataHelper;
-    private viewOneVehiclePresenter presenter;
-    private viewOneVehicleViewStub view;
+    private ViewOneVehiclePresenter presenter;
+    private ViewOneVehicleViewStub view;
     /**
      * Αρχικοποιήσεις.
      */
@@ -19,7 +19,7 @@ public class viewOneVehiclePresenterTest {
     public void setup() {
         dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
-        view = new viewOneVehicleViewStub();
+        view = new ViewOneVehicleViewStub();
         view.setIntentUsername("ok");
 
 
@@ -29,7 +29,7 @@ public class viewOneVehiclePresenterTest {
      */
     @Test
     public void testAddNew() {
-        presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
+        presenter = new ViewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
         view.setPlate("mmmmmm");
         presenter.decide();
@@ -73,7 +73,7 @@ public class viewOneVehiclePresenterTest {
     @Test
     public void testUpdate() {
         view.setIntentPlate("MEA6157");
-        presenter = new viewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
+        presenter = new ViewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
         presenter.decide();
         Assert.assertEquals(view.getFinishMessage(),"Vehicle with plate "+ view.getIntentPlate() +" updated");

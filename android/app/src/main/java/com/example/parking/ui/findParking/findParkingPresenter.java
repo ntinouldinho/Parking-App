@@ -1,4 +1,4 @@
-package com.example.parking.ui.findParking;
+package com.example.parking.ui.FindParking;
 
 import android.os.Build;
 import android.util.Log;
@@ -13,20 +13,20 @@ import com.example.parking.domain.Address;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.User;
-import com.example.parking.ui.newParking.NewParkingView;
+import com.example.parking.ui.NewParking.NewParkingView;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class findParkingPresenter {
-    findParkingView view;
+public class FindParkingPresenter {
+    FindParkingView view;
     UserDAO userDAO;
     ParkingSpaceDAO parkingSpaceDAO;
 
 
-    public findParkingPresenter(findParkingView view, UserDAO userDAO, ParkingSpaceDAO parkingSpaceDAO) {
+    public FindParkingPresenter(FindParkingView view, UserDAO userDAO, ParkingSpaceDAO parkingSpaceDAO) {
         this.view = view;
         this.userDAO = userDAO;
         this.parkingSpaceDAO = parkingSpaceDAO;
@@ -35,7 +35,7 @@ public class findParkingPresenter {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void find(){
        if(validateZip()) {
-           ArrayList<ParkingSpace> results = new ParkingRequest().findParking((ArrayList<ParkingSpace>) parkingSpaceDAO.findAllAvailable(), new Address("", "", new ZipCode(Integer.valueOf(view.getZip()))), 30, view.getExpectedArrivalDateTime());
+           ArrayList<ParkingSpace> results = new ParkingRequest().FindParking((ArrayList<ParkingSpace>) parkingSpaceDAO.findAllAvailable(), new Address("", "", new ZipCode(Integer.valueOf(view.getZip()))), 30, view.getExpectedArrivalDateTime());
            view.showParkingSpace(results);
        }
     }

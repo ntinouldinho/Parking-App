@@ -1,4 +1,4 @@
-package com.example.parking.ui.findParking;
+package com.example.parking.ui.FindParking;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,15 +22,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.parking.R;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.showParkingSpace.ShowParkingSpace;
+import com.example.parking.ui.ShowParkingSpace.ShowParkingSpace;
 import com.google.gson.Gson;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class findParking extends AppCompatActivity implements findParkingView{
+public class FindParking extends AppCompatActivity implements FindParkingView{
     ArrayList<ParkingSpace> spaces = new ArrayList<>();
-    findParkingPresenter presenter;
+    FindParkingPresenter presenter;
     String zipcode;
     LocalDateTime expectedArrivalDateTime;
     EditText ZipCodeEditText, expectedArrival;
@@ -40,7 +40,7 @@ public class findParking extends AppCompatActivity implements findParkingView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_parking);
-        presenter = new findParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
+        presenter = new FindParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
 
         expectedArrival = (EditText) findViewById(R.id.expectedArrivalFindParking);
         ImageButton btn = (ImageButton) findViewById(R.id.SearchButton);
@@ -146,7 +146,7 @@ public class findParking extends AppCompatActivity implements findParkingView{
                         {
                             Gson gson = new Gson();
                             String parkingSpaceAsAString = gson.toJson(parkspa);
-                            Intent myIntent = new Intent(findParking.this, ShowParkingSpace.class);
+                            Intent myIntent = new Intent(FindParking.this, ShowParkingSpace.class);
                             myIntent.putExtra("Username", getUserName());
                             myIntent.putExtra("parkingSpace",parkingSpaceAsAString);
                             startActivity(myIntent);

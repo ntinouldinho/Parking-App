@@ -1,4 +1,4 @@
-package com.example.parking.ui.login;
+package com.example.parking.ui.Login;
 
 
 import com.example.parking.R;
@@ -16,9 +16,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.example.parking.ui.homescreen.HomeScreenActivity;
+import com.example.parking.ui.HomeScreen.HomeScreenActivity;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.signup.SignUp;
+import com.example.parking.ui.SignUp.SignUp;
 
 public class MainActivity extends AppCompatActivity implements LoginView{
     LoginPresenter presenter;

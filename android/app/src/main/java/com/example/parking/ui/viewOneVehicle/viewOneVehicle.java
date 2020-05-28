@@ -1,4 +1,4 @@
-package com.example.parking.ui.viewOneVehicle;
+package com.example.parking.ui.ViewOneVehicle;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,12 +23,12 @@ import com.example.parking.memorydao.MemoryInitializer;
 
 import java.util.Arrays;
 
-public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleView{
+public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleView{
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
     private String plate,model,brand,finishMessage,ErrorMessage,ErrorTitle,colour;
     private String intentUsername,intentPlate;
     Button addVehicleBtn;
-    viewOneVehiclePresenter presenter;
+    ViewOneVehiclePresenter presenter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -40,7 +40,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
-        presenter = new viewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
+        presenter = new ViewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
 
         addVehicleBtn = (Button) findViewById(R.id.addVehicleBtn);
         addVehicleBtn.setOnClickListener(new View.OnClickListener() {
@@ -179,7 +179,7 @@ public class viewOneVehicle extends AppCompatActivity implements viewOneVehicleV
      */
     public void showErrorMessage(String title, String message)
     {
-        new AlertDialog.Builder(viewOneVehicle.this)
+        new AlertDialog.Builder(ViewOneVehicle.this)
                 .setCancelable(true)
                 .setTitle(title)
                 .setMessage(message)

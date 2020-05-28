@@ -1,8 +1,8 @@
-package com.example.parking.ui.viewOneVehicle;
+package com.example.parking.ui.ViewOneVehicle;
 
 import com.example.parking.util.Colour;
 
-public interface viewOneVehicleView {
+public interface ViewOneVehicleView {
     void setBrand(String value);
     String getBrand();
 

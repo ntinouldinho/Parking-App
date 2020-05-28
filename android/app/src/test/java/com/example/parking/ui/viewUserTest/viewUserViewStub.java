@@ -1,9 +1,9 @@
-package com.example.parking.ui.viewUserTest;
+package com.example.parking.ui.ViewUserTest;
 
-import com.example.parking.ui.viewUser.UserProfilePresenter;
-import com.example.parking.ui.viewUser.UserProfileView;
+import com.example.parking.ui.ViewUser.UserProfilePresenter;
+import com.example.parking.ui.ViewUser.UserProfileView;
 
-public class viewUserViewStub implements UserProfileView {
+public class ViewUserViewStub implements UserProfileView {
 
     private String firstName,lastName,email,zipCode,street,streetNo,phone,finishMessage,errorTitle,errorMessage,intentUsername;
     private int credits;
@@ -15,7 +15,7 @@ public class viewUserViewStub implements UserProfileView {
     }
 
 
-    public viewUserViewStub()
+    public ViewUserViewStub()
     {
         firstName = lastName  = email = zipCode=street=streetNo=intentUsername="";
     }

@@ -1,6 +1,4 @@
-package com.example.parking.ui.homescreen;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.parking.ui.HomeScreen;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,12 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.parking.ui.findParking.findParking;
-import com.example.parking.ui.newParking.NewParkingSpace;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.parking.R;
-import com.example.parking.ui.notifications.notifications;
-import com.example.parking.ui.viewUser.UserProfile;
-import com.example.parking.ui.viewVehicles.ViewVehicles;
+import com.example.parking.ui.FindParking.FindParking;
+import com.example.parking.ui.Notifications.Notifications;
+import com.example.parking.ui.NewParking.NewParkingSpace;
+import com.example.parking.ui.ViewUser.UserProfile;
 
 public class HomeScreenActivity extends AppCompatActivity {
     Button parkingSpace;
@@ -41,7 +40,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, findParking.class);
+                Intent myIntent = new Intent(HomeScreenActivity.this, FindParking.class);
                 myIntent.putExtra("username", getUserName());
                 startActivity(myIntent);
             }
@@ -57,7 +56,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, notifications.class);
+                Intent myIntent = new Intent(HomeScreenActivity.this, Notifications.class);
                 myIntent.putExtra("username", getUserName());
                 startActivity(myIntent);
             }

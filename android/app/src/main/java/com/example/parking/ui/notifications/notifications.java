@@ -1,4 +1,4 @@
-package com.example.parking.ui.notifications;
+package com.example.parking.ui.Notifications;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,15 +28,15 @@ import com.example.parking.util.Pin;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class notifications extends AppCompatActivity implements notificationView{
-    notificationsPresenter presenter;
+public class Notifications extends AppCompatActivity implements NotificationsView{
+    NotificationsPresenter presenter;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
-        presenter = new notificationsPresenter(this, MemoryInitializer.getRequestDAO(),MemoryInitializer.getUserDAO());
+        presenter = new NotificationsPresenter(this, MemoryInitializer.getRequestDAO(),MemoryInitializer.getUserDAO());
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -157,7 +157,7 @@ public class notifications extends AppCompatActivity implements notificationView
                     {
                         public void onClick(View view)
                         {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(notifications.this);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Notifications.this);
                             builder.setTitle("Pin");
                             builder.setMessage("The requesting user has arrived. Enter the pin he has given you.");
                             builder.setPositiveButton("Confirm",
@@ -178,7 +178,7 @@ public class notifications extends AppCompatActivity implements notificationView
                                             dialog.dismiss();
                                         }
                                     });
-                            final EditText input = new EditText(notifications.this);
+                            final EditText input = new EditText(Notifications.this);
                             input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                             builder.setView(input);
                             AlertDialog dialog = builder.create();
@@ -215,7 +215,7 @@ public class notifications extends AppCompatActivity implements notificationView
                         @RequiresApi(api = Build.VERSION_CODES.O)
                         public void onClick(View view)
                         {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(notifications.this);
+                            AlertDialog.Builder builder = new AlertDialog.Builder(Notifications.this);
 
                             builder.setTitle("Request for you parking space");
                             builder.setMessage("Your space at "+request.getParkingSpace().getAddress().getStreet()+" wants to be used by "+request.getRequestingUser().getUsername());

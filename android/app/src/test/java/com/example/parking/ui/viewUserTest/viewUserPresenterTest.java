@@ -1,17 +1,17 @@
-package com.example.parking.ui.viewUserTest;
+package com.example.parking.ui.ViewUserTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.viewUser.UserProfilePresenter;
+import com.example.parking.ui.ViewUser.UserProfilePresenter;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class viewUserPresenterTest {
+public class ViewUserPresenterTest {
 
     private MemoryInitializer dataHelper;
     private UserProfilePresenter presenter;
-    private viewUserViewStub view;
+    private ViewUserViewStub view;
 
     /**
      * Αρχικοποιήσεις.
@@ -20,7 +20,7 @@ public class viewUserPresenterTest {
     public void setup(){
         dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
-        view = new viewUserViewStub();
+        view = new ViewUserViewStub();
         view.setIntentUsername("ok");
     }
 

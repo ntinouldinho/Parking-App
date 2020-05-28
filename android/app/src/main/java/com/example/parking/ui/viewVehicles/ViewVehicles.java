@@ -1,4 +1,4 @@
-package com.example.parking.ui.viewVehicles;
+package com.example.parking.ui.ViewVehicles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.parking.R;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
+import com.example.parking.ui.ViewOneVehicle.ViewOneVehicle;
 import com.example.parking.util.Colour;
 
 import java.math.BigInteger;
@@ -129,7 +129,7 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
      * @param vehicle Τα vehicles που επιλέχθηκε.
      */
     public void viewOneVehicle(Vehicle vehicle){
-        Intent myIntent = new Intent(ViewVehicles.this, viewOneVehicle.class);
+        Intent myIntent = new Intent(ViewVehicles.this, ViewOneVehicle.class);
         myIntent.putExtra("username", getUserName());
         myIntent.putExtra("plate", vehicle.getPlate());
         startActivityForResult(myIntent,1);

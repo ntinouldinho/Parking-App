@@ -1,19 +1,17 @@
-package com.example.parking.ui.viewVehiclesTest;
+package com.example.parking.ui.ViewVehiclesTest;
 import android.content.Intent;
 
 import com.example.parking.domain.Vehicle;
-import com.example.parking.ui.viewOneVehicle.viewOneVehicle;
-import com.example.parking.ui.viewVehicles.ViewVehicles;
-import com.example.parking.ui.viewVehicles.ViewVehiclesPresenter;
-import com.example.parking.ui.viewVehicles.ViewVehiclesView;
+import com.example.parking.ui.ViewOneVehicle.ViewOneVehicle;
+import com.example.parking.ui.ViewVehicles.*;
 
 import java.util.ArrayList;
 
-public class viewVehiclesViewStub implements ViewVehiclesView {
+public class ViewVehiclesViewStub implements ViewVehiclesView {
     ViewVehiclesPresenter presenter;
     String username,intentUsername;
 
-    public viewVehiclesViewStub()
+    public ViewVehiclesViewStub()
     {
         username = intentUsername  = "";
     }

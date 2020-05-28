@@ -1,8 +1,8 @@
-package com.example.parking.ui.newParkingTest;
+package com.example.parking.ui.NewParkingTest;
 
 import org.junit.Before;
 
-public class newParkingPresenterTest {
+public class NewParkingPresenterTest {
     @Before
     public void setup(){}
 }

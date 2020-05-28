@@ -1,4 +1,4 @@
-package com.example.parking.ui.viewUser;
+package com.example.parking.ui.ViewUser;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.viewVehicles.ViewVehicles;
+import com.example.parking.ui.ViewVehicles.ViewVehicles;
 
 import androidx.appcompat.app.AppCompatActivity;
 

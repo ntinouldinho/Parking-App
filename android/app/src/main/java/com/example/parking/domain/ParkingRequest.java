@@ -80,7 +80,7 @@ public class ParkingRequest{
      */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public ArrayList<ParkingSpace> findParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference, LocalDateTime expectedArrival){
+    public ArrayList<ParkingSpace> FindParking(ArrayList<ParkingSpace> parkingSpaces, Address address,int difference, LocalDateTime expectedArrival){
         ArrayList<ParkingSpace> list = new ArrayList<>();
         ZipCode zip = address.getZipCode();
         for (ParkingSpace parking : parkingSpaces) {
