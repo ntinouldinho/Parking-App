@@ -27,7 +27,7 @@ public class ViewVehiclesPresenter {
      */
     public ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){
         this.view=view;
-        this.user = dao.find(view.getIntentUsername());////////intent
+        this.user = dao.find(view.getUserName());////////intent
         showVehicles();
     }
 
@@ -35,9 +35,7 @@ public class ViewVehiclesPresenter {
      * Εμφανίζει τα vehicles ενος user.
      */
     public void showVehicles(){
-        if(user.getVehicles().size()>0){
-            view.showVehicles(user.getVehicles());
-        }
+        view.showVehicles(user.getVehicles());
     }
 
     /**
