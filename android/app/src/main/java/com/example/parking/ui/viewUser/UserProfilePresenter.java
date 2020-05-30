@@ -23,7 +23,7 @@ public class UserProfilePresenter {
         this.view = view;
         this.dao = dao;
         //Log.e("the name",view.getUsername());
-        currentUser = dao.find(view.getIntentUsername());
+        currentUser = dao.find(view.getUsername());
         setFields();
     }
 
