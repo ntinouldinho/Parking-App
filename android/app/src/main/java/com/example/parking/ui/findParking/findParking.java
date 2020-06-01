@@ -102,8 +102,8 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
             // Create Button
             final Button btn = new Button(this);
             btn.setBackgroundColor(colorBackground);
-            String details = p.getAddress().toString() + " "+ p.getParkedUser().getUsername() +
-                    " " + p.getTimeRange();
+            String details = "ADDRESS: " + p.getAddress().toString() + " PARKED USER: "+ p.getParkedUser().getUsername() +
+                    " AVAILABILITY: " + p.getTimeRange()+ " CREDITS: "+ p.getPrice().getPoints();
             btn.setText(details);
             btn.setTextSize(11);
             btn.setTextColor(colorText);

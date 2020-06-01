@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="96dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_width="131dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:alpha="0.6"
         android:contentDescription="@string/todo"
         android:scaleType="centerCrop"
@@ -36,6 +36,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -44,45 +45,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginBottom="85dp"
         android:gravity="center"
         android:text="@string/profile"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/request"
         app:layout_constraintEnd_toStartOf="@+id/notification"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="85dp"
-        android:gravity="center"
-        android:text="@string/not"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@+id/request"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/credits"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:layout_marginBottom="85dp"
         android:gravity="center"
         android:text="@string/credits"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/request"
         app:layout_constraintEnd_toStartOf="@+id/profile"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/submit"
@@ -90,36 +74,32 @@
         android:layout_height="100dp"
         android:layout_marginStart="25dp"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="25dp"
         android:layout_marginRight="25dp"
-        android:layout_marginBottom="25dp"
         android:gravity="center"
         android:text="@string/submit_parking"
         android:textAllCaps="false"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/add_credits"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/request" />
 
     <Button
-        android:id="@+id/add_credits"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="25dp"
+        android:id="@+id/notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="85dp"
         android:gravity="center"
-        android:text="@string/add_credits"
+        android:text="@string/not"
         android:textAllCaps="false"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/request"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/submit" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

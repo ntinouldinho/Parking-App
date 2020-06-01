@@ -109,7 +109,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                         colorBackground=Color.parseColor("#ff0000");
                         not = "You rejected a request"; //notification only
                     }else {
-                        data.setText(request.getDate().toString() + ", your have a request to approve from:" + request.getRequestingUser().getUsername());
+                        data.setText(request.getDate().toString() + ", your have a request to approve from:" + request.getRequestingUser().getUsername()+" with average rating "+ MemoryInitializer.getRatingDAO().calculateStats(request.getRequestingUser().getUsername()));
                         colorBackground=Color.parseColor("#22ff00");
 
                         setApproveOrNotListener(btn,request);
@@ -218,7 +218,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                             AlertDialog.Builder builder = new AlertDialog.Builder(Notifications.this);
 
                             builder.setTitle("Request for you parking space");
-                            builder.setMessage("Your space at "+request.getParkingSpace().getAddress().getStreet()+" wants to be used by "+request.getRequestingUser().getUsername());
+                            builder.setMessage("Your space at "+request.getParkingSpace().getAddress().getStreet()+" wants to be used by "+request.getRequestingUser().getUsername()+" with average rating "+ MemoryInitializer.getRatingDAO().calculateStats(request.getRequestingUser().getUsername()));
 
                             builder.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
 

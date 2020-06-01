@@ -41,4 +41,19 @@ public class LoginPresenter {
     public void signup(){
         view.signup();
     }
+
+    /**
+     * Εμφανίζει τον κωδικό στον χρήστη.
+     * @param username Ένα string το οποίο είναι το όνομα του χρήστη που θέλει να θυμηθεί τον κωδικό του
+     */
+    public String forgot(String username){
+        User user =  dao.find(username);
+        if(user!=null){
+            view.createToast(user.getPassword());
+            return user.getPassword();
+        }else{
+            view.createToast("Username doesn't exist");
+            return "Username doesn't exist";
+        }
+    }
 }
