@@ -2,6 +2,7 @@ package com.example.parking.ui.login;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         MemoryInitializer.prepareData();
         Button login = findViewById(R.id.login);
         Button signup = findViewById(R.id.login2);
+        Button forgot = findViewById(R.id.forgotpassword);
 
 
         presenter = new LoginPresenter(this,MemoryInitializer.getUserDAO());
@@ -49,6 +51,19 @@ public class MainActivity extends AppCompatActivity implements LoginView{
                 presenter.signup();
             }
         });
+
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setCancelable(true)
+                        .setTitle("Password for user " + getUsername()+ " is:")
+                        .setMessage(presenter.forgot(getUsername()))
+                        .setPositiveButton(R.string.OK, null).create().show();
+            }
+        });
+
+
 //        EditText user = (EditText) findViewById(R.id.username);
 //        EditText pass = (EditText) findViewById(R.id.password);
 //
