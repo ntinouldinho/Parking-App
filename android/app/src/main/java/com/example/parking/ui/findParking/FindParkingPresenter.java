@@ -1,9 +1,6 @@
-package com.example.parking.ui.FindParking;
+package com.example.parking.ui.findParking;
 
 import android.os.Build;
-import android.util.Log;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -12,13 +9,9 @@ import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.Address;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.domain.ParkingSpace;
-import com.example.parking.domain.User;
-import com.example.parking.ui.NewParking.NewParkingView;
-import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class FindParkingPresenter {
     FindParkingView view;
@@ -32,6 +25,9 @@ public class FindParkingPresenter {
         this.parkingSpaceDAO = parkingSpaceDAO;
     }
 
+    /**
+     * Βρίσκει και εμφανίζει τις έγγυρες θέσεις στάθμευσης
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void find(){
        if(validateZip()) {
@@ -40,6 +36,9 @@ public class FindParkingPresenter {
        }
     }
 
+    /**
+     * @return {@code true} αν ο δωθέν Τ.Κ. είναι έγγυρος
+     */
     public boolean validateZip(){
         String zip = view.getZip();
         if(zip.isEmpty()){

@@ -1,12 +1,12 @@
-package com.example.parking.ui.LoginTest;
+package com.example.parking.ui.loginTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.Login.LoginPresenter;
-
-import static org.junit.Assert.*;
+import com.example.parking.ui.login.LoginPresenter;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class LoginPresenterTest {

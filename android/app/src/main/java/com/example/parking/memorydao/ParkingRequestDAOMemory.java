@@ -1,10 +1,7 @@
 package com.example.parking.memorydao;
 
 import com.example.parking.dao.ParkingRequestDAO;
-import com.example.parking.domain.Rating;
-import com.example.parking.domain.User;
 import com.example.parking.domain.ParkingRequest;
-import com.example.parking.domain.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;

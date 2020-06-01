@@ -1,12 +1,10 @@
 package com.example.parking.util;
 
-import com.example.parking.util.Credits;
-
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CreditsTest {
     private Credits credits;

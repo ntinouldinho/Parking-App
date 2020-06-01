@@ -2,11 +2,10 @@ package com.example.parking.domain;
 
 import com.example.parking.util.ZipCode;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class AddressTest {
     private Address address;

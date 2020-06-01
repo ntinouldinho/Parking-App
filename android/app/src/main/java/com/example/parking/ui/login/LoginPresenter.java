@@ -1,6 +1,5 @@
-package com.example.parking.ui.Login;
+package com.example.parking.ui.login;
 
-import com.example.parking.ui.Login.LoginView;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 

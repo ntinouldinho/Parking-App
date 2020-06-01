@@ -1,4 +1,4 @@
-package com.example.parking.ui.ViewOneVehicle;
+package com.example.parking.ui.viewOneVehicle;
 
 import com.example.parking.util.Colour;
 

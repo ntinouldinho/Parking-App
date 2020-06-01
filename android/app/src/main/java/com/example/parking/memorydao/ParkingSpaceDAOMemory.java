@@ -4,13 +4,10 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.parking.dao.ParkingRequestDAO;
 import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.domain.ParkingSpace;
-import com.example.parking.domain.User;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class ParkingSpaceDAOMemory implements ParkingSpaceDAO {

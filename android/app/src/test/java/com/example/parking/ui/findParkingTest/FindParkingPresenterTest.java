@@ -1,13 +1,13 @@
-package com.example.parking.ui.FindParkingTest;
+package com.example.parking.ui.findParkingTest;
 
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
-import com.example.parking.domain.*;
-import com.example.parking.dao.*;
+import com.example.parking.dao.ParkingSpaceDAO;
+import com.example.parking.dao.UserDAO;
+import com.example.parking.domain.ParkingRequest;
 import com.example.parking.memorydao.ParkingSpaceDAOMemory;
 import com.example.parking.memorydao.UserDAOMemory;
-import com.example.parking.ui.FindParking.FindParkingPresenter;
+import com.example.parking.ui.findParking.FindParkingPresenter;
+
+import org.junit.Before;
 
 public class FindParkingPresenterTest {
     private FindParkingPresenter presenter;

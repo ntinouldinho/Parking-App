@@ -1,7 +1,6 @@
-package com.example.parking.ui.ShowParkingSpace;
+package com.example.parking.ui.showParkingSpace;
 
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -12,7 +11,6 @@ import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.User;
-import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 
@@ -41,6 +39,10 @@ public class ShowParkingPresenter {
     }
 
 
+    /**
+     * Προσθέτει στο DAO ένα αίτημα για θέση parking
+     * @param parkingSpace Η θέση parking
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     void add(ParkingSpace parkingSpace){
         parkingRequestDAO.save(new ParkingRequest(new TimeRange(LocalDateTime.now(),30),new Pin(), userDAO.find(view.getRequestingUser()),parkingSpace));

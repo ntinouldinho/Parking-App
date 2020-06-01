@@ -1,7 +1,6 @@
 package com.example.parking.memorydao;
 
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -22,11 +21,9 @@ import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class MemoryInitializer {
     private static ParkingRequestDAO PRDao = new ParkingRequestDAOMemory();

@@ -1,4 +1,4 @@
-package com.example.parking.ui.NewParking;
+package com.example.parking.ui.newParking;
 
 import android.os.Build;
 
@@ -30,6 +30,9 @@ public class NewParkingPresenter {
         setPlate();
     }
 
+    /**
+     * Δημιουργεί καινούρια θέση στάθμευσης με τα συμπληρωμένα στοιχεία και την αποθηκεύει
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     void add() {
         ParkingSpace p = new ParkingSpace(new Address(view.getStreet(), view.getStreetNumber(), new ZipCode(Integer.valueOf(view.getZipCode()))), true, new Credits(Integer.valueOf(view.getCredits())), view.getTimeRange(), new Date(), u, view.getPlate());

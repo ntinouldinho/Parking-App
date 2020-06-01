@@ -1,14 +1,8 @@
-package com.example.parking.ui.ViewOneVehicle;
-
-import android.graphics.Color;
-import android.util.Log;
-import android.widget.Toast;
+package com.example.parking.ui.viewOneVehicle;
 
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
-import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.util.Colour;
 
 import java.util.ArrayList;
 import java.util.List;

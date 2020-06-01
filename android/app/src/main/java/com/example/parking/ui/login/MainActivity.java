@@ -1,24 +1,22 @@
-package com.example.parking.ui.Login;
+package com.example.parking.ui.login;
 
-
-import com.example.parking.R;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.parking.ui.HomeScreen.HomeScreenActivity;
+import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.SignUp.SignUp;
+import com.example.parking.ui.homescreen.HomeScreenActivity;
+import com.example.parking.ui.signup.SignUp;
 
 public class MainActivity extends AppCompatActivity implements LoginView{
     LoginPresenter presenter;

@@ -6,21 +6,15 @@ import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.function.ToDoubleBiFunction;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class ParkingRequestTest {
     private ParkingRequest parkingRequest;

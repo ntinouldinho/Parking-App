@@ -1,6 +1,4 @@
-package com.example.parking.ui.SignUp;
-
-import android.os.Bundle;
+package com.example.parking.ui.signup;
 
 public interface SignUpView {
     String getName();

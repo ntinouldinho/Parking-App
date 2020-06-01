@@ -2,10 +2,7 @@ package com.example.parking.dao;
 
 
 import com.example.parking.domain.ParkingRequest;
-import com.example.parking.domain.ParkingSpace;
-import com.example.parking.util.Pin;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface ParkingRequestDAO {

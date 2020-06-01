@@ -1,6 +1,4 @@
-package com.example.parking.ui.Notifications;
-
-import android.widget.Button;
+package com.example.parking.ui.notifications;
 
 import com.example.parking.domain.ParkingRequest;
 

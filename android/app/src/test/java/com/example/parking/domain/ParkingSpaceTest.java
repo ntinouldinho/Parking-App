@@ -4,22 +4,18 @@ import com.example.parking.util.Credits;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.util.Date;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-
 import java.util.ArrayList;
-import java.util.Locale;
+import java.util.Date;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ParkingSpaceTest {
 

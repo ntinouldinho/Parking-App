@@ -1,7 +1,4 @@
-package com.example.parking.ui.Notifications;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.parking.ui.notifications;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -19,13 +16,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.parking.R;
 import com.example.parking.domain.ParkingRequest;
-import com.example.parking.domain.ParkingSpace;
 import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Pin;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Notifications extends AppCompatActivity implements NotificationsView{

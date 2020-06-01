@@ -1,6 +1,4 @@
-package com.example.parking.ui.Login;
-
-import android.os.Bundle;
+package com.example.parking.ui.login;
 
 public interface LoginView {
     String getUsername();

@@ -1,9 +1,5 @@
 package com.example.parking.util;
 
-import android.util.Log;
-
-import java.time.LocalDateTime;
-
 public class Credits {
     private int points;
 

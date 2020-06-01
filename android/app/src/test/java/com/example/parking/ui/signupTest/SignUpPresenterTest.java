@@ -1,12 +1,12 @@
-package com.example.parking.ui.SignUpTest;
+package com.example.parking.ui.signupTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.SignUp.SignUpPresenter;
+import com.example.parking.ui.signup.SignUpPresenter;
 
-
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class SignUpPresenterTest {
     private SignUpViewStub view;

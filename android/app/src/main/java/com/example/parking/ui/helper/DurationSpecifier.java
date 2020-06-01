@@ -1,11 +1,10 @@
-package com.example.parking.ui.Helper;
+package com.example.parking.ui.helper;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Build;
 import android.text.format.DateFormat;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -73,6 +72,12 @@ public class DurationSpecifier implements DatePickerDialog.OnDateSetListener, Ti
         return this.timeRange;
     }
 
+    /**
+     * Καλείται μόλις επιλεχθεί ημερομηνία και δημιουργεί παράθυρο επιλογής ώρας
+     * @param y Επιλεγμένος χρόνος
+     * @param m Επιλεγμένος μήνας
+     * @param d Επιλεγμένη μέρα
+     */
     @Override
     public void onDateSet(DatePicker datePicker, int y, int m, int d)
     {
@@ -86,6 +91,11 @@ public class DurationSpecifier implements DatePickerDialog.OnDateSetListener, Ti
         tpD.show();
     }
 
+    /**
+     * Καλείται μόλις επιλεχθεί ώρα και θέτει τα πεδία της ημερομηνίας και ώρας
+     * @param h Επιλεγμένη ώρα
+     * @param m Επιλεγμένα λεπτά
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onTimeSet(TimePicker timePicker, int h, int m)

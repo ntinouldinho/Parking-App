@@ -1,7 +1,7 @@
-package com.example.parking.ui.ViewUserTest;
+package com.example.parking.ui.viewUserTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.ViewUser.UserProfilePresenter;
+import com.example.parking.ui.viewUser.UserProfilePresenter;
 
 import org.junit.Assert;
 import org.junit.Before;

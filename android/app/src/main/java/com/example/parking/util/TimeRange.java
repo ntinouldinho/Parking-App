@@ -4,13 +4,9 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
-import java.util.TimeZone;
 
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -49,26 +45,46 @@ public class TimeRange {
         this.to = to;
     }
 
+    /**
+     * @return Τα λεπτά μεταξύ του from και του to του object
+     */
     public long getDifference(){
         return Duration.between(from, to).toMinutes();
     }
 
+    /**
+     * @param ld1 Ένα LocalDateTime object που ανιπαριστά το from
+     * @param ld2 Ένα LocalDateTime object που ανιπαριστά το to
+     * @return Τα λεπτά μεταξύ του from και του to του που δώθηκαν
+     */
     public static long getDifference(LocalDateTime ld1, LocalDateTime ld2){
         return Duration.between(ld1, ld2).toMinutes();
     }
 
+    /**
+     * @return {@code true} Αν τα χρονικά όρια του TimeRange object που δώθηκε είναι εντός αυτού του object
+     */
     public boolean containsRange(final TimeRange other)
     {
         return getDifference(this.from, other.from) >= 0 &&
                 getDifference(other.to, this.to) >= 0;
     }
 
+    /**
+     * @param ld Μια χρονική στιγμή ως LocalDateTime
+     * @return {@code true} Αν η δωθήσα χρονική στιγμή είναι εντός των χρονικών ορίων του αντικειμένου
+     */
     public boolean containsDateTime(LocalDateTime ld)
     {
         return getDifference(this.from, ld) >= 0 &&
                 getDifference(ld, this.to) >= 0;
     }
 
+    /**
+     * @param date Η δωθήσα χρονική στιγμήProvided time instant
+     * @param minutes Τα λεπτά που είναι να προστεθούν
+     * @return Μια καινούρια χρονική στιγμή η οποία είναι όσα λεπτά καθορίστηκε πιο μετά στον χρόνο
+     */
     public LocalDateTime addMinutes(LocalDateTime date, long minutes){
         return date.plusMinutes(minutes);
     }

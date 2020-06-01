@@ -1,32 +1,24 @@
-package com.example.parking.ui.ViewVehicles;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.parking.ui.viewVehicles;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.format.Formatter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.parking.R;
 import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.ViewOneVehicle.ViewOneVehicle;
-import com.example.parking.util.Colour;
+import com.example.parking.ui.viewOneVehicle.ViewOneVehicle;
 
-import java.math.BigInteger;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.nio.ByteOrder;
 import java.util.ArrayList;
 
 public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView {

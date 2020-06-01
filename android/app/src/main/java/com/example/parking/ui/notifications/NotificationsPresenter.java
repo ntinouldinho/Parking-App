@@ -1,19 +1,15 @@
-package com.example.parking.ui.Notifications;
+package com.example.parking.ui.notifications;
 
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
 import com.example.parking.dao.ParkingRequestDAO;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.ParkingRequest;
-import com.example.parking.domain.User;
-import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Pin;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NotificationsPresenter {
     NotificationsView view;

@@ -5,7 +5,6 @@ import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface UserDAO {
 

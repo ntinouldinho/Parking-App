@@ -1,22 +1,16 @@
-package com.example.parking.ui.SignUp;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.parking.ui.signup;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-import com.example.parking.R;
-import com.example.parking.domain.User;
-import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.util.ZipCode;
 
-import java.util.regex.Pattern;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.parking.R;
+import com.example.parking.memorydao.MemoryInitializer;
 
 public class SignUp extends AppCompatActivity implements SignUpView{
     private EditText ZipCodeEditText,PhoneEditText,NameEditText,LastEditText,EmailEditText,UsernameEditText,PasswordEditText,StreetNumberEditText,StreetEditText;

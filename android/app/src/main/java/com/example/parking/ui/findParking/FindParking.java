@@ -1,4 +1,4 @@
-package com.example.parking.ui.FindParking;
+package com.example.parking.ui.findParking;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.parking.R;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.ShowParkingSpace.ShowParkingSpace;
+import com.example.parking.ui.showParkingSpace.ShowParkingSpace;
 import com.google.gson.Gson;
 
 import java.time.LocalDateTime;

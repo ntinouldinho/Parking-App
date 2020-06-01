@@ -1,4 +1,4 @@
-package com.example.parking.ui.HomeScreen;
+package com.example.parking.ui.homescreen;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,10 +10,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parking.R;
-import com.example.parking.ui.FindParking.FindParking;
-import com.example.parking.ui.Notifications.Notifications;
-import com.example.parking.ui.NewParking.NewParkingSpace;
-import com.example.parking.ui.ViewUser.UserProfile;
+import com.example.parking.ui.findParking.FindParking;
+import com.example.parking.ui.newParking.NewParkingSpace;
+import com.example.parking.ui.notifications.Notifications;
+import com.example.parking.ui.viewUser.UserProfile;
 
 public class HomeScreenActivity extends AppCompatActivity {
     Button parkingSpace;

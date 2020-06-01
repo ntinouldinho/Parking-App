@@ -1,12 +1,12 @@
-package com.example.parking.ui.NotificationsTest;
-import android.widget.Button;
+package com.example.parking.ui.notificationsTest;
 
 import com.example.parking.domain.ParkingRequest;
-import com.example.parking.ui.Notifications.notificationView;
+import com.example.parking.ui.notifications.NotificationsView;
 
 import java.util.ArrayList;
 
-public class NotificationsViewStub implements notificationView {
+public class NotificationsViewStub implements NotificationsView
+{
     private String username,result;
     private ArrayList<ParkingRequest> toApprove = new ArrayList<>();
     private ArrayList<ParkingRequest> toEnterPin = new ArrayList<>();

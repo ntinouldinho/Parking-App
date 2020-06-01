@@ -1,17 +1,10 @@
-package com.example.parking.ui.ViewVehiclesTest;
+package com.example.parking.ui.viewVehiclesTest;
 
-import com.example.parking.domain.User;
-import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.ViewVehicles.ViewVehiclesPresenter;
-import com.example.parking.util.Colour;
+import com.example.parking.ui.viewVehicles.ViewVehiclesPresenter;
 
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 public class viewVehiclesPresenterTest {
 

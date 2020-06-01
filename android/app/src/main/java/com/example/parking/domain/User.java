@@ -1,8 +1,6 @@
 package com.example.parking.domain;
 
 
-import android.util.Log;
-
 import com.example.parking.util.Credits;
 
 import java.util.ArrayList;

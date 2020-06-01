@@ -1,15 +1,15 @@
-package com.example.parking.ui.NotificationsTest;
+package com.example.parking.ui.notificationsTest;
 
-import static org.junit.Assert.*;
-
-import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.Notifications.NotificationsPresenter;
+import com.example.parking.ui.notifications.NotificationsPresenter;
 import com.example.parking.util.Pin;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class NotificationsPresenterTest {
     private NotificationsViewStub view;

@@ -1,11 +1,5 @@
-package com.example.parking.ui.SignUp;
+package com.example.parking.ui.signup;
 
-import android.util.Log;
-import android.util.Patterns;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import com.example.parking.R;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.Address;
 import com.example.parking.domain.Rating;

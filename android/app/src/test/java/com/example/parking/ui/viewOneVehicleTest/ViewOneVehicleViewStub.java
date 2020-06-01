@@ -1,9 +1,10 @@
-package com.example.parking.ui.ViewOneVehicleTest;
-import com.example.parking.ui.ViewOneVehicle.ViewOneVehiclePresenter;
-import com.example.parking.ui.ViewOneVehicle.ViewOneVehicleView;
+package com.example.parking.ui.viewOneVehicleTest;
+import com.example.parking.ui.viewOneVehicle.ViewOneVehiclePresenter;
+import com.example.parking.ui.viewOneVehicle.ViewOneVehicleView;
 import com.example.parking.util.Colour;
 
-public class ViewOneVehicleViewStub implements ViewOneVehicleView {
+public class ViewOneVehicleViewStub implements ViewOneVehicleView
+{
     private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username,intentUsername,intentPlate;
     private Colour colour;
     private int length;

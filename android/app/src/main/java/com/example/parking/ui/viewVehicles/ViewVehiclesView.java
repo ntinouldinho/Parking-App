@@ -1,7 +1,4 @@
-package com.example.parking.ui.ViewVehicles;
-
-import android.os.Bundle;
-import android.widget.Button;
+package com.example.parking.ui.viewVehicles;
 
 import com.example.parking.domain.Vehicle;
 

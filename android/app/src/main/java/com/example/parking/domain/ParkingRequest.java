@@ -1,21 +1,15 @@
 package com.example.parking.domain;
 
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
-import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.util.Credits;
 import com.example.parking.util.Pin;
 import com.example.parking.util.TimeRange;
 import com.example.parking.util.ZipCode;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class ParkingRequest{

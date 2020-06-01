@@ -1,8 +1,7 @@
-package com.example.parking.ui.ViewOneVehicleTest;
+package com.example.parking.ui.viewOneVehicleTest;
 
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.memorydao.UserDAOMemory;
-import com.example.parking.ui.ViewOneVehicle.ViewOneVehiclePresenter;
+import com.example.parking.ui.viewOneVehicle.ViewOneVehiclePresenter;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,7 +17,7 @@ public class ViewOneVehiclePresenterTest {
     @Before
     public void setup() {
         dataHelper = new MemoryInitializer();
-        dataHelper.prepareData();
+        MemoryInitializer.prepareData();
         view = new ViewOneVehicleViewStub();
         view.setIntentUsername("ok");
 

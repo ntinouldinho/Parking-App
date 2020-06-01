@@ -1,19 +1,19 @@
-package com.example.parking.ui.ViewUser;
+package com.example.parking.ui.viewUser;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.example.parking.R;
-import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.ui.ViewVehicles.ViewVehicles;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.parking.R;
+import com.example.parking.memorydao.MemoryInitializer;
+import com.example.parking.ui.viewVehicles.ViewVehicles;
 
 public class UserProfile extends AppCompatActivity implements UserProfileView
 {

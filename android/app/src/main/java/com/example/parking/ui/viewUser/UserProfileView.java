@@ -1,4 +1,4 @@
-package com.example.parking.ui.ViewUser;
+package com.example.parking.ui.viewUser;
 
 public interface UserProfileView {
     void setCredits(int credits);

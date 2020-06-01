@@ -1,12 +1,10 @@
 package com.example.parking.memorydao;
 
 import com.example.parking.dao.VehicleDAO;
-import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class VehicleDAOMemory implements VehicleDAO {
 

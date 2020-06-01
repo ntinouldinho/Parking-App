@@ -9,9 +9,7 @@ import com.example.parking.util.TimeRange;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class ParkingSpace {
