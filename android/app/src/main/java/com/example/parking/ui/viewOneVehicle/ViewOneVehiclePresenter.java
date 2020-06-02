@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
+import com.example.parking.util.Colour;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +50,8 @@ public class ViewOneVehiclePresenter {
         view.setPlate(vehicle.getPlate());
         view.setLength(vehicle.getLength());
         view.setText(vehicle.getText());
+        Log.e("okkkk",vehicle.getColour());
+        view.setColour(vehicle.getColour());
     }
 
     /**
@@ -59,6 +62,7 @@ public class ViewOneVehiclePresenter {
                 model=view.getModel(),
                 plate = view.getPlateText(),
                 text = view.getText();
+        Colour color=view.getColour();
         int length = view.getLength();
 
         if(!checkPlate(plate)) {
@@ -83,7 +87,7 @@ public class ViewOneVehiclePresenter {
                 addVehicle();
                 view.successfullyFinishActivity("Vehicle with plate " + view.getPlateText() + " added");
             } else {
-                updateVehicle(brand, model, plate, length, text);
+                updateVehicle(brand, model, plate, length, text,color);
                 view.successfullyFinishActivity("Vehicle with plate " + view.getIntentPlate() + " updated");
             }
         }
@@ -140,12 +144,13 @@ public class ViewOneVehiclePresenter {
      * @param length Το μήκος
      * @param text  Η περγιγραφή
      */
-    public void updateVehicle(String brand,String model,String plate, int length,String text){
+    public void updateVehicle(String brand,String model,String plate, int length,String text,Colour color){
         Vehicle temp = dao.find(view.getIntentUsername()).getVehicle(plate);
         temp.setBrand(view.getBrand());
         temp.setModel(view.getModel());
         temp.setLength(view.getLength());
         temp.setText(view.getText());
+        temp.setColour(color);
         dao.updateVehicle(user.getUsername(),temp);
         view.successfullyFinishActivity("Vehicle with plate "+ vehicle.getPlate() +" updated");
     }

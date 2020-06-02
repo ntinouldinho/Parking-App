@@ -19,7 +19,7 @@ public interface ViewOneVehicleView {
     String getText();
 
     Colour getColour();
-
+    void setColour(String color);
     String getUserName();
 
     String getPlate();
