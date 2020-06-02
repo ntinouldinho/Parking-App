@@ -18,11 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindParkingPresenterTest {
-    private FindParkingPresenter presenter;
     private FindParkingViewStub view;
     private ParkingSpaceDAO pDAO;
     private List<ParkingSpace> localParkingSpaces = new ArrayList<>();
     private ParkingSpace p1;
+    private FindParkingPresenter presenter;
 
 
     @Before
@@ -42,17 +42,10 @@ public class FindParkingPresenterTest {
         p2.setPrice(new Credits(2));
         pDAO.save(p2);
         localParkingSpaces.add(p2);
-        presenter = new FindParkingPresenter(view, uDAO, pDAO);
+
+        presenter = new FindParkingPresenter(view, pDAO);
     }
 
-    /**
-     * Ensures all parking spaces can be shown and exist in DAO
-     */
-    @Test
-    public void showParkingSpace(){
-        view.showParkingSpace((ArrayList<ParkingSpace>) pDAO.findAll());
-        Assert.assertEquals(pDAO.findAll(), localParkingSpaces);
-    }
 
     /**
      * Ensures that a parking space can be found from the DAO if it exists
@@ -64,6 +57,19 @@ public class FindParkingPresenterTest {
 
         Assert.assertNull(pDAO.find(p));
         Assert.assertEquals(pDAO.find(p1), p1);
+    }
+
+    /**
+     * Ensures that the validate zip function works as intended
+     */
+    @Test
+    public void validateZip()
+    {
+        Assert.assertTrue(presenter.validateZip());
+        view.setErrorToZip("error");
+        Assert.assertFalse(presenter.validateZip());
+        view.setErrorToZip("1111111");
+        Assert.assertFalse(presenter.validateZip());
     }
 
     /**
