@@ -45,8 +45,9 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
             @Override
             public void onClick(View v) {
                 presenter.add(parkingSpace);
-                Intent myIntent = new Intent(ShowParkingSpace.this, HomeScreenActivity.class);
-                startActivity(myIntent);
+                Intent myIntent = new Intent(ShowParkingSpace.this, FindParking.class);
+                setResult(RESULT_OK, myIntent);
+                finish();
             }
         });
 
@@ -98,8 +99,8 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     public void onBackPressed() {
         super.onBackPressed();
         Intent myIntent = new Intent(ShowParkingSpace.this, FindParking.class);
-        myIntent.putExtra("CodeForRestart", "OK");
-        //this.finish();
+
+        this.finish();
     }
 
 }

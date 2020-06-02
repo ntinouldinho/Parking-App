@@ -1,11 +1,13 @@
 package com.example.parking.ui.findParking;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -161,7 +163,7 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
                             Intent myIntent = new Intent(FindParking.this, ShowParkingSpace.class);
                             myIntent.putExtra("Username", getUserName());
                             myIntent.putExtra("parkingSpace",parkingSpaceAsAString);
-                            startActivity(myIntent);
+                            startActivityForResult(myIntent,1);
 
                         }
                     });
@@ -177,6 +179,7 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
 
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
         this.finish();
@@ -190,6 +193,17 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
             recreate();
         }
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Activity.RESULT_OK)
+        {
+
+            Log.e("BHKE STO ONRES","bhke sto on res");
+            finish();
+        }
     }
 
 
