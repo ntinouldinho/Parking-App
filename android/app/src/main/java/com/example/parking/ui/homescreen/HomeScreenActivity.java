@@ -15,11 +15,12 @@ import com.example.parking.ui.newParking.NewParkingSpace;
 import com.example.parking.ui.notifications.Notifications;
 import com.example.parking.ui.viewUser.UserProfile;
 
-public class HomeScreenActivity extends AppCompatActivity {
+public class HomeScreenActivity extends AppCompatActivity implements HomeScreenView{
     Button parkingSpace;
     Button request;
     Button profile;
     Button notification;
+    HomeScreenPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,36 +30,29 @@ public class HomeScreenActivity extends AppCompatActivity {
         request = (Button) findViewById(R.id.request);
         profile = (Button) findViewById(R.id.profile);
         notification = (Button) findViewById(R.id.notification);
+        presenter = new HomeScreenPresenter(this);
         parkingSpace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, NewParkingSpace.class);
-                myIntent.putExtra("username",getUserName());
-                startActivity(myIntent);
+                presenter.spaceIntent();
             }
         });
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, FindParking.class);
-                myIntent.putExtra("username", getUserName());
-                startActivity(myIntent);
+                presenter.requestIntent();
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, UserProfile.class);
-                myIntent.putExtra("username", getUserName());
-                startActivity(myIntent);
+                presenter.profileIntent();
             }
         });
         notification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(HomeScreenActivity.this, Notifications.class);
-                myIntent.putExtra("username", getUserName());
-                startActivity(myIntent);
+                presenter.notificationIntent();
             }
         });
 
@@ -67,6 +61,28 @@ public class HomeScreenActivity extends AppCompatActivity {
     public String getUserName()
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
+    }
+    public void spaceIntent(){
+        Intent myIntent = new Intent(HomeScreenActivity.this, NewParkingSpace.class);
+        myIntent.putExtra("username",getUserName());
+        startActivity(myIntent);
+    }
+    public void requestIntent(){
+        Intent myIntent = new Intent(HomeScreenActivity.this, FindParking.class);
+        myIntent.putExtra("username", getUserName());
+        startActivity(myIntent);
+    }
+
+    public void profileIntent(){
+        Intent myIntent = new Intent(HomeScreenActivity.this, UserProfile.class);
+        myIntent.putExtra("username", getUserName());
+        startActivity(myIntent);
+    }
+
+    public void notificationIntent(){
+        Intent myIntent = new Intent(HomeScreenActivity.this, Notifications.class);
+        myIntent.putExtra("username", getUserName());
+        startActivity(myIntent);
     }
 
     @Override
