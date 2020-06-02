@@ -32,8 +32,8 @@
 
 # Διαχείριση αιτημάτων ανταλλαγής / Approve Parking Request
 
-![Class](R4_Diagrams/Class Diagrams/)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+![Class](R4_Diagrams/Class Diagrams/ApproveParkingRequestCD.png)   
+![Sequence](R4_Diagrams/Sequence Diagrams/ParkingRequestNotifSD.png)
 
 
 
@@ -43,7 +43,7 @@
 # Διαχείριση οχημάτων / Edit Vehicle
 
 ![Class](R4_Diagrams/Class Diagrams/EditVehicleCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+![Sequence](R4_Diagrams/Sequence Diagrams/EditVehicleSD.png)
 
 
 
@@ -69,7 +69,7 @@
 # Επαναφόρτιση Πιστωτικών Μονάδων
 
 ![Class](R4_Diagrams/Class Diagrams/AddCreditsCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/AddCreditsSD)
+![Sequence](R4_Diagrams/Sequence Diagrams/AddCreditsSD.png)
 
 
 # Επιβεβαίωση διαθεσιμότητας θέσης / Approve Parking Request
