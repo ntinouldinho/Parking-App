@@ -71,17 +71,28 @@ public class UserDAOMemory implements UserDAO {
     }
 
     @Override
+    public void deleteVehicle(String username,Vehicle temp){
+        for(User u: users){
+            if(u.getUsername().equals(username)){
+                for(int i=0;i<u.getVehicles().size();i++){
+                    if(u.getVehicles().get(i).getPlate().equals(temp.getPlate())){
+                        u.getVehicles().remove(temp);
+                    }
+                }
+            }
+        }
+    }
+    @Override
     public void updateVehicle(String username,Vehicle temp){
         for(User u: users){
             if(u.getUsername().equals(username)){
                 for(int i=0;i<u.getVehicles().size();i++){
                     if(u.getVehicles().get(i).getPlate().equals(temp.getPlate())){
                         u.getVehicles().set(i,temp);
-                    }else{
-                        u.getVehicles().add(temp);
                         return;
                     }
                 }
+                u.getVehicles().add(temp);
             }
         }
     }

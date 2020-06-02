@@ -24,7 +24,7 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
     private String plate,model,brand,finishMessage,ErrorMessage,ErrorTitle,colour;
     private String intentUsername,intentPlate;
-    Button addVehicleBtn;
+    Button addVehicleBtn,deleteBtn;
     ViewOneVehiclePresenter presenter;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -37,16 +37,23 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
-        presenter = new ViewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
+
+        deleteBtn = (Button) findViewById(R.id.deleteVehicleBtn);
 
         addVehicleBtn = (Button) findViewById(R.id.addVehicleBtn);
+        presenter = new ViewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
         addVehicleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.decide();
             }
         });
-
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.delete();
+            }
+        });
         String[] names = getNames(Colour.class);
         Spinner spinner = (Spinner) findViewById(R.id.Color);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -167,6 +174,10 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
         return intentPlate;
     }
 
+    @Override
+    public void setInvisibility(){
+        deleteBtn.setVisibility(View.GONE);
+    }
 
     /**
      * Εμφανίζει ένα μήνυμα τύπου alert με

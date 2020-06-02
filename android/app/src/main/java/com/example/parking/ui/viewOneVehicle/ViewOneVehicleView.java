@@ -24,6 +24,7 @@ public interface ViewOneVehicleView {
 
     String getPlate();
 
+        public void setInvisibility();
 
     /**
      * Το μήνυμα που εμφανίζεται όταν τελειώνει

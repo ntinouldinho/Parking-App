@@ -1,5 +1,7 @@
 package com.example.parking.ui.viewOneVehicle;
 
+import android.util.Log;
+
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
@@ -24,12 +26,15 @@ public class ViewOneVehiclePresenter {
         this.view=view;
         this.dao=dao;
         user = dao.find(view.getUserName());
-
+        Log.e("test","in creator");
         if(view.getPlate()!=null){ //edit mode
 
+            Log.e("test","in edit");
             vehicle = dao.findVehicle(view.getIntentUsername(),view.getIntentPlate());
             showInfo();
 
+        }else{
+            view.setInvisibility();
         }
     }
 
@@ -52,31 +57,31 @@ public class ViewOneVehiclePresenter {
     public void decide(){
         String brand = view.getBrand(),
                 model=view.getModel(),
-                plate = view.getPlate(),
+                plate = view.getPlateText(),
                 text = view.getText();
         int length = view.getLength();
 
         if(!checkPlate(plate)) {
             view.showErrorMessage("plates", "Plate must begin with 3 latin letter and then 4 numbers.");
-            view.successfullyFinishActivity(plate);
+            //view.successfullyFinishActivity(plate);
         }else if(brand.length() < 3 || brand.length() > 15){
             view.showErrorMessage("brand", "Brand must be more than 3 characters and up to 15.");
-            view.successfullyFinishActivity(brand);
+            //view.successfullyFinishActivity(brand);
         }else if(model.length() < 3 || model.length() > 15){
             view.showErrorMessage("model", "Model must be more than 3 characters and up to 15.");
-            view.successfullyFinishActivity("plat2");
+            //view.successfullyFinishActivity("plat2");
         }else if(length < 100 || length > 5000){
             view.showErrorMessage("length", "Length must be more than 100cm(1M) or less than 5000cm(500M).");
-            view.successfullyFinishActivity("plat3");
+            //view.successfullyFinishActivity("plat3");
         }else if(text.length() < 5 || text.length() > 50){
             view.showErrorMessage("text", "Text must be more than 5 characters and up to 50.");
-            view.successfullyFinishActivity("plat4");
+            //view.successfullyFinishActivity("plat4");
         }else {
 
 
             if (vehicle == null) {
                 addVehicle();
-                view.successfullyFinishActivity("Vehicle with plate " + view.getIntentPlate() + " added");
+                view.successfullyFinishActivity("Vehicle with plate " + view.getPlateText() + " added");
             } else {
                 updateVehicle(brand, model, plate, length, text);
                 view.successfullyFinishActivity("Vehicle with plate " + view.getIntentPlate() + " updated");
@@ -95,18 +100,19 @@ public class ViewOneVehiclePresenter {
 
             for (int i = 0; i < letters.length(); i++) {
                 char letter = letters.charAt(i);
-                if (letter < 65 || letter > 90)
-                return false;
+                if (letter < 65 || letter > 90){return false;}
             }
+            Log.e("okk","passed 1");
             String numbers = plate.substring(3);
             for (int i = 0; i < numbers.length(); i++) {
                 int number = Integer.valueOf(numbers.charAt(i));
-                if (number < 48 || number > 57)
-                return false;
+                if (number < 48 || number > 57){return false;}
             }
+            Log.e("okk","passed 2");
             if (letters.length() + numbers.length() != 7) {
                 return false;
             }
+            Log.e("okk","passed 3");
             return true;
         }
         return false;
@@ -118,8 +124,13 @@ public class ViewOneVehiclePresenter {
      */
     public void addVehicle(){
 
-        dao.updateVehicle(view.getIntentUsername(),new Vehicle(view.getColour(),view.getLength(),view.getText(),view.getPlate(),view.getModel(),view.getBrand()));
-        view.successfullyFinishActivity("Vehicle with plate "+ view.getPlate() +" added");
+        dao.updateVehicle(view.getIntentUsername(),new Vehicle(view.getColour(),view.getLength(),view.getText(),view.getPlateText(),view.getModel(),view.getBrand()));
+        view.successfullyFinishActivity("Vehicle with plate "+ view.getPlateText() +" added");
+    }
+
+    public void delete(){
+        dao.deleteVehicle(view.getIntentUsername(),vehicle);
+        view.successfullyFinishActivity("Vehicle with plate "+ view.getPlateText() +" deleted");
     }
 
     /**

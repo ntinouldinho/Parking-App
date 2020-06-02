@@ -23,4 +23,6 @@ public interface UserDAO {
     Vehicle findVehicle(String username,String plate);
 
     void updateVehicle(String username,Vehicle vehicle);
+
+    void deleteVehicle(String username,Vehicle temp);
 }
