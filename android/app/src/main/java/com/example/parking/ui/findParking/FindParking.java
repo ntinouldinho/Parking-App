@@ -39,7 +39,7 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_parking);
-        presenter = new FindParkingPresenter(this, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
+        presenter = new FindParkingPresenter(this,MemoryInitializer.getParkingDAO());
 
         expectedArrival = (EditText) findViewById(R.id.expectedArrivalFindParking);
         ImageButton btn = (ImageButton) findViewById(R.id.SearchButton);

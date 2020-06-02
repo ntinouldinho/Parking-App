@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,15 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_vehicles);
         presenter = new ViewVehiclesPresenter(this, MemoryInitializer.getUserDAO());
+        Button add_vehicle = (Button) findViewById(R.id.add_vehicle);
+        add_vehicle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(ViewVehicles.this, ViewOneVehicle.class);
+                myIntent.putExtra("username", getUserName());
+                startActivityForResult(myIntent,2);
+            }
+        });
 
     }
 
@@ -138,13 +148,13 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if(requestCode == 1 && resultCode == Activity.RESULT_OK)
+        Log.e("results",requestCode + " "+ resultCode + " ");
+        if((requestCode == 1 || requestCode == 2)&& resultCode == Activity.RESULT_OK)
         {
             recreate();
             Toast.makeText(this,data.getStringExtra("message_to_toast"),Toast.LENGTH_SHORT).show();
         }
         else if(requestCode == 100)
             recreate();
-    }
+        }
 }

@@ -11,27 +11,37 @@
         android:id="@+id/expectedArrivalFindParking"
         android:layout_width="220dp"
         android:layout_height="70dp"
+        android:layout_marginTop="50dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/expected_arrival"
-        android:inputType="numberSigned|textPersonName"
+        android:inputType="numberSigned"
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/ZipForParking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/SearchButton"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="56dp"
         android:contentDescription="@string/todo"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/ResultsList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/expectedArrivalFindParking"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="140dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/ZipForParking"
@@ -40,10 +50,11 @@
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_desired_zip_code"
-        android:inputType="textPersonName"
+        android:inputType="numberSigned"
         app:layout_constraintBottom_toTopOf="@+id/ResultsList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expectedArrivalFindParking"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
