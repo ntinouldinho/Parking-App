@@ -16,13 +16,11 @@ import java.util.ArrayList;
 
 public class FindParkingPresenter {
     FindParkingView view;
-    UserDAO userDAO;
     ParkingSpaceDAO parkingSpaceDAO;
 
 
-    public FindParkingPresenter(FindParkingView view, UserDAO userDAO, ParkingSpaceDAO parkingSpaceDAO) {
+    public FindParkingPresenter(FindParkingView view, ParkingSpaceDAO parkingSpaceDAO) {
         this.view = view;
-        this.userDAO = userDAO;
         this.parkingSpaceDAO = parkingSpaceDAO;
     }
 

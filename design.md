@@ -59,7 +59,7 @@
 
 
 
-# Εγγραφη Στο Σύστημα
+# Εγγραφη Στο Σύστημα / Sign Up
 
 ![Class](R4_Diagrams/Class Diagrams/SignUpCD.png)   
 ![Sequence](R4_Diagrams/Sequence Diagrams/SignUpSD)
@@ -72,7 +72,7 @@
 ![Sequence](R4_Diagrams/Sequence Diagrams/AddCreditsSD)
 
 
-# Επιβεβαίωση διαθεσιμότητας θέσης
-![Class](R4_Diagrams/Class Diagrams/)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+# Επιβεβαίωση διαθεσιμότητας θέσης / Approve Parking Request
+![Class](R4_Diagrams/Class Diagrams/ApproveParkingRequestCD.png)   
+![Sequence](R4_Diagrams/Sequence Diagrams/ApproveParkingRequestSD.png)
 
