@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +25,8 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
     private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
     private String plate,model,brand,finishMessage,ErrorMessage,ErrorTitle,colour;
     private String intentUsername,intentPlate;
+    private Colour color;
+    Spinner spinner;
     Button addVehicleBtn,deleteBtn;
     ViewOneVehiclePresenter presenter;
 
@@ -40,8 +43,8 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
 
         deleteBtn = (Button) findViewById(R.id.deleteVehicleBtn);
 
+        spinner = (Spinner) findViewById(R.id.Color);
         addVehicleBtn = (Button) findViewById(R.id.addVehicleBtn);
-        presenter = new ViewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
         addVehicleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +58,6 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
             }
         });
         String[] names = getNames(Colour.class);
-        Spinner spinner = (Spinner) findViewById(R.id.Color);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item,names);
 
@@ -65,18 +67,34 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 switch (position) {
                     case 0:
-                        //Toast.makeText(getApplicationContext(),"Red added",Toast.LENGTH_SHORT).show();
+                        color=Colour.Black;
                         break;
                     case 1:
-                        // Toast.makeText(getApplicationContext(),"Blue added",Toast.LENGTH_SHORT).show();
+                        color=Colour.White;
                         break;
                     case 2:
-                        //Toast.makeText(getApplicationContext(),"Green added",Toast.LENGTH_SHORT).show();
+                        color=Colour.Gray;
                         break;
-
+                    case 3:
+                        color=Colour.Red;
+                        break;
+                    case 4:
+                        color=Colour.Green;
+                        break;
+                    case 5:
+                        color=Colour.Blue;
+                        break;
+                    case 6:
+                        color=Colour.Yellow;
+                        break;
+                    case 7:
+                        color=Colour.Golden;
+                        break;
                 }
+                Log.e("okkkk",color.toString());
             }
 
             @Override
@@ -85,6 +103,7 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
             }
         });
 
+        presenter = new ViewOneVehiclePresenter(this, MemoryInitializer.getUserDAO());
     }
 
 
@@ -217,9 +236,24 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
 
     @Override
     public Colour getColour() {
-        return Colour.Black;
+        return color;
     }
 
+    @Override
+    public void setColour(String color){
+        spinner.setSelection(getIndex(spinner, color));
+    }
+    private int getIndex(Spinner spinner, String myString){
+
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).equals(myString)){
+                index = i;
+            }
+        }
+        return index;
+    }
     /**
      * Το μήνυμα που εμφανίζεται όταν τελειώνει
      * επιτυχώς ένα activity.

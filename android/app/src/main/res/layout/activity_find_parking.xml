@@ -11,6 +11,7 @@
         android:id="@+id/expectedArrivalFindParking"
         android:layout_width="220dp"
         android:layout_height="70dp"
+        android:layout_marginTop="50dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/expected_arrival"
@@ -19,6 +20,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ZipForParking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -27,6 +29,7 @@
         android:layout_height="70dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="140dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="56dp"
@@ -36,6 +39,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ResultsList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/expectedArrivalFindParking"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search"
         tools:ignore="MissingConstraints" />
 
@@ -50,6 +54,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ResultsList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expectedArrivalFindParking"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
