@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,5 +64,19 @@ public class FindParkingPresenterTest {
 
         Assert.assertNull(pDAO.find(p));
         Assert.assertEquals(pDAO.find(p1), p1);
+    }
+
+    /**
+     * Ελέγχει την σωστή λειτουργία της ανάθεσης και σύγκρισης της χρονικής στιγμής που θα φτάσει
+     * ο χρήστης που έχει κάνει το αίτημα.
+     */
+    @Test
+    public void expectedArrivalTimeValidation()
+    {
+        LocalDateTime d1 = LocalDateTime.now().plusMinutes(10);
+        LocalDateTime d2 = LocalDateTime.now().plusMinutes(40);
+
+        Assert.assertTrue(view.getExpectedArrivalDateTime().isAfter(d1));
+        Assert.assertTrue(view.getExpectedArrivalDateTime().isBefore(d2));
     }
 }

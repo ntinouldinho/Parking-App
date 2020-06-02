@@ -16,13 +16,12 @@ public class FindParkingViewStub implements FindParkingView
     ArrayList<ParkingSpace> spaces = new ArrayList<>();
     FindParkingPresenter presenter;
     String zipcode,toast;
-    EditText ZipCodeEditText;
-    ParkingSpace parking;
-    DurationSpecifier durationSpecifier;
+    LocalDateTime expectedArrivalTime;
 
     public FindParkingViewStub()
     {
         zipcode = "";
+        expectedArrivalTime = LocalDateTime.now().plusMinutes(30);
     }
 
     @Override
@@ -65,7 +64,7 @@ public class FindParkingViewStub implements FindParkingView
     @Override
     public LocalDateTime getExpectedArrivalDateTime()
     {
-        return LocalDateTime.now().plusMinutes(30);
+        return expectedArrivalTime;
     }
 
     public TimeRange getTimeRange() {

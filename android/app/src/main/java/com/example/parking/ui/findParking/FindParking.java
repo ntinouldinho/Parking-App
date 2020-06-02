@@ -60,19 +60,32 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
         });
     }
 
+    /**
+     * @return Η εκτιμώμενη χρονική στιγμή που θα καταυθάσει στο στημείο ο χρήστης
+     */
     public LocalDateTime getExpectedArrivalDateTime(){
         return expectedArrivalDateTime;
     }
 
+    /**
+     * @return Ο Τ.Κ.
+     */
     public String getZip(){
         return ((EditText) findViewById(R.id.ZipForParking)).getText().toString();
     }
 
 
+    /**
+     * @param error Το μήνυμα λάθους που θα εμφανιστεί στο πεδίο του zip
+     */
     public void setErrorToZip(String error){
         ((EditText)findViewById(R.id.ZipForParking)).setError(error);
     }
 
+    /**
+     * Εμφανίζει όλες τις έγγυρες θέσεις parking
+     * @param DaoParkingSpace Λίστα με τις έγγυρες θέσεις parking
+     */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void showParkingSpace(ArrayList<ParkingSpace> DaoParkingSpace){
         int colorBackground = Color.parseColor("#337FFF");
@@ -156,10 +169,14 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
     }
 
 
+    /**
+     * @return Το όνομα χρήστη
+     */
     public String getUserName()
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
+
     public void onBackPressed() {
         super.onBackPressed();
         this.finish();
