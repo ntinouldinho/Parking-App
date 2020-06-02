@@ -16,16 +16,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ShowParkingSpacePresenterTest {
-    private RatingDAO rDAO;
-    private ParkingRequestDAO prDAO;
-    private ParkingRequest pr;
-    private String raterName1, raterName2;
-    private Rating r1, r2;
+    private static RatingDAO rDAO;
+    private static ParkingRequestDAO prDAO;
+    private static ParkingRequest pr;
+    private static String raterName1, raterName2;
+    private static Rating r1, r2;
+    private static boolean setupIsDone;
 
     @Before
     public void setup(){
+        System.out.println(setupIsDone);
+        if(setupIsDone){
+            return;
+        }
+        setupIsDone = true;
+
         rDAO = new RatingDAOMemory();
         prDAO = new ParkingRequestDAOMemory();
+        System.out.println(rDAO.findAll().size());
 
         pr = new ParkingRequest();
         pr.setPin(new Pin(1111));
@@ -43,6 +51,7 @@ public class ShowParkingSpacePresenterTest {
 
         rDAO.save(r1);
         rDAO.save(r2);
+        System.out.println(rDAO.findAll().size());
     }
 
     /**
