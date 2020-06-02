@@ -78,6 +78,12 @@ public class ViewOneVehicleViewStub implements ViewOneVehicleView
     }
 
     @Override
+    public void setColour(final String color)
+    {
+
+    }
+
+    @Override
     public String getUserName() {
         return username ;
     }
@@ -85,6 +91,12 @@ public class ViewOneVehicleViewStub implements ViewOneVehicleView
     @Override
     public String getPlate() {
         return plate;
+    }
+
+    @Override
+    public void setInvisibility()
+    {
+
     }
 
     @Override

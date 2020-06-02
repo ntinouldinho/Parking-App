@@ -20,7 +20,7 @@ public class FindParkingViewStub implements FindParkingView
 
     public FindParkingViewStub()
     {
-        zipcode = "";
+        zipcode = "12211";
         expectedArrivalTime = LocalDateTime.now().plusMinutes(30);
     }
 
@@ -41,7 +41,7 @@ public class FindParkingViewStub implements FindParkingView
 
     @Override
     public void setErrorToZip(String error) {
-
+        zipcode = error;
     }
 
     @Override
