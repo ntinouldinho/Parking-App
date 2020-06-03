@@ -45,7 +45,7 @@ public class ShowParkingPresenter {
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void add(ParkingSpace parkingSpace){
-        parkingRequestDAO.save(new ParkingRequest(new TimeRange(LocalDateTime.now(),30),new Pin(), userDAO.find(view.getRequestingUser()),parkingSpace));
+        parkingRequestDAO.save(new ParkingRequest(new TimeRange(LocalDateTime.now(),30),null, userDAO.find(view.getRequestingUser()),parkingSpace));
     }
 
 }
