@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class UserDAOMemory implements UserDAO {
 
-    protected static ArrayList<User> users = new ArrayList<User>();
+    protected static ArrayList<User> users = new ArrayList<>();
 
 
     /**

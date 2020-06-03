@@ -28,8 +28,8 @@ public class User {
         this.password = password;
         this.credits = credits;
         this.address = address;
-        this.rating = new ArrayList<Rating>(rating);
-        this.vehicles = new ArrayList<Vehicle>(vehicles);
+        this.rating = new ArrayList<>(rating);
+        this.vehicles = new ArrayList<>(vehicles);
     }
     public User(){
         this.name = "";
@@ -40,8 +40,8 @@ public class User {
         this.password = "";
         this.credits = new Credits(10 );
         this.address = new Address();
-        this.rating = new ArrayList<Rating>();
-        this.vehicles = new ArrayList<Vehicle>();
+        this.rating = new ArrayList<>();
+        this.vehicles = new ArrayList<>();
     }
 
 

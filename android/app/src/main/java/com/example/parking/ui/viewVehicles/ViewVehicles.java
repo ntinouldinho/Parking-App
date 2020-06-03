@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView {
     private ViewVehiclesPresenter presenter;
-    Vehicle currentVehicle;
     private String intentUsername;
 
     /**
@@ -113,7 +112,6 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
      * @param v To vehicle.
      */
     public void setVehicleOnClickListener(Button b,Vehicle v) {
-        //get switch
         b.setOnClickListener(
                 new View.OnClickListener()
                 {

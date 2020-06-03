@@ -27,11 +27,8 @@ public class FindParkingPresenterTest {
 
     @Before
     public void setup(){
-        ParkingRequest pr = new ParkingRequest();
         view = new FindParkingViewStub();
-        UserDAO uDAO = new UserDAOMemory();
         pDAO = new ParkingSpaceDAOMemory();
-
         p1 = new ParkingSpace();
         p1.setPlate("FIRST PLATE");
         p1.setPrice(new Credits(1));
@@ -42,13 +39,12 @@ public class FindParkingPresenterTest {
         p2.setPrice(new Credits(2));
         pDAO.save(p2);
         localParkingSpaces.add(p2);
-
         presenter = new FindParkingPresenter(view, pDAO);
     }
 
 
     /**
-     * Ensures that a parking space can be found from the DAO if it exists
+     * Έλεγχος για το αν υπάρχει ένα parking space
      */
     @Test
     public void findParkingSpace(){
@@ -60,7 +56,7 @@ public class FindParkingPresenterTest {
     }
 
     /**
-     * Ensures that the validate zip function works as intended
+     * Έλεγοχς για το zip code
      */
     @Test
     public void validateZip()

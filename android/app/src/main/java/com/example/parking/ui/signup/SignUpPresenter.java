@@ -59,7 +59,6 @@ public class SignUpPresenter {
             return false;
         }else{
             view.setError("phone",null);
-            //Toast.makeText(this,"Phone added",Toast.LENGTH_SHORT).show();
             return true;
         }
     }
@@ -78,7 +77,6 @@ public class SignUpPresenter {
             return false;
         }else{
             view.setError("zip",null);
-           // Toast.makeText(this,"ZIP Code added",Toast.LENGTH_SHORT).show();
             return true;
         }
     }
@@ -93,7 +91,6 @@ public class SignUpPresenter {
             return false;
         }else{
             view.setError("firstname",null);
-            //Toast.makeText(this,"Name added",Toast.LENGTH_SHORT).show();
             return true;
         }
     }
@@ -108,7 +105,6 @@ public class SignUpPresenter {
             return false;
         }else{
             view.setError("lastname",null);
-            //Toast.makeText(this,"Last name added",Toast.LENGTH_SHORT).show();
             return true;
         }
     }

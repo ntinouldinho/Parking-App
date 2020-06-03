@@ -66,13 +66,13 @@
 
 
 
-# Επαναφόρτιση Πιστωτικών Μονάδων
+# Επαναφόρτιση Πιστωτικών Μονάδων / Add Credits
 
 ![Class](R4_Diagrams/Class Diagrams/AddCreditsCD.png)   
 ![Sequence](R4_Diagrams/Sequence Diagrams/AddCreditsSD.png)
 
 
-# Επιβεβαίωση διαθεσιμότητας θέσης / 
+# Επιβεβαίωση διαθεσιμότητας θέσης / Parking Space on arrival Notification
 ![Class](R4_Diagrams/Class Diagrams/ConfirmParkingSpaceCD.png)   
 ![Sequence](R4_Diagrams/Sequence Diagrams/ConfirmParkingSpaceSD.png)
 

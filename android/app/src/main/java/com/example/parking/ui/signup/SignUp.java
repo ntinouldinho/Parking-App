@@ -13,8 +13,6 @@ import com.example.parking.R;
 import com.example.parking.memorydao.MemoryInitializer;
 
 public class SignUp extends AppCompatActivity implements SignUpView{
-    private EditText ZipCodeEditText,PhoneEditText,NameEditText,LastEditText,EmailEditText,UsernameEditText,PasswordEditText,StreetNumberEditText,StreetEditText;
-    private String zipCode,phone,name,last,email,username,password,street,streetno;
     Button signUpB;
     SignUpPresenter presenter;
     @Override

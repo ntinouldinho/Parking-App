@@ -5,7 +5,7 @@ import com.example.parking.util.Colour;
 
 public class ViewOneVehicleViewStub implements ViewOneVehicleView
 {
-    private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username;
+    private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,username;
     private Colour colour;
     private int length;
     private boolean invisibility = false;

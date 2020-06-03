@@ -2,7 +2,6 @@ package com.example.parking.ui.findParkingTest;
 import android.widget.Button;
 
 import com.example.parking.domain.ParkingSpace;
-import com.example.parking.ui.findParking.FindParkingPresenter;
 import com.example.parking.ui.findParking.FindParkingView;
 import com.example.parking.util.TimeRange;
 
@@ -11,8 +10,6 @@ import java.util.ArrayList;
 
 public class FindParkingViewStub implements FindParkingView
 {
-    ArrayList<ParkingSpace> spaces = new ArrayList<>();
-    FindParkingPresenter presenter;
     String zipcode,toast;
     LocalDateTime expectedArrivalTime;
 
@@ -32,10 +29,6 @@ public class FindParkingViewStub implements FindParkingView
         toast = m;
     }
 
-    public String getToast()
-    {
-        return toast;
-    }
 
     @Override
     public void setErrorToZip(String error) {
@@ -58,9 +51,5 @@ public class FindParkingViewStub implements FindParkingView
     public LocalDateTime getExpectedArrivalDateTime()
     {
         return expectedArrivalTime;
-    }
-
-    public TimeRange getTimeRange() {
-        return new TimeRange(30);
     }
 }

@@ -62,17 +62,6 @@ public class MainActivity extends AppCompatActivity implements LoginView{
                         .setPositiveButton(R.string.OK, null).create().show();
             }
         });
-
-
-//        EditText user = (EditText) findViewById(R.id.username);
-//        EditText pass = (EditText) findViewById(R.id.password);
-//
-//        final String username= user.getText().toString();
-//        final String password= pass.getText().toString();
-
-
-//        Intent myIntent = new Intent(this, HomeScreenActivity.class);
-//        startActivity(myIntent);
     }
 
     /**

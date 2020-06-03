@@ -103,20 +103,12 @@ public class SignUpViewStub implements SignUpView
         return finish;
     }
 
-    public String getObjectError(){
-        return errorobject;
-    }
-
     public String getError(){
         return error;
     }
+
     @Override
     public void successfullyFinishActivity(String message) {
         finish=message;
-    }
-
-    //@Override
-    public void onCreate(Bundle savedInstanceState) {
-
     }
 }

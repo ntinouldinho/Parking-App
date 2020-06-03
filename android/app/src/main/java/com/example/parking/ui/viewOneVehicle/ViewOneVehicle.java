@@ -21,8 +21,7 @@ import com.example.parking.util.Colour;
 import java.util.Arrays;
 
 public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleView{
-    private EditText PlateEditText,ModelEditText,BrandEditText,LengthText,TextText;
-    private String plate,model,brand,finishMessage,ErrorMessage,ErrorTitle,colour;
+    private String finishMessage,ErrorMessage,ErrorTitle;
     private String intentUsername,intentPlate;
     private Colour color;
     Spinner spinner;

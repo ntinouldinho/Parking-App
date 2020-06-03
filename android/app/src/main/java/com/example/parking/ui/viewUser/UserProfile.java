@@ -15,7 +15,6 @@ import com.example.parking.ui.viewVehicles.ViewVehicles;
 
 public class UserProfile extends AppCompatActivity implements UserProfileView
 {
-    static String m_Text = "";
     String intentUsername,ErrorTitle,finishMessage,ErrorMessage;
     UserProfilePresenter presenter;
 
@@ -76,8 +75,6 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-
-                    // Do nothing
                     dialog.dismiss();
                 }
             });

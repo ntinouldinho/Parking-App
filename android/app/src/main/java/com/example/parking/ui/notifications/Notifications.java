@@ -44,23 +44,16 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.activity_notifications, null);
-        // Find the ScrollView
         LinearLayout sv = v.findViewById(R.id.notification);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, 0, 0, 30);
         String not="";
-        // Create a LinearLayout element
-        //Vehicle vehicle = new Vehicle(Colour.Black,300,"nothing to say","XYZ4590","Focus","Ford");
         int padding = 30;
         for (int i = 0; i < all.size(); i++) {
             int colorBackground = Color.parseColor("#337FFF");
             ParkingRequest request = all.get(i);
-            // create a new textview
-            // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
             newLayout.setOrientation(LinearLayout.VERTICAL);
-            // Add title
-            // Create Button
             newLayout.setBackgroundColor(colorBackground);
             final Button btn = new Button(this);
             btn.setBackgroundColor(colorBackground);
@@ -118,18 +111,12 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
             data.setBackgroundColor(colorBackground);
             btn.setText(not);
             newLayout.addView(btn);
-            //Add
-
             newLayout.addView(data);
-
             newLayout.setLayoutParams(layoutParams);
-
             newLayout.setPadding(padding,padding,padding,padding);
-            // add the textview to the linearlayout
             sv.addView(newLayout);
 
         }
-        // Display the view
         setContentView(v);
     }
 
@@ -148,8 +135,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
 
     public void enterPinListener(Button b,ParkingRequest request) {
-        //get switch
-            b.setOnClickListener(
+        b.setOnClickListener(
                     new View.OnClickListener()
                     {
                         public void onClick(View view)
@@ -187,12 +173,10 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                                 @Override
                                 public void onClick(View v)
                                 {
-                                    //Do stuff, possibly set wantToCloseDialog to true then...
                                     if(!input.getText().toString().equals("") && presenter.validateParking(request,new Pin(Integer.valueOf(input.getText().toString())))) {
                                         dialog.dismiss();
                                         recreate();
                                     }
-                                    //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
                                 }
                             });
 
@@ -202,9 +186,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
     }
 
     public void setApproveOrNotListener(Button b,ParkingRequest request) {
-        //get switch
-
-            b.setOnClickListener(
+        b.setOnClickListener(
                     new View.OnClickListener()
                     {
                         @RequiresApi(api = Build.VERSION_CODES.O)
@@ -218,7 +200,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                             builder.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface dialog, int which) {
-                                    // validate parking
                                     presenter.approveRequest(request);
 
                                     dialog.dismiss();
@@ -247,7 +228,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
     }
 
     public void complaint(Button b,ParkingRequest request) {
-        //get switch
         b.setOnClickListener(
                 new View.OnClickListener()
                 {

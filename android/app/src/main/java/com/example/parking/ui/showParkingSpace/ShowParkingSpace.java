@@ -98,7 +98,6 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
     public void onBackPressed() {
         super.onBackPressed();
         Intent myIntent = new Intent(ShowParkingSpace.this, FindParking.class);
-
         this.finish();
     }
 

@@ -8,10 +8,7 @@ import java.util.ArrayList;
 
 public class ViewVehiclesPresenter {
     private ViewVehiclesView view;
-    private ArrayList<Vehicle> vehicles;
     private User user;
-    private UserDAO dao;
-
 
     /**
      * Αρχικοποεί τον Presenter.
@@ -20,7 +17,7 @@ public class ViewVehiclesPresenter {
      */
     public ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){
         this.view=view;
-        this.user = dao.find(view.getUserName());////////intent
+        this.user = dao.find(view.getUserName());
         System.out.println(view.getUserName());
         showVehicles();
     }

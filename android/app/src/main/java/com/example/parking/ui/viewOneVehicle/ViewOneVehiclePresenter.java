@@ -13,8 +13,6 @@ public class ViewOneVehiclePresenter {
     private Vehicle vehicle=null;
     private User user;
     private UserDAO dao;
-    public List<String> users = new ArrayList<>();
-
 
     /**
      * Αρχικοποεί τον Presenter.
@@ -25,7 +23,7 @@ public class ViewOneVehiclePresenter {
         this.view=view;
         this.dao=dao;
         user = dao.find(view.getUserName());
-        if(view.getPlate()!=null){ //edit mode
+        if(view.getPlate()!=null){
             System.out.println("in edits");
             vehicle = dao.findVehicle(view.getIntentUsername(),view.getIntentPlate());
             showInfo();
@@ -62,23 +60,18 @@ public class ViewOneVehiclePresenter {
         if(!checkPlate(plate)) {
             System.out.println(plate);
             view.showErrorMessage("plates", "Plate must begin with 3 latin letter and then 4 numbers.");
-            //view.successfullyFinishActivity(plate);
         }else if(brand.length() < 3 || brand.length() > 15){
             System.out.println(2);
             view.showErrorMessage("brand", "Brand must be more than 3 characters and up to 15.");
-            //view.successfullyFinishActivity(brand);
         }else if(model.length() < 3 || model.length() > 15){
             System.out.println(3);
             view.showErrorMessage("model", "Model must be more than 3 characters and up to 15.");
-            //view.successfullyFinishActivity("plat2");
         }else if(length < 100 || length > 5000){
             System.out.println(4);
             view.showErrorMessage("length", "Length must be more than 100cm(1M) or less than 5000cm(500M).");
-            //view.successfullyFinishActivity("plat3");
         }else if(text.length() < 5 || text.length() > 50){
             System.out.println(5);
             view.showErrorMessage("text", "Text must be more than 5 characters and up to 50.");
-            //view.successfullyFinishActivity("plat4");
         }else {
 
             System.out.println("in");

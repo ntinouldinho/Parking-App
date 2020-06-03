@@ -47,7 +47,7 @@ public class DurationSpecifier implements DatePickerDialog.OnDateSetListener, Ti
             Calendar c = Calendar.getInstance();
             DatePickerDialog dpD = new DatePickerDialog(context, DurationSpecifier.this,
                     c.get(Calendar.YEAR),
-                    c.get(Calendar.MONTH) + 1, //strange bug: it takes the last month as current
+                    c.get(Calendar.MONTH) + 1,
                     c.get(Calendar.DAY_OF_MONTH));
             dpD.show();
         });
