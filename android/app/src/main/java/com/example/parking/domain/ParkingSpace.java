@@ -67,6 +67,10 @@ public class ParkingSpace {
 		return price;
 	}
 
+	/**
+	 * Ελέγχει αν η τιμή της θέσης στάθμευσης βρίσκεται στα επιτρεπτά όρια.
+	 * @param price Η απαιτούμενη τιμή
+	 */
 	public void setPrice(Credits price) {
 		if(price.getPoints()>= min_amount && price.getPoints()<=max_amount) {
 			this.price = price;
@@ -104,11 +108,17 @@ public class ParkingSpace {
 		this.timeOfExchange = timeOfExchange;
 	}
 
+	/**
+	 * Απενεργοποιεί την θέση στάθμευσης.
+	 */
 	public void makeParkingUnavailable(){
 		availability=false;
 		setTimeOfExchange(new Date(System.currentTimeMillis()));
 	}
 
+	/**
+	 * Ενεργοποιεί τη θέση στάθμευσης.
+	 */
 	public void makeParkingAvailable(){
 		availability=true;
 		setTimeOfExchange(new Date());

@@ -25,7 +25,7 @@ public class FindParkingPresenter
     }
 
     /**
-     * Βρίσκει και εμφανίζει τις έγγυρες θέσεις στάθμευσης
+     * Βρίσκει και εμφανίζει τις έγκυρες θέσεις στάθμευσης
      */
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void find()
@@ -37,7 +37,7 @@ public class FindParkingPresenter
     }
 
     /**
-     * @return {@code true} αν ο δωθέν Τ.Κ. είναι έγγυρος
+     * @return {@code true} αν ο δοθέν Τ.Κ. είναι έγκυρος
      */
     public boolean validateZip()
     {

@@ -29,12 +29,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class FindParking extends AppCompatActivity implements FindParkingView{
-    ArrayList<ParkingSpace> spaces = new ArrayList<>();
     FindParkingPresenter presenter;
-    String zipcode;
     LocalDateTime expectedArrivalDateTime;
-    EditText ZipCodeEditText, expectedArrival;
-    ParkingSpace parking;
+    EditText expectedArrival;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -143,6 +140,10 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
 
     }
 
+    /**
+     * Φτιάχνει ένα Toast.
+     * @param m Το περιεχόμενο του Toast.
+     */
     public void makeToast(String m){
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
