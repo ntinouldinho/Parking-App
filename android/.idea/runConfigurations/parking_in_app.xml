@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="parking in app" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
+  <configuration default="false" name="Run All Tests" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
     <module name="app" />
     <useClassPathOnly />
     <extension name="coverage">
