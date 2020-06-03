@@ -1,9 +1,12 @@
 package com.example.parking.ui.viewVehiclesTest;
 
+import com.example.parking.domain.Vehicle;
 import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.ui.viewVehicles.ViewVehiclesPresenter;
 
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 
 public class viewVehiclesPresenterTest {
 
@@ -17,14 +20,11 @@ public class viewVehiclesPresenterTest {
         presenter = new ViewVehiclesPresenter(view,MemoryInitializer.getUserDAO());
     }
 
-//    @Test
-//    public void test(){
-////        User u = MemoryInitializer.getUserDAO().find(view.getIntentUsername());
-////
-////        Vehicle vCorrect = new Vehicle(Colour.Golden,490,"Large SUV", "MEA6157","Escalade","Cadillac");
-////        presenter.viewVe(vCorrect);
-////        Assert.assertEquals(1,u.getVehicles().size());
-////        Assert.assertEquals(vCorrect,u.getVehicles().get(0));
-//
-//    }
+    @Test
+    public void test(){
+        int number_of_clicks = view.getTimesClickedItem(0);
+        Vehicle vehicle = MemoryInitializer.getUserDAO().find("ok").getVehicles().get(0);
+        presenter.viewOneVehicle(vehicle);
+        Assert.assertEquals(number_of_clicks+1,view.getTimesClickedItem(0));
+    }
 }

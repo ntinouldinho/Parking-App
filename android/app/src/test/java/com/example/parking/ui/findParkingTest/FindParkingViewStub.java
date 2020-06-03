@@ -4,7 +4,7 @@ import android.widget.Button;
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.ui.findParking.FindParkingPresenter;
 import com.example.parking.ui.findParking.FindParkingView;
-import com.example.parking.ui.helper.DurationSpecifier;
+import com.example.parking.util.DurationSpecifier;
 import com.example.parking.util.TimeRange;
 
 import java.time.LocalDateTime;

@@ -68,10 +68,10 @@ public class VehicleTest {
 
 
     //Getters Tests
-    @Test
-    public void getColour() {
-        assertEquals(colour,vehicle.getColour());
-    }
+//    @Test
+//    public void getColour() {
+//        assertEquals(colour,vehicle.getColour());
+//    }
 
     @Test
     public void getLength() {

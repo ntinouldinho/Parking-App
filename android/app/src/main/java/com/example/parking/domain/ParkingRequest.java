@@ -144,9 +144,6 @@ public class ParkingRequest{
         }
     }
 
-    public boolean checkIfUsersExist(ArrayList<User> users){
-        return true;
-    }
     @Override
     public String toString() {
         return "ParkingRequest{" +

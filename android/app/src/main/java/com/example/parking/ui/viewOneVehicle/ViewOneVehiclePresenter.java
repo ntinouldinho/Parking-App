@@ -28,6 +28,7 @@ public class ViewOneVehiclePresenter {
         this.dao=dao;
         user = dao.find(view.getUserName());
         if(view.getPlate()!=null){ //edit mode
+            System.out.println("in edits");
             vehicle = dao.findVehicle(view.getIntentUsername(),view.getIntentPlate());
             showInfo();
 
@@ -47,7 +48,6 @@ public class ViewOneVehiclePresenter {
         view.setPlate(vehicle.getPlate());
         view.setLength(vehicle.getLength());
         view.setText(vehicle.getText());
-        Log.e("okkkk",vehicle.getColour());
         view.setColour(vehicle.getColour());
     }
 
@@ -61,25 +61,29 @@ public class ViewOneVehiclePresenter {
                 text = view.getText();
         Colour color=view.getColour();
         int length = view.getLength();
-
         if(!checkPlate(plate)) {
+            System.out.println(plate);
             view.showErrorMessage("plates", "Plate must begin with 3 latin letter and then 4 numbers.");
             //view.successfullyFinishActivity(plate);
         }else if(brand.length() < 3 || brand.length() > 15){
+            System.out.println(2);
             view.showErrorMessage("brand", "Brand must be more than 3 characters and up to 15.");
             //view.successfullyFinishActivity(brand);
         }else if(model.length() < 3 || model.length() > 15){
+            System.out.println(3);
             view.showErrorMessage("model", "Model must be more than 3 characters and up to 15.");
             //view.successfullyFinishActivity("plat2");
         }else if(length < 100 || length > 5000){
+            System.out.println(4);
             view.showErrorMessage("length", "Length must be more than 100cm(1M) or less than 5000cm(500M).");
             //view.successfullyFinishActivity("plat3");
         }else if(text.length() < 5 || text.length() > 50){
+            System.out.println(5);
             view.showErrorMessage("text", "Text must be more than 5 characters and up to 50.");
             //view.successfullyFinishActivity("plat4");
         }else {
 
-
+            System.out.println("in");
             if (vehicle == null) {
                 addVehicle();
                 view.successfullyFinishActivity("Vehicle with plate " + view.getPlateText() + " added");
@@ -140,10 +144,10 @@ public class ViewOneVehiclePresenter {
      */
     public void updateVehicle(String brand,String model,String plate, int length,String text,Colour color){
         Vehicle temp = dao.find(view.getIntentUsername()).getVehicle(plate);
-        temp.setBrand(view.getBrand());
-        temp.setModel(view.getModel());
-        temp.setLength(view.getLength());
-        temp.setText(view.getText());
+        temp.setBrand(brand);
+        temp.setModel(model);
+        temp.setLength(length);
+        temp.setText(text);
         temp.setColour(color);
         dao.updateVehicle(user.getUsername(),temp);
         view.successfullyFinishActivity("Vehicle with plate "+ vehicle.getPlate() +" updated");

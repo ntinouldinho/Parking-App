@@ -5,9 +5,10 @@ import com.example.parking.util.Colour;
 
 public class ViewOneVehicleViewStub implements ViewOneVehicleView
 {
-    private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username,intentUsername,intentPlate;
+    private String errorTitle,errorMessage,finishMessage,brand,model,plate,text,lengthtext,username;
     private Colour colour;
     private int length;
+    private boolean invisibility = false;
 
     private ViewOneVehiclePresenter presenter;
 
@@ -71,7 +72,6 @@ public class ViewOneVehicleViewStub implements ViewOneVehicleView
         return text;
     }
 
-
     @Override
     public Colour getColour() {
         return colour;
@@ -96,7 +96,7 @@ public class ViewOneVehicleViewStub implements ViewOneVehicleView
     @Override
     public void setInvisibility()
     {
-
+        invisibility=true;
     }
 
     @Override
@@ -129,18 +129,18 @@ public class ViewOneVehicleViewStub implements ViewOneVehicleView
     }
 
     public void setIntentUsername(String username){
-        intentUsername=username;
+        this.username=username;
     }
 
     public String getIntentUsername (){
-        return intentUsername;
+        return username;
     }
 
     public void setIntentPlate(String plate){
-        intentPlate=plate;
+        this.plate=plate;
     }
 
     public String getIntentPlate (){
-        return intentPlate;
+        return plate;
     }
 }

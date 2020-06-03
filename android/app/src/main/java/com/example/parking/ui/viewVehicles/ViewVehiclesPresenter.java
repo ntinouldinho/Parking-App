@@ -6,6 +6,7 @@ import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class ViewVehiclesPresenter {
@@ -23,6 +24,7 @@ public class ViewVehiclesPresenter {
     public ViewVehiclesPresenter(ViewVehiclesView view,UserDAO dao){
         this.view=view;
         this.user = dao.find(view.getUserName());////////intent
+        System.out.println(view.getUserName());
         showVehicles();
     }
 
@@ -38,7 +40,6 @@ public class ViewVehiclesPresenter {
      * @param vehicle Τα vehicles που επιλέχθηκε.
      */
     public void viewOneVehicle(Vehicle vehicle){
-        Log.e("vehicle",vehicle.toString());
         view.viewOneVehicle(vehicle);
     }
 

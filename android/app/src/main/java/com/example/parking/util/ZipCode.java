@@ -45,10 +45,5 @@ public class ZipCode {
         return Objects.equals(zip, zipCode.zip);
     }
 
-    boolean checkSet(int zip) {
-        int currentzip = getZip();
-        setZip(zip);
-        return currentzip == getZip();
-    }
 
 }

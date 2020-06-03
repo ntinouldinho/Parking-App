@@ -5,21 +5,37 @@ import com.example.parking.ui.viewVehicles.ViewVehiclesPresenter;
 import com.example.parking.ui.viewVehicles.ViewVehiclesView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ViewVehiclesViewStub implements ViewVehiclesView
 {
     ViewVehiclesPresenter presenter;
-    String username,intentUsername;
-
+    String intentUsername;
+    private Map<Integer, Integer> clicksCount;
+    ArrayList<Vehicle> DaoVehicles;
     public ViewVehiclesViewStub()
     {
-        username = intentUsername  = "";
+        intentUsername  = "";
+        clicksCount = new HashMap<Integer, Integer>();
+        DaoVehicles = new ArrayList<>();
+
     }
 
     public void viewOneVehicle(Vehicle vehicle){
+        int y=0;
+        for(int i=0; i<DaoVehicles.size();i++){
+            if(DaoVehicles.get(i).getPlate().equals(vehicle.getPlate())) {y=i; break; }
+        }
+        clicksCount.put(y, (clicksCount.containsKey(y) ? clicksCount.get(y) : 0)+1);
     }
 
-    public void showVehicles(ArrayList<Vehicle> DaoVehicles){}
+    public void showVehicles(ArrayList<Vehicle> DaoVehicles){
+        for(int i=0; i<DaoVehicles.size();i++){
+            clicksCount.put(i, (clicksCount.containsKey(i) ? clicksCount.get(i) : 0)+1);
+        }
+        this.DaoVehicles=DaoVehicles;
+    }
 
     public void setPresenter(ViewVehiclesPresenter presenter) {
         this.presenter = presenter;
@@ -27,9 +43,13 @@ public class ViewVehiclesViewStub implements ViewVehiclesView
 
     public String getUserName()
     {
-       return username;
+       return intentUsername;
     }
 
+    public int getTimesClickedItem(int uid)
+    {
+        return clicksCount.containsKey(uid) ? clicksCount.get(uid) : 0;
+    }
     public void setIntentUsername(String username){
         intentUsername=username;
     }

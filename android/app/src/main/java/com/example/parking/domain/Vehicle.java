@@ -100,9 +100,5 @@ public class Vehicle {
 				'}';
 	}
 
-	public boolean checkSet(String plate) {
-		String currentPlate = getPlate();
-		setPlate(plate);
-        return currentPlate == getPlate();
-    }
+
 }
