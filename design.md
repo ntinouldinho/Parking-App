@@ -3,8 +3,8 @@
 # Αίτημα για θέση στάθμευσης / Find Parking
 
 
-![Class](R4_Diagrams/Class Diagrams/)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+![Class](R4_Diagrams/Class Diagrams/FindParkingCD.png)   
+![Sequence](R4_Diagrams/Sequence Diagrams/FindParkingSD.png)
 
 
 
