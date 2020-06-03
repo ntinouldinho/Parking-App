@@ -120,6 +120,13 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         startActivity(myIntent);
     }
 
+
+    /**
+     * Δείχνει μήνυμα Toast εάν όλα πάνε καλά με το sign up
+     * @param requestCode Ο ζητούμενος κωδικός
+     * @param resultCode Ο κωδικός του αποτελέσματος
+     * @param data Το intent
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
