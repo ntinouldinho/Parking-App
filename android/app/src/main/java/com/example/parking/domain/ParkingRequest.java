@@ -136,7 +136,7 @@ public class ParkingRequest{
         System.out.println(currentTime.toString());
         long minutesDif = currentTime.getDifference();
         int mod = (int)minutesDif%3;
-        int penalty = mod*1;
+        int penalty = mod;
         System.out.println(minutesDif);
         if(minutesDif>=30){
             penalty+=2;

@@ -10,7 +10,7 @@ public interface NotificationsView {
     /**
      * Εμφανίζει τα δυναμικά παραγώμενα κουμπιά.
      * @param DaoParkingSpace Τα εκκρεμή parking request
-     * @param DaoParkingSpace Το περιεχόμενο που θα εμφανιστεί
+     * @param notif Το περιεχόμενο που θα εμφανιστεί
      */
     void showNotifications(ArrayList<ParkingRequest> DaoParkingSpace, String notif);
 

@@ -1,7 +1,6 @@
 package com.example.parking.ui.homescreen;
 
 import com.example.parking.dao.UserDAO;
-import com.example.parking.domain.User;
 
 public class HomeScreenPresenter {
     HomeScreenView view;
@@ -37,9 +36,6 @@ public class HomeScreenPresenter {
 
     public boolean checkForVehicle(){
         int vehicles = dao.find(view.getUserName()).getVehicles().size();
-        if(vehicles==0){
-            return false;
-        }
-        return true;
+        return vehicles != 0;
     }
 }

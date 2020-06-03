@@ -37,7 +37,7 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_vehicles);
         presenter = new ViewVehiclesPresenter(this, MemoryInitializer.getUserDAO());
-        Button add_vehicle = (Button) findViewById(R.id.add_vehicle);
+        Button add_vehicle = findViewById(R.id.add_vehicle);
         add_vehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.activity_view_vehicles, null);
         ArrayList<Button> buttons = new ArrayList<>();
-        LinearLayout sv = (LinearLayout) v.findViewById(R.id.search_layout);
+        LinearLayout sv = v.findViewById(R.id.search_layout);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         layoutParams.setMargins(0, 0, 0, 30);
 

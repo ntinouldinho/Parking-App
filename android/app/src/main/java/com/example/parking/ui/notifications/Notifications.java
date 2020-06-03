@@ -46,7 +46,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.activity_notifications, null);
         // Find the ScrollView
-        LinearLayout sv = (LinearLayout) v.findViewById(R.id.notification);
+        LinearLayout sv = v.findViewById(R.id.notification);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, 0, 0, 30);
         String not="";

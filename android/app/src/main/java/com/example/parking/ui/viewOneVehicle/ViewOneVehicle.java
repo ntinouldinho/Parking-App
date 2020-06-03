@@ -30,21 +30,22 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
     Button addVehicleBtn,deleteBtn;
     ViewOneVehiclePresenter presenter;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    @Override
     /**
      * Δημιουργεί το layout και αρχικοποιεί
      * το activity.
      * @param savedInstanceState το Instance state
      */
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vehicle);
 
-        deleteBtn = (Button) findViewById(R.id.deleteVehicleBtn);
+        deleteBtn = findViewById(R.id.deleteVehicleBtn);
 
-        spinner = (Spinner) findViewById(R.id.Color);
-        addVehicleBtn = (Button) findViewById(R.id.addVehicleBtn);
+        spinner = findViewById(R.id.Color);
+        addVehicleBtn = findViewById(R.id.addVehicleBtn);
         addVehicleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

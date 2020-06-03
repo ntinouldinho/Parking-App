@@ -183,7 +183,7 @@ public class User {
     }
     /**Αφαιρειί ένα όχημα (μόνο αν ο χρήστης έχει 2 και πάνω.
      *
-     * @param vehicle
+     * @param vehicle το όχημα
      */
     public void removeVehicle(Vehicle vehicle){
         if(vehicles.size()>0){

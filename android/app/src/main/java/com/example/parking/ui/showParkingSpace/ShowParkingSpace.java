@@ -18,7 +18,6 @@ import com.example.parking.domain.ParkingSpace;
 import com.example.parking.domain.Rating;
 import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.ui.findParking.FindParking;
-import com.example.parking.ui.homescreen.HomeScreenActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
         parkingSpace = gson.fromJson(parkingSpaceAsAString, ParkingSpace.class);
         presenter = new ShowParkingPresenter(this, MemoryInitializer.getUserDAO(), MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO(),MemoryInitializer.getRatingDAO(),parkingSpace);
 
-        Button btn = (Button) findViewById(R.id.sendParkingRequest);
+        Button btn = findViewById(R.id.sendParkingRequest);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -51,7 +50,7 @@ public class ShowParkingSpace extends AppCompatActivity implements ShowParkingVi
             }
         });
 
-        Button reviewsButton = (Button) findViewById(R.id.ReviewsofParkedUser);
+        Button reviewsButton = findViewById(R.id.ReviewsofParkedUser);
         reviewsButton.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override

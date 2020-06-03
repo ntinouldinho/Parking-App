@@ -23,7 +23,7 @@ public class SignUp extends AppCompatActivity implements SignUpView{
         setContentView(R.layout.activity_sign_up);
         presenter = new SignUpPresenter(this, MemoryInitializer.getUserDAO());
 
-        signUpB = (Button) findViewById(R.id.signUp);
+        signUpB = findViewById(R.id.signUp);
         signUpB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,24 +48,34 @@ public class SignUp extends AppCompatActivity implements SignUpView{
      * @param error Το περιεχόμενο του σφάλματος που θα εμφανιστεί
      */
     public void setError(String EditText,String error){
-        if(EditText.equals("firstname")){
-            ((EditText)findViewById(R.id.firstName)).setError(error);
-        }else if(EditText.equals("lastname")){
-            ((EditText)findViewById(R.id.lastName)).setError(error);
-        }else if(EditText.equals("phone")){
-            ((EditText)findViewById(R.id.phone)).setError(error);
-        }else if(EditText.equals("email")){
-            ((EditText)findViewById(R.id.email)).setError(error);
-        }else if(EditText.equals("username")){
-            ((EditText)findViewById(R.id.Username)).setError(error);
-        }else if(EditText.equals("password")){
-            ((EditText)findViewById(R.id.passwordSignUp)).setError(error);
-        }else if(EditText.equals("street")){
-            ((EditText)findViewById(R.id.street)).setError(error);
-        }else if(EditText.equals("streetno")){
-            ((EditText)findViewById(R.id.number)).setError(error);
-        }else if(EditText.equals("zip")){
-            ((EditText)findViewById(R.id.zip_Code)).setError(error);
+        switch (EditText) {
+            case "firstname":
+                ((EditText) findViewById(R.id.firstName)).setError(error);
+                break;
+            case "lastname":
+                ((EditText) findViewById(R.id.lastName)).setError(error);
+                break;
+            case "phone":
+                ((EditText) findViewById(R.id.phone)).setError(error);
+                break;
+            case "email":
+                ((EditText) findViewById(R.id.email)).setError(error);
+                break;
+            case "username":
+                ((EditText) findViewById(R.id.Username)).setError(error);
+                break;
+            case "password":
+                ((EditText) findViewById(R.id.passwordSignUp)).setError(error);
+                break;
+            case "street":
+                ((EditText) findViewById(R.id.street)).setError(error);
+                break;
+            case "streetno":
+                ((EditText) findViewById(R.id.number)).setError(error);
+                break;
+            case "zip":
+                ((EditText) findViewById(R.id.zip_Code)).setError(error);
+                break;
         }
     }
 

@@ -19,7 +19,7 @@ public class ViewUserPresenterTest {
     @Before
     public void setup(){
         dataHelper = new MemoryInitializer();
-        dataHelper.prepareData();
+        MemoryInitializer.prepareData();
         view = new ViewUserViewStub();
         view.setIntentUsername("ok");
     }

@@ -1,6 +1,5 @@
 package com.example.parking.ui.findParkingTest;
 import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.parking.domain.ParkingSpace;
 import com.example.parking.ui.findParking.FindParkingPresenter;

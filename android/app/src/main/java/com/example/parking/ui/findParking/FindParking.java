@@ -43,8 +43,8 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
         setContentView(R.layout.activity_find_parking);
         presenter = new FindParkingPresenter(this,MemoryInitializer.getParkingDAO());
 
-        expectedArrival = (EditText) findViewById(R.id.expectedArrivalFindParking);
-        ImageButton btn = (ImageButton) findViewById(R.id.SearchButton);
+        expectedArrival = findViewById(R.id.expectedArrivalFindParking);
+        ImageButton btn = findViewById(R.id.SearchButton);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -98,7 +98,7 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
         View v = inflater.inflate(R.layout.activity_find_parking, null);
         ArrayList<Button> buttons = new ArrayList<>();
         // Find the ScrollView
-        LinearLayout sv = (LinearLayout) v.findViewById(R.id.ResultsList);
+        LinearLayout sv = v.findViewById(R.id.ResultsList);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(0, 0, 0, 30);
 

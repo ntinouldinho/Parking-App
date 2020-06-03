@@ -11,7 +11,6 @@ import static org.junit.Assert.assertNotNull;
 public class AmountTest {
     private Amount amount;
     private BigDecimal number;
-    private CurrencyEnum currencyEnum;
     private Currency currency;
 
     @Test
@@ -23,8 +22,8 @@ public class AmountTest {
     @Before
     public void setup(){
         number = new BigDecimal(100);
-        currencyEnum = CurrencyEnum.EUR;
-        currency = new Currency(number,currencyEnum);
+        CurrencyEnum currencyEnum = CurrencyEnum.EUR;
+        currency = new Currency(number, currencyEnum);
         amount = new Amount();
         amount.setAmountToConvert(number);
         amount.setCurrency(currency);

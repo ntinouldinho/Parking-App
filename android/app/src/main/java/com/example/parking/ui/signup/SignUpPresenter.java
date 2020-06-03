@@ -123,7 +123,7 @@ public class SignUpPresenter {
         if(email.isEmpty()){
             view.setError("email","Email cannot be empty");
             return false;
-        }else if(!EMAIL_ADDRESS.matcher((CharSequence)email).matches()){
+        }else if(!EMAIL_ADDRESS.matcher(email).matches()){
             view.setError("email","Invalid email");
             return false;
         }else{

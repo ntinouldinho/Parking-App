@@ -48,10 +48,7 @@ public class ZipCode {
     boolean checkSet(int zip) {
         int currentzip = getZip();
         setZip(zip);
-        if (currentzip != getZip()) {
-            return false;
-        }
-        return true;
+        return currentzip == getZip();
     }
 
 }

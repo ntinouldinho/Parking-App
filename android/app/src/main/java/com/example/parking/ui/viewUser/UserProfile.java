@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -41,22 +40,22 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
      */
     public void addClickListeners()
     {
-        ((Button) findViewById((R.id.saveBtnUserProfile))).setOnClickListener((v) -> {
+        findViewById((R.id.saveBtnUserProfile)).setOnClickListener((v) -> {
             presenter.update();
             recreate();
         });
 
-        ((Button) findViewById((R.id.manageCarsBtnUserProfile))).setOnClickListener((v) -> {
+        findViewById((R.id.manageCarsBtnUserProfile)).setOnClickListener((v) -> {
             Intent myIntent = new Intent(this, ViewVehicles.class);
             myIntent.putExtra("username", getUsername());
             startActivityForResult(myIntent,1);
         });
 
-        ((Button) findViewById((R.id.addCreditsBtnUserProfile))).setOnClickListener((v) -> {
+        findViewById((R.id.addCreditsBtnUserProfile)).setOnClickListener((v) -> {
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            EditText creditsToBeAdded = (EditText) findViewById(R.id.creditsToBeAddedUserProfile);
+            EditText creditsToBeAdded = findViewById(R.id.creditsToBeAddedUserProfile);
 
             builder.setTitle("Confirm");
             builder.setMessage(creditsToBeAdded.getText()+" credits will be added to your account.Are you sure?");

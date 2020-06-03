@@ -108,10 +108,7 @@ public class ViewOneVehiclePresenter {
                 int number = Integer.valueOf(numbers.charAt(i));
                 if (number < 48 || number > 57){return false;}
             }
-            if (letters.length() + numbers.length() != 7) {
-                return false;
-            }
-            return true;
+            return letters.length() + numbers.length() == 7;
         }
         return false;
     }

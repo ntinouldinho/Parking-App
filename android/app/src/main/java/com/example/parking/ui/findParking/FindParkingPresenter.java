@@ -1,12 +1,10 @@
 package com.example.parking.ui.findParking;
 
 import android.os.Build;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
 import com.example.parking.dao.ParkingSpaceDAO;
-import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.Address;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.domain.ParkingSpace;

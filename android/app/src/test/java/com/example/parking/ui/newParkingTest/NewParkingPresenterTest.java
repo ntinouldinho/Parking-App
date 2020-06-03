@@ -1,9 +1,6 @@
 package com.example.parking.ui.newParkingTest;
 
-import com.example.parking.dao.ParkingSpaceDAO;
-import com.example.parking.domain.ParkingSpace;
 import com.example.parking.memorydao.MemoryInitializer;
-import com.example.parking.memorydao.ParkingSpaceDAOMemory;
 import com.example.parking.ui.newParking.NewParkingPresenter;
 
 import org.junit.Assert;

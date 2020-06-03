@@ -23,7 +23,7 @@ public class NotificationsPresenter {
         String username = view.getUserName();
         ArrayList<ParkingRequest> all = new ArrayList<>();
 
-        for(ParkingRequest request:(ArrayList<ParkingRequest>) dao.findAll()){
+        for(ParkingRequest request: dao.findAll()){
             if(request.getRequestingUser().getUsername().equals(username) || request.getParkingSpace().getParkedUser().getUsername().equals(username) ){
                 all.add(request);
             }

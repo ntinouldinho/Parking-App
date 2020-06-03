@@ -4,7 +4,6 @@ import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.ui.viewVehicles.ViewVehiclesPresenter;
 
 import org.junit.Before;
-import org.junit.Test;
 
 public class viewVehiclesPresenterTest {
 

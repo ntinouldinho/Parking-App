@@ -36,7 +36,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         durationSpecifier = new DurationSpecifier(getBtnReferencesOfDateTime(),
                 getTextViewReferencesOfDateTime(), NewParkingSpace.this);
 
-        Button btn = (Button) findViewById(R.id.addVehicleBtn);
+        Button btn = findViewById(R.id.addVehicleBtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -51,8 +51,8 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     private Button[] getBtnReferencesOfDateTime()
     {
         Button[] btns = new Button[2];
-        btns[0] = (Button)findViewById(R.id.setDateTimeFromNewParking);
-        btns[1] = (Button)findViewById(R.id.setDateTimeToNewParking);
+        btns[0] = findViewById(R.id.setDateTimeFromNewParking);
+        btns[1] = findViewById(R.id.setDateTimeToNewParking);
 
         return btns;
     }
@@ -60,8 +60,8 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     private TextView[] getTextViewReferencesOfDateTime()
     {
         TextView[] textViews = new TextView[2];
-        textViews[0] = (TextView)findViewById(R.id.dateTimeFromInfoNewParking);
-        textViews[1] = (TextView)findViewById(R.id.dateTimeToInfoNewParking);
+        textViews[0] = findViewById(R.id.dateTimeFromInfoNewParking);
+        textViews[1] = findViewById(R.id.dateTimeToInfoNewParking);
 
         return textViews;
     }
@@ -77,7 +77,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     private boolean validateStreet() {
         String street = getStreet().trim();
-        EditText StreetEditText = (EditText)findViewById(R.id.Street);
+        EditText StreetEditText = findViewById(R.id.Street);
         if(street.isEmpty()){
             StreetEditText.setError("Street cannot be empty");
             return false;
@@ -90,7 +90,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     private boolean validateStreetNo() {
         String streetno = getStreetNumber().trim();
-        EditText StreetNumberEditText = (EditText)findViewById(R.id.StreetNumber);
+        EditText StreetNumberEditText = findViewById(R.id.StreetNumber);
         if(streetno.isEmpty()){
             StreetNumberEditText.setError("Street Number cannot be empty");
             return false;
@@ -103,7 +103,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     private boolean validateZipCode(){
         String zipCode = getZipCode().trim();
-        EditText ZipCodeEditText = (EditText)findViewById(R.id.zipCode);
+        EditText ZipCodeEditText = findViewById(R.id.zipCode);
         if(zipCode.isEmpty()){
             ZipCodeEditText.setError("ZIP Code cannot be empty");
             return false;
@@ -119,7 +119,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
 
     private boolean validateCredits(){
         String credits = getCredits().trim();
-        EditText CreditsEditText = (EditText)findViewById(R.id.creditsForParking);
+        EditText CreditsEditText = findViewById(R.id.creditsForParking);
         if(credits.isEmpty()){
             CreditsEditText.setError("Credits cannot be empty");
             return false;
@@ -167,7 +167,7 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
     }
 
     public void setSpinner(ArrayList<String> plates){
-        Spinner spinner = (Spinner) findViewById(R.id.CarChoice);
+        Spinner spinner = findViewById(R.id.CarChoice);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(NewParkingSpace.this, android.R.layout.simple_spinner_dropdown_item,plates);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
