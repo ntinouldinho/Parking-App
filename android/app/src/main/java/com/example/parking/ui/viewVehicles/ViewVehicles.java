@@ -148,7 +148,6 @@ public class ViewVehicles extends AppCompatActivity implements ViewVehiclesView 
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e("results",requestCode + " "+ resultCode + " ");
         if((requestCode == 1 || requestCode == 2)&& resultCode == Activity.RESULT_OK)
         {
             recreate();

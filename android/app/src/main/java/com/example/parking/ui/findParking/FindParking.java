@@ -201,7 +201,6 @@ public class FindParking extends AppCompatActivity implements FindParkingView{
         if(resultCode == Activity.RESULT_OK)
         {
 
-            Log.e("BHKE STO ONRES","bhke sto on res");
             finish();
         }
     }

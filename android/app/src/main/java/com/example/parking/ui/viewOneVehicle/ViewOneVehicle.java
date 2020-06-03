@@ -95,7 +95,6 @@ public class ViewOneVehicle extends AppCompatActivity implements ViewOneVehicleV
                         color=Colour.Golden;
                         break;
                 }
-                Log.e("okkkk",color.toString());
             }
 
             @Override

@@ -35,15 +35,11 @@ public class NotificationsPresenter {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public boolean validateParking(ParkingRequest request, Pin pin){
-       //Log.e("requesting credits befo",String.valueOf(users.find(request.getRequestingUser().getUsername()).getCredits().getPoints()));
-       // Log.e("parked credits befo",String.valueOf(users.find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints()));
         int results = dao.find(request).validateParking(pin);
 
 
        if(results==1){
             dao.delete(request);
-           //Log.e("requesting credits afte",String.valueOf(users.find(request.getRequestingUser().getUsername()).getCredits().getPoints()));
-           //Log.e("parked credits afte",String.valueOf(users.find(request.getParkingSpace().getParkedUser().getUsername()).getCredits().getPoints()));
 
            view.makeToast("Transaction complete");
             return true;
@@ -58,7 +54,6 @@ public class NotificationsPresenter {
         request.setPin(new Pin(pin));
         view.makeToast("Pin generated");
         return pin;
-        //Log.e("the new pin",String.valueOf(request.getPin().getPin()));
     }
 
     public void denyRequest(ParkingRequest request){

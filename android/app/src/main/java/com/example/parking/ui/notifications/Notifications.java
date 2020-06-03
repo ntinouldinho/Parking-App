@@ -56,8 +56,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
         for (int i = 0; i < all.size(); i++) {
             int colorBackground = Color.parseColor("#337FFF");
             ParkingRequest request = all.get(i);
-
-            Log.e("PARKINGSPACEDAOSIZE",String.valueOf(i));
             // create a new textview
             // Create LinearLayout
             LinearLayout newLayout = new LinearLayout(this);
@@ -190,7 +188,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                                 @Override
                                 public void onClick(View v)
                                 {
-                                    Log.e("requesting",""+request.toString());
                                     //Do stuff, possibly set wantToCloseDialog to true then...
                                     if(!input.getText().toString().equals("") && presenter.validateParking(request,new Pin(Integer.valueOf(input.getText().toString())))) {
                                         dialog.dismiss();
@@ -207,7 +204,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
     public void setApproveOrNotListener(Button b,ParkingRequest request) {
         //get switch
-            Log.e("in","in");
 
             b.setOnClickListener(
                     new View.OnClickListener()
@@ -226,7 +222,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                                     // validate parking
                                     presenter.approveRequest(request);
 
-                                    Log.e("this is the req",request.getRequestingUser().getUsername());
                                     dialog.dismiss();
                                     recreate();
                                 }
@@ -239,9 +234,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
                                     // date null
                                     presenter.denyRequest(request);
-
-                                    Log.e("this is the req",request.getRequestingUser().getUsername());
-
                                     dialog.dismiss();
                                     recreate();
                                 }
@@ -274,7 +266,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                                 // validate parking
                                 presenter.createRating(request);
 
-                                Log.e("this is the req",request.getRequestingUser().getUsername());
                                 dialog.dismiss();
                                 recreate();
                             }
@@ -286,9 +277,6 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                             public void onClick(DialogInterface dialog, int which) {
 
                                 // date null
-
-                                Log.e("this is the req",request.getRequestingUser().getUsername());
-
                                 dialog.dismiss();
                             }
                         });

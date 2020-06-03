@@ -199,8 +199,7 @@ public class UserProfile extends AppCompatActivity implements UserProfileView
 
     public String getUserName()
     {
-        setIntentUsername(this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null);
-        Log.e("the intent",getIntentUsername());
+        setIntentUsername(this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null);;
         return getIntentUsername();
     }
 
