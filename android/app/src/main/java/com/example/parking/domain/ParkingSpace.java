@@ -114,8 +114,6 @@ public class ParkingSpace {
 		setTimeOfExchange(new Date());
 	}
 
-	//TODO: fix the timerange tostring()
-
 	public String toString() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 		String strDate = dateFormat.format(timeOfExchange);

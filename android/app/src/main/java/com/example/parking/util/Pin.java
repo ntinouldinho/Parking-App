@@ -16,7 +16,10 @@ public class Pin {
     public int getPin() {
         return pin;
     }
-
+    /**
+     * Έλεγχος αν το pin είναι 4ψηφιο.
+     * @param pin Pin που θέλουμε να γίνει set
+     */
     public void setPin(int pin) {
         String stringPin = String.valueOf(pin);
         if(stringPin.length()==4) {

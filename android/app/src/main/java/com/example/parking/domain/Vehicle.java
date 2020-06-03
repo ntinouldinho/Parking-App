@@ -41,6 +41,10 @@ public class Vehicle {
 		this.text = text;
 	}
 
+	/**
+	 * Ελέγχει αν το plate είναι σε σωστή μορφή.
+	 * @param plate Plate προς αποθήκευση
+	 */
 	public void setPlate(String plate) {
 		String letters = plate.substring(0,3).toUpperCase();
 		for(int i=0;i<letters.length();i++){

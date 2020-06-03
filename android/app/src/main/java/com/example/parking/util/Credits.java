@@ -23,6 +23,11 @@ public class Credits {
         setPoints(points+getPoints());
     }
 
+    /**
+     * Έλεγχος για αφαίρεση credits.
+     * @param points Credits προς αφαίρεση.
+     * @return επιστρέφει boolean αν μπορεί να γίνει η αφαίρεση απο τον λογαριασμό.
+     */
     public boolean removeCredits(int points){
         int currentPoints=getPoints();
         if(currentPoints<points){

@@ -30,7 +30,9 @@ public class MemoryInitializer {
     private static UserDAO UDao = new UserDAOMemory();
     private static RatingDAO RDao = new RatingDAOMemory();
 
-
+    /**
+     * Διαγράφει τα αποθηκευμένα δεδομένα.
+     */
     protected static void eraseData() {
         ArrayList<User> users = new ArrayList<>(getUserDAO().findAll());
         for(User user : users) {
@@ -53,7 +55,9 @@ public class MemoryInitializer {
         }
     }
 
-
+    /**
+     * Προετοιμάζει τα δεδομένα
+     */
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static void prepareData(){
@@ -175,22 +179,35 @@ public class MemoryInitializer {
 
     }
 
+    /**
+     * Επιστρέφει το DAO των parking request.
+     * @return Το DAO των parking request
+     */
     public static ParkingRequestDAO getRequestDAO() {
         return PRDao;
     }
 
-
+    /**
+     * Επιστρέφει το DAO των parking spaces.
+     * @return Το DAO των parking spaces
+     */
     public static ParkingSpaceDAO getParkingDAO() {
         return PSDao;
     }
 
-
+    /**
+     * Επιστρέφει το DAO των user.
+     * @return Το DAO των user
+     */
     public static UserDAO getUserDAO() {
         return UDao;
     }
 
 
-
+    /**
+     * Επιστρέφει το DAO των ratings.
+     * @return Το DAO των ratings
+     */
     public static RatingDAO getRatingDAO() {
         return RDao;
     }

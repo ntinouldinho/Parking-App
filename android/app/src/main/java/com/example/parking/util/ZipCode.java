@@ -22,6 +22,10 @@ public class ZipCode {
         return zip;
     }
 
+    /**
+     * Έλεγχος αν το zip είναι 5ψηφιο.
+     * @param zip Zip που θέλουμε να γίνει set
+     */
     public void setZip(int zip) {
         String stringZip = String.valueOf(zip);
         if(stringZip.length()==5) {

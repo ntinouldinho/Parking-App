@@ -134,6 +134,11 @@ public class User {
         getCredits().removeCredits(credits.getPoints());
     }
 
+    /**
+     *
+     * @param plate Το plate ενός vehicle που ψάχνει.
+     * @return Επιστρέφει το vehicle αν το βρει, ή ενα νέο vehicle.
+     */
     public Vehicle getVehicle(String plate) {
         if (getVehicles().size() > 0) {
             for (Vehicle vehicle : getVehicles()) {
@@ -147,6 +152,10 @@ public class User {
         }
     }
 
+    /**
+     * Αν το penalty περισσότερο απο τα credits που έχει τότε του μηδενίζονται τα credits, αλλιώς αφαιρείται.
+     * @param penalty Ποινή αν αργήσει
+     */
     public void setPenalty(int penalty){
         if(penalty>getCredits().getPoints()){
             credits.setPoints(0);
