@@ -81,7 +81,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                     data.setText(request.getDate().toString() + ", your request is accepted from:" + request.getParkingSpace().getParkedUser().getUsername());
                     colorBackground=Color.parseColor("#22ff00");
                     not = "You have to go to(Pin is "+request.getPin().getPin()+")"; //notification only with pin display
-
+                    complaint(btn,request);
                 }else{
                     if(request.getDate()==null){
 
@@ -252,6 +252,52 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
                         }
                     });
+
+    }
+
+    public void complaint(Button b,ParkingRequest request) {
+        //get switch
+        b.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    @RequiresApi(api = Build.VERSION_CODES.O)
+                    public void onClick(View view)
+                    {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(Notifications.this);
+
+                        builder.setTitle("Complaint for your request");
+                        builder.setMessage("Your request at "+request.getParkingSpace().getAddress().getStreet()+" is not available because the user "+request.getParkingSpace().getParkedUser().getUsername()+" is not there. Do you wish to file a compaint?");
+
+                        builder.setPositiveButton("CONFIRM", new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog, int which) {
+                                // validate parking
+                                presenter.createRating(request);
+
+                                Log.e("this is the req",request.getRequestingUser().getUsername());
+                                dialog.dismiss();
+                                recreate();
+                            }
+                        });
+
+                        builder.setNegativeButton("DENY", new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                // date null
+
+                                Log.e("this is the req",request.getRequestingUser().getUsername());
+
+                                dialog.dismiss();
+                            }
+                        });
+
+                        AlertDialog alert = builder.create();
+                        alert.show();
+
+                    }
+                });
 
     }
 }

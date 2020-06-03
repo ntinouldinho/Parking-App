@@ -7,6 +7,8 @@ import androidx.annotation.RequiresApi;
 import com.example.parking.dao.ParkingRequestDAO;
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.ParkingRequest;
+import com.example.parking.domain.Rating;
+import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.util.Pin;
 
 import java.util.ArrayList;
@@ -62,5 +64,12 @@ public class NotificationsPresenter {
     public void denyRequest(ParkingRequest request){
         request.setDate(null);
         view.makeToast("Request denied");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void createRating(ParkingRequest request){
+        dao.delete(request);
+        Rating rating = new Rating(1,"Not there",request.getParkingSpace().getParkedUser().getUsername(),request.getRequestingUser().getUsername());
+        MemoryInitializer.getRatingDAO().save(rating);
     }
 }
