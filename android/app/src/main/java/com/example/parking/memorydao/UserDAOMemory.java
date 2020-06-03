@@ -10,12 +10,24 @@ public class UserDAOMemory implements UserDAO {
 
     protected static ArrayList<User> users = new ArrayList<User>();
 
+
+    /**
+     * Αποθηκεύει έναν νέο χρήστη.
+     * @param u Ο νέος χρήστης.
+     */
     @Override
     public void save(User u){
         if(!users.contains(u)){
             users.add(u);
         }
     }
+
+    /**
+     * Ελέγχει εάν τα στοιχεία του αιτούμενου χρήστη υπάρχουν στην βάση
+     * @param username Το όνομα του χρήστη.
+     * @param password Ο κωδικός πρόσβασης.
+     * @return Ο χρήστης.
+     */
     @Override
     public User login(String username,String password){
         User currentUser = find(username);
@@ -27,13 +39,22 @@ public class UserDAOMemory implements UserDAO {
         }
         return null;
     }
+
+    /**
+     * Διαγράφει τον χρήστη.
+     * @param u Ο χρήστης.
+     */
     @Override
     public void delete(User u){
         users.remove(u);
     }
 
+    /**
+     * Ενημερώνει τα στοιχεία του χρήστη.
+     * @param u Ο χρήστης.
+     */
     @Override
-    public void update(User u,String username){
+    public void update(User u){
         for(int i=0; i<users.size();i++){
             if(u.getUsername().equals(users.get(i).getUsername())){
                 users.set(i,u);
@@ -41,10 +62,21 @@ public class UserDAOMemory implements UserDAO {
         }
     }
 
+
+    /**
+     * Επιστρέφει όλους τους χρήστες.
+     * @return Όλοι οι χρήστες.
+     */
     public ArrayList<User> findAll(){
         return users;
     }
 
+
+    /**
+     * Αναζητά το χρήστη με βάση το username του.
+     * @param username Το username του χρήστη που αναζητείται.
+     * @return Ο χρήστης που αναζητούμε.
+     */
     @Override
     public User find(String username){
         for(User u: users){
@@ -55,6 +87,12 @@ public class UserDAOMemory implements UserDAO {
         return null;
     }
 
+    /**
+     * Αναζητά για ένα συγκεκριμένο αμαξί το οποίο γνωριζούμε οτι ανήκει στον χρήστη username
+     * @param username Το όνομα του χρήστη.
+     * @param plate Οι πινακίδες του οχήματος.
+     * @return Το όχημα.
+     */
     @Override
     public Vehicle findVehicle(String username,String plate){
         for(User u: users){
@@ -70,6 +108,11 @@ public class UserDAOMemory implements UserDAO {
         return null;
     }
 
+    /**
+     * Διαγράφει ένα συγκεκριμένο αμαξί το οποίο γνωριζούμε οτι ανήκει στον χρήστη username
+     * @param username Το όνομα του χρήστη.
+     * @param temp Το όχημα.
+     */
     @Override
     public void deleteVehicle(String username,Vehicle temp){
         for(User u: users){
@@ -82,6 +125,12 @@ public class UserDAOMemory implements UserDAO {
             }
         }
     }
+
+    /**
+     * Ενημερώνει τα στοιχεία ενός συγκεκριμένου αμαξιού το οποίο γνωριζούμε οτι ανήκει στον χρήστη username
+     * @param username Το όνομα του χρήστη.
+     * @param temp Το όχημα.
+     */
     @Override
     public void updateVehicle(String username,Vehicle temp){
         for(User u: users){
