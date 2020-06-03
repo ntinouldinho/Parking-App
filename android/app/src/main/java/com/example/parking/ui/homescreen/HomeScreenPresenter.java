@@ -10,6 +10,10 @@ public class HomeScreenPresenter {
         this.dao=dao;
     }
 
+    /**
+     * O χρήστης μεταφέρεται στο NewParkingSpace activity
+     * αφού πρώτα ελεγχθεί ότι ο χρήστης έχει αμάξι
+     */
     public void spaceIntent(){
         if(checkForVehicle()){
             view.spaceIntent();
@@ -18,6 +22,11 @@ public class HomeScreenPresenter {
         }
     }
 
+
+    /**
+     * O χρήστης μεταφέρεται στο FindParking activity
+     * αφού πρώτα ελεγχθεί ότι ο χρήστης έχει αμάξι
+     */
     public void requestIntent(){
         if(checkForVehicle()){
             view.requestIntent();
@@ -26,10 +35,16 @@ public class HomeScreenPresenter {
         }
     }
 
+    /**
+     * O χρήστης μεταφέρεται στο UserProfile activity
+     */
     public void profileIntent(){
         view.profileIntent();
     }
 
+    /**
+     * O χρήστης μεταφέρεται στο Notifications activity
+     */
     public void notificationIntent(){
         view.notificationIntent();
     }

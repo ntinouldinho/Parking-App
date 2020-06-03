@@ -36,5 +36,9 @@ public interface FindParkingView {
      * @param m Το περιεχόμενο του Toast.
      */
     void makeToast(String m);
+
+    /**
+     * @param error Το μήνυμα λάθους που θα εμφανιστεί στο πεδίο του zip
+     */
     void setErrorToZip(String error);
 }

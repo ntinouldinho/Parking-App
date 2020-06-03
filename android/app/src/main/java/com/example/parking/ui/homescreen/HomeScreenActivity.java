@@ -58,33 +58,62 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         });
 
     }
+
+    /**
+     * Εμφανίζει ένα Toast
+     * @param m Το περιεχόμενο του toast
+     */
     @Override
     public void makeToast(String m){
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
 
+
+    /**
+     * Επιστρέφει το όνομα του χρήστη.
+     * @return Το όνομα.
+     */
     @Override
     public String getUserName()
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;
     }
+
+    /**
+     * O χρήστης μεταφέρεται στο NewParkingSpace activity
+     */
+    @Override
     public void spaceIntent(){
         Intent myIntent = new Intent(HomeScreenActivity.this, NewParkingSpace.class);
         myIntent.putExtra("username",getUserName());
         startActivity(myIntent);
     }
+
+
+    /**
+     * O χρήστης μεταφέρεται στο FindParking activity
+     */
+    @Override
     public void requestIntent(){
         Intent myIntent = new Intent(HomeScreenActivity.this, FindParking.class);
         myIntent.putExtra("username", getUserName());
         startActivity(myIntent);
     }
 
+    /**
+     * O χρήστης μεταφέρεται στο UserProfile activity
+     */
+    @Override
     public void profileIntent(){
         Intent myIntent = new Intent(HomeScreenActivity.this, UserProfile.class);
         myIntent.putExtra("username", getUserName());
         startActivity(myIntent);
     }
 
+    /**
+     * O χρήστης μεταφέρεται στο Notifications activity
+     */
+    @Override
     public void notificationIntent(){
         Intent myIntent = new Intent(HomeScreenActivity.this, Notifications.class);
         myIntent.putExtra("username", getUserName());
