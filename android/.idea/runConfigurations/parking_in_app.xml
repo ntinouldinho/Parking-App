@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Run All Tests" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
+  <configuration default="false" name="parking in app" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
     <module name="app" />
-    <extension name="coverage">
+    <extension name="coverage" sample_coverage="false">
       <pattern>
         <option name="PATTERN" value="com.example.parking.ui.*" />
         <option name="ENABLED" value="true" />

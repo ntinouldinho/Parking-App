@@ -48,7 +48,7 @@
     <string name="results">Results</string>
     <string name="enter_desired_zip_code">Enter Desired ZIP Code</string>
     <string name="reviews_of_parked_user">Reviews of Parked User</string>
-    <string name="e_t_a">E.T.A.</string>
+    <string name="e_t_a">Click below to see the reviews!</string>
     <string name="send_parking_request">Send Parking Request</string>
     <string name="parkedvehicle">ParkedVehicle</string>
     <string name="parked_user">Parked User</string>
