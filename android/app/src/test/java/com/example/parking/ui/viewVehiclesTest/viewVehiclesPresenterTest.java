@@ -12,6 +12,10 @@ public class viewVehiclesPresenterTest {
 
     private ViewVehiclesViewStub view;
     private ViewVehiclesPresenter presenter;
+
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
@@ -20,6 +24,9 @@ public class viewVehiclesPresenterTest {
         presenter = new ViewVehiclesPresenter(view,MemoryInitializer.getUserDAO());
     }
 
+    /**
+     * Έλεγχος αν εμφανίζονται σωστά τα κουμπία τα vehicles.
+     */
     @Test
     public void test(){
         int number_of_clicks = view.getTimesClickedItem(0);

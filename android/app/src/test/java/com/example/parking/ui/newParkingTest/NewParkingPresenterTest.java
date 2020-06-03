@@ -10,7 +10,9 @@ import org.junit.Test;
 public class NewParkingPresenterTest {
     private NewParkingPresenter presenter;
     private NewParkingViewStub view;
-
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         view = new NewParkingViewStub();
