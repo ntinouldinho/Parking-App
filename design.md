@@ -59,7 +59,7 @@
 
 
 
-# Εγγραφη Στο Σύστημα / Sign Up
+# Εγγραφη Στο Σύστημα / Sign Up add()
 
 ![Class](R4_Diagrams/Class Diagrams/SignUpCD.png)   
 ![Sequence](R4_Diagrams/Sequence Diagrams/SignUpSD)
