@@ -11,6 +11,9 @@ public class HomeScreenPresenterTest {
     private HomeScreenPresenter presenter;
     private HomeScreenPresenterViewStub view;
 
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setUp()
     {

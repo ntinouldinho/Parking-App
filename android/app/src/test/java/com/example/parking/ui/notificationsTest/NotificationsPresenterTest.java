@@ -14,6 +14,10 @@ import static org.junit.Assert.assertNull;
 public class NotificationsPresenterTest {
     private NotificationsViewStub view;
     private NotificationsPresenter presenter;
+
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
@@ -22,6 +26,9 @@ public class NotificationsPresenterTest {
         presenter = new NotificationsPresenter(view,MemoryInitializer.getRequestDAO(),MemoryInitializer.getUserDAO());
     }
 
+    /**
+     * Έλεγχος για έγκυρο ή μη έγκυρο pin.
+     */
     @Test
     public void validateParking(){
         ParkingRequest request = view.getPinReq().get(0);
@@ -44,6 +51,9 @@ public class NotificationsPresenterTest {
         assertNull(MemoryInitializer.getRequestDAO().find(request));
     }
 
+    /**
+     * Έλεγχος για αποδοχή parking request.
+     */
     @Test
     public void approveRequest(){
         ParkingRequest request = view.getToApprove().get(0);
@@ -52,6 +62,9 @@ public class NotificationsPresenterTest {
         assertEquals(pin,MemoryInitializer.getRequestDAO().find(request).getPin().getPin());
     }
 
+    /**
+     * Έλεγχος για απόρριψη parking request.
+     */
     @Test
     public void denyRequest(){
         ParkingRequest request = view.getToApprove().get(0);

@@ -11,12 +11,20 @@ import static org.junit.Assert.assertEquals;
 public class SignUpPresenterTest {
     private SignUpViewStub view;
     private SignUpPresenter presenter;
+
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
         view=new SignUpViewStub();
         presenter=new SignUpPresenter(view,MemoryInitializer.getUserDAO());
     }
+
+    /**
+     * Έλεγχος για sign up.
+     */
     @Test
     public void testSignUp(){
         view.setName("");
@@ -43,7 +51,6 @@ public class SignUpPresenterTest {
         presenter.add();
         assertEquals("Email cannot be empty",view.getError());
 
-//TODO: check why pattern fails
         view.setEmail("fff");
         presenter.add();
         assertEquals("Invalid email",view.getError());
@@ -70,8 +77,6 @@ public class SignUpPresenterTest {
         view.setZip("");
         presenter.add();
         assertEquals(  "ZIP Code cannot be empty",view.getError());
-
-        //TODO test if numeric
 
         view.setZip("111");
         presenter.add();

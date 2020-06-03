@@ -12,6 +12,9 @@ import static org.junit.Assert.assertEquals;
 public class LoginPresenterTest {
     private LoginPresenterViewStub view;
     private LoginPresenter presenter;
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         MemoryInitializer.prepareData();
@@ -19,6 +22,9 @@ public class LoginPresenterTest {
         presenter = new LoginPresenter(view,MemoryInitializer.getUserDAO());
     }
 
+    /**
+     * Έλεγχος για το αν υπάρχει ο user.
+     */
     @Test
     public void loginUserExists(){
         view.setUsername("ok");
@@ -27,6 +33,9 @@ public class LoginPresenterTest {
         assertEquals("Logged in",view.getToast());
     }
 
+    /**
+     * Έλεγχος όταν δεν υπάρχει ο user.
+     */
     @Test
     public void loginUserDoesntExist(){
         view.setUsername("ok");
@@ -35,13 +44,18 @@ public class LoginPresenterTest {
         assertEquals("Wrong username or password",view.getToast());
     }
 
+    /**
+     * Έλεγχος για το forgot password όταν δεν υπάρχει ο user.
+     */
     @Test
     public void forgotUserDoesntExistTest(){
         view.setUsername("okkk");
         presenter.forgot(view.getUsername());
         assertEquals("Username doesn't exist",view.getToast());
     }
-
+    /**
+     * Έλεγχος για το forgot password όταν υπάρχει ο user.
+     */
     @Test
     public void forgotUserExistsTest(){
         view.setUsername("ok");

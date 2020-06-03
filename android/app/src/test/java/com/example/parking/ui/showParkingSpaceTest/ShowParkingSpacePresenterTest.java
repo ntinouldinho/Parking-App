@@ -12,6 +12,10 @@ public class ShowParkingSpacePresenterTest {
     private ShowParkingSpaceViewStub view;
     private ShowParkingPresenter presenter;
     private ParkingSpace space;
+
+    /**
+     * Αρχικοποιήσεις.
+     */
     @Before
     public void setup(){
         view = new ShowParkingSpaceViewStub();
@@ -19,6 +23,9 @@ public class ShowParkingSpacePresenterTest {
         presenter = new ShowParkingPresenter(view, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO(),MemoryInitializer.getRequestDAO(),MemoryInitializer.getRatingDAO(),space);
     }
 
+    /**
+     * Έλεγχος για προσθήκη parking space.
+     */
     @Test
     public void addTest(){
         int size=MemoryInitializer.getRequestDAO().findAll().size();
