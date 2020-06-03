@@ -8,7 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ViewOneVehiclePresenterTest {
-    private MemoryInitializer dataHelper;
     private ViewOneVehiclePresenter presenter;
     private ViewOneVehicleViewStub view;
     /**
@@ -16,7 +15,6 @@ public class ViewOneVehiclePresenterTest {
      */
     @Before
     public void setup() {
-        dataHelper = new MemoryInitializer();
         MemoryInitializer.prepareData();
         view = new ViewOneVehicleViewStub();
         view.setIntentUsername("ok");

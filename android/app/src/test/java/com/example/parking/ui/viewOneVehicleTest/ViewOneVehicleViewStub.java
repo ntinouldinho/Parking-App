@@ -96,7 +96,7 @@ public class ViewOneVehicleViewStub implements ViewOneVehicleView
     @Override
     public void setInvisibility()
     {
-        invisibility=true;
+        this.invisibility=true;
     }
 
     @Override

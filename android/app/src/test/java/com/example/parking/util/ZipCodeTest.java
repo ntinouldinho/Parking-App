@@ -46,7 +46,7 @@ public class ZipCodeTest {
     public void equalsTest() {
         ZipCode z1 = new ZipCode(15235);
         ZipCode z2 = new ZipCode(15235);
-        assertTrue(z1.equals(z2));
+        assertEquals(z1, z2);
     }
 
 }
