@@ -27,10 +27,7 @@ public class ViewOneVehiclePresenter {
         this.view=view;
         this.dao=dao;
         user = dao.find(view.getUserName());
-        Log.e("test","in creator");
         if(view.getPlate()!=null){ //edit mode
-
-            Log.e("test","in edit");
             vehicle = dao.findVehicle(view.getIntentUsername(),view.getIntentPlate());
             showInfo();
 
@@ -106,17 +103,14 @@ public class ViewOneVehiclePresenter {
                 char letter = letters.charAt(i);
                 if (letter < 65 || letter > 90){return false;}
             }
-            Log.e("okk","passed 1");
             String numbers = plate.substring(3);
             for (int i = 0; i < numbers.length(); i++) {
                 int number = Integer.valueOf(numbers.charAt(i));
                 if (number < 48 || number > 57){return false;}
             }
-            Log.e("okk","passed 2");
             if (letters.length() + numbers.length() != 7) {
                 return false;
             }
-            Log.e("okk","passed 3");
             return true;
         }
         return false;
@@ -132,6 +126,9 @@ public class ViewOneVehiclePresenter {
         view.successfullyFinishActivity("Vehicle with plate "+ view.getPlateText() +" added");
     }
 
+    /**
+     * Διαγράφει ένα vehicle.
+     */
     public void delete(){
         dao.deleteVehicle(view.getIntentUsername(),vehicle);
         view.successfullyFinishActivity("Vehicle with plate "+ view.getPlateText() +" deleted");

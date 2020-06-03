@@ -34,4 +34,18 @@ public class LoginPresenterTest {
         presenter.login(view.getUsername(),view.getPassword());
         assertEquals("Wrong username or password",view.getToast());
     }
+
+    @Test
+    public void forgotUserDoesntExistTest(){
+        view.setUsername("okkk");
+        presenter.forgot(view.getUsername());
+        assertEquals("Username doesn't exist",view.getToast());
+    }
+
+    @Test
+    public void forgotUserExistsTest(){
+        view.setUsername("ok");
+        presenter.forgot(view.getUsername());
+        assertEquals("2",view.getToast());
+    }
 }

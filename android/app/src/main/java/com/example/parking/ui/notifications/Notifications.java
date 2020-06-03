@@ -39,7 +39,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void showNotifications(ArrayList<ParkingRequest> all, String username){
-        int colorBackground = Color.parseColor("#337FFF");
+
         int colorText = Color.parseColor("#ffffff");
 
 
@@ -54,6 +54,7 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
         //Vehicle vehicle = new Vehicle(Colour.Black,300,"nothing to say","XYZ4590","Focus","Ford");
         int padding = 30;
         for (int i = 0; i < all.size(); i++) {
+            int colorBackground = Color.parseColor("#337FFF");
             ParkingRequest request = all.get(i);
 
             Log.e("PARKINGSPACEDAOSIZE",String.valueOf(i));
@@ -77,38 +78,39 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
             if(request.getRequestingUser().getUsername().equals(username)){
                 if(request.getPin()!=null) {
-
+                    data.setText(request.getDate().toString() + ", your request is accepted from:" + request.getParkingSpace().getParkedUser().getUsername());
                     colorBackground=Color.parseColor("#22ff00");
-                    data.setText("You have asked for a parking space at "+request.getParkingSpace().getAddress().getStreet()+", from: "+request.getDate().getFrom() + " to: "+request.getDate().getTo()+", your request is pending for:" + request.getParkingSpace().getParkedUser().getUsername());
-                    not = "Pending request";  //notification only
+                    not = "You have to go to(Pin is "+request.getPin().getPin()+")"; //notification only with pin display
+
                 }else{
                     if(request.getDate()==null){
 
-                        colorBackground=Color.parseColor("#ff0000");
-                        data.setText(request.getDate().toString() + ", your request iwas rejected from:" + request.getParkingSpace().getParkedUser().getUsername());
+                        colorBackground=Color.parseColor("#FF0000");
+                        data.setText("your request was rejected from:" + request.getParkingSpace().getParkedUser().getUsername());
                         not = "Your request has been rejected"; //notification only
                     }else {
 
-                        data.setText(request.getDate().toString() + ", your request is accepted from:" + request.getParkingSpace().getParkedUser().getUsername());
-                        colorBackground=Color.parseColor("#22ff00");
-                        not = "You have to go to"; //notification only with pin display
+
+                        colorBackground=Color.parseColor("#337FFF");
+                        data.setText("You have asked for a parking space at "+request.getParkingSpace().getAddress().getStreet()+", from: "+request.getDate().getFrom() + " to: "+request.getDate().getTo()+", your request is pending for:" + request.getParkingSpace().getParkedUser().getUsername());
+                        not = "Pending request";  //notification only
                     }
                 }
             }else if(request.getParkingSpace().getParkedUser().getUsername().equals(username)){
                 if(request.getPin()!=null) {
 
                     data.setText(request.getDate().toString() + ", your request is pending for:" + request.getRequestingUser().getUsername());
-                    colorBackground=Color.parseColor("#22ff00");
+                    colorBackground=Color.parseColor("#FF33EF");
                     enterPinListener(btn,request);
                     not = "Accepted.Awaiting for arrival"; //button, when pressed pin must be entered
                 }else{
                     if(request.getDate()==null){
-                        data.setText(request.getDate().toString() + ", your rejected a request from:" + request.getRequestingUser().getUsername());
-                        colorBackground=Color.parseColor("#ff0000");
+                        data.setText("you rejected a request from:" + request.getRequestingUser().getUsername());
+                        colorBackground=Color.parseColor("#FF0000");
                         not = "You rejected a request"; //notification only
                     }else {
                         data.setText(request.getDate().toString() + ", your have a request to approve from:" + request.getRequestingUser().getUsername()+" with average rating "+ MemoryInitializer.getRatingDAO().calculateStats(request.getRequestingUser().getUsername()));
-                        colorBackground=Color.parseColor("#22ff00");
+                        colorBackground=Color.parseColor("#BCFF33");
 
                         setApproveOrNotListener(btn,request);
                         not = "Pending.Awaiting for your approval";
@@ -223,9 +225,10 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
                                 public void onClick(DialogInterface dialog, int which) {
                                     // validate parking
                                     presenter.approveRequest(request);
-                                    recreate();
+
                                     Log.e("this is the req",request.getRequestingUser().getUsername());
                                     dialog.dismiss();
+                                    recreate();
                                 }
                             });
 
@@ -236,8 +239,11 @@ public class Notifications extends AppCompatActivity implements NotificationsVie
 
                                     // date null
                                     presenter.denyRequest(request);
-                                    recreate();
+
+                                    Log.e("this is the req",request.getRequestingUser().getUsername());
+
                                     dialog.dismiss();
+                                    recreate();
                                 }
                             });
 

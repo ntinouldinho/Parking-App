@@ -76,6 +76,7 @@ public class MemoryInitializer {
         User user3= new User ("Jax", "Teller", "6912515918", "jaxteller@gmail.com", "JaxTellerHarley","jaxtellerdidnothingwrong",new Credits(12), add3, new ArrayList<Rating>(),new ArrayList<Vehicle>());
         User user4= new User ("Harry", "Potter", "6991850231", "harrypotter@gmail.com", "ok","2",new Credits(6), add4, new ArrayList<Rating>(),new ArrayList<Vehicle>());
         User user5= new User ("Luke", "Skywalker", "6958285692", "lukeskywalker@gmail.com", "WhoIsMyFather","iamyourfather",new Credits(9), add5, new ArrayList<Rating>(),new ArrayList<Vehicle>());
+        User user6= new User ("Luke", "Skywalker", "6958285692", "lukeskywalker@gmail.com", "ffff","ffff",new Credits(9), add5, new ArrayList<Rating>(),new ArrayList<Vehicle>());
 
         //vehicle ex vi is for user i vii is also for user i...viiii is for user i
         Vehicle v1 = new Vehicle(Colour.White,451,"Medium Size car, fits most places","IEH1234","A3","Audi");
@@ -97,6 +98,7 @@ public class MemoryInitializer {
         getUserDAO().save(user3);
         getUserDAO().save(user4);
         getUserDAO().save(user5);
+        getUserDAO().save(user6);
 
         ParkingSpace p1 = new ParkingSpace(add1,true,new Credits(10),new TimeRange(LocalDateTime.now(),30),new Date(),user1,"IEH1234");
         ParkingSpace p2 = new ParkingSpace(add2,true,new Credits(15),new TimeRange(LocalDateTime.now(),30),new Date(),user2,"APK1551");

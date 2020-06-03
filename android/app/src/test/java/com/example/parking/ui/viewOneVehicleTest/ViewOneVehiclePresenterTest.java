@@ -62,7 +62,7 @@ public class ViewOneVehiclePresenterTest {
         view.setText("Big vehicle, my Nissan Note is a big SUV");
         presenter.decide();
 
-        Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate "+ view.getIntentPlate() +" added");
+        Assert.assertEquals(view.getFinishMessage(), "Vehicle with plate "+ view.getPlate() +" added");
 
     }
 
@@ -75,7 +75,7 @@ public class ViewOneVehiclePresenterTest {
         presenter = new ViewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
 
         presenter.decide();
-        Assert.assertEquals(view.getFinishMessage(),"Vehicle with plate "+ view.getIntentPlate() +" updated");
+        Assert.assertEquals("Vehicle with plate "+ view.getIntentPlate() +" updated",view.getFinishMessage());
 
     }
 }

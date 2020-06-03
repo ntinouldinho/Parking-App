@@ -18,14 +18,14 @@ public class viewVehiclesPresenterTest {
         presenter = new ViewVehiclesPresenter(view,MemoryInitializer.getUserDAO());
     }
 
-    @Test
-    public void test(){
-//        User u = MemoryInitializer.getUserDAO().find(view.getIntentUsername());
+//    @Test
+//    public void test(){
+////        User u = MemoryInitializer.getUserDAO().find(view.getIntentUsername());
+////
+////        Vehicle vCorrect = new Vehicle(Colour.Golden,490,"Large SUV", "MEA6157","Escalade","Cadillac");
+////        presenter.viewVe(vCorrect);
+////        Assert.assertEquals(1,u.getVehicles().size());
+////        Assert.assertEquals(vCorrect,u.getVehicles().get(0));
 //
-//        Vehicle vCorrect = new Vehicle(Colour.Golden,490,"Large SUV", "MEA6157","Escalade","Cadillac");
-//        presenter.viewVe(vCorrect);
-//        Assert.assertEquals(1,u.getVehicles().size());
-//        Assert.assertEquals(vCorrect,u.getVehicles().get(0));
-
-    }
+//    }
 }

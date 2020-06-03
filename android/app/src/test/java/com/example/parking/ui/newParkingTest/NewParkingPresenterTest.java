@@ -2,22 +2,23 @@ package com.example.parking.ui.newParkingTest;
 
 import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.domain.ParkingSpace;
+import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.memorydao.ParkingSpaceDAOMemory;
+import com.example.parking.ui.newParking.NewParkingPresenter;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class NewParkingPresenterTest {
-    ParkingSpace p1;
-    ParkingSpaceDAO pDAO;
+    private NewParkingPresenter presenter;
+    private NewParkingViewStub view;
 
     @Before
     public void setup(){
-        p1 = new ParkingSpace();
-        p1.setPlate("IXX-454");
-        pDAO = new ParkingSpaceDAOMemory();
-        pDAO.save(p1);
+        view = new NewParkingViewStub();
+        view.setUsername("ok");
+        presenter = new NewParkingPresenter(view, MemoryInitializer.getUserDAO(),MemoryInitializer.getParkingDAO());
     }
 
     /**
@@ -26,11 +27,15 @@ public class NewParkingPresenterTest {
     @Test
     public void validateParkingSpaceIsSaved()
     {
-        ParkingSpace retrieved = pDAO.find(p1);
-        Assert.assertEquals(retrieved, p1);
-        Assert.assertEquals(1, pDAO.findAll().size());
+        view.setCredits("9");
+        view.setPlate("YNZ9039");
+        view.setStreet("street");
+        view.setZip("19239");
+        view.setStreetno("99");
 
-        pDAO.delete(p1);
-        Assert.assertEquals(0, pDAO.findAll().size());
+        int size = MemoryInitializer.getParkingDAO().findAll().size();
+        presenter.add();
+        Assert.assertEquals("Parking space added!",view.getToast());
+        Assert.assertEquals(size+1,MemoryInitializer.getParkingDAO().findAll().size());
     }
 }

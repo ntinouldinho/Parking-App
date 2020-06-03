@@ -32,12 +32,9 @@ public class FindParkingPresenter
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void find()
     {
-        Log.e("ok", "in");
         if (validateZip()) {
-            Log.e("ok", "nnnn");
             ArrayList<ParkingSpace> results = new ParkingRequest().FindParking((ArrayList<ParkingSpace>) parkingSpaceDAO.findAllAvailable(), new Address("", "", new ZipCode(Integer.valueOf(view.getZip()))), 30, view.getExpectedArrivalDateTime());
             view.showParkingSpace(results);
-            Log.e("ok", results.toString());
         }
     }
 

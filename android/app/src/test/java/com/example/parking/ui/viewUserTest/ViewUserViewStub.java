@@ -102,7 +102,7 @@ public class ViewUserViewStub implements UserProfileView
 
     @Override
     public String getUsername() {
-        return null;
+        return intentUsername;
     }
 
     @Override

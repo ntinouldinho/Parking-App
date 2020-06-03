@@ -3,6 +3,7 @@ package com.example.parking.ui.homescreen;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.MemoryFile;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.parking.R;
+import com.example.parking.memorydao.MemoryInitializer;
 import com.example.parking.ui.findParking.FindParking;
 import com.example.parking.ui.newParking.NewParkingSpace;
 import com.example.parking.ui.notifications.Notifications;
@@ -30,7 +32,7 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         request = (Button) findViewById(R.id.request);
         profile = (Button) findViewById(R.id.profile);
         notification = (Button) findViewById(R.id.notification);
-        presenter = new HomeScreenPresenter(this);
+        presenter = new HomeScreenPresenter(this, MemoryInitializer.getUserDAO());
         parkingSpace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +59,12 @@ public class HomeScreenActivity extends AppCompatActivity implements HomeScreenV
         });
 
     }
+    @Override
+    public void makeToast(String m){
+        Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
     public String getUserName()
     {
         return this.getIntent().hasExtra("username") ? this.getIntent().getExtras().getString("username") : null;

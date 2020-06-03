@@ -1,18 +1,30 @@
 package com.example.parking.ui.homescreen;
 
-class HomeScreenPresenter {
-    HomeScreenView view;
+import com.example.parking.dao.UserDAO;
+import com.example.parking.domain.User;
 
-    public HomeScreenPresenter(HomeScreenView view){
+public class HomeScreenPresenter {
+    HomeScreenView view;
+    UserDAO dao;
+    public HomeScreenPresenter(HomeScreenView view,UserDAO dao){
         this.view=view;
+        this.dao=dao;
     }
 
     public void spaceIntent(){
-        view.spaceIntent();
+        if(checkForVehicle()){
+            view.spaceIntent();
+        }else{
+            view.makeToast("Please add a vehicle to continue.");
+        }
     }
 
     public void requestIntent(){
-        view.requestIntent();
+        if(checkForVehicle()){
+            view.requestIntent();
+        }else{
+            view.makeToast("Please add a vehicle to continue.");
+        }
     }
 
     public void profileIntent(){
@@ -21,5 +33,13 @@ class HomeScreenPresenter {
 
     public void notificationIntent(){
         view.notificationIntent();
+    }
+
+    public boolean checkForVehicle(){
+        int vehicles = dao.find(view.getUserName()).getVehicles().size();
+        if(vehicles==0){
+            return false;
+        }
+        return true;
     }
 }

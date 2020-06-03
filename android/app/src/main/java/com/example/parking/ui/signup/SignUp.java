@@ -80,7 +80,6 @@ public class SignUp extends AppCompatActivity implements SignUpView{
         retData.putExtra("message_to_toast", message);
         setResult(RESULT_OK, retData);
         finish();
-
     }
 
 
