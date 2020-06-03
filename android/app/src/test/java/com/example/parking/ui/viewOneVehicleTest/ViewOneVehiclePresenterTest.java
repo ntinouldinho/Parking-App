@@ -76,4 +76,14 @@ public class ViewOneVehiclePresenterTest {
         Assert.assertEquals("Vehicle with plate "+ view.getIntentPlate() +" updated",view.getFinishMessage());
 
     }
+
+    @Test
+    public void testDelete(){
+        view.setIntentPlate("MEA6157");
+        presenter = new ViewOneVehiclePresenter(view,MemoryInitializer.getUserDAO());
+
+        int size_of_cars = MemoryInitializer.getUserDAO().find("ok").getVehicles().size();
+        presenter.delete();
+        Assert.assertEquals(size_of_cars-1,MemoryInitializer.getUserDAO().find("ok").getVehicles().size());
+    }
 }

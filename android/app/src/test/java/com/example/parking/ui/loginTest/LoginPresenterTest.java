@@ -62,4 +62,12 @@ public class LoginPresenterTest {
         presenter.forgot(view.getUsername());
         assertEquals("2",view.getToast());
     }
+
+    @Test
+    public void testSignUpClicked(){
+        for(int i=0;i<10;i++){
+            presenter.signup();
+        }
+        assertEquals(10,view.getTimesClickedSignUp());
+    }
 }

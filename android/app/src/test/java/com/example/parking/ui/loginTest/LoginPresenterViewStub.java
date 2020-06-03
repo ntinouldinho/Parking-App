@@ -6,9 +6,11 @@ import com.example.parking.ui.login.LoginView;
 public class LoginPresenterViewStub implements LoginView
 {
     String username,password,toast;
+    int times_clicked;
 
     public LoginPresenterViewStub(){
         username = password = toast ="";
+        times_clicked=0;
     }
 
     @Override
@@ -42,7 +44,11 @@ public class LoginPresenterViewStub implements LoginView
     }
     @Override
     public void signup() {
+        times_clicked++;
+    }
 
+    public int getTimesClickedSignUp(){
+        return times_clicked;
     }
 
 }
