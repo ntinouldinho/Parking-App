@@ -50,11 +50,6 @@ public class FindParkingViewStub implements FindParkingView
     }
 
     @Override
-    public void setParkingOnClickListener(Button b, ParkingSpace parkspa) {
-
-    }
-
-    @Override
     public String getUserName() {
         return "test name";
     }
