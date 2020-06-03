@@ -72,4 +72,18 @@ public class NotificationsPresenterTest {
         assertEquals("Request denied",view.getToast());
         assertNull(MemoryInitializer.getRequestDAO().find(request).getDate());
     }
+
+    /**
+     * Έλεγχος για απόρριψη parking request και δημιουργία αρνητικής κριτικής.
+     */
+    @Test
+    public void createRating(){
+        ParkingRequest request = view.getToApprove().get(0);
+        int size_of_request_dao = MemoryInitializer.getRequestDAO().findAll().size();
+        int size_of_rating_dao = MemoryInitializer.getRatingDAO().findAll().size();
+
+        presenter.createRating(request);
+        assertEquals(size_of_rating_dao+1,MemoryInitializer.getRatingDAO().findAll().size());
+        assertEquals(size_of_request_dao-1,MemoryInitializer.getRequestDAO().findAll().size());
+    }
 }
