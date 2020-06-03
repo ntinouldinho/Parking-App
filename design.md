@@ -3,7 +3,7 @@
 # Αίτημα για θέση στάθμευσης / Find Parking
 
 
-![Class](R4_Diagrams/Class Diagrams/FindParkingCD.png)   
+![Class](R4_Diagrams/Class Diagrams/)   
 ![Sequence](R4_Diagrams/Sequence Diagrams/)
 
 
@@ -15,7 +15,7 @@
 # Ανταλλαγή θέσης στάθμευσης / Enter Pin
 
 ![Class](R4_Diagrams/Class Diagrams/EnterPinCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+![Sequence](R4_Diagrams/Sequence Diagrams/EnterPinSD.png)
 
 
 
@@ -25,15 +25,15 @@
 # Διαθεσιμότητα της θέσης στάθμευσης / Add Your Parking Space
 
 ![Class](R4_Diagrams/Class Diagrams/AddYourParkingSpaceCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+![Sequence](R4_Diagrams/Sequence Diagrams/AddYourParkingSpaceSD.png)
 
 
 
 
-# Διαχείριση αιτημάτων ανταλλαγής / Approve Parking Request
+# Διαχείριση αιτημάτων ανταλλαγής / Parking Request Notification [Accept/Deny]
 
-![Class](R4_Diagrams/Class Diagrams/ApproveParkingRequestCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/ParkingRequestNotifSD.png)
+![Class](R4_Diagrams/Class Diagrams/ParkingRequestNotificationCD.png)   
+![Sequence](R4_Diagrams/Sequence Diagrams/ParkingRequestNotificationSD.png)
 
 
 
@@ -62,7 +62,7 @@
 # Εγγραφη Στο Σύστημα / Sign Up add()
 
 ![Class](R4_Diagrams/Class Diagrams/SignUpCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/SignUpSD)
+![Sequence](R4_Diagrams/Sequence Diagrams/SignUpSD.png)
 
 
 
@@ -72,7 +72,7 @@
 ![Sequence](R4_Diagrams/Sequence Diagrams/AddCreditsSD.png)
 
 
-# Επιβεβαίωση διαθεσιμότητας θέσης / Approve Parking Request
-![Class](R4_Diagrams/Class Diagrams/ApproveParkingRequestCD.png)   
-![Sequence](R4_Diagrams/Sequence Diagrams/ApproveParkingRequestSD.png)
+# Επιβεβαίωση διαθεσιμότητας θέσης / 
+![Class](R4_Diagrams/Class Diagrams/)   
+![Sequence](R4_Diagrams/Sequence Diagrams/)
 
