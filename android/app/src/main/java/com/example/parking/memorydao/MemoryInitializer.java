@@ -8,7 +8,6 @@ import com.example.parking.dao.ParkingRequestDAO;
 import com.example.parking.dao.ParkingSpaceDAO;
 import com.example.parking.dao.RatingDAO;
 import com.example.parking.dao.UserDAO;
-import com.example.parking.dao.VehicleDAO;
 import com.example.parking.domain.Address;
 import com.example.parking.domain.ParkingRequest;
 import com.example.parking.domain.ParkingSpace;
@@ -29,7 +28,6 @@ public class MemoryInitializer {
     private static ParkingRequestDAO PRDao = new ParkingRequestDAOMemory();
     private static ParkingSpaceDAO PSDao = new ParkingSpaceDAOMemory();
     private static UserDAO UDao = new UserDAOMemory();
-    private static VehicleDAO VDao = new VehicleDAOMemory();
     private static RatingDAO RDao = new RatingDAOMemory();
 
 
@@ -192,9 +190,6 @@ public class MemoryInitializer {
     }
 
 
-    public static VehicleDAO getVehicleDAO() {
-        return VDao;
-    }
 
     public static RatingDAO getRatingDAO() {
         return RDao;

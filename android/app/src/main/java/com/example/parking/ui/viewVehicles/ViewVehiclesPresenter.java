@@ -1,12 +1,9 @@
 package com.example.parking.ui.viewVehicles;
 
-import android.util.Log;
-
 import com.example.parking.dao.UserDAO;
 import com.example.parking.domain.User;
 import com.example.parking.domain.Vehicle;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class ViewVehiclesPresenter {
