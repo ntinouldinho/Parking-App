@@ -73,6 +73,6 @@
 
 
 # Επιβεβαίωση διαθεσιμότητας θέσης / 
-![Class](R4_Diagrams/Class Diagrams/)   
-![Sequence](R4_Diagrams/Sequence Diagrams/)
+![Class](R4_Diagrams/Class Diagrams/ConfirmParkingSpaceCD.png)   
+![Sequence](R4_Diagrams/Sequence Diagrams/ConfirmParkingSpaceSD.png)
 

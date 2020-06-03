@@ -1,7 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Run All Tests" type="AndroidJUnit" factoryName="Android JUnit" nameIsGenerated="true">
     <module name="app" />
-    <useClassPathOnly />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.example.parking.ui.*" />
