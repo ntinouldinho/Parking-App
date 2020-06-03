@@ -48,6 +48,10 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         });
     }
 
+    /**
+     * Βρίσκει τα buttons με date time.
+     * @return Επιστρέφει τα buttons με date time.
+     */
     private Button[] getBtnReferencesOfDateTime()
     {
         Button[] btns = new Button[2];
@@ -57,6 +61,10 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         return btns;
     }
 
+    /**
+     * Βρίσκει τα textview με date time.
+     * @return Επιστρέφει τα textview με date time.
+     */
     private TextView[] getTextViewReferencesOfDateTime()
     {
         TextView[] textViews = new TextView[2];
@@ -194,8 +202,4 @@ public class NewParkingSpace extends AppCompatActivity implements NewParkingView
         Toast.makeText(this,m, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
-    }
 }

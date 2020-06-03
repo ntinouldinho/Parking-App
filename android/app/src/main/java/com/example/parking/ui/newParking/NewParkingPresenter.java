@@ -45,6 +45,9 @@ public class NewParkingPresenter {
         }
     }
 
+    /**
+     * Βάζει τα plates στον spinner.
+     */
     void setPlate(){
         ArrayList<String> pl = new ArrayList<>();
         for(Vehicle v: u.getVehicles()){
